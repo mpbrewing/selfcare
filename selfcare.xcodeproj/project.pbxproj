@@ -7,10 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC0AD99F255B4F9300EC1686 /* OnboardingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD99E255B4F9300EC1686 /* OnboardingView.xib */; };
+		EC0AD9B6255B502800EC1686 /* NexaLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9A4255B502800EC1686 /* NexaLight.otf */; };
+		EC0AD9B7255B502800EC1686 /* Nexa Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9A5255B502800EC1686 /* Nexa Bold.otf */; };
+		EC0AD9B8255B502800EC1686 /* NexaBookItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9A6255B502800EC1686 /* NexaBookItalic.otf */; };
+		EC0AD9B9255B502800EC1686 /* NexaRegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9A7255B502800EC1686 /* NexaRegularItalic.otf */; };
+		EC0AD9BA255B502800EC1686 /* NexaHeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9A8255B502800EC1686 /* NexaHeavyItalic.otf */; };
+		EC0AD9BB255B502800EC1686 /* NexaHeavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9A9255B502800EC1686 /* NexaHeavy.otf */; };
+		EC0AD9BC255B502800EC1686 /* Nexa Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9AA255B502800EC1686 /* Nexa Light.otf */; };
+		EC0AD9BD255B502800EC1686 /* NexaThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9AB255B502800EC1686 /* NexaThinItalic.otf */; };
+		EC0AD9BE255B502800EC1686 /* NexaBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9AC255B502800EC1686 /* NexaBold.otf */; };
+		EC0AD9BF255B502800EC1686 /* NexaLightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9AD255B502800EC1686 /* NexaLightItalic.otf */; };
+		EC0AD9C0255B502800EC1686 /* NexaRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9AE255B502800EC1686 /* NexaRegular.otf */; };
+		EC0AD9C1255B502800EC1686 /* NexaThin.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9AF255B502800EC1686 /* NexaThin.otf */; };
+		EC0AD9C2255B502800EC1686 /* NexaBlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9B0255B502800EC1686 /* NexaBlackItalic.otf */; };
+		EC0AD9C3255B502800EC1686 /* NexaBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9B1255B502800EC1686 /* NexaBoldItalic.otf */; };
+		EC0AD9C4255B502800EC1686 /* NexaXBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9B2255B502800EC1686 /* NexaXBoldItalic.otf */; };
+		EC0AD9C5255B502800EC1686 /* NexaXBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9B3255B502800EC1686 /* NexaXBold.otf */; };
+		EC0AD9C6255B502800EC1686 /* NexaBlack.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9B4255B502800EC1686 /* NexaBlack.otf */; };
+		EC0AD9C7255B502800EC1686 /* NexaBook.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9B5255B502800EC1686 /* NexaBook.otf */; };
+		EC0AD9D2255B61FE00EC1686 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0AD9D1255B61FE00EC1686 /* LoginViewController.swift */; };
+		EC0AD9D7255B629200EC1686 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9D6255B629200EC1686 /* LoginView.xib */; };
 		EC9CBAA02550F17700D8C4CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBA9F2550F17700D8C4CF /* AppDelegate.swift */; };
 		EC9CBAA22550F17700D8C4CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBAA12550F17700D8C4CF /* SceneDelegate.swift */; };
-		EC9CBAA42550F17700D8C4CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBAA32550F17700D8C4CF /* ViewController.swift */; };
-		EC9CBAA72550F17700D8C4CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC9CBAA52550F17700D8C4CF /* Main.storyboard */; };
+		EC9CBAA42550F17700D8C4CF /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBAA32550F17700D8C4CF /* OnboardingViewController.swift */; };
 		EC9CBAA92550F17800D8C4CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC9CBAA82550F17800D8C4CF /* Assets.xcassets */; };
 		EC9CBAAC2550F17800D8C4CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC9CBAAA2550F17800D8C4CF /* LaunchScreen.storyboard */; };
 		EC9CBAB72550F17800D8C4CF /* selfcareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBAB62550F17800D8C4CF /* selfcareTests.swift */; };
@@ -35,11 +55,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EC0AD99E255B4F9300EC1686 /* OnboardingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingView.xib; sourceTree = "<group>"; };
+		EC0AD9A4255B502800EC1686 /* NexaLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NexaLight.otf; path = "../../../../Downloads/Nexa-Font/NexaLight.otf"; sourceTree = "<group>"; };
+		EC0AD9A5255B502800EC1686 /* Nexa Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nexa Bold.otf"; path = "../../../../Downloads/Nexa-Font/Nexa Bold.otf"; sourceTree = "<group>"; };
+		EC0AD9A6255B502800EC1686 /* NexaBookItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NexaBookItalic.otf; path = "../../../../Downloads/Nexa-Font/NexaBookItalic.otf"; sourceTree = "<group>"; };
+		EC0AD9A7255B502800EC1686 /* NexaRegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NexaRegularItalic.otf; path = "../../../../Downloads/Nexa-Font/NexaRegularItalic.otf"; sourceTree = "<group>"; };
+		EC0AD9A8255B502800EC1686 /* NexaHeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NexaHeavyItalic.otf; path = "../../../../Downloads/Nexa-Font/NexaHeavyItalic.otf"; sourceTree = "<group>"; };
+		EC0AD9A9255B502800EC1686 /* NexaHeavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NexaHeavy.otf; path = "../../../../Downloads/Nexa-Font/NexaHeavy.otf"; sourceTree = "<group>"; };
+		EC0AD9AA255B502800EC1686 /* Nexa Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nexa Light.otf"; path = "../../../../Downloads/Nexa-Font/Nexa Light.otf"; sourceTree = "<group>"; };
+		EC0AD9AB255B502800EC1686 /* NexaThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NexaThinItalic.otf; path = "../../../../Downloads/Nexa-Font/NexaThinItalic.otf"; sourceTree = "<group>"; };
+		EC0AD9AC255B502800EC1686 /* NexaBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NexaBold.otf; path = "../../../../Downloads/Nexa-Font/NexaBold.otf"; sourceTree = "<group>"; };
+		EC0AD9AD255B502800EC1686 /* NexaLightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NexaLightItalic.otf; path = "../../../../Downloads/Nexa-Font/NexaLightItalic.otf"; sourceTree = "<group>"; };
+		EC0AD9AE255B502800EC1686 /* NexaRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NexaRegular.otf; path = "../../../../Downloads/Nexa-Font/NexaRegular.otf"; sourceTree = "<group>"; };
+		EC0AD9AF255B502800EC1686 /* NexaThin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NexaThin.otf; path = "../../../../Downloads/Nexa-Font/NexaThin.otf"; sourceTree = "<group>"; };
+		EC0AD9B0255B502800EC1686 /* NexaBlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NexaBlackItalic.otf; path = "../../../../Downloads/Nexa-Font/NexaBlackItalic.otf"; sourceTree = "<group>"; };
+		EC0AD9B1255B502800EC1686 /* NexaBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NexaBoldItalic.otf; path = "../../../../Downloads/Nexa-Font/NexaBoldItalic.otf"; sourceTree = "<group>"; };
+		EC0AD9B2255B502800EC1686 /* NexaXBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NexaXBoldItalic.otf; path = "../../../../Downloads/Nexa-Font/NexaXBoldItalic.otf"; sourceTree = "<group>"; };
+		EC0AD9B3255B502800EC1686 /* NexaXBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NexaXBold.otf; path = "../../../../Downloads/Nexa-Font/NexaXBold.otf"; sourceTree = "<group>"; };
+		EC0AD9B4255B502800EC1686 /* NexaBlack.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NexaBlack.otf; path = "../../../../Downloads/Nexa-Font/NexaBlack.otf"; sourceTree = "<group>"; };
+		EC0AD9B5255B502800EC1686 /* NexaBook.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NexaBook.otf; path = "../../../../Downloads/Nexa-Font/NexaBook.otf"; sourceTree = "<group>"; };
+		EC0AD9D1255B61FE00EC1686 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EC0AD9D6255B629200EC1686 /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		EC9CBA9C2550F17700D8C4CF /* selfcare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = selfcare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC9CBA9F2550F17700D8C4CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC9CBAA12550F17700D8C4CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EC9CBAA32550F17700D8C4CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EC9CBAA62550F17700D8C4CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EC9CBAA32550F17700D8C4CF /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		EC9CBAA82550F17800D8C4CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC9CBAAB2550F17800D8C4CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC9CBAAD2550F17800D8C4CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +116,79 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC0AD991255B462D00EC1686 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EC0AD99D255B4E3F00EC1686 /* Login */,
+				EC0AD99C255B4E1D00EC1686 /* Onboarding */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EC0AD999255B46AF00EC1686 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		EC0AD99A255B46BF00EC1686 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		EC0AD99B255B473800EC1686 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EC0AD99C255B4E1D00EC1686 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				EC9CBAA32550F17700D8C4CF /* OnboardingViewController.swift */,
+				EC0AD99E255B4F9300EC1686 /* OnboardingView.xib */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		EC0AD99D255B4E3F00EC1686 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EC0AD9D6255B629200EC1686 /* LoginView.xib */,
+				EC0AD9D1255B61FE00EC1686 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		EC0AD9A3255B500D00EC1686 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EC0AD9A5255B502800EC1686 /* Nexa Bold.otf */,
+				EC0AD9AA255B502800EC1686 /* Nexa Light.otf */,
+				EC0AD9B4255B502800EC1686 /* NexaBlack.otf */,
+				EC0AD9B0255B502800EC1686 /* NexaBlackItalic.otf */,
+				EC0AD9AC255B502800EC1686 /* NexaBold.otf */,
+				EC0AD9B1255B502800EC1686 /* NexaBoldItalic.otf */,
+				EC0AD9B5255B502800EC1686 /* NexaBook.otf */,
+				EC0AD9A6255B502800EC1686 /* NexaBookItalic.otf */,
+				EC0AD9A9255B502800EC1686 /* NexaHeavy.otf */,
+				EC0AD9A8255B502800EC1686 /* NexaHeavyItalic.otf */,
+				EC0AD9A4255B502800EC1686 /* NexaLight.otf */,
+				EC0AD9AD255B502800EC1686 /* NexaLightItalic.otf */,
+				EC0AD9AE255B502800EC1686 /* NexaRegular.otf */,
+				EC0AD9A7255B502800EC1686 /* NexaRegularItalic.otf */,
+				EC0AD9AF255B502800EC1686 /* NexaThin.otf */,
+				EC0AD9AB255B502800EC1686 /* NexaThinItalic.otf */,
+				EC0AD9B3255B502800EC1686 /* NexaXBold.otf */,
+				EC0AD9B2255B502800EC1686 /* NexaXBoldItalic.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		EC9CBA932550F17700D8C4CF = {
 			isa = PBXGroup;
 			children = (
@@ -99,10 +212,13 @@
 		EC9CBA9E2550F17700D8C4CF /* selfcare */ = {
 			isa = PBXGroup;
 			children = (
+				EC0AD9A3255B500D00EC1686 /* Fonts */,
+				EC0AD99B255B473800EC1686 /* Extensions */,
+				EC0AD99A255B46BF00EC1686 /* Data */,
+				EC0AD999255B46AF00EC1686 /* Utilities */,
+				EC0AD991255B462D00EC1686 /* Controllers */,
 				EC9CBA9F2550F17700D8C4CF /* AppDelegate.swift */,
 				EC9CBAA12550F17700D8C4CF /* SceneDelegate.swift */,
-				EC9CBAA32550F17700D8C4CF /* ViewController.swift */,
-				EC9CBAA52550F17700D8C4CF /* Main.storyboard */,
 				EC9CBAA82550F17800D8C4CF /* Assets.xcassets */,
 				EC9CBAAA2550F17800D8C4CF /* LaunchScreen.storyboard */,
 				EC9CBAAD2550F17800D8C4CF /* Info.plist */,
@@ -231,9 +347,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC0AD9C1255B502800EC1686 /* NexaThin.otf in Resources */,
+				EC0AD9C6255B502800EC1686 /* NexaBlack.otf in Resources */,
+				EC0AD9B6255B502800EC1686 /* NexaLight.otf in Resources */,
+				EC0AD9BA255B502800EC1686 /* NexaHeavyItalic.otf in Resources */,
+				EC0AD9BB255B502800EC1686 /* NexaHeavy.otf in Resources */,
 				EC9CBAAC2550F17800D8C4CF /* LaunchScreen.storyboard in Resources */,
+				EC0AD9B9255B502800EC1686 /* NexaRegularItalic.otf in Resources */,
+				EC0AD9BC255B502800EC1686 /* Nexa Light.otf in Resources */,
+				EC0AD9C0255B502800EC1686 /* NexaRegular.otf in Resources */,
+				EC0AD9BF255B502800EC1686 /* NexaLightItalic.otf in Resources */,
+				EC0AD9C2255B502800EC1686 /* NexaBlackItalic.otf in Resources */,
+				EC0AD9B8255B502800EC1686 /* NexaBookItalic.otf in Resources */,
 				EC9CBAA92550F17800D8C4CF /* Assets.xcassets in Resources */,
-				EC9CBAA72550F17700D8C4CF /* Main.storyboard in Resources */,
+				EC0AD9BE255B502800EC1686 /* NexaBold.otf in Resources */,
+				EC0AD9D7255B629200EC1686 /* LoginView.xib in Resources */,
+				EC0AD9B7255B502800EC1686 /* Nexa Bold.otf in Resources */,
+				EC0AD99F255B4F9300EC1686 /* OnboardingView.xib in Resources */,
+				EC0AD9C4255B502800EC1686 /* NexaXBoldItalic.otf in Resources */,
+				EC0AD9C7255B502800EC1686 /* NexaBook.otf in Resources */,
+				EC0AD9C5255B502800EC1686 /* NexaXBold.otf in Resources */,
+				EC0AD9BD255B502800EC1686 /* NexaThinItalic.otf in Resources */,
+				EC0AD9C3255B502800EC1686 /* NexaBoldItalic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +393,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC9CBAA42550F17700D8C4CF /* ViewController.swift in Sources */,
+				EC0AD9D2255B61FE00EC1686 /* LoginViewController.swift in Sources */,
+				EC9CBAA42550F17700D8C4CF /* OnboardingViewController.swift in Sources */,
 				EC9CBAA02550F17700D8C4CF /* AppDelegate.swift in Sources */,
 				EC9CBAA22550F17700D8C4CF /* SceneDelegate.swift in Sources */,
 			);
@@ -296,14 +432,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		EC9CBAA52550F17700D8C4CF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EC9CBAA62550F17700D8C4CF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EC9CBAAA2550F17800D8C4CF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
