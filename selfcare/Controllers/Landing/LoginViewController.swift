@@ -32,14 +32,20 @@ class LoginViewController: UIViewController {
         SignInButton.layer.borderColor = UIColor.white.cgColor
     }
 
-    @IBAction func SignUpButtonDown(_ sender: Any) {
-        
+    @IBAction func SignUpButtonDown(_ sender: UIButton) {
+        SegueToRegistration(state: 1)
     }
     
-    @IBAction func SignInButtonDown(_ sender: Any) {
-        
+    @IBAction func SignInButtonDown(_ sender: UIButton) {
+        SegueToRegistration(state: 0)
     }
     
-    
+    func SegueToRegistration(state: Int){
+        let registrationView = RegistrationViewController()
+        registrationView.modalPresentationStyle = .fullScreen
+        registrationView.state = state
+        self.present(registrationView, animated: true, completion: nil)
+        
+    }
     
 }

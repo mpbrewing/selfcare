@@ -35,6 +35,8 @@
 		EC9CBAAC2550F17800D8C4CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC9CBAAA2550F17800D8C4CF /* LaunchScreen.storyboard */; };
 		EC9CBAB72550F17800D8C4CF /* selfcareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBAB62550F17800D8C4CF /* selfcareTests.swift */; };
 		EC9CBAC22550F17800D8C4CF /* selfcareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBAC12550F17800D8C4CF /* selfcareUITests.swift */; };
+		EC9E0EBE255DF2F200A19D96 /* RegistrationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC9E0EBD255DF2F200A19D96 /* RegistrationView.xib */; };
+		EC9E0EC3255DF2FC00A19D96 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E0EC2255DF2FC00A19D96 /* RegistrationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,8 @@
 		EC9CBABD2550F17800D8C4CF /* selfcareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = selfcareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC9CBAC12550F17800D8C4CF /* selfcareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selfcareUITests.swift; sourceTree = "<group>"; };
 		EC9CBAC32550F17800D8C4CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC9E0EBD255DF2F200A19D96 /* RegistrationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationView.xib; sourceTree = "<group>"; };
+		EC9E0EC2255DF2FC00A19D96 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +123,8 @@
 		EC0AD991255B462D00EC1686 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EC0AD99D255B4E3F00EC1686 /* Login */,
+				EC9E0EBC255DF2BA00A19D96 /* Registration */,
+				EC0AD99D255B4E3F00EC1686 /* Landing */,
 				EC0AD99C255B4E1D00EC1686 /* Onboarding */,
 			);
 			path = Controllers;
@@ -155,13 +160,13 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		EC0AD99D255B4E3F00EC1686 /* Login */ = {
+		EC0AD99D255B4E3F00EC1686 /* Landing */ = {
 			isa = PBXGroup;
 			children = (
 				EC0AD9D6255B629200EC1686 /* LoginView.xib */,
 				EC0AD9D1255B61FE00EC1686 /* LoginViewController.swift */,
 			);
-			path = Login;
+			path = Landing;
 			sourceTree = "<group>";
 		};
 		EC0AD9A3255B500D00EC1686 /* Fonts */ = {
@@ -242,6 +247,15 @@
 				EC9CBAC32550F17800D8C4CF /* Info.plist */,
 			);
 			path = selfcareUITests;
+			sourceTree = "<group>";
+		};
+		EC9E0EBC255DF2BA00A19D96 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				EC9E0EBD255DF2F200A19D96 /* RegistrationView.xib */,
+				EC9E0EC2255DF2FC00A19D96 /* RegistrationViewController.swift */,
+			);
+			path = Registration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,6 +371,7 @@
 				EC0AD9BC255B502800EC1686 /* Nexa Light.otf in Resources */,
 				EC0AD9C0255B502800EC1686 /* NexaRegular.otf in Resources */,
 				EC0AD9BF255B502800EC1686 /* NexaLightItalic.otf in Resources */,
+				EC9E0EBE255DF2F200A19D96 /* RegistrationView.xib in Resources */,
 				EC0AD9C2255B502800EC1686 /* NexaBlackItalic.otf in Resources */,
 				EC0AD9B8255B502800EC1686 /* NexaBookItalic.otf in Resources */,
 				EC9CBAA92550F17800D8C4CF /* Assets.xcassets in Resources */,
@@ -397,6 +412,7 @@
 				EC9CBAA42550F17700D8C4CF /* OnboardingViewController.swift in Sources */,
 				EC9CBAA02550F17700D8C4CF /* AppDelegate.swift in Sources */,
 				EC9CBAA22550F17700D8C4CF /* SceneDelegate.swift in Sources */,
+				EC9E0EC3255DF2FC00A19D96 /* RegistrationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
