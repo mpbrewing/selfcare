@@ -37,6 +37,8 @@
 		EC9CBAC22550F17800D8C4CF /* selfcareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBAC12550F17800D8C4CF /* selfcareUITests.swift */; };
 		EC9E0EBE255DF2F200A19D96 /* RegistrationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC9E0EBD255DF2F200A19D96 /* RegistrationView.xib */; };
 		EC9E0EC3255DF2FC00A19D96 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E0EC2255DF2FC00A19D96 /* RegistrationViewController.swift */; };
+		ECF23C802561ECEA00022D1E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23C7F2561ECEA00022D1E /* HomeViewController.swift */; };
+		ECF23C882561EDA000022D1E /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECF23C872561EDA000022D1E /* HomeView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +95,8 @@
 		EC9CBAC32550F17800D8C4CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC9E0EBD255DF2F200A19D96 /* RegistrationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationView.xib; sourceTree = "<group>"; };
 		EC9E0EC2255DF2FC00A19D96 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		ECF23C7F2561ECEA00022D1E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		ECF23C872561EDA000022D1E /* HomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,7 @@
 		EC0AD991255B462D00EC1686 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				ECF23C7E2561ECDA00022D1E /* Home */,
 				EC9E0EBC255DF2BA00A19D96 /* Registration */,
 				EC0AD99D255B4E3F00EC1686 /* Landing */,
 				EC0AD99C255B4E1D00EC1686 /* Onboarding */,
@@ -258,6 +263,15 @@
 			path = Registration;
 			sourceTree = "<group>";
 		};
+		ECF23C7E2561ECDA00022D1E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				ECF23C872561EDA000022D1E /* HomeView.xib */,
+				ECF23C7F2561ECEA00022D1E /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -378,6 +392,7 @@
 				EC0AD9BE255B502800EC1686 /* NexaBold.otf in Resources */,
 				EC0AD9D7255B629200EC1686 /* LoginView.xib in Resources */,
 				EC0AD9B7255B502800EC1686 /* Nexa Bold.otf in Resources */,
+				ECF23C882561EDA000022D1E /* HomeView.xib in Resources */,
 				EC0AD99F255B4F9300EC1686 /* OnboardingView.xib in Resources */,
 				EC0AD9C4255B502800EC1686 /* NexaXBoldItalic.otf in Resources */,
 				EC0AD9C7255B502800EC1686 /* NexaBook.otf in Resources */,
@@ -413,6 +428,7 @@
 				EC9CBAA02550F17700D8C4CF /* AppDelegate.swift in Sources */,
 				EC9CBAA22550F17700D8C4CF /* SceneDelegate.swift in Sources */,
 				EC9E0EC3255DF2FC00A19D96 /* RegistrationViewController.swift in Sources */,
+				ECF23C802561ECEA00022D1E /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,7 +526,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -565,7 +581,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

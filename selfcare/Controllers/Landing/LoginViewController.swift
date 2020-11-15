@@ -45,7 +45,6 @@ class LoginViewController: UIViewController {
         registrationView.modalPresentationStyle = .fullScreen
         registrationView.state = state
         self.present(registrationView, animated: true, completion: nil)
-        
     }
     
 }

@@ -69,12 +69,30 @@ class RegistrationViewController: UIViewController {
     
     @IBOutlet weak var alternateButton: UIButton!
     @IBAction func alternateActionDown(_ sender: Any) {
+        if state == 0 {
+            SegueToRegistration(state: 1)
+        } else {
+            SegueToRegistration(state: 0)
+        }
     }
     
     @IBOutlet weak var CompletionButton: UIButton!
     @IBAction func completionDown(_ sender: Any) {
+        SegueToHome()
     }
     
+    func SegueToRegistration(state: Int){
+        let registrationView = RegistrationViewController()
+        registrationView.modalPresentationStyle = .fullScreen
+        registrationView.state = state
+        self.present(registrationView, animated: true, completion: nil)
+    }
+    
+    func SegueToHome(){
+        let homeView = HomeViewControler()
+        homeView.modalPresentationStyle = .fullScreen
+        self.present(homeView, animated: true, completion: nil)
+    }
     
     
 }
