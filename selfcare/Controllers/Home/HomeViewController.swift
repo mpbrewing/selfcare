@@ -20,3 +20,12 @@ class HomeViewControler: UIViewController {
     }
     
 }
+
+//Integrate Firebase
+//Authenticate Users
+//Add Navigation Bar
+//Add Side Menu
+//Add Calendar XIB and View Controller
+//Add Filter XIB and View Controller
+//Add Button XIB and View
+//Graphic Interface Development

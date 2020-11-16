@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>551801704607-v14ra1fo7fase3dril2223a42jk2hfah.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.551801704607-v14ra1fo7fase3dril2223a42jk2hfah</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD88d9IbH3gc9VYvPlrP7MU1jkPe1tE9H4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>551801704607</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>michaelBrewington.selfcare</string>
+	<key>PROJECT_ID</key>
+	<string>self-care-d9e75</string>
+	<key>STORAGE_BUCKET</key>
+	<string>self-care-d9e75.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:551801704607:ios:dbeed4a3bf3b4ed8e012aa</string>
+	<key>DATABASE_URL</key>
+	<string>https://self-care-d9e75.firebaseio.com</string>
+</dict>
+</plist>
