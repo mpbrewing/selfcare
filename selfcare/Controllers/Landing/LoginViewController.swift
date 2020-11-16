@@ -24,7 +24,6 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         handleFirebaseAuth()
-        //testHandle()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

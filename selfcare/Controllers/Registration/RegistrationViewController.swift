@@ -116,11 +116,7 @@ class RegistrationViewController: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
                 if error == nil && authResult != nil {
                     print("User logged in!")
-                    if Auth.auth().currentUser != nil{
-                        self.handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-                        self.SegueToHome()
-                        }
-                    }
+                    self.SegueToHome()
                 } else {
                     print("Error Logging in user: \(error!.localizedDescription)")
                 }
