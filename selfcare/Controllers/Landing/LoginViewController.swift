@@ -7,18 +7,43 @@
 
 import UIKit
 import Foundation
+import Firebase
 
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var SignUpButton: UIButton!
     @IBOutlet weak var SignInButton: UIButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         loadView()
         setupButtonStyle()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        handleFirebaseAuth()
+        //testHandle()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        Auth.auth().removeStateDidChangeListener(handle!)
+    }
+    
+    var handle: AuthStateDidChangeListenerHandle?
+    
+    func handleFirebaseAuth()
+    {
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil {
+                print("User logged in")
+                self.SegueToHome()
+            } else {
+                print("User not logged in")
+            }
+        }
     }
     
     override func loadView() {
@@ -45,6 +70,12 @@ class LoginViewController: UIViewController {
         registrationView.modalPresentationStyle = .fullScreen
         registrationView.state = state
         self.present(registrationView, animated: true, completion: nil)
+    }
+    
+    func SegueToHome(){
+        let homeView = HomeViewControler()
+        homeView.modalPresentationStyle = .fullScreen
+        self.present(homeView, animated: true, completion: nil)
     }
     
 }

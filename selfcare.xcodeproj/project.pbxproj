@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -31,6 +31,7 @@
 		EC0AD9C7255B502800EC1686 /* NexaBook.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9B5255B502800EC1686 /* NexaBook.otf */; };
 		EC0AD9D2255B61FE00EC1686 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0AD9D1255B61FE00EC1686 /* LoginViewController.swift */; };
 		EC0AD9D7255B629200EC1686 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9D6255B629200EC1686 /* LoginView.xib */; };
+		EC101495256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC101494256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift */; };
 		EC9CBAA02550F17700D8C4CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBA9F2550F17700D8C4CF /* AppDelegate.swift */; };
 		EC9CBAA22550F17700D8C4CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBAA12550F17700D8C4CF /* SceneDelegate.swift */; };
 		EC9CBAA42550F17700D8C4CF /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBAA32550F17700D8C4CF /* OnboardingViewController.swift */; };
@@ -93,6 +94,7 @@
 		EC0AD9B5255B502800EC1686 /* NexaBook.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NexaBook.otf; path = "../../../../Downloads/Nexa-Font/NexaBook.otf"; sourceTree = "<group>"; };
 		EC0AD9D1255B61FE00EC1686 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EC0AD9D6255B629200EC1686 /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
+		EC101494256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hideKeyboardWhenTappedAround.swift; sourceTree = "<group>"; };
 		EC9CBA9C2550F17700D8C4CF /* selfcare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = selfcare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC9CBA9F2550F17700D8C4CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC9CBAA12550F17700D8C4CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,7 +153,6 @@
 				4FDC831271030D03A398F652 /* Pods-selfcareTests.debug.xcconfig */,
 				3E31C6F94979E269FDDD5DA7 /* Pods-selfcareTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -193,6 +194,7 @@
 		EC0AD99B255B473800EC1686 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EC101494256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -576,6 +578,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC101495256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift in Sources */,
 				EC0AD9D2255B61FE00EC1686 /* LoginViewController.swift in Sources */,
 				EC9CBAA42550F17700D8C4CF /* OnboardingViewController.swift in Sources */,
 				EC9CBAA02550F17700D8C4CF /* AppDelegate.swift in Sources */,

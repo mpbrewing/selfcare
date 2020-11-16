@@ -21,7 +21,6 @@ class HomeViewControler: UIViewController {
     
 }
 
-//Integrate Firebase
 //Authenticate Users
 //Add Navigation Bar
 //Add Side Menu

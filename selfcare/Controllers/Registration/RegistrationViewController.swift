@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class RegistrationViewController: UIViewController {
     
@@ -16,6 +17,7 @@ class RegistrationViewController: UIViewController {
         super.viewDidLoad()
         loadView()
         setupButtonStyle()
+        self.hideKeyboardWhenTappedAround()
     }
     
     override func loadView() {
@@ -34,7 +36,7 @@ class RegistrationViewController: UIViewController {
             titleLabel.text = "Let's sign you in."
             subtitleLabel.alpha = 1
             subtitleLabel2.alpha = 1
-            alternateButton.titleLabel?.text = "Don't have an account? Sign Up"
+            alternateButton.setTitle("Don't have an account? Sign Up", for: .normal)
 
         } else if state == 1 {
             CompletionButton.setTitle("Sign Up", for: .normal)
@@ -44,7 +46,7 @@ class RegistrationViewController: UIViewController {
             titleLabel.text = "Let's create an account."
             subtitleLabel.alpha = 0
             subtitleLabel2.alpha = 0
-            alternateButton.titleLabel?.text = "Already have an account? Sign In"
+            alternateButton.setTitle("Already have an account? Sign In", for: .normal)
         }
     }
     
@@ -78,7 +80,8 @@ class RegistrationViewController: UIViewController {
     
     @IBOutlet weak var CompletionButton: UIButton!
     @IBAction func completionDown(_ sender: Any) {
-        SegueToHome()
+        //SegueToHome()
+        determineUserAction(state: state)
     }
     
     func SegueToRegistration(state: Int){
@@ -92,6 +95,48 @@ class RegistrationViewController: UIViewController {
         let homeView = HomeViewControler()
         homeView.modalPresentationStyle = .fullScreen
         self.present(homeView, animated: true, completion: nil)
+    }
+    
+    func determineUserAction(state: Int){
+        if state == 0 { //Sign In
+            userAuthSignIn(email: emailTextfield.text ?? "", password: passwordTextfield.text ?? "")
+        } else if state == 1 { //Sign Up
+            userAuthSignUp(email: emailTextfield.text ?? "", password: passwordTextfield.text ?? "")
+        }
+    }
+    
+    var handle: AuthStateDidChangeListenerHandle?
+    
+    //Logging In Requirements
+    //isValidEmail
+    //isValidPassword
+    
+    func userAuthSignIn(email: String, password: String)
+    {
+        Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
+                if error == nil && authResult != nil {
+                    print("User logged in!")
+                    if Auth.auth().currentUser != nil{
+                        self.handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+                        self.SegueToHome()
+                        }
+                    }
+                } else {
+                    print("Error Logging in user: \(error!.localizedDescription)")
+                }
+        }
+    }
+    
+    func userAuthSignUp(email: String, password: String)
+    {
+        Auth.auth().createUser(withEmail: email, password: password){ (authResult, error) in
+            if error == nil && authResult != nil {
+                print("User created and logged in!")
+                self.SegueToHome()
+            } else {
+                print("Error Logging in user: \(error!.localizedDescription)")
+            }
+        }
     }
     
     
