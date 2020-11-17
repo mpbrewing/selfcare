@@ -137,3 +137,11 @@ class RegistrationViewController: UIViewController {
     
     
 }
+
+//User Defaults
+//LoginManager
+//Google Sign-In
+//Sign In With Apple
+//AutoFill Passwords
+//Strong Passwords?
+//Hide Password Text
