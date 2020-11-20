@@ -32,6 +32,10 @@
 		EC0AD9D2255B61FE00EC1686 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0AD9D1255B61FE00EC1686 /* LoginViewController.swift */; };
 		EC0AD9D7255B629200EC1686 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9D6255B629200EC1686 /* LoginView.xib */; };
 		EC101495256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC101494256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift */; };
+		EC32D7AB2567315C003E0437 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC32D7AA2567315C003E0437 /* HomeView.xib */; };
+		EC32D7B1256731AB003E0437 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC32D7B0256731AB003E0437 /* MenuViewController.swift */; };
+		EC32D7B6256731F6003E0437 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC32D7B5256731F6003E0437 /* MenuView.xib */; };
+		EC32D7BB2567327E003E0437 /* loadXIB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC32D7BA2567327E003E0437 /* loadXIB.swift */; };
 		EC9CBAA02550F17700D8C4CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBA9F2550F17700D8C4CF /* AppDelegate.swift */; };
 		EC9CBAA22550F17700D8C4CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBAA12550F17700D8C4CF /* SceneDelegate.swift */; };
 		EC9CBAA42550F17700D8C4CF /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBAA32550F17700D8C4CF /* OnboardingViewController.swift */; };
@@ -43,7 +47,6 @@
 		EC9E0EC3255DF2FC00A19D96 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E0EC2255DF2FC00A19D96 /* RegistrationViewController.swift */; };
 		ECB5409925632536003CCDA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECB5409825632536003CCDA5 /* GoogleService-Info.plist */; };
 		ECF23C802561ECEA00022D1E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23C7F2561ECEA00022D1E /* HomeViewController.swift */; };
-		ECF23C882561EDA000022D1E /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECF23C872561EDA000022D1E /* HomeView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +98,10 @@
 		EC0AD9D1255B61FE00EC1686 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EC0AD9D6255B629200EC1686 /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		EC101494256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hideKeyboardWhenTappedAround.swift; sourceTree = "<group>"; };
+		EC32D7AA2567315C003E0437 /* HomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
+		EC32D7B0256731AB003E0437 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		EC32D7B5256731F6003E0437 /* MenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
+		EC32D7BA2567327E003E0437 /* loadXIB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadXIB.swift; sourceTree = "<group>"; };
 		EC9CBA9C2550F17700D8C4CF /* selfcare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = selfcare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC9CBA9F2550F17700D8C4CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC9CBAA12550F17700D8C4CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,7 +119,6 @@
 		EC9E0EC2255DF2FC00A19D96 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		ECB5409825632536003CCDA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ECF23C7F2561ECEA00022D1E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		ECF23C872561EDA000022D1E /* HomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +175,7 @@
 		EC0AD991255B462D00EC1686 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EC32D7AF25673185003E0437 /* Menu */,
 				ECF23C7E2561ECDA00022D1E /* Home */,
 				EC9E0EBC255DF2BA00A19D96 /* Registration */,
 				EC0AD99D255B4E3F00EC1686 /* Landing */,
@@ -195,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				EC101494256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift */,
+				EC32D7BA2567327E003E0437 /* loadXIB.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -240,6 +248,15 @@
 				EC0AD9B2255B502800EC1686 /* NexaXBoldItalic.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		EC32D7AF25673185003E0437 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				EC32D7B0256731AB003E0437 /* MenuViewController.swift */,
+				EC32D7B5256731F6003E0437 /* MenuView.xib */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		EC9CBA932550F17700D8C4CF = {
@@ -312,7 +329,7 @@
 		ECF23C7E2561ECDA00022D1E /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				ECF23C872561EDA000022D1E /* HomeView.xib */,
+				EC32D7AA2567315C003E0437 /* HomeView.xib */,
 				ECF23C7F2561ECEA00022D1E /* HomeViewController.swift */,
 			);
 			path = Home;
@@ -429,12 +446,14 @@
 				EC0AD9C1255B502800EC1686 /* NexaThin.otf in Resources */,
 				EC0AD9C6255B502800EC1686 /* NexaBlack.otf in Resources */,
 				ECB5409925632536003CCDA5 /* GoogleService-Info.plist in Resources */,
+				EC32D7B6256731F6003E0437 /* MenuView.xib in Resources */,
 				EC0AD9B6255B502800EC1686 /* NexaLight.otf in Resources */,
 				EC0AD9BA255B502800EC1686 /* NexaHeavyItalic.otf in Resources */,
 				EC0AD9BB255B502800EC1686 /* NexaHeavy.otf in Resources */,
 				EC9CBAAC2550F17800D8C4CF /* LaunchScreen.storyboard in Resources */,
 				EC0AD9B9255B502800EC1686 /* NexaRegularItalic.otf in Resources */,
 				EC0AD9BC255B502800EC1686 /* Nexa Light.otf in Resources */,
+				EC32D7AB2567315C003E0437 /* HomeView.xib in Resources */,
 				EC0AD9C0255B502800EC1686 /* NexaRegular.otf in Resources */,
 				EC0AD9BF255B502800EC1686 /* NexaLightItalic.otf in Resources */,
 				EC9E0EBE255DF2F200A19D96 /* RegistrationView.xib in Resources */,
@@ -444,7 +463,6 @@
 				EC0AD9BE255B502800EC1686 /* NexaBold.otf in Resources */,
 				EC0AD9D7255B629200EC1686 /* LoginView.xib in Resources */,
 				EC0AD9B7255B502800EC1686 /* Nexa Bold.otf in Resources */,
-				ECF23C882561EDA000022D1E /* HomeView.xib in Resources */,
 				EC0AD99F255B4F9300EC1686 /* OnboardingView.xib in Resources */,
 				EC0AD9C4255B502800EC1686 /* NexaXBoldItalic.otf in Resources */,
 				EC0AD9C7255B502800EC1686 /* NexaBook.otf in Resources */,
@@ -579,12 +597,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC101495256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift in Sources */,
+				EC32D7BB2567327E003E0437 /* loadXIB.swift in Sources */,
 				EC0AD9D2255B61FE00EC1686 /* LoginViewController.swift in Sources */,
 				EC9CBAA42550F17700D8C4CF /* OnboardingViewController.swift in Sources */,
 				EC9CBAA02550F17700D8C4CF /* AppDelegate.swift in Sources */,
 				EC9CBAA22550F17700D8C4CF /* SceneDelegate.swift in Sources */,
 				EC9E0EC3255DF2FC00A19D96 /* RegistrationViewController.swift in Sources */,
 				ECF23C802561ECEA00022D1E /* HomeViewController.swift in Sources */,
+				EC32D7B1256731AB003E0437 /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

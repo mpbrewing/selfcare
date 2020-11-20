@@ -71,10 +71,12 @@ PODS:
   - nanopb/decode (2.30906.0)
   - nanopb/encode (2.30906.0)
   - PromisesObjC (1.2.11)
+  - SideMenu (6.5.0)
 
 DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Auth
+  - SideMenu
 
 SPEC REPOS:
   trunk:
@@ -90,6 +92,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - nanopb
     - PromisesObjC
+    - SideMenu
 
 SPEC CHECKSUMS:
   Firebase: 78e8dd2e39d653de6270432ad84fe8b59f7bf4e8
@@ -104,7 +107,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
+  SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
 
-PODFILE CHECKSUM: a2e685fc4306ceb6f951e0cc26860b163f475783
+PODFILE CHECKSUM: 90b8d0a7364453254f96ef2577ffb02bc1e4e108
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.10.0
