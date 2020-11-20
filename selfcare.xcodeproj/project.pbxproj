@@ -36,6 +36,9 @@
 		EC32D7B1256731AB003E0437 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC32D7B0256731AB003E0437 /* MenuViewController.swift */; };
 		EC32D7B6256731F6003E0437 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC32D7B5256731F6003E0437 /* MenuView.xib */; };
 		EC32D7BB2567327E003E0437 /* loadXIB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC32D7BA2567327E003E0437 /* loadXIB.swift */; };
+		EC32D7FA25674962003E0437 /* MenuHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC32D7F925674962003E0437 /* MenuHeaderCell.xib */; };
+		EC32D7FF25674C5B003E0437 /* MenuRowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC32D7FE25674C5B003E0437 /* MenuRowCell.xib */; };
+		EC32D80425674D54003E0437 /* MenuRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC32D80325674D54003E0437 /* MenuRowTableViewCell.swift */; };
 		EC9CBAA02550F17700D8C4CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBA9F2550F17700D8C4CF /* AppDelegate.swift */; };
 		EC9CBAA22550F17700D8C4CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBAA12550F17700D8C4CF /* SceneDelegate.swift */; };
 		EC9CBAA42550F17700D8C4CF /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBAA32550F17700D8C4CF /* OnboardingViewController.swift */; };
@@ -102,6 +105,9 @@
 		EC32D7B0256731AB003E0437 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		EC32D7B5256731F6003E0437 /* MenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
 		EC32D7BA2567327E003E0437 /* loadXIB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadXIB.swift; sourceTree = "<group>"; };
+		EC32D7F925674962003E0437 /* MenuHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuHeaderCell.xib; sourceTree = "<group>"; };
+		EC32D7FE25674C5B003E0437 /* MenuRowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuRowCell.xib; sourceTree = "<group>"; };
+		EC32D80325674D54003E0437 /* MenuRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRowTableViewCell.swift; sourceTree = "<group>"; };
 		EC9CBA9C2550F17700D8C4CF /* selfcare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = selfcare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC9CBA9F2550F17700D8C4CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC9CBAA12550F17700D8C4CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -253,10 +259,21 @@
 		EC32D7AF25673185003E0437 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				EC32D7F82567488C003E0437 /* Menu Cells */,
 				EC32D7B0256731AB003E0437 /* MenuViewController.swift */,
 				EC32D7B5256731F6003E0437 /* MenuView.xib */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		EC32D7F82567488C003E0437 /* Menu Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EC32D7F925674962003E0437 /* MenuHeaderCell.xib */,
+				EC32D7FE25674C5B003E0437 /* MenuRowCell.xib */,
+				EC32D80325674D54003E0437 /* MenuRowTableViewCell.swift */,
+			);
+			path = "Menu Cells";
 			sourceTree = "<group>";
 		};
 		EC9CBA932550F17700D8C4CF = {
@@ -456,6 +473,7 @@
 				EC32D7AB2567315C003E0437 /* HomeView.xib in Resources */,
 				EC0AD9C0255B502800EC1686 /* NexaRegular.otf in Resources */,
 				EC0AD9BF255B502800EC1686 /* NexaLightItalic.otf in Resources */,
+				EC32D7FF25674C5B003E0437 /* MenuRowCell.xib in Resources */,
 				EC9E0EBE255DF2F200A19D96 /* RegistrationView.xib in Resources */,
 				EC0AD9C2255B502800EC1686 /* NexaBlackItalic.otf in Resources */,
 				EC0AD9B8255B502800EC1686 /* NexaBookItalic.otf in Resources */,
@@ -466,6 +484,7 @@
 				EC0AD99F255B4F9300EC1686 /* OnboardingView.xib in Resources */,
 				EC0AD9C4255B502800EC1686 /* NexaXBoldItalic.otf in Resources */,
 				EC0AD9C7255B502800EC1686 /* NexaBook.otf in Resources */,
+				EC32D7FA25674962003E0437 /* MenuHeaderCell.xib in Resources */,
 				EC0AD9C5255B502800EC1686 /* NexaXBold.otf in Resources */,
 				EC0AD9BD255B502800EC1686 /* NexaThinItalic.otf in Resources */,
 				EC0AD9C3255B502800EC1686 /* NexaBoldItalic.otf in Resources */,
@@ -605,6 +624,7 @@
 				EC9E0EC3255DF2FC00A19D96 /* RegistrationViewController.swift in Sources */,
 				ECF23C802561ECEA00022D1E /* HomeViewController.swift in Sources */,
 				EC32D7B1256731AB003E0437 /* MenuViewController.swift in Sources */,
+				EC32D80425674D54003E0437 /* MenuRowTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

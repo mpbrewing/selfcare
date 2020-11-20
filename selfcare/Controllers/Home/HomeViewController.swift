@@ -15,17 +15,16 @@ class HomeViewControler: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadXIB(name: "HomeView")
-        modifyButton()
         setupSwipe()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
     }
     
     override func viewWillLayoutSubviews(){
         super.viewWillLayoutSubviews()
         setupNavigationBar()
-    }
-    
-    func modifyButton(){
-        logout.layer.cornerRadius = 20
     }
     
     func setupSwipe(){
@@ -35,13 +34,6 @@ class HomeViewControler: UIViewController {
         rightSwipe.direction = .right
         //view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
-    }
-    
-    @IBOutlet weak var logout: UIButton!
-    
-    @IBAction func logoutButton(_ sender: Any) {
-        try! Auth.auth().signOut()
-        SegueToLanding()
     }
     
     func SegueToLanding(){
