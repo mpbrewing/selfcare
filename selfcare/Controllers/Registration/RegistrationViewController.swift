@@ -92,7 +92,7 @@ class RegistrationViewController: UIViewController {
     }
     
     func SegueToHome(){
-        let homeView = HomeViewControler()
+        let homeView = HomeViewController()
         homeView.modalPresentationStyle = .fullScreen
         self.present(homeView, animated: true, completion: nil)
     }

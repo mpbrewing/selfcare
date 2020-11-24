@@ -12,14 +12,15 @@ class OnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        loadView()
+        //loadView()
+        loadXIB(name: "OnboardingView")
         
     }
-    
+    /*
     override func loadView() {
         Bundle.main.loadNibNamed("OnboardingView", owner: self, options: nil)
     }
-
+    */
 
 }
 

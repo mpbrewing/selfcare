@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import SideMenu
 
-class HomeViewControler: UIViewController {
+class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,17 +22,25 @@ class HomeViewControler: UIViewController {
         return .darkContent
     }
     
-    override func viewWillLayoutSubviews(){
-        super.viewWillLayoutSubviews()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setupNavigationBar()
     }
     
+}
+
+//Add Button XIB and View
+//Graphic Interface Development
+
+//Handle Navigation
+extension HomeViewController {
+    
     func setupSwipe(){
-        //let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(menuAction))
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(calendarAction))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(menuAction))
-        //leftSwipe.direction = .left
+        leftSwipe.direction = .left
         rightSwipe.direction = .right
-        //view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
     }
     
@@ -41,29 +49,23 @@ class HomeViewControler: UIViewController {
         loginView.modalPresentationStyle = .fullScreen
         self.present(loginView, animated: true, completion: nil)
     }
-    
+   
     func setupNavigationBar(){
-        let width = view.frame.width
-        let height = view.safeAreaInsets.top
-        let navigationBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 44, width: width, height: height))
         //Border Color
-        navigationBar.standardAppearance.shadowColor = UIColor.darkGray
+        navigationController?.navigationBar.standardAppearance.shadowColor = UIColor.darkGray
         //Background Color
-        navigationBar.standardAppearance.backgroundColor = UIColor.white
+        navigationController?.navigationBar.standardAppearance.backgroundColor = UIColor.white
         //Tint Color
-        navigationBar.tintColor = UIColor.black
-        
-        self.view.addSubview(navigationBar)
-        
-        let menuButton = UIBarButtonItem(image: #imageLiteral(resourceName: "menu"), style: .plain, target: nil, action: #selector(menuAction))
-        let searchButton = UIBarButtonItem(image: #imageLiteral(resourceName: "search"), style: .plain, target: nil, action: #selector(searchAction))
-        let filterButton = UIBarButtonItem(image: #imageLiteral(resourceName: "filter"), style: .plain, target: nil, action: #selector(filterAction))
-        let calendarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "calendar"), style: .plain, target: nil, action: #selector(calendarAction))
-        
+        navigationController?.navigationBar.tintColor = UIColor.black
+        let menuButton = UIBarButtonItem(image: #imageLiteral(resourceName: "menu"), style: .plain, target: self, action: #selector(menuAction))
+        let searchButton = UIBarButtonItem(image: #imageLiteral(resourceName: "search"), style: .plain, target: self, action: #selector(searchAction))
+        let filterButton = UIBarButtonItem(image: #imageLiteral(resourceName: "filter"), style: .plain, target: self, action: #selector(filterAction))
+        let calendarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "calendar"), style: .plain, target: self, action: #selector(calendarAction))
+        navigationController?.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "backIcon")
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "backIcon")
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.leftBarButtonItem = menuButton
         navigationItem.rightBarButtonItems = [calendarButton,filterButton,searchButton]
-        
-        navigationBar.setItems([navigationItem], animated: false)
     }
     
     @objc func menuAction() {
@@ -73,13 +75,26 @@ class HomeViewControler: UIViewController {
         menu.setNavigationBarHidden(true, animated: false)
         present(menu, animated: true, completion: nil)
     }
-    @objc func searchAction() { }
-    @objc func filterAction() { }
-    @objc func calendarAction() { }
+    
+    @objc func searchAction() {}
+    @objc func filterAction() {
+        SegueToFilter()
+    }
+    
+    func SegueToFilter(){
+        let filterView = FilterViewController()
+        filterView.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(filterView, animated: true)
+    }
+    
+    @objc func calendarAction() {
+        SegueToCalendar()
+    }
+    
+    func SegueToCalendar(){
+        let calendarView = CalendarViewController()
+        calendarView.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(calendarView, animated: true)
+    }
     
 }
-
-//Add Calendar XIB and View Controller
-//Add Filter XIB and View Controller
-//Add Button XIB and View
-//Graphic Interface Development

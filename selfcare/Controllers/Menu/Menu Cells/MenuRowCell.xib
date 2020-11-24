@@ -34,7 +34,7 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="rowImage" destination="zqC-Du-NbE" id="QQz-pJ-k9Z"/>
                 <outlet property="rowLabel" destination="GNn-o8-8no" id="kJj-rR-kaq"/>

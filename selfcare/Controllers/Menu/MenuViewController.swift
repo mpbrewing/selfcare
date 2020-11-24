@@ -17,6 +17,11 @@ class MenuViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         setupTableView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //view.backgroundColor = UIColor.blackRussian
+    }
+    
     // Cell Reuse Identifiers
     let cellHeaderIdentifier = "menuHeader"
     let cellRowIdentifier = "menuRow"

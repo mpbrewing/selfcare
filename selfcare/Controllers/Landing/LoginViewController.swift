@@ -16,14 +16,17 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        loadView()
+        loadXIB(name: "LoginView")
         setupButtonStyle()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        handleFirebaseAuth()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        handleFirebaseAuth()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -44,11 +47,7 @@ class LoginViewController: UIViewController {
             }
         }
     }
-    
-    override func loadView() {
-        Bundle.main.loadNibNamed("LoginView", owner: self, options: nil)
-    }
-    
+   
     func setupButtonStyle() {
         SignUpButton.layer.cornerRadius = 15
         SignInButton.layer.cornerRadius = 15
@@ -72,9 +71,9 @@ class LoginViewController: UIViewController {
     }
     
     func SegueToHome(){
-        let homeView = HomeViewControler()
+        let homeView = HomeViewController()
         homeView.modalPresentationStyle = .fullScreen
-        self.present(homeView, animated: true, completion: nil)
+        UIApplication.shared.windows.first?.rootViewController = UINavigationController(rootViewController: homeView)
     }
     
 }

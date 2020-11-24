@@ -39,6 +39,11 @@
 		EC32D7FA25674962003E0437 /* MenuHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC32D7F925674962003E0437 /* MenuHeaderCell.xib */; };
 		EC32D7FF25674C5B003E0437 /* MenuRowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC32D7FE25674C5B003E0437 /* MenuRowCell.xib */; };
 		EC32D80425674D54003E0437 /* MenuRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC32D80325674D54003E0437 /* MenuRowTableViewCell.swift */; };
+		EC32D80925677CB5003E0437 /* customColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC32D80825677CB5003E0437 /* customColors.swift */; };
+		EC587F9F256D7F6C001A5F72 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC587F9E256D7F6C001A5F72 /* CalendarViewController.swift */; };
+		EC587FA4256D7FAE001A5F72 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC587FA3256D7FAE001A5F72 /* CalendarView.xib */; };
+		EC587FB2256DA185001A5F72 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC587FB1256DA185001A5F72 /* FilterViewController.swift */; };
+		EC587FBA256DA1AA001A5F72 /* FilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC587FB9256DA1AA001A5F72 /* FilterView.xib */; };
 		EC9CBAA02550F17700D8C4CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBA9F2550F17700D8C4CF /* AppDelegate.swift */; };
 		EC9CBAA22550F17700D8C4CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBAA12550F17700D8C4CF /* SceneDelegate.swift */; };
 		EC9CBAA42550F17700D8C4CF /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBAA32550F17700D8C4CF /* OnboardingViewController.swift */; };
@@ -108,6 +113,11 @@
 		EC32D7F925674962003E0437 /* MenuHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuHeaderCell.xib; sourceTree = "<group>"; };
 		EC32D7FE25674C5B003E0437 /* MenuRowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuRowCell.xib; sourceTree = "<group>"; };
 		EC32D80325674D54003E0437 /* MenuRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRowTableViewCell.swift; sourceTree = "<group>"; };
+		EC32D80825677CB5003E0437 /* customColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customColors.swift; sourceTree = "<group>"; };
+		EC587F9E256D7F6C001A5F72 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		EC587FA3256D7FAE001A5F72 /* CalendarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarView.xib; sourceTree = "<group>"; };
+		EC587FB1256DA185001A5F72 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		EC587FB9256DA1AA001A5F72 /* FilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterView.xib; sourceTree = "<group>"; };
 		EC9CBA9C2550F17700D8C4CF /* selfcare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = selfcare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC9CBA9F2550F17700D8C4CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC9CBAA12550F17700D8C4CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +191,8 @@
 		EC0AD991255B462D00EC1686 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EC587FB0256DA170001A5F72 /* Filter */,
+				EC587F9D256D7F5C001A5F72 /* Calendar */,
 				EC32D7AF25673185003E0437 /* Menu */,
 				ECF23C7E2561ECDA00022D1E /* Home */,
 				EC9E0EBC255DF2BA00A19D96 /* Registration */,
@@ -209,6 +221,7 @@
 			children = (
 				EC101494256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift */,
 				EC32D7BA2567327E003E0437 /* loadXIB.swift */,
+				EC32D80825677CB5003E0437 /* customColors.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -274,6 +287,24 @@
 				EC32D80325674D54003E0437 /* MenuRowTableViewCell.swift */,
 			);
 			path = "Menu Cells";
+			sourceTree = "<group>";
+		};
+		EC587F9D256D7F5C001A5F72 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				EC587F9E256D7F6C001A5F72 /* CalendarViewController.swift */,
+				EC587FA3256D7FAE001A5F72 /* CalendarView.xib */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		EC587FB0256DA170001A5F72 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				EC587FB1256DA185001A5F72 /* FilterViewController.swift */,
+				EC587FB9256DA1AA001A5F72 /* FilterView.xib */,
+			);
+			path = Filter;
 			sourceTree = "<group>";
 		};
 		EC9CBA932550F17700D8C4CF = {
@@ -474,11 +505,13 @@
 				EC0AD9C0255B502800EC1686 /* NexaRegular.otf in Resources */,
 				EC0AD9BF255B502800EC1686 /* NexaLightItalic.otf in Resources */,
 				EC32D7FF25674C5B003E0437 /* MenuRowCell.xib in Resources */,
+				EC587FA4256D7FAE001A5F72 /* CalendarView.xib in Resources */,
 				EC9E0EBE255DF2F200A19D96 /* RegistrationView.xib in Resources */,
 				EC0AD9C2255B502800EC1686 /* NexaBlackItalic.otf in Resources */,
 				EC0AD9B8255B502800EC1686 /* NexaBookItalic.otf in Resources */,
 				EC9CBAA92550F17800D8C4CF /* Assets.xcassets in Resources */,
 				EC0AD9BE255B502800EC1686 /* NexaBold.otf in Resources */,
+				EC587FBA256DA1AA001A5F72 /* FilterView.xib in Resources */,
 				EC0AD9D7255B629200EC1686 /* LoginView.xib in Resources */,
 				EC0AD9B7255B502800EC1686 /* Nexa Bold.otf in Resources */,
 				EC0AD99F255B4F9300EC1686 /* OnboardingView.xib in Resources */,
@@ -615,11 +648,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC587F9F256D7F6C001A5F72 /* CalendarViewController.swift in Sources */,
+				EC32D80925677CB5003E0437 /* customColors.swift in Sources */,
 				EC101495256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift in Sources */,
 				EC32D7BB2567327E003E0437 /* loadXIB.swift in Sources */,
 				EC0AD9D2255B61FE00EC1686 /* LoginViewController.swift in Sources */,
 				EC9CBAA42550F17700D8C4CF /* OnboardingViewController.swift in Sources */,
 				EC9CBAA02550F17700D8C4CF /* AppDelegate.swift in Sources */,
+				EC587FB2256DA185001A5F72 /* FilterViewController.swift in Sources */,
 				EC9CBAA22550F17700D8C4CF /* SceneDelegate.swift in Sources */,
 				EC9E0EC3255DF2FC00A19D96 /* RegistrationViewController.swift in Sources */,
 				ECF23C802561ECEA00022D1E /* HomeViewController.swift in Sources */,
