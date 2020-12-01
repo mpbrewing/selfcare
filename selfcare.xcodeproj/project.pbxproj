@@ -44,6 +44,11 @@
 		EC587FA4256D7FAE001A5F72 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC587FA3256D7FAE001A5F72 /* CalendarView.xib */; };
 		EC587FB2256DA185001A5F72 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC587FB1256DA185001A5F72 /* FilterViewController.swift */; };
 		EC587FBA256DA1AA001A5F72 /* FilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC587FB9256DA1AA001A5F72 /* FilterView.xib */; };
+		EC97F6752575C30F00063B8B /* AddButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC97F6742575C30F00063B8B /* AddButtonView.xib */; };
+		EC97F67A2575C36000063B8B /* AddButtonViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC97F6792575C36000063B8B /* AddButtonViewClass.swift */; };
+		EC97F67F2575C53C00063B8B /* AddButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC97F67E2575C53C00063B8B /* AddButtonCell.xib */; };
+		EC97F6842575D04E00063B8B /* findViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC97F6832575D04E00063B8B /* findViewController.swift */; };
+		EC97F6992575D61500063B8B /* AddButtonCellClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC97F6982575D61500063B8B /* AddButtonCellClass.swift */; };
 		EC9CBAA02550F17700D8C4CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBA9F2550F17700D8C4CF /* AppDelegate.swift */; };
 		EC9CBAA22550F17700D8C4CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBAA12550F17700D8C4CF /* SceneDelegate.swift */; };
 		EC9CBAA42550F17700D8C4CF /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBAA32550F17700D8C4CF /* OnboardingViewController.swift */; };
@@ -118,6 +123,11 @@
 		EC587FA3256D7FAE001A5F72 /* CalendarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarView.xib; sourceTree = "<group>"; };
 		EC587FB1256DA185001A5F72 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		EC587FB9256DA1AA001A5F72 /* FilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterView.xib; sourceTree = "<group>"; };
+		EC97F6742575C30F00063B8B /* AddButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddButtonView.xib; sourceTree = "<group>"; };
+		EC97F6792575C36000063B8B /* AddButtonViewClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonViewClass.swift; sourceTree = "<group>"; };
+		EC97F67E2575C53C00063B8B /* AddButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddButtonCell.xib; sourceTree = "<group>"; };
+		EC97F6832575D04E00063B8B /* findViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = findViewController.swift; sourceTree = "<group>"; };
+		EC97F6982575D61500063B8B /* AddButtonCellClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCellClass.swift; sourceTree = "<group>"; };
 		EC9CBA9C2550F17700D8C4CF /* selfcare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = selfcare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC9CBA9F2550F17700D8C4CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC9CBAA12550F17700D8C4CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -191,6 +201,7 @@
 		EC0AD991255B462D00EC1686 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EC97F6722575C2E700063B8B /* Add */,
 				EC587FB0256DA170001A5F72 /* Filter */,
 				EC587F9D256D7F5C001A5F72 /* Calendar */,
 				EC32D7AF25673185003E0437 /* Menu */,
@@ -222,6 +233,7 @@
 				EC101494256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift */,
 				EC32D7BA2567327E003E0437 /* loadXIB.swift */,
 				EC32D80825677CB5003E0437 /* customColors.swift */,
+				EC97F6832575D04E00063B8B /* findViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -305,6 +317,25 @@
 				EC587FB9256DA1AA001A5F72 /* FilterView.xib */,
 			);
 			path = Filter;
+			sourceTree = "<group>";
+		};
+		EC97F6722575C2E700063B8B /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				EC97F6732575C2FF00063B8B /* Add Button */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
+		EC97F6732575C2FF00063B8B /* Add Button */ = {
+			isa = PBXGroup;
+			children = (
+				EC97F6742575C30F00063B8B /* AddButtonView.xib */,
+				EC97F67E2575C53C00063B8B /* AddButtonCell.xib */,
+				EC97F6982575D61500063B8B /* AddButtonCellClass.swift */,
+				EC97F6792575C36000063B8B /* AddButtonViewClass.swift */,
+			);
+			path = "Add Button";
 			sourceTree = "<group>";
 		};
 		EC9CBA932550F17700D8C4CF = {
@@ -498,6 +529,7 @@
 				EC0AD9B6255B502800EC1686 /* NexaLight.otf in Resources */,
 				EC0AD9BA255B502800EC1686 /* NexaHeavyItalic.otf in Resources */,
 				EC0AD9BB255B502800EC1686 /* NexaHeavy.otf in Resources */,
+				EC97F67F2575C53C00063B8B /* AddButtonCell.xib in Resources */,
 				EC9CBAAC2550F17800D8C4CF /* LaunchScreen.storyboard in Resources */,
 				EC0AD9B9255B502800EC1686 /* NexaRegularItalic.otf in Resources */,
 				EC0AD9BC255B502800EC1686 /* Nexa Light.otf in Resources */,
@@ -513,6 +545,7 @@
 				EC0AD9BE255B502800EC1686 /* NexaBold.otf in Resources */,
 				EC587FBA256DA1AA001A5F72 /* FilterView.xib in Resources */,
 				EC0AD9D7255B629200EC1686 /* LoginView.xib in Resources */,
+				EC97F6752575C30F00063B8B /* AddButtonView.xib in Resources */,
 				EC0AD9B7255B502800EC1686 /* Nexa Bold.otf in Resources */,
 				EC0AD99F255B4F9300EC1686 /* OnboardingView.xib in Resources */,
 				EC0AD9C4255B502800EC1686 /* NexaXBoldItalic.otf in Resources */,
@@ -653,6 +686,7 @@
 				EC101495256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift in Sources */,
 				EC32D7BB2567327E003E0437 /* loadXIB.swift in Sources */,
 				EC0AD9D2255B61FE00EC1686 /* LoginViewController.swift in Sources */,
+				EC97F67A2575C36000063B8B /* AddButtonViewClass.swift in Sources */,
 				EC9CBAA42550F17700D8C4CF /* OnboardingViewController.swift in Sources */,
 				EC9CBAA02550F17700D8C4CF /* AppDelegate.swift in Sources */,
 				EC587FB2256DA185001A5F72 /* FilterViewController.swift in Sources */,
@@ -660,6 +694,8 @@
 				EC9E0EC3255DF2FC00A19D96 /* RegistrationViewController.swift in Sources */,
 				ECF23C802561ECEA00022D1E /* HomeViewController.swift in Sources */,
 				EC32D7B1256731AB003E0437 /* MenuViewController.swift in Sources */,
+				EC97F6842575D04E00063B8B /* findViewController.swift in Sources */,
+				EC97F6992575D61500063B8B /* AddButtonCellClass.swift in Sources */,
 				EC32D80425674D54003E0437 /* MenuRowTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

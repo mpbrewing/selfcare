@@ -16,6 +16,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         loadXIB(name: "HomeView")
         setupSwipe()
+        setupAddButton()
+        NotificationCenter.default.addObserver(self, selector: #selector(setAddButton(notification:)), name: .addButton, object: nil)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -27,10 +29,9 @@ class HomeViewController: UIViewController {
         setupNavigationBar()
     }
     
+    var AddButtonView = UIView()
+    
 }
-
-//Add Button XIB and View
-//Graphic Interface Development
 
 //Handle Navigation
 extension HomeViewController {
@@ -97,4 +98,53 @@ extension HomeViewController {
         navigationController?.pushViewController(calendarView, animated: true)
     }
     
+}
+
+//Add Button
+extension HomeViewController {
+    
+    func setupAddButton()
+    {
+        let screenSize = UIScreen.main.bounds
+        let heightOffset = CGFloat(10)
+        let widthOffset = CGFloat(10)
+        let screenWidth = screenSize.width - widthOffset
+        let screenHeight = screenSize.height - heightOffset
+        let width = 72
+        let height = 70
+        AddButtonView = AddButtonViewClass(frame: CGRect(x: (Int(screenWidth)-width), y: (Int(screenHeight)-height), width: width, height: height))
+        setButtonFrame(state: false)
+        self.view.addSubview(AddButtonView)
+    }
+    
+    func setButtonFrame(state: Bool)
+    {
+        let screenSize = UIScreen.main.bounds
+        let heightOffset = CGFloat(10)
+        let widthOffset = CGFloat(10)
+        let screenWidth = screenSize.width - widthOffset
+        let screenHeight = screenSize.height - heightOffset
+        
+        switch state {
+        case true:
+            let width = 160
+            let height = 420
+            AddButtonView.frame = CGRect(x: (Int(screenWidth)-width), y: (Int(screenHeight)-height), width: width, height: height)
+        case false:
+            let width = 72
+            let height = 70
+            AddButtonView.frame = CGRect(x: (Int(screenWidth)-width), y: (Int(screenHeight)-height), width: width, height: height)
+        }
+    }
+    
+    @objc func setAddButton(notification: NSNotification) {
+        if let state = notification.userInfo?["state"] as? Bool {
+            setButtonFrame(state: state)
+        }
+    }
+    
+}
+
+extension Notification.Name {
+     static let addButton = Notification.Name("addButton")
 }

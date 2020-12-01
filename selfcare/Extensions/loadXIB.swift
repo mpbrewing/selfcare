@@ -15,3 +15,14 @@ extension UIViewController {
     }
 
 }
+
+extension UIView {
+    
+   public func loadViewFromNib(name: String) -> UIView! {
+        let bundle = Bundle(for: type(of: self))
+        let nib = UINib(nibName: name, bundle: bundle)
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
+        return view
+    }
+}
+

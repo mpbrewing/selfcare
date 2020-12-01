@@ -36,3 +36,9 @@ extension UIColor {
       }
     
 }
+
+extension UINavigationController {
+   public override var preferredStatusBarStyle: UIStatusBarStyle {
+    return topViewController?.preferredStatusBarStyle ?? .default
+   }
+}
