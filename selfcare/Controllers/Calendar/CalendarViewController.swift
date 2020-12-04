@@ -44,7 +44,7 @@ extension CalendarViewController {
     
      func setupNavigationBar(){
          //Border Color
-         navigationController?.navigationBar.standardAppearance.shadowColor = UIColor.darkGray
+         navigationController?.navigationBar.standardAppearance.shadowColor = UIColor.clear
          //Background Color
          navigationController?.navigationBar.standardAppearance.backgroundColor = UIColor.white
          //Tint Color
@@ -52,9 +52,9 @@ extension CalendarViewController {
          let searchButton = UIBarButtonItem(image: #imageLiteral(resourceName: "search"), style: .plain, target: self, action: #selector(searchAction))
          let filterButton = UIBarButtonItem(image: #imageLiteral(resourceName: "filter"), style: .plain, target: self, action: #selector(filterAction))
          let calendarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "calendar"), style: .plain, target: self, action: #selector(calendarAction))
-         navigationController?.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "backIcon")
-         navigationController?.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "backIcon")
-         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+         //navigationController?.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "backIcon")
+         //navigationController?.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "backIcon")
+         //navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
          navigationItem.rightBarButtonItems = [calendarButton,filterButton,searchButton]
      }
      @objc func searchAction() {}

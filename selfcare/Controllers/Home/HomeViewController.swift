@@ -18,6 +18,8 @@ class HomeViewController: UIViewController {
         setupSwipe()
         setupAddButton()
         NotificationCenter.default.addObserver(self, selector: #selector(setAddButton(notification:)), name: .addButton, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setAddItemSegue(notification:)), name: .addItemSegue, object: nil)
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -27,6 +29,8 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        //print(navigationController?.navigationBar.isHidden ?? "isHidden: default")
     }
     
     var AddButtonView = UIView()
@@ -53,18 +57,19 @@ extension HomeViewController {
    
     func setupNavigationBar(){
         //Border Color
-        navigationController?.navigationBar.standardAppearance.shadowColor = UIColor.darkGray
+        navigationController?.navigationBar.standardAppearance.shadowColor = UIColor.clear
         //Background Color
         navigationController?.navigationBar.standardAppearance.backgroundColor = UIColor.white
         //Tint Color
         navigationController?.navigationBar.tintColor = UIColor.black
+        //
         let menuButton = UIBarButtonItem(image: #imageLiteral(resourceName: "menu"), style: .plain, target: self, action: #selector(menuAction))
         let searchButton = UIBarButtonItem(image: #imageLiteral(resourceName: "search"), style: .plain, target: self, action: #selector(searchAction))
         let filterButton = UIBarButtonItem(image: #imageLiteral(resourceName: "filter"), style: .plain, target: self, action: #selector(filterAction))
         let calendarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "calendar"), style: .plain, target: self, action: #selector(calendarAction))
-        navigationController?.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "backIcon")
-        navigationController?.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "backIcon")
+        //
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        //
         navigationItem.leftBarButtonItem = menuButton
         navigationItem.rightBarButtonItems = [calendarButton,filterButton,searchButton]
     }
@@ -143,8 +148,36 @@ extension HomeViewController {
         }
     }
     
+    @objc func setAddItemSegue(notification: NSNotification) {
+        if let switchSegue = notification.userInfo?["switchSegue"] as? Int {
+            navigationController?.navigationBar.standardAppearance.setBackIndicatorImage(#imageLiteral(resourceName: "exitIcon"), transitionMaskImage: #imageLiteral(resourceName: "exitIcon"))
+            switch switchSegue {
+            case 0:
+                SegueToAddFolder()
+            case 1:
+                SegueToAddTask()
+            default:
+                print("HomeViewController: setAddItemSegue: default")
+            }
+        }
+    }
+    
+    
+    func SegueToAddFolder(){
+        let addFolderView = AddFolderViewController()
+        addFolderView.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(addFolderView, animated: true)
+    }
+    
+    func SegueToAddTask(){
+        let addTaskView = AddTaskViewController()
+        addTaskView.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(addTaskView, animated: true)
+    }
+    
 }
 
 extension Notification.Name {
      static let addButton = Notification.Name("addButton")
+     static let addItemSegue = Notification.Name("addItemSegue")
 }

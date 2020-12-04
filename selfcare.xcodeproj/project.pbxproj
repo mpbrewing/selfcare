@@ -32,6 +32,10 @@
 		EC0AD9D2255B61FE00EC1686 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0AD9D1255B61FE00EC1686 /* LoginViewController.swift */; };
 		EC0AD9D7255B629200EC1686 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9D6255B629200EC1686 /* LoginView.xib */; };
 		EC101495256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC101494256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift */; };
+		EC1CD1962579B59A00609350 /* AddFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1CD1952579B59A00609350 /* AddFolderViewController.swift */; };
+		EC1CD19E2579B5A900609350 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1CD19D2579B5A900609350 /* AddTaskViewController.swift */; };
+		EC1CD1A32579B5E300609350 /* AddFolderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC1CD1A22579B5E300609350 /* AddFolderView.xib */; };
+		EC1CD1A82579B8B800609350 /* AddTaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC1CD1A72579B8B800609350 /* AddTaskView.xib */; };
 		EC32D7AB2567315C003E0437 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC32D7AA2567315C003E0437 /* HomeView.xib */; };
 		EC32D7B1256731AB003E0437 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC32D7B0256731AB003E0437 /* MenuViewController.swift */; };
 		EC32D7B6256731F6003E0437 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC32D7B5256731F6003E0437 /* MenuView.xib */; };
@@ -111,6 +115,10 @@
 		EC0AD9D1255B61FE00EC1686 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EC0AD9D6255B629200EC1686 /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		EC101494256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hideKeyboardWhenTappedAround.swift; sourceTree = "<group>"; };
+		EC1CD1952579B59A00609350 /* AddFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFolderViewController.swift; sourceTree = "<group>"; };
+		EC1CD19D2579B5A900609350 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		EC1CD1A22579B5E300609350 /* AddFolderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFolderView.xib; sourceTree = "<group>"; };
+		EC1CD1A72579B8B800609350 /* AddTaskView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTaskView.xib; sourceTree = "<group>"; };
 		EC32D7AA2567315C003E0437 /* HomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
 		EC32D7B0256731AB003E0437 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		EC32D7B5256731F6003E0437 /* MenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
@@ -281,6 +289,24 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		EC1CD1932579B4D500609350 /* Add Folder */ = {
+			isa = PBXGroup;
+			children = (
+				EC1CD1952579B59A00609350 /* AddFolderViewController.swift */,
+				EC1CD1A22579B5E300609350 /* AddFolderView.xib */,
+			);
+			path = "Add Folder";
+			sourceTree = "<group>";
+		};
+		EC1CD1942579B4DF00609350 /* Add Task */ = {
+			isa = PBXGroup;
+			children = (
+				EC1CD19D2579B5A900609350 /* AddTaskViewController.swift */,
+				EC1CD1A72579B8B800609350 /* AddTaskView.xib */,
+			);
+			path = "Add Task";
+			sourceTree = "<group>";
+		};
 		EC32D7AF25673185003E0437 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,6 +348,8 @@
 		EC97F6722575C2E700063B8B /* Add */ = {
 			isa = PBXGroup;
 			children = (
+				EC1CD1942579B4DF00609350 /* Add Task */,
+				EC1CD1932579B4D500609350 /* Add Folder */,
 				EC97F6732575C2FF00063B8B /* Add Button */,
 			);
 			path = Add;
@@ -525,6 +553,7 @@
 				EC0AD9C1255B502800EC1686 /* NexaThin.otf in Resources */,
 				EC0AD9C6255B502800EC1686 /* NexaBlack.otf in Resources */,
 				ECB5409925632536003CCDA5 /* GoogleService-Info.plist in Resources */,
+				EC1CD1A32579B5E300609350 /* AddFolderView.xib in Resources */,
 				EC32D7B6256731F6003E0437 /* MenuView.xib in Resources */,
 				EC0AD9B6255B502800EC1686 /* NexaLight.otf in Resources */,
 				EC0AD9BA255B502800EC1686 /* NexaHeavyItalic.otf in Resources */,
@@ -542,6 +571,7 @@
 				EC0AD9C2255B502800EC1686 /* NexaBlackItalic.otf in Resources */,
 				EC0AD9B8255B502800EC1686 /* NexaBookItalic.otf in Resources */,
 				EC9CBAA92550F17800D8C4CF /* Assets.xcassets in Resources */,
+				EC1CD1A82579B8B800609350 /* AddTaskView.xib in Resources */,
 				EC0AD9BE255B502800EC1686 /* NexaBold.otf in Resources */,
 				EC587FBA256DA1AA001A5F72 /* FilterView.xib in Resources */,
 				EC0AD9D7255B629200EC1686 /* LoginView.xib in Resources */,
@@ -685,8 +715,10 @@
 				EC32D80925677CB5003E0437 /* customColors.swift in Sources */,
 				EC101495256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift in Sources */,
 				EC32D7BB2567327E003E0437 /* loadXIB.swift in Sources */,
+				EC1CD1962579B59A00609350 /* AddFolderViewController.swift in Sources */,
 				EC0AD9D2255B61FE00EC1686 /* LoginViewController.swift in Sources */,
 				EC97F67A2575C36000063B8B /* AddButtonViewClass.swift in Sources */,
+				EC1CD19E2579B5A900609350 /* AddTaskViewController.swift in Sources */,
 				EC9CBAA42550F17700D8C4CF /* OnboardingViewController.swift in Sources */,
 				EC9CBAA02550F17700D8C4CF /* AppDelegate.swift in Sources */,
 				EC587FB2256DA185001A5F72 /* FilterViewController.swift in Sources */,

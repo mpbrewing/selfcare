@@ -82,13 +82,18 @@ extension AddButtonViewClass {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+        passButtonSelectionSegue(row: indexPath.row)
+    }
+    
+    func passButtonSelectionSegue(row: Int)
+    {
+        let passState = ["switchSegue":row]
+        NotificationCenter.default.post(name: .addItemSegue, object: nil,userInfo: passState)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
-    
     
     func switchHeight()
     {
@@ -106,17 +111,12 @@ extension AddButtonViewClass {
     
     func modifyHeight(height: CGFloat,width: CGFloat)
     {
-       // UIView.animate(withDuration: 0.5) {
-            var frame = self.tableView.frame
-            frame.size.height = height
-            frame.size.width = width
-            self.tableView.frame = frame
-            bounds = frame
-        
-            
-       //}
+        var frame = self.tableView.frame
+        frame.size.height = height
+        frame.size.width = width
+        self.tableView.frame = frame
+        bounds = frame
     }
-    
     
 }
 
@@ -134,8 +134,7 @@ extension AddButtonViewClass {
         addButton.setImage(tintedImage, for: .normal)
     }
     
-    func toggleButton()
-    {
+    func toggleButton() {
         switchHeight()
         switch state {
         case true:
