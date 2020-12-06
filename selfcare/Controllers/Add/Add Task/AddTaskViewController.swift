@@ -8,7 +8,9 @@
 import Foundation
 import UIKit
 
-class AddTaskViewController: UIViewController{
+class AddTaskViewController: UIViewController {
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,22 +19,37 @@ class AddTaskViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        modifyAddNavBar()
         setupNavigationBar()
     }
     
 }
 
 extension AddTaskViewController {
-    func setupNavigationBar(){
-        //Border Color
-        //navigationController?.navigationBar.standardAppearance.shadowColor = UIColor.darkGray
-        //Background Color
-        //navigationController?.navigationBar.standardAppearance.backgroundColor = UIColor.white
-        //Tint Color
-        navigationController?.navigationBar.tintColor = UIColor.lightGray
-    
-        //navigationController?.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "exitIcon")
-        //navigationController?.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "exitIcon")
-        //navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    func setupNavigationBar() {
+        navigationItem.title = "Task"
+        let btn1 = UIButton(type: .custom)
+        btn1.frame = CGRect(x: 0, y: 0, width: 60, height: 30)
+        btn1.titleLabel?.font =  UIFont(name: "Nexa-Normal", size: 10)
+        let attributedTitle = NSAttributedString(string: "Save", attributes: [.foregroundColor: UIColor.white, .font: UIFont(name: "Nexa-Bold", size: 14)!])
+        btn1.setAttributedTitle(attributedTitle, for: .normal)
+        btn1.layer.cornerRadius = 8
+        btn1.backgroundColor = UIColor.systemGreen
+        btn1.addTarget(self, action: #selector(saveButtonAction), for: .touchUpInside)
+        let saveButton = UIBarButtonItem(customView: btn1)
+        navigationItem.rightBarButtonItem = saveButton
     }
+    
+     @objc func saveButtonAction() {
+         print("AddTaskViewController: SaveButtonAction")
+     }
+     
 }
+
+//Pass data back to Home View Controller
+//Add Swipe Gesture Recognizer
+//Create Xibs and Classes
+//Save File To Database
+//Understand File Flow and Data management ...
+//Home View UI Structures
+//

@@ -10,6 +10,7 @@
 		5518780403C4184DA7480B1E /* Pods_selfcareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3515E18FEADDA2D9761E4FF5 /* Pods_selfcareTests.framework */; };
 		6C2AC72E3B41B10BA4D79F2E /* Pods_selfcare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBD825A91F35FBA52D84D96 /* Pods_selfcare.framework */; };
 		7F8451FC2861F3F3AB4FD7FF /* Pods_selfcare_selfcareUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D8422522815C66EB5820CDA /* Pods_selfcare_selfcareUITests.framework */; };
+		EC04C9C7257C53BE002798D7 /* customizeNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC04C9C6257C53BE002798D7 /* customizeNavBar.swift */; };
 		EC0AD99F255B4F9300EC1686 /* OnboardingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD99E255B4F9300EC1686 /* OnboardingView.xib */; };
 		EC0AD9B6255B502800EC1686 /* NexaLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9A4255B502800EC1686 /* NexaLight.otf */; };
 		EC0AD9B7255B502800EC1686 /* Nexa Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9A5255B502800EC1686 /* Nexa Bold.otf */; };
@@ -93,6 +94,7 @@
 		85A3B918AD78CB55FD907A57 /* Pods-selfcare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-selfcare.release.xcconfig"; path = "Target Support Files/Pods-selfcare/Pods-selfcare.release.xcconfig"; sourceTree = "<group>"; };
 		A3011FD3EFFB99D8115EFD49 /* Pods-selfcare-selfcareUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-selfcare-selfcareUITests.debug.xcconfig"; path = "Target Support Files/Pods-selfcare-selfcareUITests/Pods-selfcare-selfcareUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AFBD825A91F35FBA52D84D96 /* Pods_selfcare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_selfcare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC04C9C6257C53BE002798D7 /* customizeNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customizeNavBar.swift; sourceTree = "<group>"; };
 		EC0AD99E255B4F9300EC1686 /* OnboardingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingView.xib; sourceTree = "<group>"; };
 		EC0AD9A4255B502800EC1686 /* NexaLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NexaLight.otf; path = "../../../../Downloads/Nexa-Font/NexaLight.otf"; sourceTree = "<group>"; };
 		EC0AD9A5255B502800EC1686 /* Nexa Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nexa Bold.otf"; path = "../../../../Downloads/Nexa-Font/Nexa Bold.otf"; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				EC32D7BA2567327E003E0437 /* loadXIB.swift */,
 				EC32D80825677CB5003E0437 /* customColors.swift */,
 				EC97F6832575D04E00063B8B /* findViewController.swift */,
+				EC04C9C6257C53BE002798D7 /* customizeNavBar.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -711,6 +714,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC04C9C7257C53BE002798D7 /* customizeNavBar.swift in Sources */,
 				EC587F9F256D7F6C001A5F72 /* CalendarViewController.swift in Sources */,
 				EC32D80925677CB5003E0437 /* customColors.swift in Sources */,
 				EC101495256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift in Sources */,
