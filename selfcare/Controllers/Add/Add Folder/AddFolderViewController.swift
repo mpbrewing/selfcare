@@ -8,14 +8,15 @@
 import Foundation
 import UIKit
 //UITableViewDelegate, UITableViewDataSource
-class AddFolderViewController: UIViewController  {
+class AddFolderViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadXIB(name: "AddFolderView")
-        //setupTableView()
+        setupTableView()
+        hideKeyboardWhenTappedAround()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -23,6 +24,9 @@ class AddFolderViewController: UIViewController  {
         modifyAddNavBar()
         setupNavigationBar()
     }
+    
+    let cellTitleIdentifier = "addTitle"
+    let cellMenuIdentifier = "addMenu"
     
 }
 
@@ -43,30 +47,58 @@ extension AddFolderViewController {
     
      @objc func saveButtonAction() {
          print("AddFolderViewController: SaveButtonAction")
+         navigationController?.popViewController(animated: true)
      }
 }
 
 extension AddFolderViewController {
-    /*
+
      func setupTableView()
      {
-         // Register the Header cell
-         tableView.register(UINib(nibName: "MenuHeaderCell", bundle: nil), forCellReuseIdentifier: cellHeaderIdentifier)
-         // Register the Row cell
-         tableView.register(UINib(nibName: "MenuRowCell", bundle: nil), forCellReuseIdentifier: cellRowIdentifier)
-         // This view controller itself will provide the delegate methods and row data for the table view.
+         // Title
+         tableView.register(UINib(nibName: "AddTitleView", bundle: nil), forCellReuseIdentifier: cellTitleIdentifier)
+         // Menu
+         tableView.register(UINib(nibName: "AddMenuView", bundle: nil), forCellReuseIdentifier: cellMenuIdentifier)
+         //
          tableView.delegate = self
          tableView.dataSource = self
          //
          tableView.tableFooterView = UIView()
      }
      
+     func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+     }
+     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        switch indexPath.row {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellTitleIdentifier, for: indexPath) as! AddTitleCell
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellMenuIdentifier, for: indexPath) as! AddMenuCell
+            cell.addState = 0
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellTitleIdentifier, for: indexPath) as! AddTitleCell
+            return cell
+        }
     }
-    */
+     
+     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+         switch indexPath.row {
+         case 0:
+             return 60
+         case 1:
+             return 743
+         default:
+             return 50
+         }
+     }
+    
+    
 }
