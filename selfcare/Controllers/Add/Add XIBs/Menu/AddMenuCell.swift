@@ -33,6 +33,20 @@ class AddMenuCell: UITableViewCell,UITableViewDelegate, UITableViewDataSource {
     let cellPhotoIdentifier = "addPhoto"
     let cellColorIdentifier = "addColor"
     
+    @IBAction func aboutAction(_ sender: Any) {
+        menuState = 0
+        animateSwitch()
+    }
+    @IBAction func taskAction(_ sender: Any) {
+        menuState = 1
+        animateSwitch()
+    }
+    @IBAction func notesAction(_ sender: Any) {
+        menuState = 2
+        animateSwitch()
+    }
+    
+    
     
 }
 
@@ -203,3 +217,5 @@ extension AddMenuCell {
     
     
 }
+
+

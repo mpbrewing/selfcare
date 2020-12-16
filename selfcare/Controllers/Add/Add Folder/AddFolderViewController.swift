@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 //UITableViewDelegate, UITableViewDataSource
 class AddFolderViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
@@ -17,7 +18,15 @@ class AddFolderViewController: UIViewController,UITableViewDelegate, UITableView
         loadXIB(name: "AddFolderView")
         setupTableView()
         hideKeyboardWhenTappedAround()
+    
+         NotificationCenter.default.addObserver(self, selector: #selector(setFolderDetails(notification:)), name: .addFolderDetails, object: nil)
+        folder.append(Folder(title: "(No title)", emoji: "🖤", photoURL: "(No url)", color: "#ff0000"))
+        item.append(Item(id: "", index: 0, path: [], details: [:]))
     }
+    var folder = [Folder]()
+    var item = [Item]()
+    var folderPhoto: UIImage?
+    let db = Firestore.firestore()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -30,6 +39,7 @@ class AddFolderViewController: UIViewController,UITableViewDelegate, UITableView
     
 }
 
+//Notification Bar
 extension AddFolderViewController {
     func setupNavigationBar() {
         navigationItem.title = "Folder"
@@ -46,15 +56,16 @@ extension AddFolderViewController {
     }
     
      @objc func saveButtonAction() {
-         print("AddFolderViewController: SaveButtonAction")
-         navigationController?.popViewController(animated: true)
+        print("AddFolderViewController: SaveButtonAction")
+        navigationController?.popViewController(animated: true)
+        uploadImageToStorage(image: folderPhoto, db: db, item: item, folder: folder)
      }
 }
 
+//Table View
 extension AddFolderViewController {
 
-     func setupTableView()
-     {
+     func setupTableView() {
          // Title
          tableView.register(UINib(nibName: "AddTitleView", bundle: nil), forCellReuseIdentifier: cellTitleIdentifier)
          // Menu
@@ -100,5 +111,40 @@ extension AddFolderViewController {
          }
      }
     
+    
+}
+
+//Save
+extension AddFolderViewController {
+    @objc func setFolderDetails(notification: NSNotification) {
+        if let segueDetails = notification.userInfo?["segueID"] as? Int {
+            switch segueDetails {
+            case 0:
+                setFolderTitle(info: notification.userInfo!)
+            case 1:
+                setFolderPhoto(info: notification.userInfo!)
+            case 2:
+                setFolderColor(info: notification.userInfo!)
+            default:
+                print("setFolderDetails: default")
+            }
+        }
+    }
+    
+    func setFolderTitle(info: [AnyHashable: Any]){
+        let title = info["title"] as! String
+        let emoji = info["emoji"] as! String
+        folder[0].setTitle(title: title, emoji: emoji)
+    }
+    
+    func setFolderPhoto(info: [AnyHashable: Any]){
+        let photo =  info["photo"] as! UIImage
+        folderPhoto = photo
+    }
+    
+    func setFolderColor(info: [AnyHashable: Any]){
+        let color = info["color"] as! String
+        folder[0].setColor(color: color)
+    }
     
 }

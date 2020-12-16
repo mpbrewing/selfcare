@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
         setupAddButton()
         NotificationCenter.default.addObserver(self, selector: #selector(setAddButton(notification:)), name: .addButton, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setAddItemSegue(notification:)), name: .addItemSegue, object: nil)
-        
+        test.layer.cornerRadius = 10
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -34,6 +34,8 @@ class HomeViewController: UIViewController {
     }
     
     var AddButtonView = UIView()
+    
+    @IBOutlet weak var test: SwipeBarClass!
     
 }
 
@@ -176,8 +178,9 @@ extension HomeViewController {
     }
     
 }
-
+/*
 extension Notification.Name {
      static let addButton = Notification.Name("addButton")
      static let addItemSegue = Notification.Name("addItemSegue")
 }
+*/

@@ -7,6 +7,9 @@ target 'selfcare' do
 
   # Pods for selfcare
 # add the Firebase pod for Google Analytics
+pod 'Firebase/Firestore'
+pod 'FirebaseFirestoreSwift'
+pod 'Firebase/Storage'
 pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
 pod 'SideMenu'

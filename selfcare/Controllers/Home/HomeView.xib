@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="selfcare" customModuleProvider="target">
             <connections>
+                <outlet property="test" destination="9LA-B6-Si7" id="CMX-ce-6Jm"/>
                 <outlet property="view" destination="iN0-l3-epB" id="NXe-6c-LTP"/>
             </connections>
         </placeholder>
@@ -17,6 +18,18 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ouY-tg-YpO" customClass="SwipeClass" customModule="selfcare" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="92" width="414" height="660"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9LA-B6-Si7" customClass="SwipeBarClass" customModule="selfcare" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="790" width="315" height="100"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <point key="canvasLocation" x="137.68115942028987" y="140.625"/>

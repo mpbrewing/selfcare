@@ -37,6 +37,9 @@
 		EC1CD19E2579B5A900609350 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1CD19D2579B5A900609350 /* AddTaskViewController.swift */; };
 		EC1CD1A32579B5E300609350 /* AddFolderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC1CD1A22579B5E300609350 /* AddFolderView.xib */; };
 		EC1CD1A82579B8B800609350 /* AddTaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC1CD1A72579B8B800609350 /* AddTaskView.xib */; };
+		EC21F482258950E000536100 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC21F481258950E000536100 /* Item.swift */; };
+		EC21F49025897E2A00536100 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC21F48F25897E2A00536100 /* Folder.swift */; };
+		EC21F49525897E3A00536100 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC21F49425897E3A00536100 /* Task.swift */; };
 		EC32D7AB2567315C003E0437 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC32D7AA2567315C003E0437 /* HomeView.xib */; };
 		EC32D7B1256731AB003E0437 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC32D7B0256731AB003E0437 /* MenuViewController.swift */; };
 		EC32D7B6256731F6003E0437 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC32D7B5256731F6003E0437 /* MenuView.xib */; };
@@ -52,10 +55,18 @@
 		EC587FA4256D7FAE001A5F72 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC587FA3256D7FAE001A5F72 /* CalendarView.xib */; };
 		EC587FB2256DA185001A5F72 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC587FB1256DA185001A5F72 /* FilterViewController.swift */; };
 		EC587FBA256DA1AA001A5F72 /* FilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC587FB9256DA1AA001A5F72 /* FilterView.xib */; };
+		EC58C5A6258A1689002F120C /* SwipeBarClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC58C5A5258A1689002F120C /* SwipeBarClass.swift */; };
+		EC58C5AB258A16A8002F120C /* SwipeBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC58C5AA258A16A8002F120C /* SwipeBarView.xib */; };
 		EC6BB8FF25802E7E00945FD4 /* AddPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6BB8FE25802E7E00945FD4 /* AddPhotoCell.swift */; };
 		EC6BB90C25802ECF00945FD4 /* AddPhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC6BB90B25802ECF00945FD4 /* AddPhotoView.xib */; };
 		EC6BB912258032D600945FD4 /* AddColorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC6BB911258032D600945FD4 /* AddColorView.xib */; };
 		EC6BB917258032E100945FD4 /* AddColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6BB916258032E100945FD4 /* AddColorCell.swift */; };
+		EC8223682589D65B003EC885 /* notificationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8223672589D65B003EC885 /* notificationExt.swift */; };
+		EC8223792589EB50003EC885 /* uploadToFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8223782589EB50003EC885 /* uploadToFirebase.swift */; };
+		EC82239B258A0211003EC885 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC82239A258A0211003EC885 /* CardView.xib */; };
+		EC8223A0258A05E7003EC885 /* SwipeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC82239F258A05E7003EC885 /* SwipeView.xib */; };
+		EC8223A7258A0836003EC885 /* SwipeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8223A6258A0836003EC885 /* SwipeClass.swift */; };
+		EC8223AF258A0851003EC885 /* CardClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8223AE258A0851003EC885 /* CardClass.swift */; };
 		EC97F6752575C30F00063B8B /* AddButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC97F6742575C30F00063B8B /* AddButtonView.xib */; };
 		EC97F67A2575C36000063B8B /* AddButtonViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC97F6792575C36000063B8B /* AddButtonViewClass.swift */; };
 		EC97F67F2575C53C00063B8B /* AddButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC97F67E2575C53C00063B8B /* AddButtonCell.xib */; };
@@ -130,6 +141,9 @@
 		EC1CD19D2579B5A900609350 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		EC1CD1A22579B5E300609350 /* AddFolderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFolderView.xib; sourceTree = "<group>"; };
 		EC1CD1A72579B8B800609350 /* AddTaskView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTaskView.xib; sourceTree = "<group>"; };
+		EC21F481258950E000536100 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		EC21F48F25897E2A00536100 /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
+		EC21F49425897E3A00536100 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		EC32D7AA2567315C003E0437 /* HomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
 		EC32D7B0256731AB003E0437 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		EC32D7B5256731F6003E0437 /* MenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
@@ -145,10 +159,18 @@
 		EC587FA3256D7FAE001A5F72 /* CalendarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarView.xib; sourceTree = "<group>"; };
 		EC587FB1256DA185001A5F72 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		EC587FB9256DA1AA001A5F72 /* FilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterView.xib; sourceTree = "<group>"; };
+		EC58C5A5258A1689002F120C /* SwipeBarClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBarClass.swift; sourceTree = "<group>"; };
+		EC58C5AA258A16A8002F120C /* SwipeBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwipeBarView.xib; sourceTree = "<group>"; };
 		EC6BB8FE25802E7E00945FD4 /* AddPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoCell.swift; sourceTree = "<group>"; };
 		EC6BB90B25802ECF00945FD4 /* AddPhotoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPhotoView.xib; sourceTree = "<group>"; };
 		EC6BB911258032D600945FD4 /* AddColorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddColorView.xib; sourceTree = "<group>"; };
 		EC6BB916258032E100945FD4 /* AddColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddColorCell.swift; sourceTree = "<group>"; };
+		EC8223672589D65B003EC885 /* notificationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notificationExt.swift; sourceTree = "<group>"; };
+		EC8223782589EB50003EC885 /* uploadToFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadToFirebase.swift; sourceTree = "<group>"; };
+		EC82239A258A0211003EC885 /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
+		EC82239F258A05E7003EC885 /* SwipeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwipeView.xib; sourceTree = "<group>"; };
+		EC8223A6258A0836003EC885 /* SwipeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeClass.swift; sourceTree = "<group>"; };
+		EC8223AE258A0851003EC885 /* CardClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardClass.swift; sourceTree = "<group>"; };
 		EC97F6742575C30F00063B8B /* AddButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddButtonView.xib; sourceTree = "<group>"; };
 		EC97F6792575C36000063B8B /* AddButtonViewClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonViewClass.swift; sourceTree = "<group>"; };
 		EC97F67E2575C53C00063B8B /* AddButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddButtonCell.xib; sourceTree = "<group>"; };
@@ -229,6 +251,7 @@
 		EC0AD991255B462D00EC1686 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EC822399258A0130003EC885 /* GUI */,
 				EC97F6722575C2E700063B8B /* Add */,
 				EC587FB0256DA170001A5F72 /* Filter */,
 				EC587F9D256D7F5C001A5F72 /* Calendar */,
@@ -264,6 +287,8 @@
 				EC97F6832575D04E00063B8B /* findViewController.swift */,
 				EC04C9C6257C53BE002798D7 /* customizeNavBar.swift */,
 				EC397030258004CA00AC21FE /* EmojiTextField.swift */,
+				EC8223672589D65B003EC885 /* notificationExt.swift */,
+				EC8223782589EB50003EC885 /* uploadToFirebase.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -329,6 +354,16 @@
 			path = "Add Task";
 			sourceTree = "<group>";
 		};
+		EC21F4802589280100536100 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EC21F481258950E000536100 /* Item.swift */,
+				EC21F48F25897E2A00536100 /* Folder.swift */,
+				EC21F49425897E3A00536100 /* Task.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		EC32D7AF25673185003E0437 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,6 +411,15 @@
 			path = Filter;
 			sourceTree = "<group>";
 		};
+		EC58C5A4258A167A002F120C /* SwipeBar */ = {
+			isa = PBXGroup;
+			children = (
+				EC58C5A5258A1689002F120C /* SwipeBarClass.swift */,
+				EC58C5AA258A16A8002F120C /* SwipeBarView.xib */,
+			);
+			path = SwipeBar;
+			sourceTree = "<group>";
+		};
 		EC6BB8FD25802E5B00945FD4 /* Photo */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +436,42 @@
 				EC6BB916258032E100945FD4 /* AddColorCell.swift */,
 			);
 			path = Color;
+			sourceTree = "<group>";
+		};
+		EC822399258A0130003EC885 /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+				EC58C5A4258A167A002F120C /* SwipeBar */,
+				EC8223B6258A0A9C003EC885 /* Card */,
+			);
+			path = GUI;
+			sourceTree = "<group>";
+		};
+		EC8223A4258A0785003EC885 /* Card View */ = {
+			isa = PBXGroup;
+			children = (
+				EC82239A258A0211003EC885 /* CardView.xib */,
+				EC8223AE258A0851003EC885 /* CardClass.swift */,
+			);
+			path = "Card View";
+			sourceTree = "<group>";
+		};
+		EC8223A5258A079A003EC885 /* Card Swipe */ = {
+			isa = PBXGroup;
+			children = (
+				EC82239F258A05E7003EC885 /* SwipeView.xib */,
+				EC8223A6258A0836003EC885 /* SwipeClass.swift */,
+			);
+			path = "Card Swipe";
+			sourceTree = "<group>";
+		};
+		EC8223B6258A0A9C003EC885 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				EC8223A5258A079A003EC885 /* Card Swipe */,
+				EC8223A4258A0785003EC885 /* Card View */,
+			);
+			path = Card;
 			sourceTree = "<group>";
 		};
 		EC97F6722575C2E700063B8B /* Add */ = {
@@ -441,6 +521,7 @@
 		EC9CBA9E2550F17700D8C4CF /* selfcare */ = {
 			isa = PBXGroup;
 			children = (
+				EC21F4802589280100536100 /* Models */,
 				EC0AD9A3255B500D00EC1686 /* Fonts */,
 				EC0AD99B255B473800EC1686 /* Extensions */,
 				EC0AD99A255B46BF00EC1686 /* Data */,
@@ -622,6 +703,7 @@
 			files = (
 				EC0AD9C1255B502800EC1686 /* NexaThin.otf in Resources */,
 				EC0AD9C6255B502800EC1686 /* NexaBlack.otf in Resources */,
+				EC82239B258A0211003EC885 /* CardView.xib in Resources */,
 				ECB5409925632536003CCDA5 /* GoogleService-Info.plist in Resources */,
 				EC1CD1A32579B5E300609350 /* AddFolderView.xib in Resources */,
 				EC32D7B6256731F6003E0437 /* MenuView.xib in Resources */,
@@ -644,6 +726,7 @@
 				EC0AD9C2255B502800EC1686 /* NexaBlackItalic.otf in Resources */,
 				EC0AD9B8255B502800EC1686 /* NexaBookItalic.otf in Resources */,
 				EC9CBAA92550F17800D8C4CF /* Assets.xcassets in Resources */,
+				EC8223A0258A05E7003EC885 /* SwipeView.xib in Resources */,
 				EC1CD1A82579B8B800609350 /* AddTaskView.xib in Resources */,
 				EC0AD9BE255B502800EC1686 /* NexaBold.otf in Resources */,
 				EC587FBA256DA1AA001A5F72 /* FilterView.xib in Resources */,
@@ -655,6 +738,7 @@
 				EC0AD9C7255B502800EC1686 /* NexaBook.otf in Resources */,
 				ECA30CD2257FF3A900A9A7A1 /* AddTitleView.xib in Resources */,
 				EC32D7FA25674962003E0437 /* MenuHeaderCell.xib in Resources */,
+				EC58C5AB258A16A8002F120C /* SwipeBarView.xib in Resources */,
 				EC0AD9C5255B502800EC1686 /* NexaXBold.otf in Resources */,
 				EC0AD9BD255B502800EC1686 /* NexaThinItalic.otf in Resources */,
 				EC0AD9C3255B502800EC1686 /* NexaBoldItalic.otf in Resources */,
@@ -785,11 +869,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC8223AF258A0851003EC885 /* CardClass.swift in Sources */,
+				EC58C5A6258A1689002F120C /* SwipeBarClass.swift in Sources */,
+				EC8223682589D65B003EC885 /* notificationExt.swift in Sources */,
 				EC04C9C7257C53BE002798D7 /* customizeNavBar.swift in Sources */,
 				EC397031258004CA00AC21FE /* EmojiTextField.swift in Sources */,
 				EC39703C25800FAF00AC21FE /* AddMenuCell.swift in Sources */,
 				EC587F9F256D7F6C001A5F72 /* CalendarViewController.swift in Sources */,
+				EC8223A7258A0836003EC885 /* SwipeClass.swift in Sources */,
 				EC32D80925677CB5003E0437 /* customColors.swift in Sources */,
+				EC21F49025897E2A00536100 /* Folder.swift in Sources */,
 				EC101495256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift in Sources */,
 				EC6BB8FF25802E7E00945FD4 /* AddPhotoCell.swift in Sources */,
 				EC32D7BB2567327E003E0437 /* loadXIB.swift in Sources */,
@@ -798,16 +887,19 @@
 				EC97F67A2575C36000063B8B /* AddButtonViewClass.swift in Sources */,
 				EC1CD19E2579B5A900609350 /* AddTaskViewController.swift in Sources */,
 				EC9CBAA42550F17700D8C4CF /* OnboardingViewController.swift in Sources */,
+				EC8223792589EB50003EC885 /* uploadToFirebase.swift in Sources */,
 				EC6BB917258032E100945FD4 /* AddColorCell.swift in Sources */,
 				EC9CBAA02550F17700D8C4CF /* AppDelegate.swift in Sources */,
 				EC587FB2256DA185001A5F72 /* FilterViewController.swift in Sources */,
 				EC9CBAA22550F17700D8C4CF /* SceneDelegate.swift in Sources */,
+				EC21F482258950E000536100 /* Item.swift in Sources */,
 				EC9E0EC3255DF2FC00A19D96 /* RegistrationViewController.swift in Sources */,
 				ECF23C802561ECEA00022D1E /* HomeViewController.swift in Sources */,
 				EC32D7B1256731AB003E0437 /* MenuViewController.swift in Sources */,
 				ECA30CD7257FF5A600A9A7A1 /* AddTitleCell.swift in Sources */,
 				EC97F6842575D04E00063B8B /* findViewController.swift in Sources */,
 				EC97F6992575D61500063B8B /* AddButtonCellClass.swift in Sources */,
+				EC21F49525897E3A00536100 /* Task.swift in Sources */,
 				EC32D80425674D54003E0437 /* MenuRowTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

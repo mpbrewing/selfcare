@@ -101,8 +101,10 @@ class AddColorCell: UITableViewCell {
             let point = sender.location(in: contentView)
             moveColorScale(y: point.y)
             updateColorScale(y: point.y)
-        default:
-            print("handleColorPan")
+        case .ended:
+            passSegue()
+        default: break
+            //print("handleColorPan")
         }
     }
     
@@ -137,8 +139,10 @@ class AddColorCell: UITableViewCell {
             let point = sender.location(in: contentView)
             moveShadeIcon(x: point.x, y: point.y)
             updateHSL(x: point.x, y: point.y)
-        default:
-            print("handleShadePan")
+        case .ended:
+            passSegue()
+        default: break
+            //print("handleShadePan")
         }
     }
     
@@ -157,6 +161,15 @@ class AddColorCell: UITableViewCell {
             hex.textColor = color
             hex.text = color.toHexString()
         }
+    }
+    
+    func returnInput() -> [String:Any] {
+        let holdInput: [String:Any] = ["segueID":2,"color":hex?.text ?? "#ff0000"]
+        return holdInput
+    }
+     
+    func passSegue() {
+        NotificationCenter.default.post(name: .addFolderDetails, object: nil,userInfo: returnInput())
     }
     
 }

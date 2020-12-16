@@ -24,6 +24,7 @@ class AddPhotoCell: UITableViewCell,UIImagePickerControllerDelegate, UINavigatio
         self.currentImageView?.image = PickedImage
         self.currentImageView?.clipsToBounds = true
             }
+        passSegue()
         let vc = findViewController()
         vc?.dismiss(animated: true, completion: nil)
     }
@@ -57,6 +58,17 @@ class AddPhotoCell: UITableViewCell,UIImagePickerControllerDelegate, UINavigatio
         let vc = findViewController()
         vc?.present(imagePicker, animated: true, completion: nil)
     }
+    
+    
+    func returnInput() -> [String:Any] {
+        let holdInput: [String:Any] = ["segueID":1,"photo":currentImageView?.image ?? UIImage()]
+        return holdInput
+    }
+     
+    func passSegue() {
+        NotificationCenter.default.post(name: .addFolderDetails, object: nil,userInfo: returnInput())
+    }
+     
     
 }
 

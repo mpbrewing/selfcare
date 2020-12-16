@@ -35,6 +35,7 @@
                         <textInputTraits key="textInputTraits"/>
                         <connections>
                             <action selector="EmojiEditingChanged:" destination="HRf-3d-arg" eventType="editingDidBegin" id="q2k-FE-iPv"/>
+                            <action selector="EmojiEditingDidEnd:" destination="HRf-3d-arg" eventType="editingDidEnd" id="Eao-Fe-Kxr"/>
                         </connections>
                     </textField>
                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ybe-gt-gvf">
@@ -44,6 +45,9 @@
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" name="Nexa-Bold" family="Nexa" pointSize="26"/>
                         <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <action selector="titleEditingDidEnd:" destination="HRf-3d-arg" eventType="editingDidEnd" id="tRK-ad-wg1"/>
+                        </connections>
                     </textField>
                 </subviews>
             </tableViewCellContentView>
