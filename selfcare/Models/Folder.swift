@@ -44,6 +44,7 @@ class Folder {
     func toAnyObject() -> Any {
         return [
             "title": title,
+            "emoji": emoji,
             "photoURL": photoURL,
             "color": color
         ]

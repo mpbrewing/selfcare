@@ -37,7 +37,7 @@ extension UIViewController {
     func storageToFirebase(db: Firestore,photoURL: String, item: [Item], folder: [Folder]) {
         folder[0].setPhotoURL(url: photoURL)
         item[0].setDetails(details: folder[0].toAnyObject() as! [String : Any])
-        uploadItemToFirestore(db: db, item: item[0].details)
+        uploadItemToFirestore(db: db, item: item[0].toAnyObject() as! [String : Any])
     }
     
     func uploadItemToFirestore(db: Firestore,item: [String:Any]) {
