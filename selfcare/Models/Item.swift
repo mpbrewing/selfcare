@@ -26,7 +26,7 @@ class Item {
         self.id = snapshot["id"] as! String
         self.index = snapshot["index"] as! Int
         self.path = snapshot["path"] as! [String]
-        self.details = snapshot["path"] as! [String:Any]
+        self.details = snapshot["details"] as! [String:Any]
     }
     
     func setDetails(details: [String:Any]) {

@@ -10,8 +10,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SwipeClass" customModule="selfcare" customModuleProvider="target">
             <connections>
-                <outlet property="Card12" destination="m5f-Uc-136" id="gH7-kO-Z7H"/>
-                <outlet property="Card13" destination="nJS-ua-nuu" id="vGE-8f-BrV"/>
                 <outlet property="ViewHandle" destination="iN0-l3-epB" id="tdU-vE-8Yl"/>
                 <outlet property="signal" destination="VL7-Kh-gIi" id="X7d-8Z-9X1"/>
             </connections>
@@ -21,12 +19,12 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="660"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m5f-Uc-136" customClass="CardClass" customModule="selfcare" customModuleProvider="target">
+                <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m5f-Uc-136" customClass="CardClass" customModule="selfcare" customModuleProvider="target">
                     <rect key="frame" x="10" y="0.0" width="332" height="638"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.64330051369999997" green="0.66299229449999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nJS-ua-nuu" customClass="CardClass" customModule="selfcare" customModuleProvider="target">
+                <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nJS-ua-nuu" customClass="CardClass" customModule="selfcare" customModuleProvider="target">
                     <rect key="frame" x="352" y="0.0" width="166" height="319"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.64330051369999997" green="0.66299229449999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>

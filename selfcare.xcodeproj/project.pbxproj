@@ -57,6 +57,9 @@
 		EC587FBA256DA1AA001A5F72 /* FilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC587FB9256DA1AA001A5F72 /* FilterView.xib */; };
 		EC58C5A6258A1689002F120C /* SwipeBarClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC58C5A5258A1689002F120C /* SwipeBarClass.swift */; };
 		EC58C5AB258A16A8002F120C /* SwipeBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC58C5AA258A16A8002F120C /* SwipeBarView.xib */; };
+		EC669E6625A8CAFD0036D331 /* SwipeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC669E6525A8CAFD0036D331 /* SwipeCard.swift */; };
+		EC669E6B25A9168B0036D331 /* retrieveFromFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC669E6A25A9168B0036D331 /* retrieveFromFirebase.swift */; };
+		EC669E7025A92B6A0036D331 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC669E6F25A92B6A0036D331 /* Wallet.swift */; };
 		EC6BB8FF25802E7E00945FD4 /* AddPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6BB8FE25802E7E00945FD4 /* AddPhotoCell.swift */; };
 		EC6BB90C25802ECF00945FD4 /* AddPhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC6BB90B25802ECF00945FD4 /* AddPhotoView.xib */; };
 		EC6BB912258032D600945FD4 /* AddColorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC6BB911258032D600945FD4 /* AddColorView.xib */; };
@@ -161,6 +164,9 @@
 		EC587FB9256DA1AA001A5F72 /* FilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterView.xib; sourceTree = "<group>"; };
 		EC58C5A5258A1689002F120C /* SwipeBarClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBarClass.swift; sourceTree = "<group>"; };
 		EC58C5AA258A16A8002F120C /* SwipeBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwipeBarView.xib; sourceTree = "<group>"; };
+		EC669E6525A8CAFD0036D331 /* SwipeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCard.swift; sourceTree = "<group>"; };
+		EC669E6A25A9168B0036D331 /* retrieveFromFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = retrieveFromFirebase.swift; sourceTree = "<group>"; };
+		EC669E6F25A92B6A0036D331 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		EC6BB8FE25802E7E00945FD4 /* AddPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoCell.swift; sourceTree = "<group>"; };
 		EC6BB90B25802ECF00945FD4 /* AddPhotoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPhotoView.xib; sourceTree = "<group>"; };
 		EC6BB911258032D600945FD4 /* AddColorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddColorView.xib; sourceTree = "<group>"; };
@@ -289,6 +295,7 @@
 				EC397030258004CA00AC21FE /* EmojiTextField.swift */,
 				EC8223672589D65B003EC885 /* notificationExt.swift */,
 				EC8223782589EB50003EC885 /* uploadToFirebase.swift */,
+				EC669E6A25A9168B0036D331 /* retrieveFromFirebase.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -360,6 +367,8 @@
 				EC21F481258950E000536100 /* Item.swift */,
 				EC21F48F25897E2A00536100 /* Folder.swift */,
 				EC21F49425897E3A00536100 /* Task.swift */,
+				EC669E6525A8CAFD0036D331 /* SwipeCard.swift */,
+				EC669E6F25A92B6A0036D331 /* Wallet.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -884,6 +893,7 @@
 				EC32D7BB2567327E003E0437 /* loadXIB.swift in Sources */,
 				EC1CD1962579B59A00609350 /* AddFolderViewController.swift in Sources */,
 				EC0AD9D2255B61FE00EC1686 /* LoginViewController.swift in Sources */,
+				EC669E7025A92B6A0036D331 /* Wallet.swift in Sources */,
 				EC97F67A2575C36000063B8B /* AddButtonViewClass.swift in Sources */,
 				EC1CD19E2579B5A900609350 /* AddTaskViewController.swift in Sources */,
 				EC9CBAA42550F17700D8C4CF /* OnboardingViewController.swift in Sources */,
@@ -891,9 +901,11 @@
 				EC6BB917258032E100945FD4 /* AddColorCell.swift in Sources */,
 				EC9CBAA02550F17700D8C4CF /* AppDelegate.swift in Sources */,
 				EC587FB2256DA185001A5F72 /* FilterViewController.swift in Sources */,
+				EC669E6B25A9168B0036D331 /* retrieveFromFirebase.swift in Sources */,
 				EC9CBAA22550F17700D8C4CF /* SceneDelegate.swift in Sources */,
 				EC21F482258950E000536100 /* Item.swift in Sources */,
 				EC9E0EC3255DF2FC00A19D96 /* RegistrationViewController.swift in Sources */,
+				EC669E6625A8CAFD0036D331 /* SwipeCard.swift in Sources */,
 				ECF23C802561ECEA00022D1E /* HomeViewController.swift in Sources */,
 				EC32D7B1256731AB003E0437 /* MenuViewController.swift in Sources */,
 				ECA30CD7257FF5A600A9A7A1 /* AddTitleCell.swift in Sources */,

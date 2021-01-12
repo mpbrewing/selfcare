@@ -16,7 +16,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         loadXIB(name: "HomeView")
         setupSwipe()
-        setupAddButton()
+        //setupSwipeView()
+        //setupAddButton()
         NotificationCenter.default.addObserver(self, selector: #selector(setAddButton(notification:)), name: .addButton, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setAddItemSegue(notification:)), name: .addItemSegue, object: nil)
         test.layer.cornerRadius = 10
@@ -29,11 +30,14 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
+        setupSwipeView()
+        setupAddButton()
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         //print(navigationController?.navigationBar.isHidden ?? "isHidden: default")
     }
     
     var AddButtonView = UIView()
+    var swipeClassView = UIView()
     
     @IBOutlet weak var test: SwipeBarClass!
     
@@ -105,6 +109,12 @@ extension HomeViewController {
         navigationController?.pushViewController(calendarView, animated: true)
     }
     
+}
+extension HomeViewController {
+    func setupSwipeView() {
+        swipeClassView = SwipeClass(frame: CGRect(x: 0, y: 92, width: 414, height: 660))
+        self.view.addSubview(swipeClassView)
+    }
 }
 
 //Add Button
