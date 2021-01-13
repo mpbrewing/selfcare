@@ -30,8 +30,15 @@ class AddMenuCell: UITableViewCell,UITableViewDelegate, UITableViewDataSource {
     
     var addState = 0
     var menuState = 0
+    
     let cellPhotoIdentifier = "addPhoto"
     let cellColorIdentifier = "addColor"
+    let cellDescriptionIdentifier = "addDescription"
+    let cellFilePathId = "addFilePath"
+    let cellEventsId = "addEvents"
+    let cellStatusId = "addStatus"
+    let cellPriorityId = "addPriority"
+    let cellTagsId = "addTags"
     
     @IBAction func aboutAction(_ sender: Any) {
         menuState = 0
@@ -131,6 +138,18 @@ extension AddMenuCell {
          tableView.register(UINib(nibName: "AddPhotoView", bundle: nil), forCellReuseIdentifier: cellPhotoIdentifier)
          // Color
          tableView.register(UINib(nibName: "AddColorView", bundle: nil), forCellReuseIdentifier: cellColorIdentifier)
+         // Description
+         tableView.register(UINib(nibName: "AddDescriptionView", bundle: nil), forCellReuseIdentifier: cellDescriptionIdentifier)
+         // File Path
+         tableView.register(UINib(nibName: "AddFilePathView", bundle: nil), forCellReuseIdentifier: cellFilePathId)
+         // Events
+         tableView.register(UINib(nibName: "AddEventsView", bundle: nil), forCellReuseIdentifier: cellEventsId)
+         // Status
+         tableView.register(UINib(nibName: "AddStatusView", bundle: nil), forCellReuseIdentifier: cellStatusId)
+         // Priority
+         tableView.register(UINib(nibName: "AddPriorityView", bundle: nil), forCellReuseIdentifier: cellPriorityId)
+         // Tags
+         tableView.register(UINib(nibName: "AddTagsView", bundle: nil), forCellReuseIdentifier: cellTagsId)
          //
          tableView.delegate = self
          tableView.dataSource = self
@@ -151,6 +170,8 @@ extension AddMenuCell {
         switch addState {
         case 0:
             return 2
+        case 1:
+            return 6
         default:
             return 0
         }
@@ -170,6 +191,8 @@ extension AddMenuCell {
         switch addState {
         case 0:
             return returnFolderCells(indexPath: indexPath)
+        case 1:
+            return returnTaskCells(indexPath: indexPath)
         default:
             return returnFolderCells(indexPath: indexPath)
         }
@@ -191,11 +214,40 @@ extension AddMenuCell {
             return cell
         }
     }
+    
+    func returnTaskCells(indexPath: IndexPath) -> UITableViewCell
+    {
+        switch indexPath.row {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriptionIdentifier, for: indexPath) as! AddDescriptionCell
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellFilePathId, for: indexPath) as! AddFilePathCell
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellEventsId, for: indexPath) as! AddEventsCell
+            return cell
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellStatusId, for: indexPath) as! AddStatusCell
+            return cell
+        case 4:
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellPriorityId, for: indexPath) as! AddPriorityCell
+            return cell
+        case 5:
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellTagsId, for: indexPath) as! AddTagsCell
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriptionIdentifier, for: indexPath) as! AddDescriptionCell
+            return cell
+        }
+    }
      
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch addState {
         case 0:
             return returnFolderCellHeight(indexPath: indexPath)
+        case 1:
+            return returnTaskCellHeight(indexPath: indexPath)
         default:
             return returnFolderCellHeight(indexPath: indexPath)
         }
@@ -212,6 +264,18 @@ extension AddMenuCell {
             return CGFloat(380)
         default:
             return CGFloat(100)
+        }
+    }
+    
+    func returnTaskCellHeight(indexPath: IndexPath) -> CGFloat
+    {
+        switch indexPath.row {
+        case 0:
+            return CGFloat(50)
+        case 3,4:
+            return CGFloat(100)
+        default:
+            return CGFloat(50)
         }
     }
     
