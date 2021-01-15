@@ -99,6 +99,8 @@
 		ECE4CDE025AE919A0016F6B6 /* AddPriorityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECE4CDDF25AE919A0016F6B6 /* AddPriorityView.xib */; };
 		ECE4CDE525AE91A40016F6B6 /* AddTagsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECE4CDE425AE91A40016F6B6 /* AddTagsView.xib */; };
 		ECE4CDEA25AE91B60016F6B6 /* AddTagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE4CDE925AE91B60016F6B6 /* AddTagsCell.swift */; };
+		ECEA2B7F25B16A3900A2FAB4 /* EventTab.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECEA2B7E25B16A3900A2FAB4 /* EventTab.xib */; };
+		ECEA2B8425B16A9A00A2FAB4 /* EventTabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEA2B8325B16A9A00A2FAB4 /* EventTabCell.swift */; };
 		ECF23C802561ECEA00022D1E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23C7F2561ECEA00022D1E /* HomeViewController.swift */; };
 		ECF29B8425B0FD2F0076E6C6 /* FullFilePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF29B8325B0FD2F0076E6C6 /* FullFilePath.swift */; };
 		ECF29B8C25B0FD3F0076E6C6 /* FilePathView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECF29B8B25B0FD3F0076E6C6 /* FilePathView.xib */; };
@@ -230,6 +232,8 @@
 		ECE4CDDF25AE919A0016F6B6 /* AddPriorityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPriorityView.xib; sourceTree = "<group>"; };
 		ECE4CDE425AE91A40016F6B6 /* AddTagsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTagsView.xib; sourceTree = "<group>"; };
 		ECE4CDE925AE91B60016F6B6 /* AddTagsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagsCell.swift; sourceTree = "<group>"; };
+		ECEA2B7E25B16A3900A2FAB4 /* EventTab.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTab.xib; sourceTree = "<group>"; };
+		ECEA2B8325B16A9A00A2FAB4 /* EventTabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTabCell.swift; sourceTree = "<group>"; };
 		ECF23C7F2561ECEA00022D1E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		ECF29B8325B0FD2F0076E6C6 /* FullFilePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullFilePath.swift; sourceTree = "<group>"; };
 		ECF29B8B25B0FD3F0076E6C6 /* FilePathView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilePathView.xib; sourceTree = "<group>"; };
@@ -708,6 +712,23 @@
 			path = Tags;
 			sourceTree = "<group>";
 		};
+		ECEA2B7D25B16A1300A2FAB4 /* Event XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				ECEA2B8825B16A9F00A2FAB4 /* Event Tab */,
+			);
+			path = "Event XIBs";
+			sourceTree = "<group>";
+		};
+		ECEA2B8825B16A9F00A2FAB4 /* Event Tab */ = {
+			isa = PBXGroup;
+			children = (
+				ECEA2B7E25B16A3900A2FAB4 /* EventTab.xib */,
+				ECEA2B8325B16A9A00A2FAB4 /* EventTabCell.swift */,
+			);
+			path = "Event Tab";
+			sourceTree = "<group>";
+		};
 		ECF23C7E2561ECDA00022D1E /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -729,6 +750,7 @@
 		ECF29B9525B0FD730076E6C6 /* Full Events */ = {
 			isa = PBXGroup;
 			children = (
+				ECEA2B7D25B16A1300A2FAB4 /* Event XIBs */,
 				ECF29B9025B0FD6A0076E6C6 /* FullEvents.swift */,
 				ECF29B9625B0FD860076E6C6 /* EventsView.xib */,
 			);
@@ -866,6 +888,7 @@
 				EC6BB90C25802ECF00945FD4 /* AddPhotoView.xib in Resources */,
 				EC9CBAAC2550F17800D8C4CF /* LaunchScreen.storyboard in Resources */,
 				EC0AD9B9255B502800EC1686 /* NexaRegularItalic.otf in Resources */,
+				ECEA2B7F25B16A3900A2FAB4 /* EventTab.xib in Resources */,
 				ECE4CDBD25AE912D0016F6B6 /* AddFilePathView.xib in Resources */,
 				EC0AD9BC255B502800EC1686 /* Nexa Light.otf in Resources */,
 				ECF29B8C25B0FD3F0076E6C6 /* FilePathView.xib in Resources */,
@@ -1042,6 +1065,7 @@
 				ECE4CDC725AE91530016F6B6 /* AddEventsCell.swift in Sources */,
 				EC32D80925677CB5003E0437 /* customColors.swift in Sources */,
 				EC21F49025897E2A00536100 /* Folder.swift in Sources */,
+				ECEA2B8425B16A9A00A2FAB4 /* EventTabCell.swift in Sources */,
 				EC101495256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift in Sources */,
 				EC6BB8FF25802E7E00945FD4 /* AddPhotoCell.swift in Sources */,
 				EC32D7BB2567327E003E0437 /* loadXIB.swift in Sources */,

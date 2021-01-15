@@ -8,19 +8,28 @@
 import Foundation
 import UIKit
 
-class FullEvents: UIViewController {
+class FullEvents: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
     
     @IBOutlet weak var cursor: UIView!
+    @IBOutlet weak var tabCollection: UICollectionView!
+    @IBOutlet weak var eventCollection: UICollectionView!
+    @IBOutlet weak var saveButton: UIButton!
+    
+    @IBAction func saveButtonAction(_ sender: Any) {
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadXIB(name: "EventsView")
+        setupCollectionView()
         setupNavigationBar()
         setupStyle()
         setupSwipe()
     }
     
     var state = 0
+    let tabReuseID = "eventTab"
     
     func setupNavigationBar() {
         navigationItem.title = "Events"
@@ -37,6 +46,8 @@ class FullEvents: UIViewController {
         view.layer.borderColor = UIColor.appleBlue.cgColor
         cursor.layer.cornerRadius = 3
         cursor.layer.backgroundColor = UIColor.appleBlue.cgColor
+        saveButton.layer.cornerRadius = 20
+        saveButton.layer.backgroundColor = UIColor.appleBlue.cgColor
     }
 
     func setupSwipe(){
@@ -62,6 +73,7 @@ class FullEvents: UIViewController {
      {
          UIView.animate(withDuration: 0.2, animations: {
             self.switchStyle()
+            self.tabCollection.reloadData()
          })
      }
     
@@ -81,5 +93,86 @@ class FullEvents: UIViewController {
         view.layer.borderColor = colorArray[state].cgColor
         cursor.frame = CGRect(x: CGFloat(cursoryArray[state]), y: 147, width: 40, height: 7)
         cursor.backgroundColor = colorArray[state]
+        saveButton.backgroundColor = colorArray[state]
     }
+}
+
+extension FullEvents {
+    
+    func setupCollectionView(){
+        self.tabCollection.register(UINib(nibName: "EventTab", bundle:nil), forCellWithReuseIdentifier: "eventTab")
+    }
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        switch collectionView {
+        case tabCollection:
+            return 5
+        default:
+            return 0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        switch collectionView {
+        case tabCollection:
+            return switchTabCollection(collectionView: collectionView, indexPath: indexPath)
+        default:
+            return switchTabCollection(collectionView: collectionView, indexPath: indexPath)
+        }
+    }
+    
+    func switchTabCollection(collectionView: UICollectionView ,indexPath: IndexPath) -> UICollectionViewCell {
+        let imageArray = [#imageLiteral(resourceName: "eventCalendar"),#imageLiteral(resourceName: "eventClock"),#imageLiteral(resourceName: "eventRepeat"),#imageLiteral(resourceName: "eventNotify"),#imageLiteral(resourceName: "eventLocation")]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.tabReuseID, for: indexPath as IndexPath) as! EventTabCell
+        cell.tab.image = imageArray[indexPath.row]
+        cell.updateStyle(row: indexPath.row, state: state)
+        return cell
+    }
+    /*
+    func switchEventCollection(collectionView: UICollectionView ,indexPath: IndexPath) -> UICollectionViewCell {
+        switch state {
+        case 0:
+            <#code#>
+        default:
+            <#code#>
+        }
+    } */
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // handle tap events
+        print("You selected cell #\(indexPath.item)!")
+        switch collectionView {
+        case tabCollection:
+            state = indexPath.row
+            animateSwitch()
+        default:
+            break
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        switch collectionView {
+        case tabCollection:
+            let width = (collectionView.frame.width / 5)
+            return CGSize(width: width, height: 50)
+        case eventCollection:
+            return CGSize(width: 414, height: 620)
+        default:
+            return CGSize(width: 50, height: 50)
+        }
+   }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 0
+    }
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 0
+    }
+    
+    
+    
 }
