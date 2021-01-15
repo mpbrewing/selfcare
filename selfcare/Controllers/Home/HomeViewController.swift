@@ -73,12 +73,7 @@ extension HomeViewController {
         //Border Color
         navigationController?.navigationBar.standardAppearance.shadowColor = UIColor.clear
         //Background Color
-        //navigationController?.navigationBar.standardAppearance.backgroundColor = UIColor.white
-        navigationController?.navigationBar.standardAppearance.backgroundColor = .clear
-        navigationController?.navigationBar.standardAppearance.backgroundEffect = .none
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.standardAppearance.backgroundColor = UIColor.white
         //Tint Color
         navigationController?.navigationBar.tintColor = UIColor.black
         //
@@ -91,6 +86,19 @@ extension HomeViewController {
         //
         navigationItem.leftBarButtonItem = menuButton
         navigationItem.rightBarButtonItems = [calendarButton,filterButton,searchButton]
+    }
+    
+    func switchNavBG(state: Bool) {
+        switch state {
+        case true:
+            navigationController?.navigationBar.standardAppearance.backgroundColor = UIColor.white
+        case false:
+            navigationController?.navigationBar.standardAppearance.backgroundColor = .clear
+            navigationController?.navigationBar.standardAppearance.backgroundEffect = .none
+            navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+            navigationController?.navigationBar.shadowImage = UIImage()
+            navigationController?.navigationBar.isTranslucent = true
+        }
     }
     
     @objc func menuAction() {
@@ -211,9 +219,11 @@ extension HomeViewController {
             addButtonBackground.alpha = 1
             self.view.bringSubviewToFront(addButtonBackground)
             self.view.bringSubviewToFront(AddButtonView)
+            switchNavBG(state: state)
         case false:
             addButtonBackground.alpha = 0
             self.view.sendSubviewToBack(addButtonBackground)
+            switchNavBG(state: state)
         }
     }
     
@@ -250,6 +260,7 @@ extension HomeViewController {
     }
     
 }
+
 /*
 extension Notification.Name {
      static let addButton = Notification.Name("addButton")

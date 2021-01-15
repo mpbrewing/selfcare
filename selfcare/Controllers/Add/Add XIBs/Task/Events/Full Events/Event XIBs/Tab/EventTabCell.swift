@@ -17,7 +17,6 @@ class EventTabCell: UICollectionViewCell {
     
     func updateStyle(row: Int,state:Int){
         let colorArray = [UIColor.appleBlue,UIColor.applePurple,UIColor.appleRed,UIColor.appleOrange,UIColor.appleYellow]
-        //tab.frame = CGRect(x: 16, y: 0, width: 50, height: 50)
         tab.contentMode = .scaleAspectFill
         tab.image = tab.image?.withRenderingMode(.alwaysTemplate)
         if row == state {

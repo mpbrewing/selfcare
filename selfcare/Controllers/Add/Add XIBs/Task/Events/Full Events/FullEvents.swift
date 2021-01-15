@@ -30,6 +30,11 @@ class FullEvents: UIViewController, UICollectionViewDataSource, UICollectionView
     
     var state = 0
     let tabReuseID = "eventTab"
+    let dateReuseId = "dateTab"
+    let timeReuseId = "timeTab"
+    let repeatReuseId = "repeatTab"
+    let notifyReuseId = "notifyTab"
+    let locationReuseId = "locationTab"
     
     func setupNavigationBar() {
         navigationItem.title = "Events"
@@ -74,6 +79,7 @@ class FullEvents: UIViewController, UICollectionViewDataSource, UICollectionView
          UIView.animate(withDuration: 0.2, animations: {
             self.switchStyle()
             self.tabCollection.reloadData()
+            self.eventCollection.reloadData()
          })
      }
     
@@ -100,7 +106,12 @@ class FullEvents: UIViewController, UICollectionViewDataSource, UICollectionView
 extension FullEvents {
     
     func setupCollectionView(){
-        self.tabCollection.register(UINib(nibName: "EventTab", bundle:nil), forCellWithReuseIdentifier: "eventTab")
+        self.tabCollection.register(UINib(nibName: "EventTab", bundle:nil), forCellWithReuseIdentifier: tabReuseID)
+        self.eventCollection.register(UINib(nibName: "EventDateTab", bundle:nil), forCellWithReuseIdentifier: dateReuseId)
+        self.eventCollection.register(UINib(nibName: "EventTimeTab", bundle:nil), forCellWithReuseIdentifier: timeReuseId)
+        self.eventCollection.register(UINib(nibName: "EventRepeatTab", bundle:nil), forCellWithReuseIdentifier: repeatReuseId)
+        self.eventCollection.register(UINib(nibName: "EventNotifyTab", bundle:nil), forCellWithReuseIdentifier: notifyReuseId)
+        self.eventCollection.register(UINib(nibName: "EventLocationTab", bundle:nil), forCellWithReuseIdentifier: locationReuseId)
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -111,6 +122,8 @@ extension FullEvents {
         switch collectionView {
         case tabCollection:
             return 5
+        case eventCollection:
+            return 1
         default:
             return 0
         }
@@ -120,6 +133,8 @@ extension FullEvents {
         switch collectionView {
         case tabCollection:
             return switchTabCollection(collectionView: collectionView, indexPath: indexPath)
+        case eventCollection:
+            return switchEventCollection(collectionView: collectionView, indexPath: indexPath)
         default:
             return switchTabCollection(collectionView: collectionView, indexPath: indexPath)
         }
@@ -132,19 +147,33 @@ extension FullEvents {
         cell.updateStyle(row: indexPath.row, state: state)
         return cell
     }
-    /*
+    
     func switchEventCollection(collectionView: UICollectionView ,indexPath: IndexPath) -> UICollectionViewCell {
         switch state {
         case 0:
-            <#code#>
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: dateReuseId, for: indexPath as IndexPath) as! EventDateCell
+            return cell
+        case 1:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: timeReuseId, for: indexPath as IndexPath) as! EventTimeCell
+            return cell
+        case 2:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: repeatReuseId, for: indexPath as IndexPath) as! EventRepeatCell
+            return cell
+        case 3:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: notifyReuseId, for: indexPath as IndexPath) as! EventNotifyCell
+            return cell
+        case 4:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: locationReuseId, for: indexPath as IndexPath) as! EventLocationCell
+            return cell
         default:
-            <#code#>
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: dateReuseId, for: indexPath as IndexPath) as! EventDateCell
+            return cell
         }
-    } */
+    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
-        print("You selected cell #\(indexPath.item)!")
+        //print("You selected cell #\(indexPath.item)!")
         switch collectionView {
         case tabCollection:
             state = indexPath.row
@@ -160,7 +189,7 @@ extension FullEvents {
             let width = (collectionView.frame.width / 5)
             return CGSize(width: width, height: 50)
         case eventCollection:
-            return CGSize(width: 414, height: 620)
+            return CGSize(width: 414, height: 634)
         default:
             return CGSize(width: 50, height: 50)
         }

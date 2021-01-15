@@ -51,6 +51,18 @@
 		EC397031258004CA00AC21FE /* EmojiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC397030258004CA00AC21FE /* EmojiTextField.swift */; };
 		EC39703725800F9500AC21FE /* AddMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC39703625800F9500AC21FE /* AddMenuView.xib */; };
 		EC39703C25800FAF00AC21FE /* AddMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39703B25800FAF00AC21FE /* AddMenuCell.swift */; };
+		EC43D5AB25B17AA400BB5EA7 /* EventDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC43D5AA25B17AA400BB5EA7 /* EventDateCell.swift */; };
+		EC43D5B325B17AD300BB5EA7 /* EventTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC43D5B225B17AD300BB5EA7 /* EventTimeCell.swift */; };
+		EC43D5BB25B17AEF00BB5EA7 /* EventRepeatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC43D5BA25B17AEF00BB5EA7 /* EventRepeatCell.swift */; };
+		EC43D5C025B17B0000BB5EA7 /* EventNotifyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC43D5BF25B17B0000BB5EA7 /* EventNotifyCell.swift */; };
+		EC43D5C525B17B1800BB5EA7 /* EventLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC43D5C425B17B1800BB5EA7 /* EventLocationCell.swift */; };
+		EC43D5CD25B17BBB00BB5EA7 /* EventDateTab.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC43D5CC25B17BBB00BB5EA7 /* EventDateTab.xib */; };
+		EC43D5D225B17C1500BB5EA7 /* EventTimeTab.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC43D5D125B17C1500BB5EA7 /* EventTimeTab.xib */; };
+		EC43D5D725B17C5800BB5EA7 /* EventRepeatTab.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC43D5D625B17C5800BB5EA7 /* EventRepeatTab.xib */; };
+		EC43D5DC25B17C7800BB5EA7 /* EventNotifyTab.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC43D5DB25B17C7800BB5EA7 /* EventNotifyTab.xib */; };
+		EC43D5E125B17C9F00BB5EA7 /* EventLocationTab.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC43D5E025B17C9F00BB5EA7 /* EventLocationTab.xib */; };
+		EC43D5E625B19C9F00BB5EA7 /* MiniDate.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC43D5E525B19C9F00BB5EA7 /* MiniDate.xib */; };
+		EC43D5EB25B19D6300BB5EA7 /* MiniDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC43D5EA25B19D6300BB5EA7 /* MiniDateCell.swift */; };
 		EC587F9F256D7F6C001A5F72 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC587F9E256D7F6C001A5F72 /* CalendarViewController.swift */; };
 		EC587FA4256D7FAE001A5F72 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC587FA3256D7FAE001A5F72 /* CalendarView.xib */; };
 		EC587FB2256DA185001A5F72 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC587FB1256DA185001A5F72 /* FilterViewController.swift */; };
@@ -178,6 +190,18 @@
 		EC397030258004CA00AC21FE /* EmojiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTextField.swift; sourceTree = "<group>"; };
 		EC39703625800F9500AC21FE /* AddMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMenuView.xib; sourceTree = "<group>"; };
 		EC39703B25800FAF00AC21FE /* AddMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuCell.swift; sourceTree = "<group>"; };
+		EC43D5AA25B17AA400BB5EA7 /* EventDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDateCell.swift; sourceTree = "<group>"; };
+		EC43D5B225B17AD300BB5EA7 /* EventTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTimeCell.swift; sourceTree = "<group>"; };
+		EC43D5BA25B17AEF00BB5EA7 /* EventRepeatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRepeatCell.swift; sourceTree = "<group>"; };
+		EC43D5BF25B17B0000BB5EA7 /* EventNotifyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventNotifyCell.swift; sourceTree = "<group>"; };
+		EC43D5C425B17B1800BB5EA7 /* EventLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocationCell.swift; sourceTree = "<group>"; };
+		EC43D5CC25B17BBB00BB5EA7 /* EventDateTab.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventDateTab.xib; sourceTree = "<group>"; };
+		EC43D5D125B17C1500BB5EA7 /* EventTimeTab.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTimeTab.xib; sourceTree = "<group>"; };
+		EC43D5D625B17C5800BB5EA7 /* EventRepeatTab.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventRepeatTab.xib; sourceTree = "<group>"; };
+		EC43D5DB25B17C7800BB5EA7 /* EventNotifyTab.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventNotifyTab.xib; sourceTree = "<group>"; };
+		EC43D5E025B17C9F00BB5EA7 /* EventLocationTab.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventLocationTab.xib; sourceTree = "<group>"; };
+		EC43D5E525B19C9F00BB5EA7 /* MiniDate.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiniDate.xib; sourceTree = "<group>"; };
+		EC43D5EA25B19D6300BB5EA7 /* MiniDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniDateCell.swift; sourceTree = "<group>"; };
 		EC587F9E256D7F6C001A5F72 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		EC587FA3256D7FAE001A5F72 /* CalendarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarView.xib; sourceTree = "<group>"; };
 		EC587FB1256DA185001A5F72 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -440,6 +464,53 @@
 				EC39703B25800FAF00AC21FE /* AddMenuCell.swift */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		EC43D5A525B17A0B00BB5EA7 /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				EC43D5AA25B17AA400BB5EA7 /* EventDateCell.swift */,
+				EC43D5CC25B17BBB00BB5EA7 /* EventDateTab.xib */,
+				EC43D5E525B19C9F00BB5EA7 /* MiniDate.xib */,
+				EC43D5EA25B19D6300BB5EA7 /* MiniDateCell.swift */,
+			);
+			path = Date;
+			sourceTree = "<group>";
+		};
+		EC43D5A625B17A1600BB5EA7 /* Time */ = {
+			isa = PBXGroup;
+			children = (
+				EC43D5B225B17AD300BB5EA7 /* EventTimeCell.swift */,
+				EC43D5D125B17C1500BB5EA7 /* EventTimeTab.xib */,
+			);
+			path = Time;
+			sourceTree = "<group>";
+		};
+		EC43D5A725B17A1F00BB5EA7 /* Repeat */ = {
+			isa = PBXGroup;
+			children = (
+				EC43D5BA25B17AEF00BB5EA7 /* EventRepeatCell.swift */,
+				EC43D5D625B17C5800BB5EA7 /* EventRepeatTab.xib */,
+			);
+			path = Repeat;
+			sourceTree = "<group>";
+		};
+		EC43D5A825B17A4400BB5EA7 /* Notify */ = {
+			isa = PBXGroup;
+			children = (
+				EC43D5BF25B17B0000BB5EA7 /* EventNotifyCell.swift */,
+				EC43D5DB25B17C7800BB5EA7 /* EventNotifyTab.xib */,
+			);
+			path = Notify;
+			sourceTree = "<group>";
+		};
+		EC43D5A925B17A4D00BB5EA7 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				EC43D5C425B17B1800BB5EA7 /* EventLocationCell.swift */,
+				EC43D5E025B17C9F00BB5EA7 /* EventLocationTab.xib */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 		EC587F9D256D7F5C001A5F72 /* Calendar */ = {
@@ -715,18 +786,23 @@
 		ECEA2B7D25B16A1300A2FAB4 /* Event XIBs */ = {
 			isa = PBXGroup;
 			children = (
-				ECEA2B8825B16A9F00A2FAB4 /* Event Tab */,
+				EC43D5A525B17A0B00BB5EA7 /* Date */,
+				EC43D5A625B17A1600BB5EA7 /* Time */,
+				EC43D5A725B17A1F00BB5EA7 /* Repeat */,
+				EC43D5A825B17A4400BB5EA7 /* Notify */,
+				EC43D5A925B17A4D00BB5EA7 /* Location */,
+				ECEA2B8825B16A9F00A2FAB4 /* Tab */,
 			);
 			path = "Event XIBs";
 			sourceTree = "<group>";
 		};
-		ECEA2B8825B16A9F00A2FAB4 /* Event Tab */ = {
+		ECEA2B8825B16A9F00A2FAB4 /* Tab */ = {
 			isa = PBXGroup;
 			children = (
 				ECEA2B7E25B16A3900A2FAB4 /* EventTab.xib */,
 				ECEA2B8325B16A9A00A2FAB4 /* EventTabCell.swift */,
 			);
-			path = "Event Tab";
+			path = Tab;
 			sourceTree = "<group>";
 		};
 		ECF23C7E2561ECDA00022D1E /* Home */ = {
@@ -878,6 +954,7 @@
 				EC0AD9C6255B502800EC1686 /* NexaBlack.otf in Resources */,
 				EC82239B258A0211003EC885 /* CardView.xib in Resources */,
 				ECB5409925632536003CCDA5 /* GoogleService-Info.plist in Resources */,
+				EC43D5D225B17C1500BB5EA7 /* EventTimeTab.xib in Resources */,
 				EC1CD1A32579B5E300609350 /* AddFolderView.xib in Resources */,
 				EC32D7B6256731F6003E0437 /* MenuView.xib in Resources */,
 				EC0AD9B6255B502800EC1686 /* NexaLight.otf in Resources */,
@@ -886,7 +963,10 @@
 				EC0AD9BB255B502800EC1686 /* NexaHeavy.otf in Resources */,
 				EC97F67F2575C53C00063B8B /* AddButtonCell.xib in Resources */,
 				EC6BB90C25802ECF00945FD4 /* AddPhotoView.xib in Resources */,
+				EC43D5CD25B17BBB00BB5EA7 /* EventDateTab.xib in Resources */,
 				EC9CBAAC2550F17800D8C4CF /* LaunchScreen.storyboard in Resources */,
+				EC43D5D725B17C5800BB5EA7 /* EventRepeatTab.xib in Resources */,
+				EC43D5DC25B17C7800BB5EA7 /* EventNotifyTab.xib in Resources */,
 				EC0AD9B9255B502800EC1686 /* NexaRegularItalic.otf in Resources */,
 				ECEA2B7F25B16A3900A2FAB4 /* EventTab.xib in Resources */,
 				ECE4CDBD25AE912D0016F6B6 /* AddFilePathView.xib in Resources */,
@@ -900,6 +980,7 @@
 				ECE4CDD125AE916C0016F6B6 /* AddStatusView.xib in Resources */,
 				EC39703725800F9500AC21FE /* AddMenuView.xib in Resources */,
 				EC9E0EBE255DF2F200A19D96 /* RegistrationView.xib in Resources */,
+				EC43D5E625B19C9F00BB5EA7 /* MiniDate.xib in Resources */,
 				EC0AD9C2255B502800EC1686 /* NexaBlackItalic.otf in Resources */,
 				EC0AD9B8255B502800EC1686 /* NexaBookItalic.otf in Resources */,
 				EC9CBAA92550F17800D8C4CF /* Assets.xcassets in Resources */,
@@ -909,6 +990,7 @@
 				EC1CD1A82579B8B800609350 /* AddTaskView.xib in Resources */,
 				EC0AD9BE255B502800EC1686 /* NexaBold.otf in Resources */,
 				ECE4CDE025AE919A0016F6B6 /* AddPriorityView.xib in Resources */,
+				EC43D5E125B17C9F00BB5EA7 /* EventLocationTab.xib in Resources */,
 				EC587FBA256DA1AA001A5F72 /* FilterView.xib in Resources */,
 				EC0AD9D7255B629200EC1686 /* LoginView.xib in Resources */,
 				EC97F6752575C30F00063B8B /* AddButtonView.xib in Resources */,
@@ -1053,6 +1135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECE4CDD625AE91790016F6B6 /* AddStatusCell.swift in Sources */,
+				EC43D5C525B17B1800BB5EA7 /* EventLocationCell.swift in Sources */,
 				EC8223AF258A0851003EC885 /* CardClass.swift in Sources */,
 				EC58C5A6258A1689002F120C /* SwipeBarClass.swift in Sources */,
 				ECE4CDDB25AE918A0016F6B6 /* AddPriorityCell.swift in Sources */,
@@ -1068,10 +1151,14 @@
 				ECEA2B8425B16A9A00A2FAB4 /* EventTabCell.swift in Sources */,
 				EC101495256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift in Sources */,
 				EC6BB8FF25802E7E00945FD4 /* AddPhotoCell.swift in Sources */,
+				EC43D5AB25B17AA400BB5EA7 /* EventDateCell.swift in Sources */,
 				EC32D7BB2567327E003E0437 /* loadXIB.swift in Sources */,
 				ECF29B9125B0FD6A0076E6C6 /* FullEvents.swift in Sources */,
+				EC43D5C025B17B0000BB5EA7 /* EventNotifyCell.swift in Sources */,
+				EC43D5BB25B17AEF00BB5EA7 /* EventRepeatCell.swift in Sources */,
 				EC1CD1962579B59A00609350 /* AddFolderViewController.swift in Sources */,
 				ECF29B8425B0FD2F0076E6C6 /* FullFilePath.swift in Sources */,
+				EC43D5EB25B19D6300BB5EA7 /* MiniDateCell.swift in Sources */,
 				ECE4CDC225AE913B0016F6B6 /* AddFilePathCell.swift in Sources */,
 				EC0AD9D2255B61FE00EC1686 /* LoginViewController.swift in Sources */,
 				ECE4CDEA25AE91B60016F6B6 /* AddTagsCell.swift in Sources */,
@@ -1090,6 +1177,7 @@
 				EC21F482258950E000536100 /* Item.swift in Sources */,
 				EC9E0EC3255DF2FC00A19D96 /* RegistrationViewController.swift in Sources */,
 				EC669E6625A8CAFD0036D331 /* SwipeCard.swift in Sources */,
+				EC43D5B325B17AD300BB5EA7 /* EventTimeCell.swift in Sources */,
 				ECF23C802561ECEA00022D1E /* HomeViewController.swift in Sources */,
 				EC32D7B1256731AB003E0437 /* MenuViewController.swift in Sources */,
 				ECA30CD7257FF5A600A9A7A1 /* AddTitleCell.swift in Sources */,

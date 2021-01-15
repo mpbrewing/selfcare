@@ -18,6 +18,10 @@ extension UIColor {
         return UIColor.init(red: 220, green: 220, blue: 220)
     }
     
+    class var lightGains: UIColor {
+        return UIColor.init(red: 240, green: 240, blue: 240)
+    }
+    
     class var appleBlue: UIColor {
         return UIColor.init(red: 0, green: 159, blue: 235)
     }
