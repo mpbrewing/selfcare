@@ -53,6 +53,11 @@ extension AddFolderViewController {
         btn1.addTarget(self, action: #selector(saveButtonAction), for: .touchUpInside)
         let saveButton = UIBarButtonItem(customView: btn1)
         navigationItem.rightBarButtonItem = saveButton
+        navigationController?.navigationBar.standardAppearance.backgroundColor = .clear
+        navigationController?.navigationBar.standardAppearance.backgroundEffect = .none
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
     }
     
      @objc func saveButtonAction() {

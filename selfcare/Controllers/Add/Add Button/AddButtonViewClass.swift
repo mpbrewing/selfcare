@@ -55,9 +55,7 @@ class AddButtonViewClass: UIView,UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var addButton: UIButton!
     @IBAction func addButtonAction(_ sender: UIButton) {
-        state = !state
-        toggleButton()
-        tableView.reloadData()
+        addButtonDown()
     }
     
 }
@@ -83,6 +81,7 @@ extension AddButtonViewClass {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         passButtonSelectionSegue(row: indexPath.row)
+        addButtonDown()
     }
     
     func passButtonSelectionSegue(row: Int)
@@ -116,6 +115,12 @@ extension AddButtonViewClass {
         frame.size.width = width
         self.tableView.frame = frame
         bounds = frame
+    }
+    
+    func addButtonDown(){
+        state = !state
+        toggleButton()
+        tableView.reloadData()
     }
     
 }

@@ -35,6 +35,7 @@ class SwipeBarClass: UIView {
       
      func handleInit() {
         ViewHandle.layer.cornerRadius = 20
+        ViewHandle.layer.backgroundColor = UIColor.gainsboro.cgColor
      }
   
     

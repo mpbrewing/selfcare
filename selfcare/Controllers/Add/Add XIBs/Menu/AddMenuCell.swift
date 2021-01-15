@@ -19,8 +19,8 @@ class AddMenuCell: UITableViewCell,UITableViewDelegate, UITableViewDataSource {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupXIB()
-        setupSwipe()
         setupTableView()
+        setupSwipe()
     }
     
     func setupXIB()
@@ -131,6 +131,8 @@ extension AddMenuCell {
 }
 
 extension AddMenuCell {
+    
+   
 
      func setupTableView()
      {
@@ -277,6 +279,60 @@ extension AddMenuCell {
         default:
             return CGFloat(50)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch addState {
+        case 1:
+            returnTaskDidSelectRowAt(indexPath: indexPath)
+        default:
+            //print(indexPath.row)
+            break
+        }
+        //print(indexPath.row)
+    }
+    
+    func returnTaskDidSelectRowAt(indexPath: IndexPath){
+        switch indexPath.row {
+        case 1:
+            SegueToFilePath()
+        case 2:
+            SegueToEvents()
+        case 5:
+            SegueToTags()
+        default:
+            //print(indexPath.row)
+            break
+        }
+    }
+    
+    func SegueToFilePath(){
+        modifyBackButton()
+        let filepath = FullFilePath()
+        filepath.modalPresentationStyle = .fullScreen
+        let vc = findViewController()
+        vc?.navigationController?.pushViewController(filepath, animated: true)
+    }
+    
+    func SegueToEvents(){
+        modifyBackButton()
+        let events = FullEvents()
+        events.modalPresentationStyle = .fullScreen
+        let vc = findViewController()
+        vc?.navigationController?.pushViewController(events, animated: true)
+    }
+    
+    func SegueToTags(){
+        modifyBackButton()
+        let tags = FullTags()
+        tags.modalPresentationStyle = .fullScreen
+        let vc = findViewController()
+        vc?.navigationController?.pushViewController(tags, animated: true)
+    }
+    
+    func modifyBackButton(){
+        let vc = findViewController()
+        vc?.navigationController?.navigationBar.standardAppearance.setBackIndicatorImage(#imageLiteral(resourceName: "back2"), transitionMaskImage: #imageLiteral(resourceName: "back2"))
     }
     
     

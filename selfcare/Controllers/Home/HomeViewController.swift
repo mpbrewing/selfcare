@@ -14,10 +14,12 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //toggleAlpha(state: false)
         loadXIB(name: "HomeView")
         setupSwipe()
         setupSwipeView()
         setupAddButton()
+        setupAddButtonBackground()
         NotificationCenter.default.addObserver(self, selector: #selector(setAddButton(notification:)), name: .addButton, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setAddItemSegue(notification:)), name: .addItemSegue, object: nil)
         test.layer.cornerRadius = 10
@@ -29,15 +31,21 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //self.toggleAlpha(state: true)
         setupNavigationBar()
         //setupSwipeView()
         //setupAddButton()
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.navigationBar.standardAppearance.setBackIndicatorImage(#imageLiteral(resourceName: "backIcon"), transitionMaskImage: #imageLiteral(resourceName: "backIcon"))
         //print(navigationController?.navigationBar.isHidden ?? "isHidden: default")
     }
     
-    var AddButtonView = UIView()
+    //var AddButtonView = UIView()
+    var AddButtonView = AddButtonViewClass()
     var swipeClassView = UIView()
+    var addButtonBackground = UIView()
+    //var leftSwipe = UISwipeGestureRecognizer()
+    //var rightSwipe = UISwipeGestureRecognizer()
     
     @IBOutlet weak var test: SwipeBarClass!
     
@@ -65,7 +73,12 @@ extension HomeViewController {
         //Border Color
         navigationController?.navigationBar.standardAppearance.shadowColor = UIColor.clear
         //Background Color
-        navigationController?.navigationBar.standardAppearance.backgroundColor = UIColor.white
+        //navigationController?.navigationBar.standardAppearance.backgroundColor = UIColor.white
+        navigationController?.navigationBar.standardAppearance.backgroundColor = .clear
+        navigationController?.navigationBar.standardAppearance.backgroundEffect = .none
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
         //Tint Color
         navigationController?.navigationBar.tintColor = UIColor.black
         //
@@ -101,6 +114,9 @@ extension HomeViewController {
     
     @objc func calendarAction() {
         SegueToCalendar()
+        if AddButtonView.state == true {
+            AddButtonView.addButtonDown()
+        }
     }
     
     func SegueToCalendar(){
@@ -147,10 +163,12 @@ extension HomeViewController {
             let width = 160
             let height = 420
             AddButtonView.frame = CGRect(x: (Int(screenWidth)-width), y: (Int(screenHeight)-height), width: width, height: height)
+            toggleAddButtonBackground(state: state)
         case false:
             let width = 72
             let height = 70
             AddButtonView.frame = CGRect(x: (Int(screenWidth)-width), y: (Int(screenHeight)-height), width: width, height: height)
+            toggleAddButtonBackground(state: state)
         }
     }
     
@@ -185,6 +203,50 @@ extension HomeViewController {
         let addTaskView = AddTaskViewController()
         addTaskView.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(addTaskView, animated: true)
+    }
+    
+    func toggleAddButtonBackground(state: Bool){
+        switch state {
+        case true:
+            addButtonBackground.alpha = 1
+            self.view.bringSubviewToFront(addButtonBackground)
+            self.view.bringSubviewToFront(AddButtonView)
+        case false:
+            addButtonBackground.alpha = 0
+            self.view.sendSubviewToBack(addButtonBackground)
+        }
+    }
+    
+    func setupAddButtonBackground(){
+        let screenSize = UIScreen.main.bounds
+        addButtonBackground = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
+        addButtonBackground.backgroundColor = UIColor.clear
+        addButtonBackground.alpha = 0
+        self.view.addSubview(addButtonBackground)
+        let gradient = CAGradientLayer()
+        gradient.frame = addButtonBackground.bounds
+        gradient.colors = [UIColor.clear.cgColor,UIColor.white.cgColor]
+        gradient.startPoint = CGPoint(x: 0, y: 0)
+        gradient.endPoint = CGPoint(x: 0, y: 1.0)
+        gradient.cornerRadius = 20
+        addButtonBackground.layer.addSublayer(gradient)
+        self.view.sendSubviewToBack(addButtonBackground)
+        //addButtonBackground.alpha = 0
+    }
+    
+    func toggleAlpha(state: Bool){
+        switch state {
+        case true:
+            test.alpha = 1
+            swipeClassView.alpha = 1
+            AddButtonView.alpha = 1
+            //addButtonBackground.alpha = 1
+        case false:
+            test.alpha = 0
+            swipeClassView.alpha = 0
+            AddButtonView.alpha = 0
+            addButtonBackground.alpha = 0
+        }
     }
     
 }

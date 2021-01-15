@@ -11,6 +11,7 @@ extension UIViewController {
     public func hideKeyboardWhenTappedAround() {
         let tapGesture = UITapGestureRecognizer(target: self,
                          action: #selector(hideKeyboard))
+        tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
     }
 
@@ -18,3 +19,5 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
+
+

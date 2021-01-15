@@ -16,6 +16,7 @@ class AddDescriptionCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupXIB()
+        
     }
     
     func setupXIB() {

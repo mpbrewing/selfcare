@@ -100,6 +100,12 @@
 		ECE4CDE525AE91A40016F6B6 /* AddTagsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECE4CDE425AE91A40016F6B6 /* AddTagsView.xib */; };
 		ECE4CDEA25AE91B60016F6B6 /* AddTagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE4CDE925AE91B60016F6B6 /* AddTagsCell.swift */; };
 		ECF23C802561ECEA00022D1E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23C7F2561ECEA00022D1E /* HomeViewController.swift */; };
+		ECF29B8425B0FD2F0076E6C6 /* FullFilePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF29B8325B0FD2F0076E6C6 /* FullFilePath.swift */; };
+		ECF29B8C25B0FD3F0076E6C6 /* FilePathView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECF29B8B25B0FD3F0076E6C6 /* FilePathView.xib */; };
+		ECF29B9125B0FD6A0076E6C6 /* FullEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF29B9025B0FD6A0076E6C6 /* FullEvents.swift */; };
+		ECF29B9725B0FD860076E6C6 /* EventsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECF29B9625B0FD860076E6C6 /* EventsView.xib */; };
+		ECF29B9D25B0FDA70076E6C6 /* TagsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECF29B9C25B0FDA70076E6C6 /* TagsView.xib */; };
+		ECF29BA225B0FDB40076E6C6 /* FullTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF29BA125B0FDB40076E6C6 /* FullTags.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -225,6 +231,12 @@
 		ECE4CDE425AE91A40016F6B6 /* AddTagsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTagsView.xib; sourceTree = "<group>"; };
 		ECE4CDE925AE91B60016F6B6 /* AddTagsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagsCell.swift; sourceTree = "<group>"; };
 		ECF23C7F2561ECEA00022D1E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		ECF29B8325B0FD2F0076E6C6 /* FullFilePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullFilePath.swift; sourceTree = "<group>"; };
+		ECF29B8B25B0FD3F0076E6C6 /* FilePathView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilePathView.xib; sourceTree = "<group>"; };
+		ECF29B9025B0FD6A0076E6C6 /* FullEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullEvents.swift; sourceTree = "<group>"; };
+		ECF29B9625B0FD860076E6C6 /* EventsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventsView.xib; sourceTree = "<group>"; };
+		ECF29B9C25B0FDA70076E6C6 /* TagsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagsView.xib; sourceTree = "<group>"; };
+		ECF29BA125B0FDB40076E6C6 /* FullTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullTags.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -651,6 +663,7 @@
 		ECE4CDB725AE90A10016F6B6 /* File Path */ = {
 			isa = PBXGroup;
 			children = (
+				ECF29B8225B0FD0F0076E6C6 /* Full File Path */,
 				ECE4CDBC25AE912D0016F6B6 /* AddFilePathView.xib */,
 				ECE4CDC125AE913B0016F6B6 /* AddFilePathCell.swift */,
 			);
@@ -660,6 +673,7 @@
 		ECE4CDB825AE90AA0016F6B6 /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				ECF29B9525B0FD730076E6C6 /* Full Events */,
 				ECE4CDC625AE91530016F6B6 /* AddEventsCell.swift */,
 				ECE4CDCB25AE91610016F6B6 /* AddEventsView.xib */,
 			);
@@ -687,6 +701,7 @@
 		ECE4CDBB25AE90E00016F6B6 /* Tags */ = {
 			isa = PBXGroup;
 			children = (
+				ECF29B9B25B0FD950076E6C6 /* Full Tags */,
 				ECE4CDE425AE91A40016F6B6 /* AddTagsView.xib */,
 				ECE4CDE925AE91B60016F6B6 /* AddTagsCell.swift */,
 			);
@@ -700,6 +715,33 @@
 				ECF23C7F2561ECEA00022D1E /* HomeViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		ECF29B8225B0FD0F0076E6C6 /* Full File Path */ = {
+			isa = PBXGroup;
+			children = (
+				ECF29B8325B0FD2F0076E6C6 /* FullFilePath.swift */,
+				ECF29B8B25B0FD3F0076E6C6 /* FilePathView.xib */,
+			);
+			path = "Full File Path";
+			sourceTree = "<group>";
+		};
+		ECF29B9525B0FD730076E6C6 /* Full Events */ = {
+			isa = PBXGroup;
+			children = (
+				ECF29B9025B0FD6A0076E6C6 /* FullEvents.swift */,
+				ECF29B9625B0FD860076E6C6 /* EventsView.xib */,
+			);
+			path = "Full Events";
+			sourceTree = "<group>";
+		};
+		ECF29B9B25B0FD950076E6C6 /* Full Tags */ = {
+			isa = PBXGroup;
+			children = (
+				ECF29B9C25B0FDA70076E6C6 /* TagsView.xib */,
+				ECF29BA125B0FDB40076E6C6 /* FullTags.swift */,
+			);
+			path = "Full Tags";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -826,6 +868,7 @@
 				EC0AD9B9255B502800EC1686 /* NexaRegularItalic.otf in Resources */,
 				ECE4CDBD25AE912D0016F6B6 /* AddFilePathView.xib in Resources */,
 				EC0AD9BC255B502800EC1686 /* Nexa Light.otf in Resources */,
+				ECF29B8C25B0FD3F0076E6C6 /* FilePathView.xib in Resources */,
 				EC32D7AB2567315C003E0437 /* HomeView.xib in Resources */,
 				EC0AD9C0255B502800EC1686 /* NexaRegular.otf in Resources */,
 				EC0AD9BF255B502800EC1686 /* NexaLightItalic.otf in Resources */,
@@ -838,6 +881,8 @@
 				EC0AD9B8255B502800EC1686 /* NexaBookItalic.otf in Resources */,
 				EC9CBAA92550F17800D8C4CF /* Assets.xcassets in Resources */,
 				EC8223A0258A05E7003EC885 /* SwipeView.xib in Resources */,
+				ECF29B9D25B0FDA70076E6C6 /* TagsView.xib in Resources */,
+				ECF29B9725B0FD860076E6C6 /* EventsView.xib in Resources */,
 				EC1CD1A82579B8B800609350 /* AddTaskView.xib in Resources */,
 				EC0AD9BE255B502800EC1686 /* NexaBold.otf in Resources */,
 				ECE4CDE025AE919A0016F6B6 /* AddPriorityView.xib in Resources */,
@@ -1000,7 +1045,9 @@
 				EC101495256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift in Sources */,
 				EC6BB8FF25802E7E00945FD4 /* AddPhotoCell.swift in Sources */,
 				EC32D7BB2567327E003E0437 /* loadXIB.swift in Sources */,
+				ECF29B9125B0FD6A0076E6C6 /* FullEvents.swift in Sources */,
 				EC1CD1962579B59A00609350 /* AddFolderViewController.swift in Sources */,
+				ECF29B8425B0FD2F0076E6C6 /* FullFilePath.swift in Sources */,
 				ECE4CDC225AE913B0016F6B6 /* AddFilePathCell.swift in Sources */,
 				EC0AD9D2255B61FE00EC1686 /* LoginViewController.swift in Sources */,
 				ECE4CDEA25AE91B60016F6B6 /* AddTagsCell.swift in Sources */,
@@ -1013,6 +1060,7 @@
 				EC9CBAA02550F17700D8C4CF /* AppDelegate.swift in Sources */,
 				EC587FB2256DA185001A5F72 /* FilterViewController.swift in Sources */,
 				EC669E6B25A9168B0036D331 /* retrieveFromFirebase.swift in Sources */,
+				ECF29BA225B0FDB40076E6C6 /* FullTags.swift in Sources */,
 				EC8352DA25AE709F00F2C1B6 /* AddDescriptionCell.swift in Sources */,
 				EC9CBAA22550F17700D8C4CF /* SceneDelegate.swift in Sources */,
 				EC21F482258950E000536100 /* Item.swift in Sources */,

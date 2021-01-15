@@ -46,7 +46,12 @@ extension CalendarViewController {
          //Border Color
          navigationController?.navigationBar.standardAppearance.shadowColor = UIColor.clear
          //Background Color
-         navigationController?.navigationBar.standardAppearance.backgroundColor = UIColor.white
+         //navigationController?.navigationBar.standardAppearance.backgroundColor = UIColor.white
+        navigationController?.navigationBar.standardAppearance.backgroundColor = .clear
+        navigationController?.navigationBar.standardAppearance.backgroundEffect = .none
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
          //Tint Color
          navigationController?.navigationBar.tintColor = UIColor.black
          let searchButton = UIBarButtonItem(image: #imageLiteral(resourceName: "search"), style: .plain, target: self, action: #selector(searchAction))
