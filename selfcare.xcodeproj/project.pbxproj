@@ -40,6 +40,8 @@
 		EC21F482258950E000536100 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC21F481258950E000536100 /* Item.swift */; };
 		EC21F49025897E2A00536100 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC21F48F25897E2A00536100 /* Folder.swift */; };
 		EC21F49525897E3A00536100 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC21F49425897E3A00536100 /* Task.swift */; };
+		EC26336225B5FD510099A91E /* CalendarDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC26336125B5FD510099A91E /* CalendarDate.swift */; };
+		EC26336725B600A30099A91E /* dateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC26336625B600A30099A91E /* dateExtension.swift */; };
 		EC32D7AB2567315C003E0437 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC32D7AA2567315C003E0437 /* HomeView.xib */; };
 		EC32D7B1256731AB003E0437 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC32D7B0256731AB003E0437 /* MenuViewController.swift */; };
 		EC32D7B6256731F6003E0437 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC32D7B5256731F6003E0437 /* MenuView.xib */; };
@@ -179,6 +181,8 @@
 		EC21F481258950E000536100 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		EC21F48F25897E2A00536100 /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
 		EC21F49425897E3A00536100 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		EC26336125B5FD510099A91E /* CalendarDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDate.swift; sourceTree = "<group>"; };
+		EC26336625B600A30099A91E /* dateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateExtension.swift; sourceTree = "<group>"; };
 		EC32D7AA2567315C003E0437 /* HomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
 		EC32D7B0256731AB003E0437 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		EC32D7B5256731F6003E0437 /* MenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
@@ -360,6 +364,7 @@
 				EC8223672589D65B003EC885 /* notificationExt.swift */,
 				EC8223782589EB50003EC885 /* uploadToFirebase.swift */,
 				EC669E6A25A9168B0036D331 /* retrieveFromFirebase.swift */,
+				EC26336625B600A30099A91E /* dateExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -433,6 +438,7 @@
 				EC21F49425897E3A00536100 /* Task.swift */,
 				EC669E6525A8CAFD0036D331 /* SwipeCard.swift */,
 				EC669E6F25A92B6A0036D331 /* Wallet.swift */,
+				EC26336125B5FD510099A91E /* CalendarDate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1175,12 +1181,14 @@
 				EC8352DA25AE709F00F2C1B6 /* AddDescriptionCell.swift in Sources */,
 				EC9CBAA22550F17700D8C4CF /* SceneDelegate.swift in Sources */,
 				EC21F482258950E000536100 /* Item.swift in Sources */,
+				EC26336225B5FD510099A91E /* CalendarDate.swift in Sources */,
 				EC9E0EC3255DF2FC00A19D96 /* RegistrationViewController.swift in Sources */,
 				EC669E6625A8CAFD0036D331 /* SwipeCard.swift in Sources */,
 				EC43D5B325B17AD300BB5EA7 /* EventTimeCell.swift in Sources */,
 				ECF23C802561ECEA00022D1E /* HomeViewController.swift in Sources */,
 				EC32D7B1256731AB003E0437 /* MenuViewController.swift in Sources */,
 				ECA30CD7257FF5A600A9A7A1 /* AddTitleCell.swift in Sources */,
+				EC26336725B600A30099A91E /* dateExtension.swift in Sources */,
 				EC97F6842575D04E00063B8B /* findViewController.swift in Sources */,
 				EC97F6992575D61500063B8B /* AddButtonCellClass.swift in Sources */,
 				EC21F49525897E3A00536100 /* Task.swift in Sources */,

@@ -17,6 +17,7 @@ class FullEvents: UIViewController, UICollectionViewDataSource, UICollectionView
     @IBOutlet weak var saveButton: UIButton!
     
     @IBAction func saveButtonAction(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {

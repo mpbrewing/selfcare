@@ -18,11 +18,19 @@ class EventDateCell: UICollectionViewCell,UIPickerViewDelegate, UIPickerViewData
     var monthData: [String] = [String]()
     var yearData: [Int] = [Int]()
     let dateReuseID = "dateNib"
+    var month = 0
+    var day = 0
+    var year = 0
+    var calendarDate = [CalendarDate]()
+    var defaultLabel = String()
+    var selectedDates = [CalendarDate]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupStyle()
         setupPickerData()
+        calendarInit()
+        setupCalendar()
         setupCollectionView()
         setupSwipe()
     }
@@ -35,7 +43,8 @@ class EventDateCell: UICollectionViewCell,UIPickerViewDelegate, UIPickerViewData
         let cancelButtonImage = #imageLiteral(resourceName: "cancel")
         cancelButton.setImage(cancelButtonImage.withTintColor(.darkGray, renderingMode: .alwaysOriginal), for: .normal)
         toggleStyle(state: false)
-        tabLabel.text = "Fri, Jan 15"
+        updateDefaultString()
+        //tabLabel.text = "Fri, Jan 15"
     }
     
     func toggleStyle(state: Bool){
@@ -52,6 +61,7 @@ class EventDateCell: UICollectionViewCell,UIPickerViewDelegate, UIPickerViewData
             tabLabel.textColor = UIColor.gainsboro
         }
     }
+    
      func setupSwipe(){
          let upSwipe = UISwipeGestureRecognizer(target: self, action: #selector(upSwipeAction))
          let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(downSwipeAction))
@@ -65,6 +75,10 @@ class EventDateCell: UICollectionViewCell,UIPickerViewDelegate, UIPickerViewData
         let row = datePicker.selectedRow(inComponent: 0) + 1
         if row < monthData.count {
             datePicker.selectRow(row, inComponent: 0, animated: true)
+            month = row+1
+            calendarDate.removeAll()
+            setupCalendar()
+            dateCollection.reloadData()
         } //change year
      }
       
@@ -72,6 +86,10 @@ class EventDateCell: UICollectionViewCell,UIPickerViewDelegate, UIPickerViewData
         let row = datePicker.selectedRow(inComponent: 0) - 1
         if row > -1 {
             datePicker.selectRow(row, inComponent: 0, animated: true)
+            month = row+1
+            calendarDate.removeAll()
+            setupCalendar()
+            dateCollection.reloadData()
         } //change year
      }
      
@@ -83,7 +101,7 @@ class EventDateCell: UICollectionViewCell,UIPickerViewDelegate, UIPickerViewData
     //make previous dates non-selectable
     //make dates selectable
     //change label text with selected dates
-    
+    //get current month, year
     
 }
 
@@ -131,15 +149,23 @@ extension EventDateCell {
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 56.0
     }
-    /*
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch component {
         case 0:
-            <#code#>
+            month = row+1
+            calendarDate.removeAll()
+            setupCalendar()
+            dateCollection.reloadData()
+        case 1:
+            year = yearData[row]
+            calendarDate.removeAll()
+            setupCalendar()
+            dateCollection.reloadData()
         default:
-            <#code#>
+            break
         }
-    } */
+    }
     
 }
 
@@ -154,17 +180,55 @@ extension EventDateCell {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 35
+        return 42
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: dateReuseID, for: indexPath as IndexPath) as! MiniDateCell
-        cell.date.text = "\(indexPath.row)"
+        //cell.date.text = "\(indexPath.row)"
+        cell.date.text = "\(calendarDate[indexPath.row].day)"
+        cell.isSelected(bool: calendarDate[indexPath.row].isSelected, style: calendarDate[indexPath.row].style)
+        if selectedDates.count == 2 {
+            if calendarDate[indexPath.row].date > selectedDates[0].date && calendarDate[indexPath.row].date < selectedDates[1].date {
+                if calendarDate[indexPath.row].compareDate(input: selectedDates[0].date) == false && calendarDate[indexPath.row].compareDate(input: selectedDates[1].date) == false {
+                    cell.isBetween()
+                }
+            }
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("You selected cell #\(indexPath.row)!")
+        //print("You selected cell #\(indexPath.row)!")
+        if calendarDate[indexPath.row].isSelected == true {
+            calendarDate[indexPath.row].toggleIsSelected()
+            if selectedDates.count > 1 {
+                if  calendarDate[indexPath.row].compareDate(input: selectedDates[0].date) == true {
+                    //print("index: \(0)")
+                    selectedDates.removeFirst()
+                } else {
+                    //print("index: \(1)")
+                    selectedDates.removeLast()
+                }
+            } else {
+                selectedDates.removeFirst()
+            }
+            dateCollection.reloadData()
+            updateLabel()
+        } else {
+            if calendarDate[indexPath.row].date > Date() || calendarDate[indexPath.row].compareDate(input: Date()) == true{
+                if selectedDates.count < 2 {
+                    calendarDate[indexPath.row].toggleIsSelected()
+                    selectedDates.append(calendarDate[indexPath.row])
+                    selectedDates = selectedDates.sorted(by: {
+                        $0.date.compare($1.date) == .orderedAscending
+                    })
+                    dateCollection.reloadData()
+                    updateLabel()
+                }
+            }
+        }
+        //print(selectedDates.count)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -180,3 +244,101 @@ extension EventDateCell {
     }
     
 }
+
+extension EventDateCell {
+    
+    func calendarInit() {
+        let date = Date()
+        let components = date.get(.day, .month, .year)
+        month = components.month!
+        year = components.year!
+        datePicker.selectRow((month-1), inComponent: 0, animated: true)
+    }
+    
+    func setupCalendar() {
+        //Get first day of week in first week of month
+        //Get remaining days
+        let calendar = Calendar.current
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        let date = formatter.date(from: "\(year)/\(month)/01")
+        let components = calendar.dateComponents([.year, .month], from: date!)
+        let startOfMonth = calendar.date(from: components)
+        var dateLoop = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: startOfMonth!))
+        for _ in 0...41{
+            let component = dateLoop!.get(.day,.month,.year)
+            let newDate = CalendarDate(date: dateLoop!, month: component.month!, day: component.day!, year: component.year!, isSelected: returnIsSelected(date: dateLoop!), style: returnStyle(date: dateLoop!))
+            calendarDate.append(newDate)
+            dateLoop = Calendar.current.date(byAdding: .day, value: 1, to: dateLoop!)
+        }
+    }
+    
+    func returnStyle(date: Date)->Int{
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
+        let today = formatter.string(from: Date())
+        let holdDate = formatter.string(from: date)
+        if today == holdDate{
+            return 0
+        } else if date > Date() {
+            let components = date.get(.day, .month, .year)
+            if month == components.month! {
+                return 1
+            } else {
+                return 2
+            }
+        } else {
+           return 3
+        }
+    }
+    
+    func updateDefaultString(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E, MMM d, yyyy"
+        let dateString = formatter.string(from: Date())
+        defaultLabel = dateString
+        tabLabel.text = defaultLabel
+    }
+    
+    func returnIsSelected(date: Date)->Bool{
+        if selectedDates.count > 0 {
+            for i in 0...selectedDates.count-1 {
+                if selectedDates[i].compareDate(input: date) == true {
+                    return true
+                }
+            }
+            return false
+        } else {
+            return false
+        }
+    }
+    
+    func updateLabel(){
+        if selectedDates.count > 0 {
+            if selectedDates.count == 1 {
+                tabLabel.text = "\(returnDateString(date: selectedDates[0].date))"
+            } else {
+                tabLabel.text = "\(returnDateString(date: selectedDates[0].date)) - \(returnDateString(date: selectedDates[1].date))"
+            }
+        } else {
+            updateDefaultString()
+        }
+    }
+    
+    func returnDateString(date: Date)->String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E, MMM d, yyyy"
+        let dateString = formatter.string(from: date)
+        return dateString
+    }
+    
+}
+
+/*
+ //let formatter = DateFormatter()
+ //formatter.dateStyle = .full
+ //let dateString = formatter.string(from: sunday!)
+ //print(dateString)
+ 
+ */

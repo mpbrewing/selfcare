@@ -23,8 +23,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="59" height="59"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0dd-Ya-DNr">
+                        <rect key="frame" x="4" y="4" width="50" height="50"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6x-DZ-omb">
-                        <rect key="frame" x="0.0" y="4" width="59" height="59"/>
+                        <rect key="frame" x="0.0" y="3" width="59" height="59"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="Nexa-Bold" family="Nexa" pointSize="20"/>
                         <color key="textColor" systemColor="systemGrayColor"/>
@@ -34,9 +39,10 @@
             </collectionViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="bg" destination="0dd-Ya-DNr" id="eFz-za-UtD"/>
                 <outlet property="date" destination="o6x-DZ-omb" id="CoC-ba-McC"/>
             </connections>
-            <point key="canvasLocation" x="215" y="133"/>
+            <point key="canvasLocation" x="213.768115942029" y="132.92410714285714"/>
         </collectionViewCell>
     </objects>
     <resources>
