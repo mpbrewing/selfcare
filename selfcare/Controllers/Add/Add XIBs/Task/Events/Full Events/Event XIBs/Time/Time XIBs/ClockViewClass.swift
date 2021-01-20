@@ -72,6 +72,7 @@ class ClockViewClass: UIView {
     var buttonArray = [UIButton]()
     var panGesture = UIPanGestureRecognizer()
     let centerPoint = CGPoint(x: 207, y: 207)
+    var count = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -251,9 +252,20 @@ extension ClockViewClass{
         return title
     }
     
+    func returnCompare() -> Int{
+        if timePeriod == true {
+            let compare = ((hour-1) * 60) + minute
+            return compare
+        } else {
+            let compare = (((hour-1) + 12) * 60) + minute
+            return compare
+        }
+    }
+    
     func passClock()
     {
-        let passInfo = ["title":updateLabel(),"state":state] as [String : Any]
+        //combined time for comparison
+        let passInfo = ["title":updateLabel(),"state":state,"count":count,"hour":hour,"minute":minute,"compare":returnCompare()] as [String : Any]
         NotificationCenter.default.post(name: .clock, object: nil,userInfo: passInfo)
     }
     
