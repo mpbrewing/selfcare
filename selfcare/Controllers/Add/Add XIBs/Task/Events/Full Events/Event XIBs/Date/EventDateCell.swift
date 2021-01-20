@@ -44,7 +44,6 @@ class EventDateCell: UICollectionViewCell,UIPickerViewDelegate, UIPickerViewData
         cancelButton.setImage(cancelButtonImage.withTintColor(.darkGray, renderingMode: .alwaysOriginal), for: .normal)
         toggleStyle(state: false)
         updateDefaultString()
-        //tabLabel.text = "Fri, Jan 15"
     }
     
     func toggleStyle(state: Bool){
@@ -60,6 +59,15 @@ class EventDateCell: UICollectionViewCell,UIPickerViewDelegate, UIPickerViewData
             textBox.isHidden = true
             tabLabel.textColor = UIColor.gainsboro
         }
+    }
+    
+    @IBAction func toggleAction(_ sender: Any) {
+        toggleStyle(state: false)
+        updateDefaultString()
+        selectedDates.removeAll()
+        calendarDate.removeAll()
+        setupCalendar()
+        dateCollection.reloadData()
     }
     
      func setupSwipe(){
@@ -79,7 +87,7 @@ class EventDateCell: UICollectionViewCell,UIPickerViewDelegate, UIPickerViewData
             calendarDate.removeAll()
             setupCalendar()
             dateCollection.reloadData()
-        } //change year
+        }
      }
       
      @objc func downSwipeAction() {
@@ -90,18 +98,8 @@ class EventDateCell: UICollectionViewCell,UIPickerViewDelegate, UIPickerViewData
             calendarDate.removeAll()
             setupCalendar()
             dateCollection.reloadData()
-        } //change year
+        }
      }
-     
-    //save month and year
-    //swipe to change year at 0,11
-    //pull correct calendar dates
-    //change calendar with picker selections
-    //change style of previous dates, current dates, and future dates
-    //make previous dates non-selectable
-    //make dates selectable
-    //change label text with selected dates
-    //get current month, year
     
 }
 
@@ -133,7 +131,6 @@ extension EventDateCell {
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         var label = UILabel()
         if let v = view as? UILabel { label = v }
-        //label.font = UIFont (name: "Nexa-Bold", size: 30)
         label.textColor = .black
         label.textAlignment = .center
         if component == 0 {
@@ -204,10 +201,8 @@ extension EventDateCell {
             calendarDate[indexPath.row].toggleIsSelected()
             if selectedDates.count > 1 {
                 if  calendarDate[indexPath.row].compareDate(input: selectedDates[0].date) == true {
-                    //print("index: \(0)")
                     selectedDates.removeFirst()
                 } else {
-                    //print("index: \(1)")
                     selectedDates.removeLast()
                 }
             } else {
@@ -228,7 +223,6 @@ extension EventDateCell {
                 }
             }
         }
-        //print(selectedDates.count)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -239,6 +233,7 @@ extension EventDateCell {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
         return 0
     }
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
         return 0
     }
@@ -253,11 +248,11 @@ extension EventDateCell {
         month = components.month!
         year = components.year!
         datePicker.selectRow((month-1), inComponent: 0, animated: true)
+        let selectYear = abs(year-2021)
+        datePicker.selectRow(selectYear, inComponent: 1, animated: true)
     }
     
     func setupCalendar() {
-        //Get first day of week in first week of month
-        //Get remaining days
         let calendar = Calendar.current
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"
@@ -321,8 +316,10 @@ extension EventDateCell {
             } else {
                 tabLabel.text = "\(returnDateString(date: selectedDates[0].date)) - \(returnDateString(date: selectedDates[1].date))"
             }
+            toggleStyle(state: true)
         } else {
             updateDefaultString()
+            toggleStyle(state: false)
         }
     }
     
@@ -334,11 +331,3 @@ extension EventDateCell {
     }
     
 }
-
-/*
- //let formatter = DateFormatter()
- //formatter.dateStyle = .full
- //let dateString = formatter.string(from: sunday!)
- //print(dateString)
- 
- */

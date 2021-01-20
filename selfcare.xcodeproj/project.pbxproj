@@ -42,6 +42,10 @@
 		EC21F49525897E3A00536100 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC21F49425897E3A00536100 /* Task.swift */; };
 		EC26336225B5FD510099A91E /* CalendarDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC26336125B5FD510099A91E /* CalendarDate.swift */; };
 		EC26336725B600A30099A91E /* dateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC26336625B600A30099A91E /* dateExtension.swift */; };
+		EC26337525B771100099A91E /* ClockViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC26337425B771100099A91E /* ClockViewClass.swift */; };
+		EC26337A25B7712E0099A91E /* ClockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC26337925B7712E0099A91E /* ClockView.xib */; };
+		EC26338025B772040099A91E /* EventLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC26337F25B772040099A91E /* EventLabelCell.xib */; };
+		EC26338525B7725F0099A91E /* EventLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC26338425B7725F0099A91E /* EventLabel.swift */; };
 		EC32D7AB2567315C003E0437 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC32D7AA2567315C003E0437 /* HomeView.xib */; };
 		EC32D7B1256731AB003E0437 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC32D7B0256731AB003E0437 /* MenuViewController.swift */; };
 		EC32D7B6256731F6003E0437 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC32D7B5256731F6003E0437 /* MenuView.xib */; };
@@ -71,6 +75,7 @@
 		EC587FBA256DA1AA001A5F72 /* FilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC587FB9256DA1AA001A5F72 /* FilterView.xib */; };
 		EC58C5A6258A1689002F120C /* SwipeBarClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC58C5A5258A1689002F120C /* SwipeBarClass.swift */; };
 		EC58C5AB258A16A8002F120C /* SwipeBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC58C5AA258A16A8002F120C /* SwipeBarView.xib */; };
+		EC61ED9425B825AA00AA9566 /* rotateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC61ED9325B825AA00AA9566 /* rotateExtension.swift */; };
 		EC669E6625A8CAFD0036D331 /* SwipeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC669E6525A8CAFD0036D331 /* SwipeCard.swift */; };
 		EC669E6B25A9168B0036D331 /* retrieveFromFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC669E6A25A9168B0036D331 /* retrieveFromFirebase.swift */; };
 		EC669E7025A92B6A0036D331 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC669E6F25A92B6A0036D331 /* Wallet.swift */; };
@@ -183,6 +188,10 @@
 		EC21F49425897E3A00536100 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		EC26336125B5FD510099A91E /* CalendarDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDate.swift; sourceTree = "<group>"; };
 		EC26336625B600A30099A91E /* dateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateExtension.swift; sourceTree = "<group>"; };
+		EC26337425B771100099A91E /* ClockViewClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockViewClass.swift; sourceTree = "<group>"; };
+		EC26337925B7712E0099A91E /* ClockView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClockView.xib; sourceTree = "<group>"; };
+		EC26337F25B772040099A91E /* EventLabelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventLabelCell.xib; sourceTree = "<group>"; };
+		EC26338425B7725F0099A91E /* EventLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLabel.swift; sourceTree = "<group>"; };
 		EC32D7AA2567315C003E0437 /* HomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
 		EC32D7B0256731AB003E0437 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		EC32D7B5256731F6003E0437 /* MenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
@@ -212,6 +221,7 @@
 		EC587FB9256DA1AA001A5F72 /* FilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterView.xib; sourceTree = "<group>"; };
 		EC58C5A5258A1689002F120C /* SwipeBarClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBarClass.swift; sourceTree = "<group>"; };
 		EC58C5AA258A16A8002F120C /* SwipeBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwipeBarView.xib; sourceTree = "<group>"; };
+		EC61ED9325B825AA00AA9566 /* rotateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rotateExtension.swift; sourceTree = "<group>"; };
 		EC669E6525A8CAFD0036D331 /* SwipeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCard.swift; sourceTree = "<group>"; };
 		EC669E6A25A9168B0036D331 /* retrieveFromFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = retrieveFromFirebase.swift; sourceTree = "<group>"; };
 		EC669E6F25A92B6A0036D331 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
@@ -365,6 +375,7 @@
 				EC8223782589EB50003EC885 /* uploadToFirebase.swift */,
 				EC669E6A25A9168B0036D331 /* retrieveFromFirebase.swift */,
 				EC26336625B600A30099A91E /* dateExtension.swift */,
+				EC61ED9325B825AA00AA9566 /* rotateExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -443,6 +454,24 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		EC26336B25B770810099A91E /* Time XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				EC26337425B771100099A91E /* ClockViewClass.swift */,
+				EC26337925B7712E0099A91E /* ClockView.xib */,
+			);
+			path = "Time XIBs";
+			sourceTree = "<group>";
+		};
+		EC26337E25B771F70099A91E /* Event Label */ = {
+			isa = PBXGroup;
+			children = (
+				EC26337F25B772040099A91E /* EventLabelCell.xib */,
+				EC26338425B7725F0099A91E /* EventLabel.swift */,
+			);
+			path = "Event Label";
+			sourceTree = "<group>";
+		};
 		EC32D7AF25673185003E0437 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,6 +515,7 @@
 		EC43D5A625B17A1600BB5EA7 /* Time */ = {
 			isa = PBXGroup;
 			children = (
+				EC26336B25B770810099A91E /* Time XIBs */,
 				EC43D5B225B17AD300BB5EA7 /* EventTimeCell.swift */,
 				EC43D5D125B17C1500BB5EA7 /* EventTimeTab.xib */,
 			);
@@ -792,6 +822,7 @@
 		ECEA2B7D25B16A1300A2FAB4 /* Event XIBs */ = {
 			isa = PBXGroup;
 			children = (
+				EC26337E25B771F70099A91E /* Event Label */,
 				EC43D5A525B17A0B00BB5EA7 /* Date */,
 				EC43D5A625B17A1600BB5EA7 /* Time */,
 				EC43D5A725B17A1F00BB5EA7 /* Repeat */,
@@ -959,6 +990,7 @@
 				EC0AD9C1255B502800EC1686 /* NexaThin.otf in Resources */,
 				EC0AD9C6255B502800EC1686 /* NexaBlack.otf in Resources */,
 				EC82239B258A0211003EC885 /* CardView.xib in Resources */,
+				EC26337A25B7712E0099A91E /* ClockView.xib in Resources */,
 				ECB5409925632536003CCDA5 /* GoogleService-Info.plist in Resources */,
 				EC43D5D225B17C1500BB5EA7 /* EventTimeTab.xib in Resources */,
 				EC1CD1A32579B5E300609350 /* AddFolderView.xib in Resources */,
@@ -997,6 +1029,7 @@
 				EC0AD9BE255B502800EC1686 /* NexaBold.otf in Resources */,
 				ECE4CDE025AE919A0016F6B6 /* AddPriorityView.xib in Resources */,
 				EC43D5E125B17C9F00BB5EA7 /* EventLocationTab.xib in Resources */,
+				EC26338025B772040099A91E /* EventLabelCell.xib in Resources */,
 				EC587FBA256DA1AA001A5F72 /* FilterView.xib in Resources */,
 				EC0AD9D7255B629200EC1686 /* LoginView.xib in Resources */,
 				EC97F6752575C30F00063B8B /* AddButtonView.xib in Resources */,
@@ -1166,10 +1199,13 @@
 				ECF29B8425B0FD2F0076E6C6 /* FullFilePath.swift in Sources */,
 				EC43D5EB25B19D6300BB5EA7 /* MiniDateCell.swift in Sources */,
 				ECE4CDC225AE913B0016F6B6 /* AddFilePathCell.swift in Sources */,
+				EC26338525B7725F0099A91E /* EventLabel.swift in Sources */,
 				EC0AD9D2255B61FE00EC1686 /* LoginViewController.swift in Sources */,
+				EC61ED9425B825AA00AA9566 /* rotateExtension.swift in Sources */,
 				ECE4CDEA25AE91B60016F6B6 /* AddTagsCell.swift in Sources */,
 				EC669E7025A92B6A0036D331 /* Wallet.swift in Sources */,
 				EC97F67A2575C36000063B8B /* AddButtonViewClass.swift in Sources */,
+				EC26337525B771100099A91E /* ClockViewClass.swift in Sources */,
 				EC1CD19E2579B5A900609350 /* AddTaskViewController.swift in Sources */,
 				EC9CBAA42550F17700D8C4CF /* OnboardingViewController.swift in Sources */,
 				EC8223792589EB50003EC885 /* uploadToFirebase.swift in Sources */,

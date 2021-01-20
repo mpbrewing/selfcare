@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -15,31 +14,31 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="timeTab" id="Lxc-TV-wXY" customClass="EventTimeCell" customModule="selfcare" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="634"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventLabel" id="VzV-bY-uyW" customClass="EventLabel" customModule="selfcare" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
             <autoresizingMask key="autoresizingMask"/>
-            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hoB-ph-yNJ">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="634"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VzV-bY-uyW" id="k6N-cV-Rj2">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jBN-A4-MQF">
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i8y-oy-1cL">
                         <rect key="frame" x="12" y="2" width="390" height="50"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFr-MO-zXE">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZK-6R-xfJ">
                                 <rect key="frame" x="344" y="5" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="cancel"/>
                                 <connections>
-                                    <action selector="cancelAction:" destination="Lxc-TV-wXY" eventType="touchUpInside" id="nqZ-sE-X7y"/>
+                                    <action selector="cancelAction:" destination="VzV-bY-uyW" eventType="touchUpInside" id="NdJ-cd-wFV"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CwT-Vr-lYi">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MQT-G3-moi">
                         <rect key="frame" x="20" y="6" width="328" height="46"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -48,14 +47,15 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-            </collectionViewCellContentView>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="cancel" destination="iFr-MO-zXE" id="P5f-W5-voR"/>
-                <outlet property="textBox" destination="jBN-A4-MQF" id="Bd9-Uf-TI4"/>
-                <outlet property="title" destination="CwT-Vr-lYi" id="F6a-lX-XZ5"/>
+                <outlet property="cancel" destination="uZK-6R-xfJ" id="Jtb-CM-5HQ"/>
+                <outlet property="textBox" destination="i8y-oy-1cL" id="D3P-q3-ecF"/>
+                <outlet property="title" destination="MQT-G3-moi" id="Mgx-hC-r18"/>
             </connections>
-            <point key="canvasLocation" x="-463" y="-147"/>
-        </collectionViewCell>
+            <point key="canvasLocation" x="157" y="-33"/>
+        </tableViewCell>
     </objects>
     <resources>
         <image name="cancel" width="1000" height="1000"/>
