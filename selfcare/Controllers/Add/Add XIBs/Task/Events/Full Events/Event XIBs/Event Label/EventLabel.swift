@@ -15,10 +15,11 @@ class EventLabel: UITableViewCell{
     @IBOutlet weak var title: UILabel!
     
     var state = false
+    var row = Int()
     
     @IBAction func cancelAction(_ sender: Any) {
         //???
-        
+        passCancel()
     }
     
     override func awakeFromNib() {
@@ -53,6 +54,21 @@ class EventLabel: UITableViewCell{
     
     func textInput(text: String){
         title.text = text
+    }
+    
+    func cellInput(text: String, bool: Bool){
+        title.text = text
+        toggleStyle(state: bool)
+        if text == "Does not notify" {
+            title.textColor = UIColor.gainsboro
+        } else {
+            title.textColor = UIColor.darkGray
+        }
+    }
+    
+    func passCancel(){
+        let passState = ["state":0,"row":row]
+        NotificationCenter.default.post(name: .xibToNotify, object: nil,userInfo: passState)
     }
     
 }

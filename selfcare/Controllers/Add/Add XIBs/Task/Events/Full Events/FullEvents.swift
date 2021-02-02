@@ -23,10 +23,11 @@ class FullEvents: UIViewController, UICollectionViewDataSource, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         loadXIB(name: "EventsView")
-        setupCollectionView()
         setupNavigationBar()
+        setupCollectionView()
         setupStyle()
         setupSwipe()
+        hideKeyboardWhenTappedAround()
     }
     
     var state = 0
@@ -44,6 +45,7 @@ class FullEvents: UIViewController, UICollectionViewDataSource, UICollectionView
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     func setupStyle(){

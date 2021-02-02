@@ -12,4 +12,5 @@ extension Notification.Name {
     static let addButton = Notification.Name("addButton")
     static let addItemSegue = Notification.Name("addItemSegue")
     static let addFolderDetails = Notification.Name("addFolderDetails")
+    static let xibToNotify = Notification.Name("xibToNotify")
 }

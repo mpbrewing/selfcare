@@ -69,6 +69,8 @@
 		EC43D5E125B17C9F00BB5EA7 /* EventLocationTab.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC43D5E025B17C9F00BB5EA7 /* EventLocationTab.xib */; };
 		EC43D5E625B19C9F00BB5EA7 /* MiniDate.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC43D5E525B19C9F00BB5EA7 /* MiniDate.xib */; };
 		EC43D5EB25B19D6300BB5EA7 /* MiniDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC43D5EA25B19D6300BB5EA7 /* MiniDateCell.swift */; };
+		EC4470BC25BC289D009A364C /* SelectionRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC4470BB25BC289D009A364C /* SelectionRow.xib */; };
+		EC4470C125BC28BA009A364C /* SelectionRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4470C025BC28BA009A364C /* SelectionRowCell.swift */; };
 		EC587F9F256D7F6C001A5F72 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC587F9E256D7F6C001A5F72 /* CalendarViewController.swift */; };
 		EC587FA4256D7FAE001A5F72 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC587FA3256D7FAE001A5F72 /* CalendarView.xib */; };
 		EC587FB2256DA185001A5F72 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC587FB1256DA185001A5F72 /* FilterViewController.swift */; };
@@ -85,6 +87,8 @@
 		EC6BB90C25802ECF00945FD4 /* AddPhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC6BB90B25802ECF00945FD4 /* AddPhotoView.xib */; };
 		EC6BB912258032D600945FD4 /* AddColorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC6BB911258032D600945FD4 /* AddColorView.xib */; };
 		EC6BB917258032E100945FD4 /* AddColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6BB916258032E100945FD4 /* AddColorCell.swift */; };
+		EC81803125BC254100228690 /* RepeatSelection.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC81803025BC254100228690 /* RepeatSelection.xib */; };
+		EC81803625BC257D00228690 /* RepeatSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC81803525BC257D00228690 /* RepeatSelectionCell.swift */; };
 		EC8223682589D65B003EC885 /* notificationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8223672589D65B003EC885 /* notificationExt.swift */; };
 		EC8223792589EB50003EC885 /* uploadToFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8223782589EB50003EC885 /* uploadToFirebase.swift */; };
 		EC82239B258A0211003EC885 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC82239A258A0211003EC885 /* CardView.xib */; };
@@ -93,11 +97,24 @@
 		EC8223AF258A0851003EC885 /* CardClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8223AE258A0851003EC885 /* CardClass.swift */; };
 		EC8352DA25AE709F00F2C1B6 /* AddDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8352D925AE709F00F2C1B6 /* AddDescriptionCell.swift */; };
 		EC8352DF25AE70AD00F2C1B6 /* AddDescriptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC8352DE25AE70AD00F2C1B6 /* AddDescriptionView.xib */; };
+		EC95BA1A25BE508C005FD83C /* NotifyPickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC95BA1925BE508C005FD83C /* NotifyPickerCell.xib */; };
+		EC95BA1F25BE51D5005FD83C /* NotifyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95BA1E25BE51D5005FD83C /* NotifyPicker.swift */; };
+		EC95BA2525BE8080005FD83C /* LocationCellClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95BA2425BE8080005FD83C /* LocationCellClass.swift */; };
+		EC95BA2A25BE809E005FD83C /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC95BA2925BE809E005FD83C /* LocationCell.xib */; };
+		EC95BA2F25BE822C005FD83C /* location.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95BA2E25BE822C005FD83C /* location.swift */; };
 		EC97F6752575C30F00063B8B /* AddButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC97F6742575C30F00063B8B /* AddButtonView.xib */; };
 		EC97F67A2575C36000063B8B /* AddButtonViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC97F6792575C36000063B8B /* AddButtonViewClass.swift */; };
 		EC97F67F2575C53C00063B8B /* AddButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC97F67E2575C53C00063B8B /* AddButtonCell.xib */; };
 		EC97F6842575D04E00063B8B /* findViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC97F6832575D04E00063B8B /* findViewController.swift */; };
 		EC97F6992575D61500063B8B /* AddButtonCellClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC97F6982575D61500063B8B /* AddButtonCellClass.swift */; };
+		EC98473925C0EECA002181B0 /* RepeatEnds.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98473825C0EECA002181B0 /* RepeatEnds.swift */; };
+		EC98473E25C0EEFF002181B0 /* RepeatEndsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC98473D25C0EEFF002181B0 /* RepeatEndsView.xib */; };
+		EC98474725C0EF64002181B0 /* OccurrencesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98474625C0EF64002181B0 /* OccurrencesCell.swift */; };
+		EC98474C25C0F01F002181B0 /* OccurrencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC98474B25C0F01F002181B0 /* OccurrencesView.xib */; };
+		EC98475125C0F125002181B0 /* OnADateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98475025C0F125002181B0 /* OnADateCell.swift */; };
+		EC98475625C0F155002181B0 /* OnADateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC98475525C0F155002181B0 /* OnADateView.xib */; };
+		EC98475B25C0F1D9002181B0 /* ExcludedDates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98475A25C0F1D9002181B0 /* ExcludedDates.swift */; };
+		EC98476025C0F212002181B0 /* ExcludedDatesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC98475F25C0F212002181B0 /* ExcludedDatesView.xib */; };
 		EC9CBAA02550F17700D8C4CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBA9F2550F17700D8C4CF /* AppDelegate.swift */; };
 		EC9CBAA22550F17700D8C4CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBAA12550F17700D8C4CF /* SceneDelegate.swift */; };
 		EC9CBAA42550F17700D8C4CF /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBAA32550F17700D8C4CF /* OnboardingViewController.swift */; };
@@ -110,6 +127,14 @@
 		ECA30CD2257FF3A900A9A7A1 /* AddTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA30CD1257FF3A800A9A7A1 /* AddTitleView.xib */; };
 		ECA30CD7257FF5A600A9A7A1 /* AddTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA30CD6257FF5A600A9A7A1 /* AddTitleCell.swift */; };
 		ECB5409925632536003CCDA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECB5409825632536003CCDA5 /* GoogleService-Info.plist */; };
+		ECBED86025BE25CF00F0332E /* RepeatWeekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBED85F25BE25CE00F0332E /* RepeatWeekCell.swift */; };
+		ECBED86525BE25F000F0332E /* RepeatWeek.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECBED86425BE25F000F0332E /* RepeatWeek.xib */; };
+		ECBED86A25BE265600F0332E /* RepeatMonth.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECBED86925BE265600F0332E /* RepeatMonth.xib */; };
+		ECBED86F25BE269E00F0332E /* RepeatMonthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBED86E25BE269E00F0332E /* RepeatMonthCell.swift */; };
+		ECBED87725BE274800F0332E /* WeekCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECBED87625BE274800F0332E /* WeekCell.xib */; };
+		ECBED87C25BE27F300F0332E /* WeekClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBED87B25BE27F300F0332E /* WeekClass.swift */; };
+		ECBED88125BE285100F0332E /* MonthClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBED88025BE285100F0332E /* MonthClass.swift */; };
+		ECBED88625BE287B00F0332E /* MonthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECBED88525BE287B00F0332E /* MonthCell.xib */; };
 		ECE4CDBD25AE912D0016F6B6 /* AddFilePathView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECE4CDBC25AE912D0016F6B6 /* AddFilePathView.xib */; };
 		ECE4CDC225AE913B0016F6B6 /* AddFilePathCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE4CDC125AE913B0016F6B6 /* AddFilePathCell.swift */; };
 		ECE4CDC725AE91530016F6B6 /* AddEventsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE4CDC625AE91530016F6B6 /* AddEventsCell.swift */; };
@@ -217,6 +242,8 @@
 		EC43D5E025B17C9F00BB5EA7 /* EventLocationTab.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventLocationTab.xib; sourceTree = "<group>"; };
 		EC43D5E525B19C9F00BB5EA7 /* MiniDate.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiniDate.xib; sourceTree = "<group>"; };
 		EC43D5EA25B19D6300BB5EA7 /* MiniDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniDateCell.swift; sourceTree = "<group>"; };
+		EC4470BB25BC289D009A364C /* SelectionRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectionRow.xib; sourceTree = "<group>"; };
+		EC4470C025BC28BA009A364C /* SelectionRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionRowCell.swift; sourceTree = "<group>"; };
 		EC587F9E256D7F6C001A5F72 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		EC587FA3256D7FAE001A5F72 /* CalendarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarView.xib; sourceTree = "<group>"; };
 		EC587FB1256DA185001A5F72 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -233,6 +260,8 @@
 		EC6BB90B25802ECF00945FD4 /* AddPhotoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPhotoView.xib; sourceTree = "<group>"; };
 		EC6BB911258032D600945FD4 /* AddColorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddColorView.xib; sourceTree = "<group>"; };
 		EC6BB916258032E100945FD4 /* AddColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddColorCell.swift; sourceTree = "<group>"; };
+		EC81803025BC254100228690 /* RepeatSelection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepeatSelection.xib; sourceTree = "<group>"; };
+		EC81803525BC257D00228690 /* RepeatSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatSelectionCell.swift; sourceTree = "<group>"; };
 		EC8223672589D65B003EC885 /* notificationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notificationExt.swift; sourceTree = "<group>"; };
 		EC8223782589EB50003EC885 /* uploadToFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadToFirebase.swift; sourceTree = "<group>"; };
 		EC82239A258A0211003EC885 /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
@@ -241,11 +270,24 @@
 		EC8223AE258A0851003EC885 /* CardClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardClass.swift; sourceTree = "<group>"; };
 		EC8352D925AE709F00F2C1B6 /* AddDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDescriptionCell.swift; sourceTree = "<group>"; };
 		EC8352DE25AE70AD00F2C1B6 /* AddDescriptionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddDescriptionView.xib; sourceTree = "<group>"; };
+		EC95BA1925BE508C005FD83C /* NotifyPickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotifyPickerCell.xib; sourceTree = "<group>"; };
+		EC95BA1E25BE51D5005FD83C /* NotifyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyPicker.swift; sourceTree = "<group>"; };
+		EC95BA2425BE8080005FD83C /* LocationCellClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCellClass.swift; sourceTree = "<group>"; };
+		EC95BA2925BE809E005FD83C /* LocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
+		EC95BA2E25BE822C005FD83C /* location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = location.swift; sourceTree = "<group>"; };
 		EC97F6742575C30F00063B8B /* AddButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddButtonView.xib; sourceTree = "<group>"; };
 		EC97F6792575C36000063B8B /* AddButtonViewClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonViewClass.swift; sourceTree = "<group>"; };
 		EC97F67E2575C53C00063B8B /* AddButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddButtonCell.xib; sourceTree = "<group>"; };
 		EC97F6832575D04E00063B8B /* findViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = findViewController.swift; sourceTree = "<group>"; };
 		EC97F6982575D61500063B8B /* AddButtonCellClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCellClass.swift; sourceTree = "<group>"; };
+		EC98473825C0EECA002181B0 /* RepeatEnds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatEnds.swift; sourceTree = "<group>"; };
+		EC98473D25C0EEFF002181B0 /* RepeatEndsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepeatEndsView.xib; sourceTree = "<group>"; };
+		EC98474625C0EF64002181B0 /* OccurrencesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccurrencesCell.swift; sourceTree = "<group>"; };
+		EC98474B25C0F01F002181B0 /* OccurrencesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OccurrencesView.xib; sourceTree = "<group>"; };
+		EC98475025C0F125002181B0 /* OnADateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnADateCell.swift; sourceTree = "<group>"; };
+		EC98475525C0F155002181B0 /* OnADateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnADateView.xib; sourceTree = "<group>"; };
+		EC98475A25C0F1D9002181B0 /* ExcludedDates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcludedDates.swift; sourceTree = "<group>"; };
+		EC98475F25C0F212002181B0 /* ExcludedDatesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExcludedDatesView.xib; sourceTree = "<group>"; };
 		EC9CBA9C2550F17700D8C4CF /* selfcare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = selfcare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC9CBA9F2550F17700D8C4CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC9CBAA12550F17700D8C4CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -264,6 +306,14 @@
 		ECA30CD1257FF3A800A9A7A1 /* AddTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTitleView.xib; sourceTree = "<group>"; };
 		ECA30CD6257FF5A600A9A7A1 /* AddTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTitleCell.swift; sourceTree = "<group>"; };
 		ECB5409825632536003CCDA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ECBED85F25BE25CE00F0332E /* RepeatWeekCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatWeekCell.swift; sourceTree = "<group>"; };
+		ECBED86425BE25F000F0332E /* RepeatWeek.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepeatWeek.xib; sourceTree = "<group>"; };
+		ECBED86925BE265600F0332E /* RepeatMonth.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepeatMonth.xib; sourceTree = "<group>"; };
+		ECBED86E25BE269E00F0332E /* RepeatMonthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatMonthCell.swift; sourceTree = "<group>"; };
+		ECBED87625BE274800F0332E /* WeekCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekCell.xib; sourceTree = "<group>"; };
+		ECBED87B25BE27F300F0332E /* WeekClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekClass.swift; sourceTree = "<group>"; };
+		ECBED88025BE285100F0332E /* MonthClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthClass.swift; sourceTree = "<group>"; };
+		ECBED88525BE287B00F0332E /* MonthCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MonthCell.xib; sourceTree = "<group>"; };
 		ECE4CDBC25AE912D0016F6B6 /* AddFilePathView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFilePathView.xib; sourceTree = "<group>"; };
 		ECE4CDC125AE913B0016F6B6 /* AddFilePathCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFilePathCell.swift; sourceTree = "<group>"; };
 		ECE4CDC625AE91530016F6B6 /* AddEventsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventsCell.swift; sourceTree = "<group>"; };
@@ -427,6 +477,18 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		EC1C040925BC1A9B0018D207 /* Repeat XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				EC98472A25C0ECAF002181B0 /* Ends */,
+				EC95BA1425BE4B77005FD83C /* Excluded */,
+				ECBED85425BE257500F0332E /* Week */,
+				ECBED85625BE258800F0332E /* Month */,
+				EC81802F25BC251900228690 /* Selection */,
+			);
+			path = "Repeat XIBs";
+			sourceTree = "<group>";
+		};
 		EC1CD1932579B4D500609350 /* Add Folder */ = {
 			isa = PBXGroup;
 			children = (
@@ -454,6 +516,7 @@
 				EC669E6525A8CAFD0036D331 /* SwipeCard.swift */,
 				EC669E6F25A92B6A0036D331 /* Wallet.swift */,
 				EC26336125B5FD510099A91E /* CalendarDate.swift */,
+				EC95BA2E25BE822C005FD83C /* location.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -531,6 +594,7 @@
 		EC43D5A725B17A1F00BB5EA7 /* Repeat */ = {
 			isa = PBXGroup;
 			children = (
+				EC1C040925BC1A9B0018D207 /* Repeat XIBs */,
 				EC43D5BA25B17AEF00BB5EA7 /* EventRepeatCell.swift */,
 				EC43D5D625B17C5800BB5EA7 /* EventRepeatTab.xib */,
 			);
@@ -540,6 +604,7 @@
 		EC43D5A825B17A4400BB5EA7 /* Notify */ = {
 			isa = PBXGroup;
 			children = (
+				EC95BA1825BE5015005FD83C /* Picker */,
 				EC43D5BF25B17B0000BB5EA7 /* EventNotifyCell.swift */,
 				EC43D5DB25B17C7800BB5EA7 /* EventNotifyTab.xib */,
 			);
@@ -549,6 +614,7 @@
 		EC43D5A925B17A4D00BB5EA7 /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				EC95BA2325BE806B005FD83C /* Cell */,
 				EC43D5C425B17B1800BB5EA7 /* EventLocationCell.swift */,
 				EC43D5E025B17C9F00BB5EA7 /* EventLocationTab.xib */,
 			);
@@ -598,6 +664,17 @@
 				EC6BB916258032E100945FD4 /* AddColorCell.swift */,
 			);
 			path = Color;
+			sourceTree = "<group>";
+		};
+		EC81802F25BC251900228690 /* Selection */ = {
+			isa = PBXGroup;
+			children = (
+				EC81803025BC254100228690 /* RepeatSelection.xib */,
+				EC81803525BC257D00228690 /* RepeatSelectionCell.swift */,
+				EC4470BB25BC289D009A364C /* SelectionRow.xib */,
+				EC4470C025BC28BA009A364C /* SelectionRowCell.swift */,
+			);
+			path = Selection;
 			sourceTree = "<group>";
 		};
 		EC822399258A0130003EC885 /* GUI */ = {
@@ -667,6 +744,33 @@
 			path = Description;
 			sourceTree = "<group>";
 		};
+		EC95BA1425BE4B77005FD83C /* Excluded */ = {
+			isa = PBXGroup;
+			children = (
+				EC98475A25C0F1D9002181B0 /* ExcludedDates.swift */,
+				EC98475F25C0F212002181B0 /* ExcludedDatesView.xib */,
+			);
+			path = Excluded;
+			sourceTree = "<group>";
+		};
+		EC95BA1825BE5015005FD83C /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				EC95BA1925BE508C005FD83C /* NotifyPickerCell.xib */,
+				EC95BA1E25BE51D5005FD83C /* NotifyPicker.swift */,
+			);
+			path = Picker;
+			sourceTree = "<group>";
+		};
+		EC95BA2325BE806B005FD83C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EC95BA2425BE8080005FD83C /* LocationCellClass.swift */,
+				EC95BA2925BE809E005FD83C /* LocationCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		EC97F6722575C2E700063B8B /* Add */ = {
 			isa = PBXGroup;
 			children = (
@@ -687,6 +791,27 @@
 				EC97F6792575C36000063B8B /* AddButtonViewClass.swift */,
 			);
 			path = "Add Button";
+			sourceTree = "<group>";
+		};
+		EC98472A25C0ECAF002181B0 /* Ends */ = {
+			isa = PBXGroup;
+			children = (
+				EC98474225C0EF12002181B0 /* Ends XIBs */,
+				EC98473825C0EECA002181B0 /* RepeatEnds.swift */,
+				EC98473D25C0EEFF002181B0 /* RepeatEndsView.xib */,
+			);
+			path = Ends;
+			sourceTree = "<group>";
+		};
+		EC98474225C0EF12002181B0 /* Ends XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				EC98474625C0EF64002181B0 /* OccurrencesCell.swift */,
+				EC98474B25C0F01F002181B0 /* OccurrencesView.xib */,
+				EC98475025C0F125002181B0 /* OnADateCell.swift */,
+				EC98475525C0F155002181B0 /* OnADateView.xib */,
+			);
+			path = "Ends XIBs";
 			sourceTree = "<group>";
 		};
 		EC9CBA932550F17700D8C4CF = {
@@ -775,6 +900,28 @@
 				ECA30CD0257FF35C00A9A7A1 /* Title */,
 			);
 			path = "Add XIBs";
+			sourceTree = "<group>";
+		};
+		ECBED85425BE257500F0332E /* Week */ = {
+			isa = PBXGroup;
+			children = (
+				ECBED85F25BE25CE00F0332E /* RepeatWeekCell.swift */,
+				ECBED86425BE25F000F0332E /* RepeatWeek.xib */,
+				ECBED87B25BE27F300F0332E /* WeekClass.swift */,
+				ECBED87625BE274800F0332E /* WeekCell.xib */,
+			);
+			path = Week;
+			sourceTree = "<group>";
+		};
+		ECBED85625BE258800F0332E /* Month */ = {
+			isa = PBXGroup;
+			children = (
+				ECBED86E25BE269E00F0332E /* RepeatMonthCell.swift */,
+				ECBED86925BE265600F0332E /* RepeatMonth.xib */,
+				ECBED88025BE285100F0332E /* MonthClass.swift */,
+				ECBED88525BE287B00F0332E /* MonthCell.xib */,
+			);
+			path = Month;
 			sourceTree = "<group>";
 		};
 		ECE4CDB725AE90A10016F6B6 /* File Path */ = {
@@ -993,6 +1140,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC98476025C0F212002181B0 /* ExcludedDatesView.xib in Resources */,
 				EC0AD9C1255B502800EC1686 /* NexaThin.otf in Resources */,
 				EC0AD9C6255B502800EC1686 /* NexaBlack.otf in Resources */,
 				EC82239B258A0211003EC885 /* CardView.xib in Resources */,
@@ -1000,16 +1148,21 @@
 				ECB5409925632536003CCDA5 /* GoogleService-Info.plist in Resources */,
 				EC43D5D225B17C1500BB5EA7 /* EventTimeTab.xib in Resources */,
 				EC1CD1A32579B5E300609350 /* AddFolderView.xib in Resources */,
+				ECBED86A25BE265600F0332E /* RepeatMonth.xib in Resources */,
 				EC32D7B6256731F6003E0437 /* MenuView.xib in Resources */,
 				EC0AD9B6255B502800EC1686 /* NexaLight.otf in Resources */,
+				EC95BA1A25BE508C005FD83C /* NotifyPickerCell.xib in Resources */,
 				EC6BB912258032D600945FD4 /* AddColorView.xib in Resources */,
 				EC61ED9E25B854B600AA9566 /* MiniClockView.xib in Resources */,
 				EC0AD9BA255B502800EC1686 /* NexaHeavyItalic.otf in Resources */,
+				EC98473E25C0EEFF002181B0 /* RepeatEndsView.xib in Resources */,
 				EC0AD9BB255B502800EC1686 /* NexaHeavy.otf in Resources */,
 				EC97F67F2575C53C00063B8B /* AddButtonCell.xib in Resources */,
+				EC98474C25C0F01F002181B0 /* OccurrencesView.xib in Resources */,
 				EC6BB90C25802ECF00945FD4 /* AddPhotoView.xib in Resources */,
 				EC43D5CD25B17BBB00BB5EA7 /* EventDateTab.xib in Resources */,
 				EC9CBAAC2550F17800D8C4CF /* LaunchScreen.storyboard in Resources */,
+				ECBED86525BE25F000F0332E /* RepeatWeek.xib in Resources */,
 				EC43D5D725B17C5800BB5EA7 /* EventRepeatTab.xib in Resources */,
 				EC43D5DC25B17C7800BB5EA7 /* EventNotifyTab.xib in Resources */,
 				EC0AD9B9255B502800EC1686 /* NexaRegularItalic.otf in Resources */,
@@ -1020,15 +1173,19 @@
 				EC32D7AB2567315C003E0437 /* HomeView.xib in Resources */,
 				EC0AD9C0255B502800EC1686 /* NexaRegular.otf in Resources */,
 				EC0AD9BF255B502800EC1686 /* NexaLightItalic.otf in Resources */,
+				EC98475625C0F155002181B0 /* OnADateView.xib in Resources */,
 				EC32D7FF25674C5B003E0437 /* MenuRowCell.xib in Resources */,
+				ECBED88625BE287B00F0332E /* MonthCell.xib in Resources */,
 				EC587FA4256D7FAE001A5F72 /* CalendarView.xib in Resources */,
 				ECE4CDD125AE916C0016F6B6 /* AddStatusView.xib in Resources */,
 				EC39703725800F9500AC21FE /* AddMenuView.xib in Resources */,
+				EC4470BC25BC289D009A364C /* SelectionRow.xib in Resources */,
 				EC9E0EBE255DF2F200A19D96 /* RegistrationView.xib in Resources */,
 				EC43D5E625B19C9F00BB5EA7 /* MiniDate.xib in Resources */,
 				EC0AD9C2255B502800EC1686 /* NexaBlackItalic.otf in Resources */,
 				EC0AD9B8255B502800EC1686 /* NexaBookItalic.otf in Resources */,
 				EC9CBAA92550F17800D8C4CF /* Assets.xcassets in Resources */,
+				ECBED87725BE274800F0332E /* WeekCell.xib in Resources */,
 				EC8223A0258A05E7003EC885 /* SwipeView.xib in Resources */,
 				ECF29B9D25B0FDA70076E6C6 /* TagsView.xib in Resources */,
 				ECF29B9725B0FD860076E6C6 /* EventsView.xib in Resources */,
@@ -1041,10 +1198,12 @@
 				EC0AD9D7255B629200EC1686 /* LoginView.xib in Resources */,
 				EC97F6752575C30F00063B8B /* AddButtonView.xib in Resources */,
 				EC0AD9B7255B502800EC1686 /* Nexa Bold.otf in Resources */,
+				EC95BA2A25BE809E005FD83C /* LocationCell.xib in Resources */,
 				EC0AD99F255B4F9300EC1686 /* OnboardingView.xib in Resources */,
 				ECE4CDE525AE91A40016F6B6 /* AddTagsView.xib in Resources */,
 				EC0AD9C4255B502800EC1686 /* NexaXBoldItalic.otf in Resources */,
 				EC0AD9C7255B502800EC1686 /* NexaBook.otf in Resources */,
+				EC81803125BC254100228690 /* RepeatSelection.xib in Resources */,
 				EC8352DF25AE70AD00F2C1B6 /* AddDescriptionView.xib in Resources */,
 				ECA30CD2257FF3A900A9A7A1 /* AddTitleView.xib in Resources */,
 				EC32D7FA25674962003E0437 /* MenuHeaderCell.xib in Resources */,
@@ -1180,17 +1339,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECBED86F25BE269E00F0332E /* RepeatMonthCell.swift in Sources */,
+				ECBED88125BE285100F0332E /* MonthClass.swift in Sources */,
 				ECE4CDD625AE91790016F6B6 /* AddStatusCell.swift in Sources */,
+				EC98475B25C0F1D9002181B0 /* ExcludedDates.swift in Sources */,
 				EC43D5C525B17B1800BB5EA7 /* EventLocationCell.swift in Sources */,
+				EC98475125C0F125002181B0 /* OnADateCell.swift in Sources */,
+				EC95BA1F25BE51D5005FD83C /* NotifyPicker.swift in Sources */,
 				EC8223AF258A0851003EC885 /* CardClass.swift in Sources */,
+				EC81803625BC257D00228690 /* RepeatSelectionCell.swift in Sources */,
 				EC58C5A6258A1689002F120C /* SwipeBarClass.swift in Sources */,
 				ECE4CDDB25AE918A0016F6B6 /* AddPriorityCell.swift in Sources */,
 				EC8223682589D65B003EC885 /* notificationExt.swift in Sources */,
 				EC04C9C7257C53BE002798D7 /* customizeNavBar.swift in Sources */,
+				EC95BA2525BE8080005FD83C /* LocationCellClass.swift in Sources */,
 				EC397031258004CA00AC21FE /* EmojiTextField.swift in Sources */,
 				EC39703C25800FAF00AC21FE /* AddMenuCell.swift in Sources */,
 				EC587F9F256D7F6C001A5F72 /* CalendarViewController.swift in Sources */,
 				EC8223A7258A0836003EC885 /* SwipeClass.swift in Sources */,
+				ECBED86025BE25CF00F0332E /* RepeatWeekCell.swift in Sources */,
 				ECE4CDC725AE91530016F6B6 /* AddEventsCell.swift in Sources */,
 				EC32D80925677CB5003E0437 /* customColors.swift in Sources */,
 				EC21F49025897E2A00536100 /* Folder.swift in Sources */,
@@ -1203,12 +1370,14 @@
 				ECF29B9125B0FD6A0076E6C6 /* FullEvents.swift in Sources */,
 				EC43D5C025B17B0000BB5EA7 /* EventNotifyCell.swift in Sources */,
 				EC43D5BB25B17AEF00BB5EA7 /* EventRepeatCell.swift in Sources */,
+				ECBED87C25BE27F300F0332E /* WeekClass.swift in Sources */,
 				EC1CD1962579B59A00609350 /* AddFolderViewController.swift in Sources */,
 				ECF29B8425B0FD2F0076E6C6 /* FullFilePath.swift in Sources */,
 				EC43D5EB25B19D6300BB5EA7 /* MiniDateCell.swift in Sources */,
 				ECE4CDC225AE913B0016F6B6 /* AddFilePathCell.swift in Sources */,
 				EC26338525B7725F0099A91E /* EventLabel.swift in Sources */,
 				EC0AD9D2255B61FE00EC1686 /* LoginViewController.swift in Sources */,
+				EC95BA2F25BE822C005FD83C /* location.swift in Sources */,
 				EC61ED9425B825AA00AA9566 /* rotateExtension.swift in Sources */,
 				ECE4CDEA25AE91B60016F6B6 /* AddTagsCell.swift in Sources */,
 				EC669E7025A92B6A0036D331 /* Wallet.swift in Sources */,
@@ -1218,13 +1387,16 @@
 				EC9CBAA42550F17700D8C4CF /* OnboardingViewController.swift in Sources */,
 				EC8223792589EB50003EC885 /* uploadToFirebase.swift in Sources */,
 				EC6BB917258032E100945FD4 /* AddColorCell.swift in Sources */,
+				EC4470C125BC28BA009A364C /* SelectionRowCell.swift in Sources */,
 				EC9CBAA02550F17700D8C4CF /* AppDelegate.swift in Sources */,
+				EC98474725C0EF64002181B0 /* OccurrencesCell.swift in Sources */,
 				EC587FB2256DA185001A5F72 /* FilterViewController.swift in Sources */,
 				EC669E6B25A9168B0036D331 /* retrieveFromFirebase.swift in Sources */,
 				ECF29BA225B0FDB40076E6C6 /* FullTags.swift in Sources */,
 				EC8352DA25AE709F00F2C1B6 /* AddDescriptionCell.swift in Sources */,
 				EC9CBAA22550F17700D8C4CF /* SceneDelegate.swift in Sources */,
 				EC21F482258950E000536100 /* Item.swift in Sources */,
+				EC98473925C0EECA002181B0 /* RepeatEnds.swift in Sources */,
 				EC26336225B5FD510099A91E /* CalendarDate.swift in Sources */,
 				EC9E0EC3255DF2FC00A19D96 /* RegistrationViewController.swift in Sources */,
 				EC669E6625A8CAFD0036D331 /* SwipeCard.swift in Sources */,
