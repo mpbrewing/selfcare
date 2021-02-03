@@ -110,7 +110,6 @@ extension EventDateCell {
         datePicker.dataSource = self
         monthData = ["January","February","March","April","May","June","July","August","September","October","November","December"]
         yearData = Array(2021...2121)
-        
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

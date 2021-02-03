@@ -124,6 +124,8 @@
 		EC9CBAC22550F17800D8C4CF /* selfcareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9CBAC12550F17800D8C4CF /* selfcareUITests.swift */; };
 		EC9E0EBE255DF2F200A19D96 /* RegistrationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC9E0EBD255DF2F200A19D96 /* RegistrationView.xib */; };
 		EC9E0EC3255DF2FC00A19D96 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E0EC2255DF2FC00A19D96 /* RegistrationViewController.swift */; };
+		ECA2704625C8F31700B7D983 /* EndsMiniNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA2704525C8F31700B7D983 /* EndsMiniNib.xib */; };
+		ECA2704B25C8F46E00B7D983 /* EndsMiniNibCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA2704A25C8F46E00B7D983 /* EndsMiniNibCell.swift */; };
 		ECA30CD2257FF3A900A9A7A1 /* AddTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA30CD1257FF3A800A9A7A1 /* AddTitleView.xib */; };
 		ECA30CD7257FF5A600A9A7A1 /* AddTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA30CD6257FF5A600A9A7A1 /* AddTitleCell.swift */; };
 		ECB5409925632536003CCDA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECB5409825632536003CCDA5 /* GoogleService-Info.plist */; };
@@ -303,6 +305,8 @@
 		EC9CBAC32550F17800D8C4CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC9E0EBD255DF2F200A19D96 /* RegistrationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationView.xib; sourceTree = "<group>"; };
 		EC9E0EC2255DF2FC00A19D96 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		ECA2704525C8F31700B7D983 /* EndsMiniNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EndsMiniNib.xib; sourceTree = "<group>"; };
+		ECA2704A25C8F46E00B7D983 /* EndsMiniNibCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndsMiniNibCell.swift; sourceTree = "<group>"; };
 		ECA30CD1257FF3A800A9A7A1 /* AddTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTitleView.xib; sourceTree = "<group>"; };
 		ECA30CD6257FF5A600A9A7A1 /* AddTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTitleCell.swift; sourceTree = "<group>"; };
 		ECB5409825632536003CCDA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -810,6 +814,8 @@
 				EC98474B25C0F01F002181B0 /* OccurrencesView.xib */,
 				EC98475025C0F125002181B0 /* OnADateCell.swift */,
 				EC98475525C0F155002181B0 /* OnADateView.xib */,
+				ECA2704525C8F31700B7D983 /* EndsMiniNib.xib */,
+				ECA2704A25C8F46E00B7D983 /* EndsMiniNibCell.swift */,
 			);
 			path = "Ends XIBs";
 			sourceTree = "<group>";
@@ -1212,6 +1218,7 @@
 				EC0AD9BD255B502800EC1686 /* NexaThinItalic.otf in Resources */,
 				EC0AD9C3255B502800EC1686 /* NexaBoldItalic.otf in Resources */,
 				ECE4CDCC25AE91610016F6B6 /* AddEventsView.xib in Resources */,
+				ECA2704625C8F31700B7D983 /* EndsMiniNib.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1377,6 +1384,7 @@
 				ECE4CDC225AE913B0016F6B6 /* AddFilePathCell.swift in Sources */,
 				EC26338525B7725F0099A91E /* EventLabel.swift in Sources */,
 				EC0AD9D2255B61FE00EC1686 /* LoginViewController.swift in Sources */,
+				ECA2704B25C8F46E00B7D983 /* EndsMiniNibCell.swift in Sources */,
 				EC95BA2F25BE822C005FD83C /* location.swift in Sources */,
 				EC61ED9425B825AA00AA9566 /* rotateExtension.swift in Sources */,
 				ECE4CDEA25AE91B60016F6B6 /* AddTagsCell.swift in Sources */,
