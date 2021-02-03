@@ -1,0 +1,28 @@
+{
+        "users":[
+            {
+                "userID":[
+                    {
+                        "posts":[
+                            {
+                                "postsID":[
+                                    {
+                                        "details":[
+                                            {
+                                                "color":"Hex Code",
+                                                "emoji":"Apple Color Image",
+                                                "photoURL":"Firebase Storage Link",
+                                                "title":"String"
+                                            }
+                                        ],
+                                        "index":0,
+                                        "path":[]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+}

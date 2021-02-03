@@ -126,6 +126,8 @@
 		EC9E0EC3255DF2FC00A19D96 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E0EC2255DF2FC00A19D96 /* RegistrationViewController.swift */; };
 		ECA2704625C8F31700B7D983 /* EndsMiniNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA2704525C8F31700B7D983 /* EndsMiniNib.xib */; };
 		ECA2704B25C8F46E00B7D983 /* EndsMiniNibCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA2704A25C8F46E00B7D983 /* EndsMiniNibCell.swift */; };
+		ECA2707425CA38CC00B7D983 /* folder.json in Resources */ = {isa = PBXBuildFile; fileRef = ECA2707325CA38CC00B7D983 /* folder.json */; };
+		ECA2708525CA3C6000B7D983 /* post.json in Resources */ = {isa = PBXBuildFile; fileRef = ECA2708425CA3C6000B7D983 /* post.json */; };
 		ECA30CD2257FF3A900A9A7A1 /* AddTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA30CD1257FF3A800A9A7A1 /* AddTitleView.xib */; };
 		ECA30CD7257FF5A600A9A7A1 /* AddTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA30CD6257FF5A600A9A7A1 /* AddTitleCell.swift */; };
 		ECB5409925632536003CCDA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECB5409825632536003CCDA5 /* GoogleService-Info.plist */; };
@@ -307,6 +309,8 @@
 		EC9E0EC2255DF2FC00A19D96 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		ECA2704525C8F31700B7D983 /* EndsMiniNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EndsMiniNib.xib; sourceTree = "<group>"; };
 		ECA2704A25C8F46E00B7D983 /* EndsMiniNibCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndsMiniNibCell.swift; sourceTree = "<group>"; };
+		ECA2707325CA38CC00B7D983 /* folder.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = folder.json; sourceTree = "<group>"; };
+		ECA2708425CA3C6000B7D983 /* post.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = post.json; sourceTree = "<group>"; };
 		ECA30CD1257FF3A800A9A7A1 /* AddTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTitleView.xib; sourceTree = "<group>"; };
 		ECA30CD6257FF5A600A9A7A1 /* AddTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTitleCell.swift; sourceTree = "<group>"; };
 		ECB5409825632536003CCDA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -845,6 +849,7 @@
 		EC9CBA9E2550F17700D8C4CF /* selfcare */ = {
 			isa = PBXGroup;
 			children = (
+				ECA2706C25CA38B500B7D983 /* Json */,
 				EC21F4802589280100536100 /* Models */,
 				EC0AD9A3255B500D00EC1686 /* Fonts */,
 				EC0AD99B255B473800EC1686 /* Extensions */,
@@ -886,6 +891,15 @@
 				EC9E0EC2255DF2FC00A19D96 /* RegistrationViewController.swift */,
 			);
 			path = Registration;
+			sourceTree = "<group>";
+		};
+		ECA2706C25CA38B500B7D983 /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				ECA2707325CA38CC00B7D983 /* folder.json */,
+				ECA2708425CA3C6000B7D983 /* post.json */,
+			);
+			path = Json;
 			sourceTree = "<group>";
 		};
 		ECA30CD0257FF35C00A9A7A1 /* Title */ = {
@@ -1163,6 +1177,7 @@
 				EC0AD9BA255B502800EC1686 /* NexaHeavyItalic.otf in Resources */,
 				EC98473E25C0EEFF002181B0 /* RepeatEndsView.xib in Resources */,
 				EC0AD9BB255B502800EC1686 /* NexaHeavy.otf in Resources */,
+				ECA2707425CA38CC00B7D983 /* folder.json in Resources */,
 				EC97F67F2575C53C00063B8B /* AddButtonCell.xib in Resources */,
 				EC98474C25C0F01F002181B0 /* OccurrencesView.xib in Resources */,
 				EC6BB90C25802ECF00945FD4 /* AddPhotoView.xib in Resources */,
@@ -1180,6 +1195,7 @@
 				EC0AD9C0255B502800EC1686 /* NexaRegular.otf in Resources */,
 				EC0AD9BF255B502800EC1686 /* NexaLightItalic.otf in Resources */,
 				EC98475625C0F155002181B0 /* OnADateView.xib in Resources */,
+				ECA2708525CA3C6000B7D983 /* post.json in Resources */,
 				EC32D7FF25674C5B003E0437 /* MenuRowCell.xib in Resources */,
 				ECBED88625BE287B00F0332E /* MonthCell.xib in Resources */,
 				EC587FA4256D7FAE001A5F72 /* CalendarView.xib in Resources */,
