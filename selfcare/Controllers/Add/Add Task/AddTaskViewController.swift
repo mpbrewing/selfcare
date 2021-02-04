@@ -15,13 +15,19 @@ class AddTaskViewController: UIViewController,UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         loadXIB(name: "AddTaskView")
+        //Table View
         setupTableView()
+        //Hide Keyboard when user taps screen
         hideKeyboardWhenTappedAround()
+        //Observe Notifications for Task Details
+        NotificationCenter.default.addObserver(self, selector: #selector(setupTaskDetails(notification:)), name: .addTaskDetails, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //Setup Navigation Bar Style
         modifyAddNavBar()
+        //Add Title and Save Button
         setupNavigationBar()
         navigationController?.navigationBar.standardAppearance.setBackIndicatorImage(#imageLiteral(resourceName: "exitIcon"), transitionMaskImage: #imageLiteral(resourceName: "exitIcon"))
     }
@@ -31,20 +37,34 @@ class AddTaskViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
 }
 
+//Navigation Bar
 extension AddTaskViewController {
+    
     func setupNavigationBar() {
+        //Setup Navigation Bar Title
+        //Title
         navigationItem.title = "Task"
+        //Frame
         let btn1 = UIButton(type: .custom)
         btn1.frame = CGRect(x: 0, y: 0, width: 60, height: 30)
+        //Font
         btn1.titleLabel?.font =  UIFont(name: "Nexa-Normal", size: 10)
+        //Setup Save Button
+        //Title
         let attributedTitle = NSAttributedString(string: "Save", attributes: [.foregroundColor: UIColor.white, .font: UIFont(name: "Nexa-Bold", size: 14)!])
         btn1.setAttributedTitle(attributedTitle, for: .normal)
+        //Corner Radius
         btn1.layer.cornerRadius = 8
+        //Background Color
         btn1.backgroundColor = UIColor.systemGreen
+        //Target Action
         btn1.addTarget(self, action: #selector(saveButtonAction), for: .touchUpInside)
+        //Set as Navigation Right Bar Button
         let saveButton = UIBarButtonItem(customView: btn1)
         navigationItem.rightBarButtonItem = saveButton
+        //Remove Back Bar Button Text
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        //Style Navigation Bar
         navigationController?.navigationBar.standardAppearance.backgroundColor = .clear
         navigationController?.navigationBar.standardAppearance.backgroundEffect = .none
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -59,6 +79,7 @@ extension AddTaskViewController {
      
 }
 
+//UITableView
 extension AddTaskViewController {
 
      func setupTableView()
@@ -84,10 +105,10 @@ extension AddTaskViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
-        case 0:
+        case 0: //Title
             let cell = tableView.dequeueReusableCell(withIdentifier: cellTitleIdentifier, for: indexPath) as! AddTitleCell
             return cell
-        case 1:
+        case 1: //Swipe Menu
             let cell = tableView.dequeueReusableCell(withIdentifier: cellMenuIdentifier, for: indexPath) as! AddMenuCell
             cell.addState = 1
             return cell
@@ -99,23 +120,27 @@ extension AddTaskViewController {
      
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
          switch indexPath.row {
-         case 0:
+         case 0: //Title Height
              return 60
-         case 1:
+         case 1: //Swipe Menu Height
              return 743
          default:
              return 50
          }
      }
     
-    
-    
 }
 
-//Pass data back to Home View Controller
-//Add Swipe Gesture Recognizer
-//Create Xibs and Classes
-//Save File To Database
-//Understand File Flow and Data management ...
-//Home View UI Structures
-//
+//Handle Task Details
+extension AddTaskViewController {
+    
+    @objc func setupTaskDetails(notification: NSNotification){
+        if let index = notification.userInfo?["index"] as? Int {
+            //Switch
+            print(index)
+        }
+    }
+    
+    //Place data in object
+    
+}

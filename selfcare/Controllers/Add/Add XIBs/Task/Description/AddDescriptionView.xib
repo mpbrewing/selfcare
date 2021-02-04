@@ -32,6 +32,9 @@
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" name="Nexa-Regular" family="Nexa" pointSize="20"/>
                         <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <action selector="EditingDidEnd:" destination="AgF-dJ-Ze1" eventType="editingDidEnd" id="Pr6-60-iSH"/>
+                        </connections>
                     </textField>
                 </subviews>
             </tableViewCellContentView>
