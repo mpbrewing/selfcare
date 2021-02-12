@@ -15,12 +15,19 @@ class AddTaskViewController: UIViewController,UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         loadXIB(name: "AddTaskView")
+        //
+        //print("Wallet: \(wallet.count)")
         //Table View
         setupTableView()
         //Hide Keyboard when user taps screen
         hideKeyboardWhenTappedAround()
         //Observe Notifications for Task Details
         NotificationCenter.default.addObserver(self, selector: #selector(setupTaskDetails(notification:)), name: .addTaskDetails, object: nil)
+        //
+        task.append(Task(title: "(no title)", emoji: "🖤", description: "", events: [], status: 0, priority: 0, tags: []))
+        //
+        item.append(Item(id: "", index: 0, path: [], details: [:]))
+        //
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +41,21 @@ class AddTaskViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     let cellTitleIdentifier = "addTitle"
     let cellMenuIdentifier = "addMenu"
+    
+    var taskTitle = String()
+    var taskEmoji = String()
+    var taskDescription = String()
+    var filePath = [String]()
+    var events = [Event]()
+    var status = Int()
+    var priority = Int()
+    var tags = [String]()
+    
+    var task = [Task]()
+    var item = [Item]()
+    var items = [Item]()
+    var selectedItems = [Item]()
+    var wallet = [Wallet]()
     
 }
 
@@ -74,6 +96,17 @@ extension AddTaskViewController {
     
      @objc func saveButtonAction() {
         print("AddTaskViewController: SaveButtonAction")
+        //Upload Events
+        uploadEvents(events: events, completion: {taskEvents in
+            self.task[0].setEvents(events: taskEvents)
+            //Upload Item
+            let holdTask = self.task[0].toAnyObject() as! [String:Any]
+            self.item[0].setDetails(details: holdTask)
+            let holdItem = self.item[0].toAnyObject() as! [String:Any]
+            self.uploadItem(item: holdItem, completion: { taskItem in
+                print(taskItem)
+            })
+        })
         navigationController?.popViewController(animated: true)
      }
      
@@ -107,10 +140,14 @@ extension AddTaskViewController {
         switch indexPath.row {
         case 0: //Title
             let cell = tableView.dequeueReusableCell(withIdentifier: cellTitleIdentifier, for: indexPath) as! AddTitleCell
+            cell.state = 1
             return cell
         case 1: //Swipe Menu
             let cell = tableView.dequeueReusableCell(withIdentifier: cellMenuIdentifier, for: indexPath) as! AddMenuCell
             cell.addState = 1
+            cell.selectedItems = selectedItems
+            cell.items = items
+            cell.wallet = wallet
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellTitleIdentifier, for: indexPath) as! AddTitleCell
@@ -136,11 +173,77 @@ extension AddTaskViewController {
     
     @objc func setupTaskDetails(notification: NSNotification){
         if let index = notification.userInfo?["index"] as? Int {
-            //Switch
-            print(index)
+            switchEventDetails(index: index, notification: notification)
         }
     }
     
     //Place data in object
+    func switchEventDetails(index: Int,notification: NSNotification){
+        switch index {
+        case 0: //Title
+            notifTitle(notif: notification)
+        case 1: //Description
+            notifDescription(notif: notification)
+        case 2: //File Path
+            notifFilePath(notif: notification)
+        case 3: //Events
+            notifEvents(notif: notification)
+        case 4: //Status
+            notifStatus(notif: notification)
+        case 5: //Priority
+            notifPriority(notif: notification)
+        case 6: //Tags
+            notifTags(notif: notification)
+        case 7: //SwipeClass
+            notifSwipeClass(notif: notification)
+        default:
+            break
+        }
+    }
+    
+    func notifTitle(notif:NSNotification){
+        taskTitle = notif.userInfo?["title"] as? String ?? "(no title)"
+        taskEmoji = notif.userInfo?["emoji"] as? String ?? "🖤"
+        task[0].setTitle(title: taskTitle, emoji: taskEmoji)
+    }
+    
+    func notifDescription(notif:NSNotification){
+        taskDescription = notif.userInfo?["description"] as? String ?? ""
+        task[0].setDescription(description: taskDescription)
+    }
+    
+    func notifFilePath(notif:NSNotification){
+        filePath = notif.userInfo?["filePath"] as? [String] ?? [String]()
+        item[0].path = filePath
+        item[0].index = filePath.count
+        selectedItems = notif.userInfo?["selected"] as! [Item]
+        tableView.reloadData()
+    }
+    
+    func notifEvents(notif:NSNotification){
+        let blank = Event(date: [Date()], time: [String](), repeating: [String:Any](), notify: [[String:Any]](), location: [String]())
+        let event = notif.userInfo?["event"] as? Event ?? blank
+        events.append(event)
+    }
+    
+    func notifStatus(notif:NSNotification){
+        status = notif.userInfo?["status"] as? Int ?? Int()
+        task[0].setStatus(status: status)
+    }
+    
+    func notifPriority(notif:NSNotification){
+        priority = notif.userInfo?["priority"] as? Int ?? Int()
+        task[0].setPriority(priority: priority)
+    }
+    
+    func notifTags(notif:NSNotification){
+        tags = notif.userInfo?["filePath"] as? [String] ?? [String]()
+        task[0].setTags(tags: tags)
+    }
+    
+    func notifSwipeClass(notif:NSNotification){
+        print("notfiSwipeClass")
+        wallet = notif.userInfo?["wallet"] as? [Wallet] ?? [Wallet]()
+    }
     
 }

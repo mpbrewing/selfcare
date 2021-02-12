@@ -29,18 +29,20 @@ class AddDescriptionCell: UITableViewCell {
                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
     }
     
+    @IBAction func EditingDidEnd(_ sender: Any) {
+        passDescriptionText()
+    }
+    
+}
+
+//Handle and Pass Description Text
+extension AddDescriptionCell {
+    
     func passDescriptionText()
     {
         //Pass Index and Description Text
-        let notif = ["index":0,"description":descriptionTextField.text!] as [String : Any]
+        let notif = ["index":1,"description":descriptionTextField.text!] as [String : Any]
         NotificationCenter.default.post(name: .addTaskDetails, object: nil,userInfo: notif)
     }
-    
-    
-    @IBAction func EditingDidEnd(_ sender: Any) {
-        //passDescriptionText()
-    }
-    
-    
     
 }

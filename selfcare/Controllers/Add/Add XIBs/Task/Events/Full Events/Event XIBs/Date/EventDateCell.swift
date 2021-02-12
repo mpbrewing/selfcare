@@ -25,6 +25,8 @@ class EventDateCell: UICollectionViewCell,UIPickerViewDelegate, UIPickerViewData
     var defaultLabel = String()
     var selectedDates = [CalendarDate]()
     
+    var eventDates = [Date]()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupStyle()
@@ -320,6 +322,7 @@ extension EventDateCell {
             updateDefaultString()
             toggleStyle(state: false)
         }
+        passEventDate()
     }
     
     func returnDateString(date: Date)->String{
@@ -327,6 +330,30 @@ extension EventDateCell {
         formatter.dateFormat = "E, MMM d, yyyy"
         let dateString = formatter.string(from: date)
         return dateString
+    }
+    
+}
+
+//Handle and Pass Event Date
+extension EventDateCell {
+    
+    func formatSelectedDates(){
+        //Clear EventDates Array
+        eventDates = [Date]()
+        //Append Selected Dates to EventDates (or) Today's Date if nil
+        if selectedDates.count > 0 {
+            for selected in selectedDates {
+                eventDates.append(selected.date)
+            }
+        } else {
+            eventDates.append(Date())
+        }
+    }
+    
+    func passEventDate(){
+        formatSelectedDates()
+        let notif = ["index":0,"date":eventDates] as [String : Any]
+        NotificationCenter.default.post(name: .addEventXib, object: nil,userInfo: notif)
     }
     
 }

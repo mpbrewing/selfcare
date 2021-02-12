@@ -16,6 +16,8 @@ class AddPriorityCell: UITableViewCell {
     @IBOutlet weak var overlay: UIView!
     @IBOutlet weak var handle: UIView!
     
+    var priority = Int()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupXIB()
@@ -53,6 +55,7 @@ class AddPriorityCell: UITableViewCell {
             //print("ended")
             let point = sender.location(in: contentView)
             returnFinalHandleLocation(point: point)
+            passPriority()
          default: break
              //print("handlePan")
          }
@@ -72,24 +75,28 @@ class AddPriorityCell: UITableViewCell {
         case 0...101:
             overlay.layer.backgroundColor = UIColor.gainsboro.cgColor
             handle.layer.backgroundColor = UIColor.gainsboro.cgColor
+            priority = 0
             priorityLabel.text = "Priority"
             priorityLabel.textColor = UIColor.lightGray
             updateIcon(image: #imageLiteral(resourceName: "priority_icon"))
         case 101...203:
             overlay.layer.backgroundColor = UIColor.lightGray.cgColor
             handle.layer.backgroundColor = UIColor.lightGray.cgColor
+            priority = 1
             priorityLabel.text = "Low Priority"
             priorityLabel.textColor = UIColor.black
             updateIcon(image: #imageLiteral(resourceName: "priority_icon"))
         case 203...305:
             overlay.layer.backgroundColor = UIColor.systemGray.cgColor
             handle.layer.backgroundColor = UIColor.systemGray.cgColor
+            priority = 2
             priorityLabel.text = "Medium Priority"
             priorityLabel.textColor = UIColor.black
             updateIcon(image: #imageLiteral(resourceName: "mediumPriority"))
         case 305...414:
             overlay.layer.backgroundColor = UIColor.darkGray.cgColor
             handle.layer.backgroundColor = UIColor.darkGray.cgColor
+            priority = 3
             priorityLabel.text = "High Priority"
             priorityLabel.textColor = UIColor.black
             updateIcon(image: #imageLiteral(resourceName: "highPriority"))
@@ -123,6 +130,18 @@ class AddPriorityCell: UITableViewCell {
             break
         }
         modifyHandleStyle(point: handle.center)
+    }
+    
+}
+
+//Handle and Pass Priority
+extension AddPriorityCell {
+    
+    func passPriority()
+    {
+        //Pass Index and Status
+        let notif = ["index":5,"priority":priority] as [String : Any]
+        NotificationCenter.default.post(name: .addTaskDetails, object: nil,userInfo: notif)
     }
     
 }

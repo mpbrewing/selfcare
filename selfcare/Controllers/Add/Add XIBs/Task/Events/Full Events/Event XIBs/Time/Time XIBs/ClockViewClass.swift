@@ -38,7 +38,7 @@ class ClockViewClass: UIView {
     @IBOutlet weak var littleHandHolder: UIView!
     
     @IBAction func timeButtonDown(_ sender: UIButton) {
-        print(sender.title(for: .normal) ?? "timeButtonDown")
+        //print(sender.title(for: .normal) ?? "timeButtonDown")
         let hourString = sender.title(for: .normal) ?? "12"
         hour = Int(hourString) ?? 12
         updateTimeButtonStyle()
@@ -73,6 +73,7 @@ class ClockViewClass: UIView {
     var panGesture = UIPanGestureRecognizer()
     let centerPoint = CGPoint(x: 207, y: 207)
     var count = 0
+    var send = true
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -178,6 +179,8 @@ extension ClockViewClass{
      
      @objc func handlePan(_ sender: UIPanGestureRecognizer) {
           switch sender.state {
+          case .began:
+            send = false
           case .changed:
             let point = sender.location(in: ViewHandle)
             let angle = getClockDegrees(point: point, origin: centerPoint)
@@ -198,9 +201,11 @@ extension ClockViewClass{
             }
             passClock()
           case .ended:
-            print("ended")
+            //print("ended")
             updateLittleHand()
             updateBigHand()
+            send = true
+            passClock()
             //Update Degree Accuracy
             //let point = sender.location(in: ViewHandle)
           default: break
@@ -254,19 +259,30 @@ extension ClockViewClass{
     
     func returnCompare() -> Int{
         if timePeriod == true {
-            let compare = ((hour-1) * 60) + minute
-            return compare
+            if hour == 12 {
+                let compare = ((0-1) * 60) + minute
+                return compare
+            } else {
+                let compare = ((hour-1) * 60) + minute
+                return compare
+            }
         } else {
-            let compare = (((hour-1) + 12) * 60) + minute
-            return compare
+            if hour == 12 {
+                let compare = (((hour-1)) * 60) + minute
+                return compare
+            } else {
+                let compare = (((hour-1) + 12) * 60) + minute
+                return compare
+            }
         }
     }
     
     func passClock()
     {
+        let military = convertToMilitaryTime(hour: hour, minute: minute, period: timePeriod)
         //combined time for comparison
-        let passInfo = ["title":updateLabel(),"state":state,"count":count,"hour":hour,"minute":minute,"compare":returnCompare()] as [String : Any]
-        NotificationCenter.default.post(name: .clock, object: nil,userInfo: passInfo)
+        let passInfo = ["title":updateLabel(),"state":state,"count":count,"hour":hour,"minute":minute,"compare":returnCompare(),"military":military,"send":send,"input":0] as [String : Any]
+        NotificationCenter.default.post(name: .xibToTime, object: nil,userInfo: passInfo)
     }
     
     func resetClock(){
@@ -275,6 +291,29 @@ extension ClockViewClass{
         updateLittleHand()
         updateBigHand()
         updateTimeButtonStyle()
+    }
+    
+    func convertToMilitaryTime(hour:Int,minute:Int,period:Bool)->String{
+        var holdHour = 0
+        if state == true {
+            if period == true {
+                if hour == 12 {
+                    
+                } else {
+                    holdHour = hour
+                }
+            } else {
+                if hour == 12 {
+                    holdHour = hour
+                } else {
+                    holdHour = hour + 12
+                }
+            }
+            let military = "\(holdHour):\(updateMinuteString())"
+            return military
+        } else {
+            return "24:00"
+        }
     }
     
 }

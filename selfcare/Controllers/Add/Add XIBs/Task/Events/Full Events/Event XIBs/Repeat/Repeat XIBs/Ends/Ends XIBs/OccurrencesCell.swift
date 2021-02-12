@@ -74,10 +74,37 @@ class OccurrencesCell: UIView, UITextFieldDelegate{
     
     @IBAction func changed(_ sender: Any) {
         label.text = "After \(textField.text!) occurrences"
+        passXibToRepeat()
     }
     
     func updateLabel(){
         label.text = "After \(textField.text!) occurrences"
+    }
+    
+}
+
+extension OccurrencesCell {
+    
+    func returnNumber()->Int{
+        let letters = NSCharacterSet.letters
+        let phrase = textField.text!
+        let range = phrase.rangeOfCharacter(from: letters)
+        // range will be nil if no letters is found
+        if range != nil {
+           //print("letters found")
+            return 0
+        }
+        else {
+            return Int(phrase) ?? 0
+           //print("letters not found")
+        }
+    }
+    
+    func passXibToRepeat()
+    {
+        let number = returnNumber()
+        let passState = ["index":0,"occur":number]
+        NotificationCenter.default.post(name: .xibToEnds, object: nil,userInfo: passState)
     }
     
 }

@@ -53,7 +53,9 @@ class AddMenuCell: UITableViewCell,UITableViewDelegate, UITableViewDataSource {
         animateSwitch()
     }
     
-    
+    var items = [Item]()
+    var wallet = [Wallet]()
+    var selectedItems = [Item]()
     
 }
 
@@ -225,6 +227,9 @@ extension AddMenuCell {
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellFilePathId, for: indexPath) as! AddFilePathCell
+            //print(selectedItems.count)
+            //cell.updateLabel(items: selectedItems)
+            //cell.selectedItems = selectedItems
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellEventsId, for: indexPath) as! AddEventsCell
@@ -309,6 +314,8 @@ extension AddMenuCell {
     func SegueToFilePath(){
         modifyBackButton()
         let filepath = FullFilePath()
+        filepath.wallet = wallet
+        filepath.items = items
         filepath.modalPresentationStyle = .fullScreen
         let vc = findViewController()
         vc?.navigationController?.pushViewController(filepath, animated: true)

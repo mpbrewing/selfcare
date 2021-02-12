@@ -15,6 +15,7 @@ class ExcludedDates: UIViewController ,UIPickerViewDelegate, UIPickerViewDataSou
     @IBOutlet weak var saveButton: UIButton!
     @IBAction func saveAction(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+        //passXibToRepeat()
     }
     
     @IBOutlet weak var datePicker: UIPickerView!
@@ -28,6 +29,7 @@ class ExcludedDates: UIViewController ,UIPickerViewDelegate, UIPickerViewDataSou
     var calendarDate = [CalendarDate]()
     var selectedDates = [CalendarDate]()
     let dateReuseID = "endsMiniNib"
+    var eventDates = [Date]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -290,6 +292,17 @@ extension ExcludedDates {
         formatter.dateFormat = "E, MMM d, yyyy"
         let dateString = formatter.string(from: date)
         return dateString
+    }
+    
+}
+//
+//
+extension ExcludedDates {
+    
+    func passXibToRepeat()
+    {
+        let passState = ["index":3] as [String : Any]
+        NotificationCenter.default.post(name: .xibToEnds, object: nil,userInfo: passState)
     }
     
 }

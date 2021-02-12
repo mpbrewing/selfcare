@@ -18,6 +18,7 @@ class FullEvents: UIViewController, UICollectionViewDataSource, UICollectionView
     
     @IBAction func saveButtonAction(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+        passEvent()
     }
     
     override func viewDidLoad() {
@@ -28,6 +29,9 @@ class FullEvents: UIViewController, UICollectionViewDataSource, UICollectionView
         setupStyle()
         setupSwipe()
         hideKeyboardWhenTappedAround()
+        //fill defaults
+        updateDefaults()
+        NotificationCenter.default.addObserver(self, selector: #selector(setEventDetails(notification:)), name: .addEventXib, object: nil)
     }
     
     var state = 0
@@ -37,6 +41,13 @@ class FullEvents: UIViewController, UICollectionViewDataSource, UICollectionView
     let repeatReuseId = "repeatTab"
     let notifyReuseId = "notifyTab"
     let locationReuseId = "locationTab"
+    
+    var event = [Event]()
+    var date = [Date]()
+    var time = [String]()
+    var repeating = [String:Any]()
+    var notify = [[String:Any]]()
+    var location = [String]()
     
     func setupNavigationBar() {
         navigationItem.title = "Events"
@@ -205,6 +216,82 @@ extension FullEvents {
         return 0
     }
     
+}
+
+//Handle Event Details
+extension FullEvents {
     
+    @objc func setEventDetails(notification: NSNotification) {
+        if let index = notification.userInfo?["index"] as? Int {
+            print("setEventDetails: \(index)")
+            switchEventDetails(index: index, notif: notification)
+        }
+    }
+    
+    func switchEventDetails(index:Int,notif:NSNotification){
+        switch index {
+        case 0: //Date
+            notifDate(notif: notif)
+        case 1: //Time
+            notifTime(notif: notif)
+        case 2: //Repeat
+            notifRepeat(notif: notif)
+        case 3: //Notify
+            notifNotify(notif: notif)
+        case 4: //Location
+            notifLocation(notif: notif)
+        default:
+            break
+        }
+    }
+    
+    func notifDate(notif:NSNotification){
+       date = notif.userInfo?["date"] as? [Date] ?? [Date]()
+       //print(date)
+       event[0].updateDate(date: date)
+    }
+    
+    func notifTime(notif:NSNotification){
+        time = notif.userInfo?["time"] as? [String] ?? [String]()
+        //print(time)
+        event[0].updateTime(time: time)
+    }
+    
+    func notifRepeat(notif:NSNotification){
+        repeating = notif.userInfo?["repeat"] as? [String:Any] ?? [String:Any]()
+        //print(repeating)
+        event[0].updateRepeat(repeating: repeating)
+    }
+    
+    func notifNotify(notif:NSNotification){
+        notify = notif.userInfo?["notify"] as? [[String:Any]] ?? [[String:Any]]()
+        //print(notify)
+        event[0].updateNotify(notify: notify)
+    }
+    
+    func notifLocation(notif:NSNotification){
+        location = notif.userInfo?["location"] as? [String] ?? [String]()
+        //print(location)
+        event[0].updateLocation(location: location)
+    }
+    
+    func passEvent()
+    {
+        //Pass Index and Event
+        let notif = ["index":3,"event":event[0]] as [String : Any]
+        NotificationCenter.default.post(name: .addTaskDetails, object: nil,userInfo: notif)
+    }
+    
+    func updateDefaults(){
+        date = [Date()]
+        time = ["24:00"]
+        let ends = ["index":0,"date":Date(),"occur":Int()] as [String : Any]
+        let selected = ["week":[Bool](),"month":Int()] as [String : Any]
+        repeating = ["ends":ends,"excluded":[Date](),"period":0,"selected":selected]
+        if event.count == 0 {
+            let holdEvent = Event(date: date, time: time, repeating: repeating, notify: notify, location: location)
+            event.append(holdEvent)
+        }
+    }
     
 }

@@ -66,6 +66,11 @@ class EventLabel: UITableViewCell{
         }
     }
     
+}
+
+//Handle Notification Label Cancel Action
+extension EventLabel {
+    
     func passCancel(){
         let passState = ["state":0,"row":row]
         NotificationCenter.default.post(name: .xibToNotify, object: nil,userInfo: passState)

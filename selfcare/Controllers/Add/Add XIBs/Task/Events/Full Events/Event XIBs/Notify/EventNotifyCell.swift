@@ -15,6 +15,8 @@ class EventNotifyCell: UICollectionViewCell,UITableViewDelegate, UITableViewData
     var timeArray = [String]()
     var addLabel = String()
     var reset = false
+    //var eventNotify = [[Int]]()
+    var eventNotify = [[String:Any]]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,6 +40,9 @@ class EventNotifyCell: UICollectionViewCell,UITableViewDelegate, UITableViewData
     func labelNotif(notif: NSNotification){
         let row = (notif.userInfo?["row"] as? Int)!
         timeArray.remove(at: row)
+        //
+        updateEventNotify(add: false, value: [String:Any](), row: row)
+        //
         reset = true
         addLabel = "Does not notify"
         notifyTableView.reloadData()
@@ -50,6 +55,11 @@ class EventNotifyCell: UICollectionViewCell,UITableViewDelegate, UITableViewData
             timeArray.append(label)
             reset = true
             addLabel = "Does not notify"
+            //
+            //let value = (notif.userInfo?["eventNotify"] as? [Int])!
+            let value = (notif.userInfo?["eventNotify"] as? [String:Any])!
+            updateEventNotify(add: true, value: value, row: Int())
+            //
         } else {
             addLabel = (notif.userInfo?["label"] as? String)!
         }
@@ -133,6 +143,25 @@ extension EventNotifyCell {
         default:
             return 57
         }
+    }
+    
+}
+
+//Handle and Pass Event Notify
+extension EventNotifyCell {
+    
+    func updateEventNotify(add:Bool,value: [String:Any],row:Int){
+        if add == true {
+            eventNotify.append(value)
+        } else {
+            eventNotify.remove(at: row)
+        }
+        passEventNotify()
+    }
+    
+    func passEventNotify(){
+        let notif = ["index":3,"notify":eventNotify] as [String : Any]
+        NotificationCenter.default.post(name: .addEventXib, object: nil,userInfo: notif)
     }
     
 }

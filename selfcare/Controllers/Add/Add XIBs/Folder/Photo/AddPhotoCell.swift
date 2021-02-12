@@ -61,7 +61,7 @@ class AddPhotoCell: UITableViewCell,UIImagePickerControllerDelegate, UINavigatio
     
     
     func returnInput() -> [String:Any] {
-        let holdInput: [String:Any] = ["segueID":1,"photo":currentImageView?.image ?? UIImage()]
+        let holdInput: [String:Any] = ["index":1,"photo":currentImageView?.image ?? UIImage()]
         return holdInput
     }
      

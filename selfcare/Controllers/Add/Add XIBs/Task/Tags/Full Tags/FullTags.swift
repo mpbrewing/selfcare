@@ -21,3 +21,10 @@ class FullTags: UIViewController {
     }
     
 }
+
+//Handle and Pass Tags
+extension FullTags {
+    
+    
+    
+}

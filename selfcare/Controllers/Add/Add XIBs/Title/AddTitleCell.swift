@@ -14,6 +14,7 @@ class AddTitleCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var EmojiView: UIView!
     @IBOutlet weak var EmojiTextField: UITextField!
     
+    var state = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,14 +48,18 @@ class AddTitleCell: UITableViewCell, UITextFieldDelegate {
         return newString.length <= maxLength
     }
     
-    func returnText() -> [String:Any]{
-        let holdTextInput: [String:Any] = ["segueID":0,"emoji":EmojiTextField.text ?? "","title":TitleTextField.text ?? ""]
+    func returnDetails() -> [String:Any]{
+        let holdTextInput: [String:Any] = ["index":0,"emoji":EmojiTextField.text ?? "","title":TitleTextField.text ?? ""]
         return holdTextInput
     }
     
      func passSegue()
      {
-         NotificationCenter.default.post(name: .addFolderDetails, object: nil,userInfo: returnText())
+        if state == 0 {
+            NotificationCenter.default.post(name: .addFolderDetails, object: nil,userInfo: returnDetails())
+        } else {
+            NotificationCenter.default.post(name: .addTaskDetails, object: nil,userInfo: returnDetails())
+        }
      }
     
     

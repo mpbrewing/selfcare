@@ -94,6 +94,7 @@ extension AddFolderViewController {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellTitleIdentifier, for: indexPath) as! AddTitleCell
+            cell.state = 0
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellMenuIdentifier, for: indexPath) as! AddMenuCell
@@ -122,7 +123,7 @@ extension AddFolderViewController {
 //Save
 extension AddFolderViewController {
     @objc func setFolderDetails(notification: NSNotification) {
-        if let segueDetails = notification.userInfo?["segueID"] as? Int {
+        if let segueDetails = notification.userInfo?["index"] as? Int {
             switch segueDetails {
             case 0:
                 setFolderTitle(info: notification.userInfo!)

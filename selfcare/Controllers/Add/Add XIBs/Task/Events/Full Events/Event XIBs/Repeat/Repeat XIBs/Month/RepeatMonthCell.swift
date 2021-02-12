@@ -15,6 +15,7 @@ class repeatMonthCell: UITableViewCell,UITableViewDelegate, UITableViewDataSourc
     var state = 2
     var selectedArray = [Bool]()
     var selection = 0
+    var eventDates = [Date]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -58,10 +59,23 @@ class repeatMonthCell: UITableViewCell,UITableViewDelegate, UITableViewDataSourc
         } else {
             selectedArray = Array(repeating: false, count: 4)
             selectedArray[indexPath.row] = !selectedArray[indexPath.row]
+            selection = indexPath.row
+            passXibToRepeat()
             monthTableView.reloadData()
         }
         
     }
     
+    
+}
+//2
+//
+extension repeatMonthCell {
+    
+    func passXibToRepeat()
+    {
+        let passState = ["index":2,"month":selection] as [String : Any]
+        NotificationCenter.default.post(name: .xibToRepeat, object: nil,userInfo: passState)
+    }
     
 }

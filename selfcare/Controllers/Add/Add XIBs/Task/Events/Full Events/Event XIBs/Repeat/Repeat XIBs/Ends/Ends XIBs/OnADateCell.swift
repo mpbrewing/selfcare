@@ -347,6 +347,7 @@ extension OnADateCell {
             updateDefaultString()
             toggleStyle(state: false)
         }
+        passXibToRepeat()
     }
     
     func returnDateString(date: Date)->String{
@@ -356,5 +357,25 @@ extension OnADateCell {
         return dateString
     }
     
+    
+}
+
+extension OnADateCell {
+    
+    func passXibToRepeat()
+    {
+        let date = returnDate()
+        let passState = ["index":0,"date":date] as [String : Any]
+        NotificationCenter.default.post(name: .xibToEnds, object: nil,userInfo: passState)
+    }
+    
+    func returnDate() -> Date{
+        if selectedDates.count > 0 {
+            return selectedDates[0].date
+        } else {
+            //Update default
+            return Date()
+        }
+    }
     
 }

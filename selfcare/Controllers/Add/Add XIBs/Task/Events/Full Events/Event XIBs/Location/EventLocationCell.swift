@@ -34,6 +34,9 @@ class EventLocationCell: UICollectionViewCell, UISearchBarDelegate, UITableViewD
     }()
     var searchSource: [String]?
     var searchArray: [String]?
+    var eventLocation = [String]()
+    var title = String()
+    var subtitle = String()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -84,6 +87,7 @@ class EventLocationCell: UICollectionViewCell, UISearchBarDelegate, UITableViewD
             textBox.isHidden = true
             tabLabel.textColor = UIColor.gainsboro
         }
+        updateEventLocation(state: state)
     }
     
 }
@@ -105,7 +109,12 @@ extension EventLocationCell {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell", for: indexPath) as! LocationCellClass
+        let searchResult = searchResults[indexPath.row]
         tabLabel.text = self.searchSource?[indexPath.row]
+        //
+        title = searchResult.title
+        subtitle = searchResult.subtitle
+        //
         searchbar.text = ""
         searchResults.removeAll()
         searchSource?.removeAll()
@@ -139,7 +148,7 @@ extension EventLocationCell {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        //print(searchText)
         //change searchCompleter depends on searchBar's text
         if !searchText.isEmpty {
             searchCompleter.queryFragment = searchText
@@ -153,6 +162,10 @@ extension EventLocationCell {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         tabLabel.text = searchbar.text
+        //
+        title = searchbar.text!
+        subtitle = String()
+        //
         toggleStyle(state: true)
         searchbar.text = ""
         searchResults.removeAll()
@@ -172,6 +185,26 @@ extension EventLocationCell {
     func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
         //handle the error
         print(error.localizedDescription)
+    }
+    
+}
+
+//Handle and Pass Event Location
+extension EventLocationCell {
+    
+    //Determine full address and remove general searches (search nearby, here)
+    func updateEventLocation(state: Bool){
+        if state == true {
+            eventLocation = [title,subtitle]
+        } else {
+            eventLocation = [String]()
+        }
+        passEventLocation()
+    }
+    
+    func passEventLocation(){
+        let notif = ["index":4,"location":eventLocation] as [String : Any]
+        NotificationCenter.default.post(name: .addEventXib, object: nil,userInfo: notif)
     }
     
 }

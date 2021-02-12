@@ -14,6 +14,9 @@ class RepeatSelectionCell: UITableViewCell,UITableViewDelegate, UITableViewDataS
     var selectedArray = [Bool]()
     var excludedCount = Int()
     var selection = Int()
+    var occur = Int()
+    var date = Date()
+    var eventDates = [Date]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,6 +25,7 @@ class RepeatSelectionCell: UITableViewCell,UITableViewDelegate, UITableViewDataS
         excludedCount = 0
         selectedArray = Array(repeating: false, count: 3)
         selectedArray[selection] = true
+        NotificationCenter.default.addObserver(self, selector: #selector(setSelection(notification:)), name: .endsToSelection, object: nil)
     }
     
     func excludedBool() -> Bool{
@@ -114,11 +118,14 @@ extension RepeatSelectionCell {
             } else {
                 selectedArray = Array(repeating: false, count: 3)
                 selectedArray[indexPath.row] = !selectedArray[indexPath.row]
+                selection = indexPath.row
                 selectionTableView.reloadData()
             }
         }
         if indexPath.row != 0 {
             switchSeque(index: indexPath)
+        } else {
+            passXibToRepeat()
         }
     }
     
@@ -127,4 +134,31 @@ extension RepeatSelectionCell {
     }
     
 }
-
+//0
+//
+extension RepeatSelectionCell {
+    
+    //Receive
+    @objc func setSelection(notification: NSNotification) {
+        if let index = notification.userInfo?["index"] as? Int {
+            if index == 1 {
+                //default date
+                date = notification.userInfo?["date"] as? Date ?? Date()
+            } else if index == 2 {
+                occur = notification.userInfo?["occur"] as? Int ?? 1
+            } else {
+                //Excluded
+            }
+        }
+        passXibToRepeat()
+    }
+    
+    func passXibToRepeat()
+    {
+        let ends = ["ends":selection,"date":date,"occur":occur] as [String : Any]
+        //excluded
+        let passState = ["index":0,"ends":ends] as [String : Any]
+        NotificationCenter.default.post(name: .xibToRepeat, object: nil,userInfo: passState)
+    }
+    
+}

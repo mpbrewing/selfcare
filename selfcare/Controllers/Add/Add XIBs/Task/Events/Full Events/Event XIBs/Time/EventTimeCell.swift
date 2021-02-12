@@ -31,6 +31,7 @@ class EventTimeCell: UICollectionViewCell {
     var hourArray = [Int]()
     var minuteArray = [Int]()
     var compareArray = [Int]()
+    var militaryTime = [String]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,8 +39,7 @@ class EventTimeCell: UICollectionViewCell {
         setupClockView()
         setupMiniClockView()
         updateModify()
-        NotificationCenter.default.addObserver(self, selector: #selector(clockNotif(notification:)), name: .clock, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(miniNotif(notification:)), name: .mini, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(timeNotif(notification:)), name: .xibToTime, object: nil)
     }
     
     func setupStyle(){
@@ -56,6 +56,7 @@ class EventTimeCell: UICollectionViewCell {
         hourArray = Array(repeating: 0, count: 2)
         minuteArray = Array(repeating: 0, count: 2)
         compareArray = Array(repeating: 0, count: 2)
+        militaryTime = Array(repeating: "24:00", count: 2)
     }
     
     func toggleStyle(state: Bool){
@@ -77,7 +78,17 @@ class EventTimeCell: UICollectionViewCell {
         title.text = text
     }
     
-    @objc func clockNotif(notification: NSNotification) {
+    @objc func timeNotif(notification: NSNotification) {
+        if let input = notification.userInfo?["input"] as? Int {
+            if input == 0 {
+                clockNotif(notification: notification)
+            } else {
+                miniNotif(notification: notification)
+            }
+        }
+    }
+    
+    func clockNotif(notification: NSNotification) {
         if let input = notification.userInfo?["state"] as? Bool {
             let count = notification.userInfo?["count"] as? Int ?? 0
             active[count] = input
@@ -85,11 +96,15 @@ class EventTimeCell: UICollectionViewCell {
             hourArray[count] = notification.userInfo?["hour"] as? Int ?? 12
             minuteArray[count] = notification.userInfo?["minute"] as? Int ?? 0
             compareArray[count] = notification.userInfo?["compare"] as? Int ?? 0
+            militaryTime[count] = notification.userInfo?["military"] as? String ?? ""
+            updateMilitary()
             updateLabel(count: count)
+            let send =  notification.userInfo?["send"] as? Bool ?? true
+            verifyPass(send: send)
         }
     }
     
-    @objc func miniNotif(notification: NSNotification) {
+    func miniNotif(notification: NSNotification) {
         if let input = notification.userInfo?["count"] as? Int {
             switchMiniDown(count: input)
             //Pass Hour and Minute
@@ -133,6 +148,7 @@ class EventTimeCell: UICollectionViewCell {
                 textInput(text: updateInput())
             }
         }
+        //passEventTime()
     }
     
     func returnRange(input: String) -> String{
@@ -194,7 +210,27 @@ extension EventTimeCell{
     }
 }
 
-extension Notification.Name {
-    static let clock = Notification.Name("clock")
-    static let mini = Notification.Name("mini")
+//Handle and Pass Event Time
+extension EventTimeCell {
+    
+    func verifyPass(send: Bool){
+        if send == true {
+            passEventTime()
+        } else {
+            
+        }
+    }
+    
+    func updateMilitary(){
+        if active[0] == false {
+            militaryTime = ["24:00","24:00"]
+        }
+    }
+    
+    
+    func passEventTime(){
+        let notif = ["index":1,"time":militaryTime] as [String : Any]
+        NotificationCenter.default.post(name: .addEventXib, object: nil,userInfo: notif)
+    }
+    
 }

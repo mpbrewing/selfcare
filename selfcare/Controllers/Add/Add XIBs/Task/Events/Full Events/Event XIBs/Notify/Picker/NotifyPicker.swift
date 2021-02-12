@@ -23,7 +23,9 @@ class NotifyPicker: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource
     
     func passPicker(add: Bool){
         updateLabel()
-        let passState = ["state":1,"period":periodSelection,"time":timeSelection,"label":labelString,"add":add] as [String : Any]
+        //let eventNotify = [periodSelection,timeSelection]
+        let eventNotify = ["\(periodSelection)":timeSelection]
+        let passState = ["state":1,"period":periodSelection,"time":timeSelection,"label":labelString,"add":add,"eventNotify":eventNotify] as [String : Any]
         NotificationCenter.default.post(name: .xibToNotify, object: nil,userInfo: passState)
     }
     

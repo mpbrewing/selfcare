@@ -42,6 +42,10 @@ extension UIColor {
         return UIColor.init(red: 254, green: 183, blue: 5)
     }
     
+    class var appleGreen: UIColor {
+        return UIColor.init(red: 95, green: 182, blue: 65)
+    }
+    
     // https://stackoverflow.com/questions/49150872/how-to-convert-rgb-values-to-hex-string-ios-swift
     convenience init(red: Int, green: Int, blue: Int) {
           assert(red >= 0 && red <= 255, "Invalid red component")

@@ -30,6 +30,7 @@ class SwipeClass: UIView {
     var cardPosition: [CGPoint] = []
     var cards = [SwipeCard]()
     var items = [Item]()
+    var total = [Item]()
     var wallet = [Wallet]()
     let db = Firestore.firestore()
     var position: CGPoint = CGPoint(x: 0,y: 0)
@@ -67,9 +68,10 @@ class SwipeClass: UIView {
         signal.layer.cornerRadius = 4
         downloadPosts(db: db, completion: {item in
             self.items = item
-            print(self.items.count)
-            //Sort index 0 and 1
-            self.wallet.append(Wallet(items: self.items))
+            self.total = item
+            //print(self.items.count)
+            //self.wallet.append(Wallet(items: self.items))
+            self.filterItems()
             self.updateCards()
             self.manageAnimation()
         })
@@ -77,6 +79,24 @@ class SwipeClass: UIView {
     //Structure Four Tier Wallet Class for Cards
     //Add GUI(s) to Card
     //Pull Details from Items and create limits based on size
+    func filterItems(){
+        print("Items: \(items.count)")
+        for i in 0...3 {
+            let filtered = items.filter({ filter in
+                if filter.index == i {
+                    return true
+                } else {
+                    return false
+                }
+            })
+            print("Filter \(i): \(filtered.count)")
+            if filtered.count > 0 {
+                wallet.append(Wallet(items: filtered))
+            }
+            print("Wallet \(i): \(wallet.count)")
+        }
+        
+    }
 }
 
 extension SwipeClass {
@@ -146,7 +166,7 @@ extension SwipeClass {
             cards.append(newCard)
         }
     }
-    
+    /*
     func loadCards(global: CGPoint) -> Item {
         //Wallet
         if global.x >= 0 && global.y >= 0 && items.count > Int(global.x) {
@@ -155,7 +175,17 @@ extension SwipeClass {
             return emptyItem
         }
     }
+    */
     
+    func loadCards(global: CGPoint) -> Item {
+        //Wallet
+        if global.x >= 0 && global.y >= 0 && wallet[Int(global.y)].items.count > Int(global.x) {
+            return wallet[Int(global.y)].items[Int(global.x)]
+        } else {
+            return emptyItem
+        }
+    }
+    /*
     func retrieveItemData(input: SwipeCard) {
         //print("Global: x: \(input.global.x) // y: \(input.global.y)")
         //print("Pos: x: \(input.position.x) // y: \(input.position.y)")
@@ -167,8 +197,20 @@ extension SwipeClass {
         input.view.setDetails(emoji: emoji, name: title, url: photoURL)
         }
         //print("//")
-    }
+    } */
     
+    func retrieveItemData(input: SwipeCard) {
+        //print("Global: x: \(input.global.x) // y: \(input.global.y)")
+        //print("Pos: x: \(input.position.x) // y: \(input.position.y)")
+        if input.global.x >= 0 && input.global.y >= 0 && wallet[Int(input.global.y)].items.count > Int(input.global.x) {
+        let details = input.item.details
+        let emoji = details["emoji"] as! String
+        let title = details["title"] as! String
+        let photoURL = details["photoURL"] as! String
+        input.view.setDetails(emoji: emoji, name: title, url: photoURL)
+        }
+        //print("//")
+    }
      
 }
 
@@ -182,7 +224,7 @@ extension SwipeClass {
             self.addGestureRecognizer(gesture)
         }
     }
-
+/*
     @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
         //print(sender.direction)
         
@@ -202,6 +244,39 @@ extension SwipeClass {
             case .left:
                 //print("left swipe")
                 if Int(position.x) < items.count-1 {
+                    position.x = position.x + 1
+                    updateGlobalPosition(direction: sender.direction)
+                }
+            case .right:
+                //print("right swipe")
+                if Int(position.x) != 0 {
+                    position.x = position.x - 1
+                    updateGlobalPosition(direction: sender.direction)
+                }
+            default:
+                print("other swipe")
+        }
+    } */
+    
+    @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
+        //print(sender.direction)
+        
+        switch sender.direction {
+            case .down:
+                //print("down swipe")
+                if Int(position.y) != 0 {
+                    position.y = position.y - 1
+                    updateGlobalPosition(direction: sender.direction)
+                }
+            case .up:
+                //print("up swipe")
+                if Int(position.y) < 3 {
+                    position.y = position.y + 1
+                    updateGlobalPosition(direction: sender.direction)
+                }
+            case .left:
+                //print("left swipe")
+                if Int(position.x) < wallet[Int(position.y)].items.count-1 {
                     position.x = position.x + 1
                     updateGlobalPosition(direction: sender.direction)
                 }
@@ -323,7 +398,7 @@ extension SwipeClass {
             return input
         }
     }
-    
+    /*
     func updateCardRect() {
         for i in 0...cards.count-1 {
             cards[i].view.frame = setupCardFrame(position:  cards[i].position)
@@ -338,6 +413,34 @@ extension SwipeClass {
                 cards[i].view.alpha = 0
             }
         }
+    } */
+    
+    func updateCardRect() {
+        for i in 0...cards.count-1 {
+            cards[i].view.frame = setupCardFrame(position:  cards[i].position)
+            if cards[i].position == CGPoint(x: 0, y: 0) || cards[i].position == CGPoint(x: 1, y: 0) {
+                if Int(cards[i].global.x) >= wallet[Int(cards[i].global.y)].items.count {
+                    cards[i].view.alpha = 0
+               } else {
+                    retrieveItemData(input: cards[i])
+                    cards[i].view.alpha = 1
+               }
+            } else {
+                cards[i].view.alpha = 0
+            }
+        }
+    }
+    
+}
+
+extension SwipeClass {
+    
+    func passWallet()
+    {
+        print("pass")
+        //Pass Data
+        let notif = ["index":7,"wallet":wallet,"items":items] as [String : Any]
+        NotificationCenter.default.post(name: .addTaskDetails, object: nil,userInfo: notif)
     }
     
 }

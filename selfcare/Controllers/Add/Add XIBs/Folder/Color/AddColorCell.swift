@@ -164,7 +164,7 @@ class AddColorCell: UITableViewCell {
     }
     
     func returnInput() -> [String:Any] {
-        let holdInput: [String:Any] = ["segueID":2,"color":hex?.text ?? "#ff0000"]
+        let holdInput: [String:Any] = ["index":2,"color":hex?.text ?? "#ff0000"]
         return holdInput
     }
      

@@ -29,12 +29,20 @@ class EventRepeatCell: UICollectionViewCell,UIPickerViewDelegate, UIPickerViewDa
     var repeatData: [String] = [String]()
     var defaultLabel = String()
     var selection = 0
+    var eventRepeat = [String:Any]()
+    var ends = [String:Any]()
+    var excluded = [Date]()
+    var eventSelection = [String:Any]()
+    var week = [Bool]()
+    var month = Int()
+    var eventDates = [Date]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupPickerData()
         setupStyle()
         setupTableView()
+        NotificationCenter.default.addObserver(self, selector: #selector(setEventRepeat(notification:)), name: .xibToRepeat, object: nil)
     }
     
     func setupStyle(){
@@ -106,6 +114,7 @@ extension EventRepeatCell {
         }
         selection = row
         updateDefaultString()
+        pickerChange()
         repeatTableView.reloadData()
     }
     
@@ -228,4 +237,78 @@ extension EventRepeatCell {
         }
     }
     
+}
+
+//Handle and Pass Event Repeat
+extension EventRepeatCell {
+    
+    ///repeat: [String:Any]()
+    //^
+    //ends: [String:Any]()
+    // -> selection: Int()
+    // -> date: Date()
+    // -> occur: Int()
+    //excluded: [Date]() (unfinished)
+    //period: Int() *ie selection
+    //selected: [String:Any]()
+    // -> *week: [Bool]
+    // -> *month: Int
+    
+    func passEventRepeat(){
+        //Event Repeat Defaults
+        let notif = ["index":2,"repeat":eventRepeat] as [String : Any]
+        NotificationCenter.default.post(name: .addEventXib, object: nil,userInfo: notif)
+    }
+    
+    //Receive
+    @objc func setEventRepeat(notification: NSNotification) {
+        if let index = notification.userInfo?["index"] as? Int {
+            switchNotif(index: index,notif: notification)
+            passEventRepeat()
+        }
+    }
+    
+    func switchNotif(index: Int,notif: NSNotification){
+        switch index {
+        case 0: //Ends and Excluded
+            //print("0")
+            notifEnds(notif: notif)
+        case 1: //Week
+            //print("1")
+            notifWeek(notif: notif)
+        case 2: //Month
+            //print("2")
+            notifMonth(notif: notif)
+        default:
+            break
+        }
+        notifSelected()
+        notifRepeat()
+    }
+    //ends and excluded
+    func notifEnds(notif: NSNotification){
+        ends = notif.userInfo?["ends"] as? [String:Any] ?? [String:Any]()
+        //excluded =  notif.userInfo?["excluded"] as? [Date] ?? [Date]()
+    }
+    //week
+    func notifWeek(notif: NSNotification){
+        week = notif.userInfo?["week"] as? [Bool] ?? [Bool]()
+    }
+    //month
+    func notifMonth(notif: NSNotification){
+        month = notif.userInfo?["month"] as? Int ?? Int()
+    }
+    //func to setup selected
+    func notifSelected(){
+        eventSelection = ["week":week,"month":month]
+    }
+    //func to setup repeat
+    func notifRepeat(){
+        eventRepeat = ["ends":ends,"excluded":excluded,"period":selection,"selected":eventSelection]
+    }
+    func pickerChange(){
+        notifRepeat()
+        notifSelected()
+        passEventRepeat()
+    }
 }

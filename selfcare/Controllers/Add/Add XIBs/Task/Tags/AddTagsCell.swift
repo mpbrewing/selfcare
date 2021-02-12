@@ -24,3 +24,14 @@ class AddTagsCell: UITableViewCell {
     }
     
 }
+
+extension AddTagsCell {
+    
+    func passTags()
+    {
+        //Pass Index and Tags
+        let notif = ["index":6] as [String : Any]
+        NotificationCenter.default.post(name: .addTaskDetails, object: nil,userInfo: notif)
+    }
+    
+}

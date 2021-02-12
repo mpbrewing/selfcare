@@ -14,6 +14,7 @@ class RepeatWeekCell: UITableViewCell,UICollectionViewDataSource, UICollectionVi
     
     var selectedArray = [Bool]()
     var selection = Int()
+    var eventDates = [Date]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,6 +45,7 @@ class RepeatWeekCell: UITableViewCell,UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedArray[indexPath.row] = !selectedArray[indexPath.row]
         checkFalse()
+        passXibToRepeat()
         WeekCollectionView.reloadData()
     }
     
@@ -68,4 +70,15 @@ class RepeatWeekCell: UITableViewCell,UICollectionViewDataSource, UICollectionVi
     }
     
 
+}
+//1
+//
+extension RepeatWeekCell {
+    
+    func passXibToRepeat()
+    {
+        let passState = ["index":1,"week":selectedArray] as [String : Any]
+        NotificationCenter.default.post(name: .xibToRepeat, object: nil,userInfo: passState)
+    }
+    
 }

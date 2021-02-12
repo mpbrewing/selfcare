@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+//Notifications for updating add button frame and actions
 extension Notification.Name {
     
     //AddButtonViewClass -> HomeViewController
@@ -23,6 +24,7 @@ extension Notification.Name {
 //Notifications for adding folder
 extension Notification.Name {
     
+    //AddTitleCell -> AddFolderViewController
     //AddPhotoCell -> AddFolderViewController
     //AddColorCell -> AddFolderViewController
     //*Pass Values
@@ -34,6 +36,7 @@ extension Notification.Name {
 //Notifications for adding task
 extension Notification.Name {
     
+    //AddTitleCell -> AddTaskViewController
     //AddDescriptionCell -> AddTaskViewController
     //...filepath
     //FullEvents -> AddTaskViewController
@@ -42,6 +45,22 @@ extension Notification.Name {
     //...tags
     //*Pass Description, *FilePath, Events, Status, Priority, and *Tags
     static let addTaskDetails = Notification.Name("addTaskDetails")
+
+    //*Update Clock and Mini Clock
+    static let xibToTime = Notification.Name("xibtoTime")
+    
+    //OccurrencesCell -> RepeatEnds
+    //OnADateCell -> RepeatEnds
+    //ExcludedDates -> RepeatEnds
+    static let xibToEnds = Notification.Name("xibToEnds")
+    
+    //RepeatEnds -> RepeatSelection
+    static let endsToSelection = Notification.Name("endsToSelection")
+    
+    //repeatMonthCell -> EventRepeatCell
+    //RepeatWeekCell -> EventRepeatCell
+    //RepeatSelectionCell -> EventRepeatCell
+    static let xibToRepeat = Notification.Name("xibToRepeat")
     
     //EventLabelCell -> EventNotifyCell
     //*Remove Notification
@@ -54,6 +73,10 @@ extension Notification.Name {
     //EventLocationCell -> FullEvents
     //*Pass Date, Time, Repeat, Notify, and Location
     static let addEventXib = Notification.Name("addEventXib")
+    
+    //xibToTags
+    
+    //SwipeClass -> AddTaskViewController
     
     
 }

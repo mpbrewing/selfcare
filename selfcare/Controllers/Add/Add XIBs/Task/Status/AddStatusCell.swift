@@ -16,6 +16,8 @@ class AddStatusCell: UITableViewCell {
     @IBOutlet weak var overlay: UIView!
     @IBOutlet weak var handle: UIView!
     
+    var status = Int()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupXIB()
@@ -53,6 +55,7 @@ class AddStatusCell: UITableViewCell {
             //print("ended")
             let point = sender.location(in: contentView)
             returnFinalHandleLocation(point: point)
+            passStatus()
          default: break
              //print("handlePan")
          }
@@ -72,21 +75,25 @@ class AddStatusCell: UITableViewCell {
         case 0...101:
             overlay.layer.backgroundColor = UIColor.gainsboro.cgColor
             handle.layer.backgroundColor = UIColor.gainsboro.cgColor
+            status = 0
             statusLabel.text = "Status"
             statusLabel.textColor = UIColor.lightGray
         case 101...203:
             overlay.layer.backgroundColor = UIColor.systemRed.cgColor
             handle.layer.backgroundColor = UIColor.systemRed.cgColor
+            status = 1
             statusLabel.text = "To-Do"
             statusLabel.textColor = UIColor.black
         case 203...305:
             overlay.layer.backgroundColor = UIColor.systemYellow.cgColor
             handle.layer.backgroundColor = UIColor.systemYellow.cgColor
+            status = 2
             statusLabel.text = "In Progress"
             statusLabel.textColor = UIColor.black
         case 305...414:
             overlay.layer.backgroundColor = UIColor.systemGreen.cgColor
             handle.layer.backgroundColor = UIColor.systemGreen.cgColor
+            status = 3
             statusLabel.text = "Completed"
             statusLabel.textColor = UIColor.black
         default:
@@ -112,5 +119,16 @@ class AddStatusCell: UITableViewCell {
         modifyHandleStyle(point: handle.center)
     }
 
+}
+
+//Handle and Pass Status
+extension AddStatusCell {
+    
+    func passStatus()
+    {
+        //Pass Index and Status
+        let notif = ["index":4,"status":status] as [String : Any]
+        NotificationCenter.default.post(name: .addTaskDetails, object: nil,userInfo: notif)
+    }
     
 }

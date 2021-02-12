@@ -12,6 +12,7 @@ class AddFilePathCell: UITableViewCell {
     
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var filePathLabel: UILabel!
+    @IBOutlet weak var filePath: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,6 +22,24 @@ class AddFilePathCell: UITableViewCell {
     func setupXIB() {
         icon.image = icon.image?.withRenderingMode(.alwaysTemplate)
         icon.tintColor = UIColor.gainsboro
+    }
+    
+    func updateLabel(items:[Item]){
+        var string = String()
+        //➡️
+        if items.count > 0 {
+            for i in 0...items.count-1{
+                let details = items[i].details
+                let title = details["title"] as! String
+                string.append(title)
+                if i != items.count-1 {
+                    string.append(" ➡️ ")
+                }
+            }
+            filePath.text = string
+        } else {
+            filePath.text = ""
+        }
     }
     
 }

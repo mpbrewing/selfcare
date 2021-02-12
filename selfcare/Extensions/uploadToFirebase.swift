@@ -53,4 +53,58 @@ extension UIViewController {
         }
     }
     
+    func uploadEventToFirestore(db: Firestore,event: [String:Any]) {
+        var ref: DocumentReference? = nil
+        let userId = Auth.auth().currentUser?.uid
+        ref = db.collection("users").document("\(userId!)").collection("events").addDocument(data: event) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+                //Return
+            }
+        }
+    }
+    
+    func uploadEvents(events:[Event],completion: @escaping ([String]) -> Void){
+        let db = Firestore.firestore()
+        let batch = db.batch()
+        var ref: DocumentReference? = nil
+        let userId = Auth.auth().currentUser?.uid
+        var taskEvents = [String]()
+        for event in events {
+            let holdEvent = event.toAnyObject() as! [String:Any]
+            ref = db.collection("users").document("\(userId!)").collection("events").document()
+            taskEvents.append(ref!.documentID)
+            batch.setData(holdEvent, forDocument: ref!)
+        }
+        batch.commit() { err in
+            if let err = err {
+                print("Error writing batch \(err)")
+                completion(taskEvents)
+            } else {
+                print("Batch write succeeded.")
+                completion(taskEvents)
+            }
+        }
+    }
+    
+    func uploadItem(item: [String:Any],completion: @escaping (String) -> Void){
+        let db = Firestore.firestore()
+        var ref: DocumentReference? = nil
+        let userId = Auth.auth().currentUser?.uid
+        ref = db.collection("users").document("\(userId!)").collection("posts").addDocument(data: item) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+                completion("")
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+                completion(ref!.documentID)
+                //Return
+            }
+        }
+    }
+    
+    
+    
 }

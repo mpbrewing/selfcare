@@ -14,11 +14,15 @@ class RepeatEnds: UIViewController {
     
     @IBAction func saveAction(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+        //Pass data
+        passEndsSegue()
     }
     
     var state = 0
     var occurrencesView = OccurrencesCell()
     var dateView = OnADateCell()
+    var occur = Int()
+    var date = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +30,7 @@ class RepeatEnds: UIViewController {
         switchState()
         setupStyle()
         hideKeyboardWhenTappedAround()
+        NotificationCenter.default.addObserver(self, selector: #selector(setEnds(notification:)), name: .xibToEnds, object: nil)
     }
     
     func setupNavigationBar(title: String){
@@ -50,6 +55,29 @@ class RepeatEnds: UIViewController {
         view.layer.borderColor = UIColor.appleRed.cgColor
         saveButton.layer.cornerRadius = 20
         saveButton.layer.backgroundColor = UIColor.appleRed.cgColor
+    }
+    
+}
+
+extension RepeatEnds{
+    
+    //Recieve Data
+    @objc func setEnds(notification: NSNotification) {
+        if let index = notification.userInfo?["index"] as? Int {
+            if index == 1 {
+                //default date
+                date = notification.userInfo?["date"] as? Date ?? Date()
+            } else {
+                occur = notification.userInfo?["occur"] as? Int ?? 1
+            }
+        }
+    }
+    
+    //Pass Data
+    func passEndsSegue()
+    {
+        let passState = ["index":state,"date":date,"occur":occur] as [String : Any]
+        NotificationCenter.default.post(name: .endsToSelection, object: nil,userInfo: passState)
     }
     
 }

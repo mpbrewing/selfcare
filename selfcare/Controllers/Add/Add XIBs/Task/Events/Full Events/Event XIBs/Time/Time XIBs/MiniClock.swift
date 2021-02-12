@@ -21,8 +21,8 @@ class MiniClock: UIView {
     
     @IBAction func buttonAction(_ sender: Any) {
         //send notification
-         let passInfo = ["count":count] as [String : Any]
-         NotificationCenter.default.post(name: .mini, object: nil,userInfo: passInfo)
+        let passInfo = ["count":count,"input":1] as [String : Any]
+         NotificationCenter.default.post(name: .xibToTime, object: nil,userInfo: passInfo)
     }
     
     let centerPoint = CGPoint(x: 85, y: 85)

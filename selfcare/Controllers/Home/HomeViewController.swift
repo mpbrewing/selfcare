@@ -42,7 +42,7 @@ class HomeViewController: UIViewController {
     
     //var AddButtonView = UIView()
     var AddButtonView = AddButtonViewClass()
-    var swipeClassView = UIView()
+    var swipeClassView = SwipeClass()
     var addButtonBackground = UIView()
     //var leftSwipe = UISwipeGestureRecognizer()
     //var rightSwipe = UISwipeGestureRecognizer()
@@ -209,6 +209,8 @@ extension HomeViewController {
     
     func SegueToAddTask(){
         let addTaskView = AddTaskViewController()
+        addTaskView.items = swipeClassView.total
+        addTaskView.wallet = swipeClassView.wallet
         addTaskView.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(addTaskView, animated: true)
     }
