@@ -19,16 +19,17 @@ class FullFilePath: UIViewController ,UITableViewDelegate, UITableViewDataSource
     
     var items = [Item]()
     var wallet = [Wallet]()
+    var itemWallet = [Wallet]()
     var selectedItems = [Item]()
     var filePath = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadXIB(name: "FilePathView")
+        setupStyle()
         setupNavigationBar()
         //Table View
         setupTableView()
-        setupStyle()
     }
     
     func setupNavigationBar() {
@@ -66,6 +67,7 @@ class FullFilePath: UIViewController ,UITableViewDelegate, UITableViewDataSource
         view.layer.borderColor = UIColor.appleGreen.cgColor
         saveButton.layer.cornerRadius = 20
         saveButton.layer.backgroundColor = UIColor.appleGreen.cgColor
+        itemWallet = wallet
     }
     
 }
@@ -97,12 +99,12 @@ extension FullFilePath {
         let cell = tableView.dequeueReusableCell(withIdentifier: "filePath", for: indexPath) as! FilePathCell
         var title = String()
         if (indexPath.section < filePath.count) && (filePath.count > 0) {
-            let item = selectedItems[indexPath.row]
+            let item = selectedItems[indexPath.section]
             cell.updateSelected(select: true)
             title = returnTitle(details: item.details)
             cell.updateCell(input: title, files: returnFiles(item: item))
         } else {
-            let item = wallet[indexPath.section].items[indexPath.row]
+            let item = itemWallet[indexPath.section].items[indexPath.row]
             cell.updateSelected(select: false)
             title = returnTitle(details: item.details)
             cell.updateCell(input: title, files: returnFiles(item: item))
@@ -115,16 +117,23 @@ extension FullFilePath {
      }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (indexPath.section < filePath.count) && (filePath.count > 0) {
-            for i in indexPath.section...filePath.count-1{
-                filePath.remove(at: i)
-                selectedItems.remove(at: i)
+        if indexPath.section != 3 {
+            if (indexPath.section < filePath.count) && (filePath.count > 0) {
+                for _ in indexPath.section...filePath.count-1{
+                    print(indexPath.section)
+                    //filePath.remove(at: i)
+                    //selectedItems.remove(at: i)
+                    filePath.removeLast()
+                    selectedItems.removeLast()
+                }
+                //filterNext()
+                self.tableView.reloadData()
+            } else {
+                filePath.append(itemWallet[indexPath.section].items[indexPath.row].id)
+                selectedItems.append(itemWallet[indexPath.section].items[indexPath.row])
+                filterNext()
+                self.tableView.reloadData()
             }
-            self.tableView.reloadData()
-        } else {
-            filePath.append(wallet[indexPath.section].items[indexPath.row].id)
-            selectedItems.append(wallet[indexPath.section].items[indexPath.row])
-            self.tableView.reloadData()
         }
         //print("section: \(indexPath.section), row: \(indexPath.row), count: \(filePath.count)")
     }
@@ -136,13 +145,15 @@ extension FullFilePath {
     func returnNumberOfSection()->Int{
         switch filePath.count {
         case 0:
-            if wallet.count > 0 {
+            if items.count > 0 {
                 return 1
             } else {
                 return 0
             }
         case 1...3:
-            if wallet.count > filePath.count {
+            //print("Item Count: \(wallet[filePath.count].items.count)")
+            //if (wallet[filePath.count].items.count > 0) && (returnNext(item: selectedItems[filePath.count-1]))  {
+            if (returnNext(item: selectedItems[filePath.count-1]))  {
                 return (filePath.count + 1)
             } else {
                 return filePath.count
@@ -155,23 +166,40 @@ extension FullFilePath {
     func returnNumberOfRowsInSection(section: Int)->Int{
         switch section {
         case 0:
-            if wallet.count > 0 && filePath.count == 0 {
+            if items.count > 0 && filePath.count == 0 {
                 return wallet[0].items.count
-            } else if wallet.count > 0 && filePath.count > 0 {
+            } else if items.count > 0 && filePath.count > 0 {
                 return 1
             } else {
                 return 0
             }
         case 1...3:
-            if section <= filePath.count {
+            if section < filePath.count {
                 return 1
-            } else if wallet.count - section == 1 {
-                return wallet[section].items.count
+           // } else if wallet.count - section == 1 {
+            } else if (filePath.count == section) {
+                return itemWallet[section].items.count
             } else {
                 return 0
             }
         default:
             return 0
+        }
+    }
+    
+    func returnNext(item:Item)->Bool{
+        let id = item.id
+        let filtered = wallet[filePath.count].items.filter({ filter in
+            if filter.id != id {
+                return filter.path.contains(id)
+            } else {
+                return false
+            }
+        })
+        if filtered.count > 0 {
+            return true
+        } else {
+            return false
         }
     }
     
@@ -189,6 +217,22 @@ extension FullFilePath {
             return true
         } else {
             return false
+        }
+    }
+    
+    func filterNext(){
+        if selectedItems.count > 0 {
+            let id = selectedItems[selectedItems.count-1].id
+            if selectedItems.count < 3 {
+                let filtered = wallet[selectedItems.count].items.filter({ filter in
+                    if filter.path.contains(id) {
+                        return true
+                    } else {
+                        return false
+                    }
+                })
+                itemWallet[selectedItems.count] = Wallet(items: filtered)
+            }
         }
     }
     

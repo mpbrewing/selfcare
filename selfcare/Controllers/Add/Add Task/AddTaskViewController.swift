@@ -24,7 +24,7 @@ class AddTaskViewController: UIViewController,UITableViewDelegate, UITableViewDa
         //Observe Notifications for Task Details
         NotificationCenter.default.addObserver(self, selector: #selector(setupTaskDetails(notification:)), name: .addTaskDetails, object: nil)
         //
-        task.append(Task(title: "(no title)", emoji: "🖤", description: "", events: [], status: 0, priority: 0, tags: []))
+        task.append(Task(title: "(no title)", emoji: "🖤", description: "", events: [], status: 0, priority: 0, tags: [], photoURL: "", color: ""))
         //
         item.append(Item(id: "", index: 0, path: [], details: [:]))
         //
@@ -217,7 +217,17 @@ extension AddTaskViewController {
         item[0].path = filePath
         item[0].index = filePath.count
         selectedItems = notif.userInfo?["selected"] as! [Item]
+        updateFilePathDetails()
         tableView.reloadData()
+    }
+    
+    func updateFilePathDetails(){
+        if selectedItems.count > 0 {
+            let details = selectedItems[0].details
+            //Update Defaults
+            task[0].color = details["color"] as? String ?? ""
+            task[0].photoURL = details["photoURL"] as? String ?? ""
+        }
     }
     
     func notifEvents(notif:NSNotification){

@@ -7,9 +7,15 @@
 
 
 class Wallet {
+    
     var items: [Item]
     
     init(items: [Item]) {
         self.items = items
     }
+    
+    func setItems(items: [Item]){
+        self.items = items
+    }
+    
 }

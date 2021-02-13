@@ -18,8 +18,10 @@ struct Task {
     var status: Int
     var priority: Int
     var tags: [String]
+    var photoURL: String
+    var color: String
      
-    init(title: String, emoji: String, description: String, events: [String],status: Int, priority: Int,tags: [String]) {
+    init(title: String, emoji: String, description: String, events: [String],status: Int, priority: Int,tags: [String],photoURL: String, color: String) {
         self.title = title
         self.emoji = emoji
         self.description = description
@@ -27,6 +29,8 @@ struct Task {
         self.status = status
         self.priority = priority
         self.tags = tags
+        self.photoURL = photoURL
+        self.color = color
     }
      
     func toAnyObject() -> Any {
@@ -37,7 +41,9 @@ struct Task {
             "events": events,
             "status": status,
             "priority": priority,
-            "tags": tags
+            "tags": tags,
+            "photoURL": photoURL,
+            "color": color
         ]
     }
      
@@ -49,6 +55,8 @@ struct Task {
         self.status = snapshot["status"] as! Int
         self.priority = snapshot["priority"] as! Int
         self.tags = snapshot["tags"] as! [String]
+        self.photoURL = snapshot["photoURL"] as! String
+        self.color = snapshot["color"] as! String
     }
      
     mutating func setTitle(title: String, emoji: String) {
@@ -74,6 +82,14 @@ struct Task {
     
     mutating func setTags(tags: [String]) {
         self.tags = tags
+    }
+    
+    mutating func setPhotoURL(url: String) {
+        self.photoURL = url
+    }
+    
+    mutating func setColor(color: String) {
+        self.color = color
     }
     
 }

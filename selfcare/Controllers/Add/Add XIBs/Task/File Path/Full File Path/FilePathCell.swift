@@ -27,7 +27,7 @@ class FilePathCell: UITableViewCell {
         //Change Color of Down Image
         down.contentMode = .scaleAspectFill
         down.image = down.image?.withRenderingMode(.alwaysTemplate)
-        down.tintColor = UIColor.lightGray
+        down.tintColor = UIColor.gainsboro
     }
     
     func updateCell(input: String,files:Bool){
@@ -51,7 +51,7 @@ class FilePathCell: UITableViewCell {
             title.textColor = UIColor.gray
             down.contentMode = .scaleAspectFill
             down.image = down.image?.withRenderingMode(.alwaysTemplate)
-            down.tintColor = UIColor.lightGray
+            down.tintColor = UIColor.gainsboro
         }
     }
     

@@ -30,11 +30,13 @@ class SwipeClass: UIView {
     var cardPosition: [CGPoint] = []
     var cards = [SwipeCard]()
     var items = [Item]()
-    var total = [Item]()
     var wallet = [Wallet]()
+    var itemWallet = [Wallet]()
     let db = Firestore.firestore()
     var position: CGPoint = CGPoint(x: 0,y: 0)
     var emptyItem = Item(id: "", index: 0, path: [], details: [:])
+    var load = false
+    var holdPositions: [Int] = []
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -58,9 +60,16 @@ class SwipeClass: UIView {
     }
      
     func handleInit() {
+        setupModels()
         setupSwipe()
         setupCardPosition()
         addCards()
+    }
+    
+    func setupModels(){
+        wallet = Array(repeating: Wallet(items: []), count: 4)
+        itemWallet = Array(repeating: Wallet(items: []), count: 4)
+        holdPositions = Array(repeating: 0, count: 4)
     }
     
     func addCards(){
@@ -68,10 +77,10 @@ class SwipeClass: UIView {
         signal.layer.cornerRadius = 4
         downloadPosts(db: db, completion: {item in
             self.items = item
-            self.total = item
             //print(self.items.count)
             //self.wallet.append(Wallet(items: self.items))
             self.filterItems()
+            self.filterNext()
             self.updateCards()
             self.manageAnimation()
         })
@@ -82,6 +91,7 @@ class SwipeClass: UIView {
     func filterItems(){
         print("Items: \(items.count)")
         for i in 0...3 {
+            //print("Wallet \(i): \(wallet[i].items.count)")
             let filtered = items.filter({ filter in
                 if filter.index == i {
                     return true
@@ -89,13 +99,31 @@ class SwipeClass: UIView {
                     return false
                 }
             })
-            print("Filter \(i): \(filtered.count)")
             if filtered.count > 0 {
-                wallet.append(Wallet(items: filtered))
+                itemWallet[i] = Wallet(items: filtered)
+            } else {
+                itemWallet[i] = Wallet(items: [])
             }
-            print("Wallet \(i): \(wallet.count)")
+            if i == 0 {
+                wallet[i] = Wallet(items: filtered)
+            }
         }
-        
+    }
+    
+    func filterNext(){
+        let item = wallet[Int(position.y)].items[Int(position.x)]
+        let id = item.id
+        if position.y < 3 {
+            let filtered = itemWallet[Int(position.y+1)].items.filter({ filter in
+                if filter.path.contains(id) {
+                    return true
+                } else {
+                    return false
+                }
+            })
+            print("\(Int(position.y+1)): \(filtered.count)")
+            wallet[Int(position.y+1)] = Wallet(items: filtered)
+        }
     }
 }
 
@@ -162,52 +190,34 @@ extension SwipeClass {
             cardArray[i] = CardClass(frame: frame)
             self.ViewHandle.addSubview(cardArray[i])
             //Items -> Wallet
+            //print("x: \(cardPosition[i].x) ... y:\(cardPosition[i].y)")
             let newCard = SwipeCard(position: cardPosition[i], view: cardArray[i], global: cardPosition[i], item: loadCards(global: cardPosition[i]))
             cards.append(newCard)
         }
     }
-    /*
+
     func loadCards(global: CGPoint) -> Item {
         //Wallet
-        if global.x >= 0 && global.y >= 0 && items.count > Int(global.x) {
-            return items[Int(global.x)]
+        if global.y < 4 {
+            if global.x >= 0 && global.y >= 0 && wallet[Int(global.y)].items.count > Int(global.x) {
+                return wallet[Int(global.y)].items[Int(global.x)]
+            } else {
+                return emptyItem
+            }
         } else {
             return emptyItem
         }
     }
-    */
-    
-    func loadCards(global: CGPoint) -> Item {
-        //Wallet
-        if global.x >= 0 && global.y >= 0 && wallet[Int(global.y)].items.count > Int(global.x) {
-            return wallet[Int(global.y)].items[Int(global.x)]
-        } else {
-            return emptyItem
-        }
-    }
-    /*
-    func retrieveItemData(input: SwipeCard) {
-        //print("Global: x: \(input.global.x) // y: \(input.global.y)")
-        //print("Pos: x: \(input.position.x) // y: \(input.position.y)")
-        if input.global.x >= 0 && input.global.y >= 0 && items.count > Int(input.global.x) {
-        let details = input.item.details
-        let emoji = details["emoji"] as! String
-        let title = details["title"] as! String
-        let photoURL = details["photoURL"] as! String
-        input.view.setDetails(emoji: emoji, name: title, url: photoURL)
-        }
-        //print("//")
-    } */
-    
+
     func retrieveItemData(input: SwipeCard) {
         //print("Global: x: \(input.global.x) // y: \(input.global.y)")
         //print("Pos: x: \(input.position.x) // y: \(input.position.y)")
         if input.global.x >= 0 && input.global.y >= 0 && wallet[Int(input.global.y)].items.count > Int(input.global.x) {
-        let details = input.item.details
-        let emoji = details["emoji"] as! String
-        let title = details["title"] as! String
-        let photoURL = details["photoURL"] as! String
-        input.view.setDetails(emoji: emoji, name: title, url: photoURL)
+            let details = input.item.details
+            let emoji = details["emoji"] as! String
+            let title = details["title"] as! String
+            let photoURL = details["photoURL"] as! String
+            input.view.setDetails(emoji: emoji, name: title, url: photoURL)
         }
         //print("//")
     }
@@ -224,39 +234,6 @@ extension SwipeClass {
             self.addGestureRecognizer(gesture)
         }
     }
-/*
-    @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
-        //print(sender.direction)
-        
-        switch sender.direction {
-            case .down:
-                //print("down swipe")
-                if Int(position.y) != 0 {
-                    position.y = position.y - 1
-                    updateGlobalPosition(direction: sender.direction)
-                }
-            case .up:
-                //print("up swipe")
-                if Int(position.y) < 3 {
-                    position.y = position.y + 1
-                    updateGlobalPosition(direction: sender.direction)
-                }
-            case .left:
-                //print("left swipe")
-                if Int(position.x) < items.count-1 {
-                    position.x = position.x + 1
-                    updateGlobalPosition(direction: sender.direction)
-                }
-            case .right:
-                //print("right swipe")
-                if Int(position.x) != 0 {
-                    position.x = position.x - 1
-                    updateGlobalPosition(direction: sender.direction)
-                }
-            default:
-                print("other swipe")
-        }
-    } */
     
     @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
         //print(sender.direction)
@@ -265,25 +242,37 @@ extension SwipeClass {
             case .down:
                 //print("down swipe")
                 if Int(position.y) != 0 {
+                    position.x = CGFloat(holdPositions[Int(position.y-1)])
                     position.y = position.y - 1
+                    filterNext()
                     updateGlobalPosition(direction: sender.direction)
                 }
             case .up:
                 //print("up swipe")
-                if Int(position.y) < 3 {
-                    position.y = position.y + 1
-                    updateGlobalPosition(direction: sender.direction)
+                if (Int(position.y) < 3) {
+                    if (wallet[Int(position.y+1)].items.count > 0) {
+                        holdPositions[Int(position.y)] = Int(position.x)
+                        position.x = 0
+                        position.y = position.y + 1
+                        holdPositions[Int(position.y)] = 0
+                        filterNext()
+                        updateGlobalPosition(direction: sender.direction)
+                    }
                 }
             case .left:
                 //print("left swipe")
                 if Int(position.x) < wallet[Int(position.y)].items.count-1 {
                     position.x = position.x + 1
+                    holdPositions[Int(position.y)] = Int(position.x)
+                    filterNext()
                     updateGlobalPosition(direction: sender.direction)
                 }
             case .right:
                 //print("right swipe")
                 if Int(position.x) != 0 {
                     position.x = position.x - 1
+                    holdPositions[Int(position.y)] = Int(position.x)
+                    filterNext()
                     updateGlobalPosition(direction: sender.direction)
                 }
             default:
@@ -302,6 +291,7 @@ extension SwipeClass {
     func updateGlobalPosition(direction: UISwipeGestureRecognizer.Direction) {
         updatePosition(direction: direction)
         manageAnimation()
+        //print("x: \(position.x) // y:\(position.y)")
     }
     
     func checkGlobalPosition() {
@@ -313,6 +303,30 @@ extension SwipeClass {
             updateXPosition(direction: direction)
         } else {
             updateYPosition(direction: direction)
+            updateGlobalY(direction: direction)
+        }
+    }
+    
+    func updateGlobalY(direction: UISwipeGestureRecognizer.Direction){
+        if direction == .up {
+            //print("y-1: \(CGFloat(holdPositions[Int(position.y-1)]))")
+            for i in 0...cards.count-1{
+                let globalX = cards[i].global.x - CGFloat(holdPositions[Int(position.y-1)])
+                let globalY = cards[i].global.y
+                cards[i].updateGlobal(x: globalX, y: globalY)
+                let global = cards[i].global
+                cards[i].updateItem(item: loadCards(global: global))
+            }
+        } else if direction == .down {
+            //print("y: \(CGFloat(holdPositions[Int(position.y)]))")
+            //print("y+1: \(CGFloat(holdPositions[Int(position.y+1)]))")
+            for i in 0...cards.count-1{
+                let globalX = cards[i].global.x + CGFloat(holdPositions[Int(position.y)]) - CGFloat(holdPositions[Int(position.y+1)])
+                let globalY = cards[i].global.y
+                cards[i].updateGlobal(x: globalX, y: globalY)
+                let global = cards[i].global
+                cards[i].updateItem(item: loadCards(global: global))
+            }
         }
     }
     
@@ -326,6 +340,10 @@ extension SwipeClass {
         for i in 0...cards.count-1{
             let x = iterateCardPosition(direction: direction, input: (Int(cards[i].position.x) + value))
             cards[i].updateX(x: x)
+            //print("\(direction)///")
+            //print("Gx: \(cards[i].global.x)... Gy: \(cards[i].global.y)")
+            //print("x: \(cards[i].position.x)... y: \(cards[i].position.y)")
+            //print("///")
             if direction == .left {
                 if x == 2 {
                     let globalX = position.x + 2
@@ -353,6 +371,7 @@ extension SwipeClass {
         } else {
             value = 1
         }
+        //print(direction)
         for i in 0...cards.count-1{
             let y = iterateCardPosition(direction: direction, input: (Int(cards[i].position.y) + value))
             cards[i].updateY(y: y)
@@ -398,22 +417,6 @@ extension SwipeClass {
             return input
         }
     }
-    /*
-    func updateCardRect() {
-        for i in 0...cards.count-1 {
-            cards[i].view.frame = setupCardFrame(position:  cards[i].position)
-            if cards[i].position == CGPoint(x: 0, y: 0) || cards[i].position == CGPoint(x: 1, y: 0) {
-               if Int(cards[i].global.x) >= items.count {
-                    cards[i].view.alpha = 0
-               } else {
-                    retrieveItemData(input: cards[i])
-                    cards[i].view.alpha = 1
-               }
-            } else {
-                cards[i].view.alpha = 0
-            }
-        }
-    } */
     
     func updateCardRect() {
         for i in 0...cards.count-1 {
@@ -425,10 +428,26 @@ extension SwipeClass {
                     retrieveItemData(input: cards[i])
                     cards[i].view.alpha = 1
                }
+                if cards[i].position == CGPoint(x: 0, y: 0){
+                    //print(wallet[Int(position.y+1)].items.count)
+                    if position.y < 3 {
+                        if (wallet[Int(position.y+1)].items.count > 0) {
+                            signal.isHidden = false
+                        } else {
+                            signal.isHidden = true
+                        }
+                    } else {
+                        signal.isHidden = true
+                    }
+                }
             } else {
                 cards[i].view.alpha = 0
             }
         }
+    }
+    
+    func updateCardArrayItems(card: SwipeCard){
+        
     }
     
 }

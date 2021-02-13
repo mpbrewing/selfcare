@@ -136,8 +136,11 @@ extension HomeViewController {
 }
 extension HomeViewController {
     func setupSwipeView() {
-        swipeClassView = SwipeClass(frame: CGRect(x: 0, y: 92, width: 414, height: 660))
-        self.view.addSubview(swipeClassView)
+        if swipeClassView.load == false {
+            swipeClassView = SwipeClass(frame: CGRect(x: 0, y: 92, width: 414, height: 660))
+            self.view.addSubview(swipeClassView)
+            swipeClassView.load = true
+        }
     }
 }
 
@@ -209,8 +212,8 @@ extension HomeViewController {
     
     func SegueToAddTask(){
         let addTaskView = AddTaskViewController()
-        addTaskView.items = swipeClassView.total
-        addTaskView.wallet = swipeClassView.wallet
+        addTaskView.items = swipeClassView.items
+        addTaskView.wallet = swipeClassView.itemWallet
         addTaskView.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(addTaskView, animated: true)
     }
