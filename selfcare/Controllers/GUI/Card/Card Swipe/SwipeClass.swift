@@ -121,7 +121,7 @@ class SwipeClass: UIView {
                     return false
                 }
             })
-            print("\(Int(position.y+1)): \(filtered.count)")
+            //print("\(Int(position.y+1)): \(filtered.count)")
             wallet[Int(position.y+1)] = Wallet(items: filtered)
         }
     }

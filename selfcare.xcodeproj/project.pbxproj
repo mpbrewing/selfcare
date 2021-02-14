@@ -77,6 +77,8 @@
 		EC587FBA256DA1AA001A5F72 /* FilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC587FB9256DA1AA001A5F72 /* FilterView.xib */; };
 		EC58C5A6258A1689002F120C /* SwipeBarClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC58C5A5258A1689002F120C /* SwipeBarClass.swift */; };
 		EC58C5AB258A16A8002F120C /* SwipeBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC58C5AA258A16A8002F120C /* SwipeBarView.xib */; };
+		EC5F612D25D8C7330082C20C /* MiniTagsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC5F612C25D8C7330082C20C /* MiniTagsCell.xib */; };
+		EC5F613225D8CA530082C20C /* MiniTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5F613125D8CA530082C20C /* MiniTags.swift */; };
 		EC61ED9425B825AA00AA9566 /* rotateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC61ED9325B825AA00AA9566 /* rotateExtension.swift */; };
 		EC61ED9925B8549800AA9566 /* MiniClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC61ED9825B8549800AA9566 /* MiniClock.swift */; };
 		EC61ED9E25B854B600AA9566 /* MiniClockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC61ED9D25B854B600AA9566 /* MiniClockView.xib */; };
@@ -257,6 +259,8 @@
 		EC587FB9256DA1AA001A5F72 /* FilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterView.xib; sourceTree = "<group>"; };
 		EC58C5A5258A1689002F120C /* SwipeBarClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBarClass.swift; sourceTree = "<group>"; };
 		EC58C5AA258A16A8002F120C /* SwipeBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwipeBarView.xib; sourceTree = "<group>"; };
+		EC5F612C25D8C7330082C20C /* MiniTagsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiniTagsCell.xib; sourceTree = "<group>"; };
+		EC5F613125D8CA530082C20C /* MiniTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniTags.swift; sourceTree = "<group>"; };
 		EC61ED9325B825AA00AA9566 /* rotateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rotateExtension.swift; sourceTree = "<group>"; };
 		EC61ED9825B8549800AA9566 /* MiniClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniClock.swift; sourceTree = "<group>"; };
 		EC61ED9D25B854B600AA9566 /* MiniClockView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiniClockView.xib; sourceTree = "<group>"; };
@@ -1057,6 +1061,8 @@
 			children = (
 				ECF29BA125B0FDB40076E6C6 /* FullTags.swift */,
 				ECF29B9C25B0FDA70076E6C6 /* TagsView.xib */,
+				EC5F613125D8CA530082C20C /* MiniTags.swift */,
+				EC5F612C25D8C7330082C20C /* MiniTagsCell.xib */,
 			);
 			path = "Full Tags";
 			sourceTree = "<group>";
@@ -1225,6 +1231,7 @@
 				EC0AD9BE255B502800EC1686 /* NexaBold.otf in Resources */,
 				ECE4CDE025AE919A0016F6B6 /* AddPriorityView.xib in Resources */,
 				EC43D5E125B17C9F00BB5EA7 /* EventLocationTab.xib in Resources */,
+				EC5F612D25D8C7330082C20C /* MiniTagsCell.xib in Resources */,
 				EC26338025B772040099A91E /* EventLabelCell.xib in Resources */,
 				EC587FBA256DA1AA001A5F72 /* FilterView.xib in Resources */,
 				EC0AD9D7255B629200EC1686 /* LoginView.xib in Resources */,
@@ -1387,6 +1394,7 @@
 				EC8223682589D65B003EC885 /* notificationExt.swift in Sources */,
 				EC04C9C7257C53BE002798D7 /* customizeNavBar.swift in Sources */,
 				EC95BA2525BE8080005FD83C /* LocationCellClass.swift in Sources */,
+				EC5F613225D8CA530082C20C /* MiniTags.swift in Sources */,
 				EC397031258004CA00AC21FE /* EmojiTextField.swift in Sources */,
 				EC39703C25800FAF00AC21FE /* AddMenuCell.swift in Sources */,
 				EC587F9F256D7F6C001A5F72 /* CalendarViewController.swift in Sources */,
