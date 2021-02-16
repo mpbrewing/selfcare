@@ -17,6 +17,7 @@ class AddTagsCell: UITableViewCell,UITableViewDelegate, UITableViewDataSource {
     var tags = [String]()
     var selectedTags = [Tag]()
     var remainingTags = [Tag]()
+    var holdTags = [Tag]()
     var allTags: [Tag] = [Tag]() {
        didSet {
             print("AddTagsCell: \(allTags.count)")
@@ -74,14 +75,8 @@ extension AddTagsCell {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if selectedTags.count > 0 && remainingTags.count > 0 {
-            if indexPath.row == 2 {
-                SegueToTags()
-            }
-        } else {
-            if indexPath.row == 1 {
-                SegueToTags()
-            }
+        if indexPath.row == 1 {
+            SegueToTags()
         }
     }
     
@@ -90,11 +85,7 @@ extension AddTagsCell {
         case 0:
             return 0
         case _ where allTags.count > 0:
-            if selectedTags.count == 0 || remainingTags.count == 0 {
-                return 2
-            } else {
-                return 3
-            }
+            return 2
         default:
             return 0
         }
@@ -103,35 +94,22 @@ extension AddTagsCell {
     func returnCellForRowAt(tableView: UITableView, indexPath: IndexPath)->UITableViewCell{
         switch indexPath.row {
         case 0:
-            if selectedTags.count > 0 {
-                return returnSelectedCell(tableView: tableView, indexPath: indexPath)
-            } else {
-                return returnTagsCell(tableView: tableView, indexPath: indexPath)
-            }
+            return returnTagsCell(tableView: tableView, indexPath: indexPath)
         case 1:
-            if selectedTags.count > 0 && remainingTags.count > 0 {
-                return returnTagsCell(tableView: tableView, indexPath: indexPath)
-            } else {
-                return returnAnotherCell(tableView: tableView, indexPath: indexPath)
-            }
-        case 2:
             return returnAnotherCell(tableView: tableView, indexPath: indexPath)
         default:
             return returnAnotherCell(tableView: tableView, indexPath: indexPath)
         }
     }
     
-    func returnSelectedCell(tableView: UITableView, indexPath: IndexPath) -> SelectTagsTableViewCell{
-        let cell = tableView.dequeueReusableCell(withIdentifier: "selectTags", for: indexPath) as! SelectTagsTableViewCell
-        cell.state = 0
-        cell.tags = selectedTags
-        return cell
-    }
-    
     func returnTagsCell(tableView: UITableView, indexPath: IndexPath) -> SelectTagsTableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "selectTags", for: indexPath) as! SelectTagsTableViewCell
-        cell.state = 1
-        cell.tags = remainingTags
+        //cell.state = 1
+        //cell.remainingTags = remainingTags
+        cell.selectedTags = selectedTags
+        cell.tags = holdTags
+        //Pass selected and remaining in one array
+        //Display differences
         return cell
     }
     
@@ -143,18 +121,8 @@ extension AddTagsCell {
     func returnHeightForRowAt(tableView: UITableView, indexPath: IndexPath)->CGFloat{
         switch indexPath.row {
         case 0:
-            if selectedTags.count <= 3 && selectedTags.count > 0 {
-                return 50
-            } else {
-                return 100
-            }
+            return 130
         case 1:
-            if remainingTags.count <= 3 {
-                return 50
-            } else {
-                return 100
-            }
-        case 2:
             return 50
         default:
             return 50
@@ -210,6 +178,8 @@ extension AddTagsCell {
         //Remove Tag From Remaining
         remainingTags.remove(at: path)
         //
+        filterRemainingTags()
+        //
         tagsTableView.reloadData()
     }
     
@@ -229,6 +199,11 @@ extension AddTagsCell {
             })
             remainingTags = filtered
         }
+        updateHoldTags()
+    }
+    
+    func updateHoldTags(){
+        holdTags = selectedTags + remainingTags
     }
     
 }

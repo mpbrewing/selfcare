@@ -37,4 +37,10 @@ class SelectMiniCell: UICollectionViewCell {
         }
     }
     
+    func blank(){
+        title.text = ""
+        bg.layer.borderColor = UIColor.clear.cgColor
+        bg.backgroundColor = UIColor.clear
+    }
+    
 }

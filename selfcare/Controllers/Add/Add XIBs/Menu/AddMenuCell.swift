@@ -292,12 +292,12 @@ extension AddMenuCell {
     func returnTaskCellHeight(indexPath: IndexPath) -> CGFloat
     {
         switch indexPath.row {
-        case 0:
+        case 0: //Description
             return CGFloat(50)
-        case 3,4:
+        case 3,4: //Status, Priority
             return CGFloat(100)
-        case 5:
-            return tagsHeight
+        case 5: //Tags
+            return CGFloat(230)
         default:
             return CGFloat(50)
         }
