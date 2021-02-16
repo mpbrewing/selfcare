@@ -74,7 +74,8 @@ extension Notification.Name {
     //*Pass Date, Time, Repeat, Notify, and Location
     static let addEventXib = Notification.Name("addEventXib")
     
-    //xibToTags
+    //SelectTagsTableViewCell -> AddTagsCell
+    static let selectToAddTags = Notification.Name("selectToAddTags")
     
     //SwipeClass -> AddTaskViewController
     

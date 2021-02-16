@@ -56,6 +56,7 @@ class AddTaskViewController: UIViewController,UITableViewDelegate, UITableViewDa
     var items = [Item]()
     var selectedItems = [Item]()
     var wallet = [Wallet]()
+    var allTags = [Tag]()
     
 }
 
@@ -117,6 +118,7 @@ extension AddTaskViewController {
 
      func setupTableView()
      {
+         //print("AddTaskViewController: allTags: \(allTags.count)")
          // Title
          tableView.register(UINib(nibName: "AddTitleView", bundle: nil), forCellReuseIdentifier: cellTitleIdentifier)
          // Menu
@@ -148,6 +150,8 @@ extension AddTaskViewController {
             cell.selectedItems = selectedItems
             cell.items = items
             cell.wallet = wallet
+            //print("AddTaskViewController: tv: allTags: \(allTags.count)")
+            cell.allTags = allTags
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellTitleIdentifier, for: indexPath) as! AddTitleCell
@@ -247,8 +251,16 @@ extension AddTaskViewController {
     }
     
     func notifTags(notif:NSNotification){
-        tags = notif.userInfo?["filePath"] as? [String] ?? [String]()
-        task[0].setTags(tags: tags)
+        let input = notif.userInfo?["input"] as? Int ?? Int()
+        if input == 0 {
+            let tag = notif.userInfo?["tag"] as! Tag
+            allTags.append(tag)
+            //Refresh from database
+            tableView.reloadData()
+        } else {
+            tags = notif.userInfo?["tags"] as? [String] ?? [String]()
+            task[0].setTags(tags: tags)
+        }
     }
     
     func notifSwipeClass(notif:NSNotification){

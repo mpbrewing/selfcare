@@ -105,6 +105,25 @@ extension UIViewController {
         }
     }
     
+    func uploadTag(tag: [String:Any],completion: @escaping (String) -> Void){
+        let db = Firestore.firestore()
+        var ref: DocumentReference? = nil
+        let userId = Auth.auth().currentUser?.uid
+        ref = db.collection("users").document("\(userId!)").collection("tags").addDocument(data: tag) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+                completion("")
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+                completion(ref!.documentID)
+                //Return
+            }
+        }
+    }
+    
+    //If user has existing color saved with the same title do not upload
+    //Remove whitespace from end of all titles
+    
     
     
 }

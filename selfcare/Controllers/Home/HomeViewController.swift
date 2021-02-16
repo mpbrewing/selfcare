@@ -12,10 +12,13 @@ import SideMenu
 
 class HomeViewController: UIViewController {
     
+    let db = Firestore.firestore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //toggleAlpha(state: false)
         loadXIB(name: "HomeView")
+        downloadData()
         setupSwipe()
         setupSwipeView()
         setupAddButton()
@@ -49,10 +52,19 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var test: SwipeBarClass!
     
+    var tags = [Tag]()
+    
 }
 
 //Handle Navigation
 extension HomeViewController {
+    
+    func downloadData(){
+        downloadTags(db: db, completion: { data in
+            self.tags = data
+            print("HomeViewController: Tags: \(self.tags.count)")
+        })
+    }
     
     func setupSwipe(){
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(calendarAction))
@@ -212,6 +224,7 @@ extension HomeViewController {
     
     func SegueToAddTask(){
         let addTaskView = AddTaskViewController()
+        addTaskView.allTags = tags
         addTaskView.items = swipeClassView.items
         addTaskView.wallet = swipeClassView.itemWallet
         addTaskView.modalPresentationStyle = .fullScreen

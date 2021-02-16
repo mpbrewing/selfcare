@@ -17,7 +17,8 @@ class FullTags: UIViewController,UICollectionViewDataSource, UICollectionViewDel
     @IBOutlet weak var colorCollectionView: UICollectionView!
     @IBOutlet weak var saveButton: UIButton!
     @IBAction func saveButtonAction(_ sender: Any) {
-        
+        createTag()
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func TitleEditingChanged(_ sender: Any) {
@@ -31,6 +32,7 @@ class FullTags: UIViewController,UICollectionViewDataSource, UICollectionViewDel
     var selected = 0
     var selectedArray = [Bool]()
     var colors = [UIColor]()
+    var tag = [Tag]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +48,8 @@ class FullTags: UIViewController,UICollectionViewDataSource, UICollectionViewDel
     }
     
     func setupStyle(){
+        titleTextField.attributedPlaceholder = NSAttributedString(string: "Enter title",attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        //
         view.layer.cornerRadius = 40
         view.layer.borderWidth = 8
         //view.layer.borderColor = UIColor.hippiePink.cgColor
@@ -61,7 +65,8 @@ class FullTags: UIViewController,UICollectionViewDataSource, UICollectionViewDel
         //
         //ColorLabel.textColor = UIColor.gainsboro
         //
-        colors = [UIColor.gainsboro,UIColor.brown,UIColor.black,UIColor.systemYellow,UIColor.systemOrange,UIColor.systemRed,UIColor.systemPink,UIColor.systemIndigo,UIColor.systemBlue,UIColor.systemGreen,UIColor.systemTeal,UIColor.madang]
+        //colors = [UIColor.gainsboro,UIColor.brown,UIColor.black,UIColor.systemYellow,UIColor.systemOrange,UIColor.systemRed,UIColor.sweetPink,UIColor.systemPurple,UIColor.systemBlue,UIColor.systemGreen,UIColor.systemTeal,UIColor.madang]
+        colors = [UIColor.gainsboro,UIColor.brown,UIColor.black,UIColor.systemRed,UIColor.systemOrange,UIColor.systemYellow,UIColor.conifer,UIColor.systemGreen,UIColor.systemTeal,UIColor.systemBlue,UIColor.systemPurple,UIColor.yourPink]
         selectedArray = Array(repeating: false, count: colors.count)
         selectedArray[selected] = true
         //
@@ -131,6 +136,23 @@ extension FullTags {
 //Handle and Pass Tags
 extension FullTags {
     
+    func passTag()
+    {
+        //Pass Index and Tag
+        //let title = titleTextField.text!
+        //let notif = ["selection":selected,"title":title] as [String : Any]
+        let notif = ["index":6,"input":0,"tag":tag[0]] as [String : Any]
+        NotificationCenter.default.post(name: .addTaskDetails, object: nil,userInfo: notif)
+    }
     
+    func createTag(){
+        let title = titleTextField.text!
+        tag.append(Tag(id: "", color: selected, title: title))
+        let item = tag[0].toAnyObject() as! [String:Any]
+        uploadTag(tag: item, completion: { item in
+            print("\(item)")
+            self.passTag()
+        })
+    }
     
 }

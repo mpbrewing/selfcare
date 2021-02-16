@@ -69,6 +69,12 @@
 		EC43D5E125B17C9F00BB5EA7 /* EventLocationTab.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC43D5E025B17C9F00BB5EA7 /* EventLocationTab.xib */; };
 		EC43D5E625B19C9F00BB5EA7 /* MiniDate.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC43D5E525B19C9F00BB5EA7 /* MiniDate.xib */; };
 		EC43D5EB25B19D6300BB5EA7 /* MiniDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC43D5EA25B19D6300BB5EA7 /* MiniDateCell.swift */; };
+		EC44045825DB268C00CEFE8B /* SelectTagsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC44045725DB268C00CEFE8B /* SelectTagsTableViewCell.swift */; };
+		EC44045D25DB26B300CEFE8B /* SelectTagsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC44045C25DB26B300CEFE8B /* SelectTagsCell.xib */; };
+		EC44046225DB26FB00CEFE8B /* AnotherTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC44046125DB26FB00CEFE8B /* AnotherTag.swift */; };
+		EC44046725DB271700CEFE8B /* AnotherTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC44046625DB271700CEFE8B /* AnotherTagCell.xib */; };
+		EC44046C25DB397600CEFE8B /* SelectMiniCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC44046B25DB397600CEFE8B /* SelectMiniCell.swift */; };
+		EC44047125DB3A0E00CEFE8B /* SelectMiniCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC44047025DB3A0E00CEFE8B /* SelectMiniCellView.xib */; };
 		EC4470BC25BC289D009A364C /* SelectionRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC4470BB25BC289D009A364C /* SelectionRow.xib */; };
 		EC4470C125BC28BA009A364C /* SelectionRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4470C025BC28BA009A364C /* SelectionRowCell.swift */; };
 		EC587F9F256D7F6C001A5F72 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC587F9E256D7F6C001A5F72 /* CalendarViewController.swift */; };
@@ -79,6 +85,7 @@
 		EC58C5AB258A16A8002F120C /* SwipeBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC58C5AA258A16A8002F120C /* SwipeBarView.xib */; };
 		EC5F612D25D8C7330082C20C /* MiniTagsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC5F612C25D8C7330082C20C /* MiniTagsCell.xib */; };
 		EC5F613225D8CA530082C20C /* MiniTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5F613125D8CA530082C20C /* MiniTags.swift */; };
+		EC5F613A25D8F7050082C20C /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5F613925D8F7050082C20C /* Tag.swift */; };
 		EC61ED9425B825AA00AA9566 /* rotateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC61ED9325B825AA00AA9566 /* rotateExtension.swift */; };
 		EC61ED9925B8549800AA9566 /* MiniClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC61ED9825B8549800AA9566 /* MiniClock.swift */; };
 		EC61ED9E25B854B600AA9566 /* MiniClockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC61ED9D25B854B600AA9566 /* MiniClockView.xib */; };
@@ -251,6 +258,12 @@
 		EC43D5E025B17C9F00BB5EA7 /* EventLocationTab.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventLocationTab.xib; sourceTree = "<group>"; };
 		EC43D5E525B19C9F00BB5EA7 /* MiniDate.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiniDate.xib; sourceTree = "<group>"; };
 		EC43D5EA25B19D6300BB5EA7 /* MiniDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniDateCell.swift; sourceTree = "<group>"; };
+		EC44045725DB268C00CEFE8B /* SelectTagsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTagsTableViewCell.swift; sourceTree = "<group>"; };
+		EC44045C25DB26B300CEFE8B /* SelectTagsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectTagsCell.xib; sourceTree = "<group>"; };
+		EC44046125DB26FB00CEFE8B /* AnotherTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherTag.swift; sourceTree = "<group>"; };
+		EC44046625DB271700CEFE8B /* AnotherTagCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnotherTagCell.xib; sourceTree = "<group>"; };
+		EC44046B25DB397600CEFE8B /* SelectMiniCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMiniCell.swift; sourceTree = "<group>"; };
+		EC44047025DB3A0E00CEFE8B /* SelectMiniCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectMiniCellView.xib; sourceTree = "<group>"; };
 		EC4470BB25BC289D009A364C /* SelectionRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectionRow.xib; sourceTree = "<group>"; };
 		EC4470C025BC28BA009A364C /* SelectionRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionRowCell.swift; sourceTree = "<group>"; };
 		EC587F9E256D7F6C001A5F72 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -261,6 +274,7 @@
 		EC58C5AA258A16A8002F120C /* SwipeBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwipeBarView.xib; sourceTree = "<group>"; };
 		EC5F612C25D8C7330082C20C /* MiniTagsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiniTagsCell.xib; sourceTree = "<group>"; };
 		EC5F613125D8CA530082C20C /* MiniTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniTags.swift; sourceTree = "<group>"; };
+		EC5F613925D8F7050082C20C /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		EC61ED9325B825AA00AA9566 /* rotateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rotateExtension.swift; sourceTree = "<group>"; };
 		EC61ED9825B8549800AA9566 /* MiniClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniClock.swift; sourceTree = "<group>"; };
 		EC61ED9D25B854B600AA9566 /* MiniClockView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiniClockView.xib; sourceTree = "<group>"; };
@@ -536,6 +550,7 @@
 				EC669E6F25A92B6A0036D331 /* Wallet.swift */,
 				EC26336125B5FD510099A91E /* CalendarDate.swift */,
 				EC95BA2E25BE822C005FD83C /* location.swift */,
+				EC5F613925D8F7050082C20C /* Tag.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -594,8 +609,8 @@
 			children = (
 				EC43D5AA25B17AA400BB5EA7 /* EventDateCell.swift */,
 				EC43D5CC25B17BBB00BB5EA7 /* EventDateTab.xib */,
-				EC43D5E525B19C9F00BB5EA7 /* MiniDate.xib */,
 				EC43D5EA25B19D6300BB5EA7 /* MiniDateCell.swift */,
+				EC43D5E525B19C9F00BB5EA7 /* MiniDate.xib */,
 			);
 			path = Date;
 			sourceTree = "<group>";
@@ -638,6 +653,19 @@
 				EC43D5E025B17C9F00BB5EA7 /* EventLocationTab.xib */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		EC44045325DB265E00CEFE8B /* Tags TableView */ = {
+			isa = PBXGroup;
+			children = (
+				EC44045725DB268C00CEFE8B /* SelectTagsTableViewCell.swift */,
+				EC44045C25DB26B300CEFE8B /* SelectTagsCell.xib */,
+				EC44046125DB26FB00CEFE8B /* AnotherTag.swift */,
+				EC44046625DB271700CEFE8B /* AnotherTagCell.xib */,
+				EC44046B25DB397600CEFE8B /* SelectMiniCell.swift */,
+				EC44047025DB3A0E00CEFE8B /* SelectMiniCellView.xib */,
+			);
+			path = "Tags TableView";
 			sourceTree = "<group>";
 		};
 		EC587F9D256D7F5C001A5F72 /* Calendar */ = {
@@ -1029,8 +1057,8 @@
 		ECF23C7E2561ECDA00022D1E /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				EC32D7AA2567315C003E0437 /* HomeView.xib */,
 				ECF23C7F2561ECEA00022D1E /* HomeViewController.swift */,
+				EC32D7AA2567315C003E0437 /* HomeView.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1059,6 +1087,7 @@
 		ECF29B9B25B0FD950076E6C6 /* Full Tags */ = {
 			isa = PBXGroup;
 			children = (
+				EC44045325DB265E00CEFE8B /* Tags TableView */,
 				ECF29BA125B0FDB40076E6C6 /* FullTags.swift */,
 				ECF29B9C25B0FDA70076E6C6 /* TagsView.xib */,
 				EC5F613125D8CA530082C20C /* MiniTags.swift */,
@@ -1222,10 +1251,12 @@
 				EC43D5E625B19C9F00BB5EA7 /* MiniDate.xib in Resources */,
 				EC0AD9C2255B502800EC1686 /* NexaBlackItalic.otf in Resources */,
 				EC0AD9B8255B502800EC1686 /* NexaBookItalic.otf in Resources */,
+				EC44047125DB3A0E00CEFE8B /* SelectMiniCellView.xib in Resources */,
 				EC9CBAA92550F17800D8C4CF /* Assets.xcassets in Resources */,
 				ECBED87725BE274800F0332E /* WeekCell.xib in Resources */,
 				EC8223A0258A05E7003EC885 /* SwipeView.xib in Resources */,
 				ECF29B9D25B0FDA70076E6C6 /* TagsView.xib in Resources */,
+				EC44046725DB271700CEFE8B /* AnotherTagCell.xib in Resources */,
 				ECF29B9725B0FD860076E6C6 /* EventsView.xib in Resources */,
 				EC1CD1A82579B8B800609350 /* AddTaskView.xib in Resources */,
 				EC0AD9BE255B502800EC1686 /* NexaBold.otf in Resources */,
@@ -1251,6 +1282,7 @@
 				EC0AD9BD255B502800EC1686 /* NexaThinItalic.otf in Resources */,
 				EC0AD9C3255B502800EC1686 /* NexaBoldItalic.otf in Resources */,
 				ECE4CDCC25AE91610016F6B6 /* AddEventsView.xib in Resources */,
+				EC44045D25DB26B300CEFE8B /* SelectTagsCell.xib in Resources */,
 				ECA2704625C8F31700B7D983 /* EndsMiniNib.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1412,8 +1444,10 @@
 				ECF29B9125B0FD6A0076E6C6 /* FullEvents.swift in Sources */,
 				EC43D5C025B17B0000BB5EA7 /* EventNotifyCell.swift in Sources */,
 				EC43D5BB25B17AEF00BB5EA7 /* EventRepeatCell.swift in Sources */,
+				EC44046225DB26FB00CEFE8B /* AnotherTag.swift in Sources */,
 				ECBED87C25BE27F300F0332E /* WeekClass.swift in Sources */,
 				EC1CD1962579B59A00609350 /* AddFolderViewController.swift in Sources */,
+				EC44046C25DB397600CEFE8B /* SelectMiniCell.swift in Sources */,
 				ECF29B8425B0FD2F0076E6C6 /* FullFilePath.swift in Sources */,
 				EC43D5EB25B19D6300BB5EA7 /* MiniDateCell.swift in Sources */,
 				ECE4CDC225AE913B0016F6B6 /* AddFilePathCell.swift in Sources */,
@@ -1421,6 +1455,7 @@
 				EC0AD9D2255B61FE00EC1686 /* LoginViewController.swift in Sources */,
 				ECA2704B25C8F46E00B7D983 /* EndsMiniNibCell.swift in Sources */,
 				EC95BA2F25BE822C005FD83C /* location.swift in Sources */,
+				EC44045825DB268C00CEFE8B /* SelectTagsTableViewCell.swift in Sources */,
 				EC61ED9425B825AA00AA9566 /* rotateExtension.swift in Sources */,
 				ECE4CDEA25AE91B60016F6B6 /* AddTagsCell.swift in Sources */,
 				EC669E7025A92B6A0036D331 /* Wallet.swift in Sources */,
@@ -1436,6 +1471,7 @@
 				EC587FB2256DA185001A5F72 /* FilterViewController.swift in Sources */,
 				EC669E6B25A9168B0036D331 /* retrieveFromFirebase.swift in Sources */,
 				ECF29BA225B0FDB40076E6C6 /* FullTags.swift in Sources */,
+				EC5F613A25D8F7050082C20C /* Tag.swift in Sources */,
 				EC8352DA25AE709F00F2C1B6 /* AddDescriptionCell.swift in Sources */,
 				EC9CBAA22550F17700D8C4CF /* SceneDelegate.swift in Sources */,
 				EC21F482258950E000536100 /* Item.swift in Sources */,

@@ -16,7 +16,7 @@ class AddMenuCell: UITableViewCell,UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var notesButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
-    override func awakeFromNib() {
+    override func awakeFromNib(){
         super.awakeFromNib()
         setupXIB()
         setupTableView()
@@ -30,6 +30,7 @@ class AddMenuCell: UITableViewCell,UITableViewDelegate, UITableViewDataSource {
     
     var addState = 0
     var menuState = 0
+    var tagsHeight: CGFloat = 50
     
     let cellPhotoIdentifier = "addPhoto"
     let cellColorIdentifier = "addColor"
@@ -44,10 +45,12 @@ class AddMenuCell: UITableViewCell,UITableViewDelegate, UITableViewDataSource {
         menuState = 0
         animateSwitch()
     }
+    
     @IBAction func taskAction(_ sender: Any) {
         menuState = 1
         animateSwitch()
     }
+    
     @IBAction func notesAction(_ sender: Any) {
         menuState = 2
         animateSwitch()
@@ -56,7 +59,17 @@ class AddMenuCell: UITableViewCell,UITableViewDelegate, UITableViewDataSource {
     var items = [Item]()
     var wallet = [Wallet]()
     var selectedItems = [Item]()
-    
+    //var allTags = [Tag]()
+    var allTags: [Tag] = [Tag]() {
+       didSet {
+        if allTags.count > 0 {
+            tagsHeight = CGFloat(300)
+        } else {
+            tagsHeight = CGFloat(50)
+        }
+        //print("AddMenuCell: \(allTags.count)")
+       }
+    }
 }
 
 extension AddMenuCell {
@@ -138,6 +151,7 @@ extension AddMenuCell {
 
      func setupTableView()
      {
+         //print("AddMenuCell: allTags: \(allTags.count)")
          // Title
          tableView.register(UINib(nibName: "AddPhotoView", bundle: nil), forCellReuseIdentifier: cellPhotoIdentifier)
          // Color
@@ -242,6 +256,7 @@ extension AddMenuCell {
             return cell
         case 5:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellTagsId, for: indexPath) as! AddTagsCell
+            cell.allTags = allTags
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriptionIdentifier, for: indexPath) as! AddDescriptionCell
@@ -281,6 +296,8 @@ extension AddMenuCell {
             return CGFloat(50)
         case 3,4:
             return CGFloat(100)
+        case 5:
+            return tagsHeight
         default:
             return CGFloat(50)
         }
