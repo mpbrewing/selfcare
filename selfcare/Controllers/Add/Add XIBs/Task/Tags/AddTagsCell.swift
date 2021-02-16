@@ -121,7 +121,7 @@ extension AddTagsCell {
     func returnHeightForRowAt(tableView: UITableView, indexPath: IndexPath)->CGFloat{
         switch indexPath.row {
         case 0:
-            return 130
+            return 100
         case 1:
             return 50
         default:

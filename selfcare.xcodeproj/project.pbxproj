@@ -75,8 +75,6 @@
 		EC44046725DB271700CEFE8B /* AnotherTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC44046625DB271700CEFE8B /* AnotherTagCell.xib */; };
 		EC44046C25DB397600CEFE8B /* SelectMiniCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC44046B25DB397600CEFE8B /* SelectMiniCell.swift */; };
 		EC44047125DB3A0E00CEFE8B /* SelectMiniCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC44047025DB3A0E00CEFE8B /* SelectMiniCellView.xib */; };
-		EC44047C25DC5F5F00CEFE8B /* TagsPageNumber.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC44047B25DC5F5F00CEFE8B /* TagsPageNumber.xib */; };
-		EC44049B25DC5F7F00CEFE8B /* TagsPageNumberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC44049A25DC5F7F00CEFE8B /* TagsPageNumberCell.swift */; };
 		EC4470BC25BC289D009A364C /* SelectionRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC4470BB25BC289D009A364C /* SelectionRow.xib */; };
 		EC4470C125BC28BA009A364C /* SelectionRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4470C025BC28BA009A364C /* SelectionRowCell.swift */; };
 		EC587F9F256D7F6C001A5F72 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC587F9E256D7F6C001A5F72 /* CalendarViewController.swift */; };
@@ -266,8 +264,6 @@
 		EC44046625DB271700CEFE8B /* AnotherTagCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnotherTagCell.xib; sourceTree = "<group>"; };
 		EC44046B25DB397600CEFE8B /* SelectMiniCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMiniCell.swift; sourceTree = "<group>"; };
 		EC44047025DB3A0E00CEFE8B /* SelectMiniCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectMiniCellView.xib; sourceTree = "<group>"; };
-		EC44047B25DC5F5F00CEFE8B /* TagsPageNumber.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagsPageNumber.xib; sourceTree = "<group>"; };
-		EC44049A25DC5F7F00CEFE8B /* TagsPageNumberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsPageNumberCell.swift; sourceTree = "<group>"; };
 		EC4470BB25BC289D009A364C /* SelectionRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectionRow.xib; sourceTree = "<group>"; };
 		EC4470C025BC28BA009A364C /* SelectionRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionRowCell.swift; sourceTree = "<group>"; };
 		EC587F9E256D7F6C001A5F72 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -668,8 +664,6 @@
 				EC44046625DB271700CEFE8B /* AnotherTagCell.xib */,
 				EC44046B25DB397600CEFE8B /* SelectMiniCell.swift */,
 				EC44047025DB3A0E00CEFE8B /* SelectMiniCellView.xib */,
-				EC44049A25DC5F7F00CEFE8B /* TagsPageNumberCell.swift */,
-				EC44047B25DC5F5F00CEFE8B /* TagsPageNumber.xib */,
 			);
 			path = "Tags TableView";
 			sourceTree = "<group>";
@@ -1220,7 +1214,6 @@
 				EC1CD1A32579B5E300609350 /* AddFolderView.xib in Resources */,
 				ECBED86A25BE265600F0332E /* RepeatMonth.xib in Resources */,
 				EC32D7B6256731F6003E0437 /* MenuView.xib in Resources */,
-				EC44047C25DC5F5F00CEFE8B /* TagsPageNumber.xib in Resources */,
 				EC0AD9B6255B502800EC1686 /* NexaLight.otf in Resources */,
 				EC95BA1A25BE508C005FD83C /* NotifyPickerCell.xib in Resources */,
 				EC6BB912258032D600945FD4 /* AddColorView.xib in Resources */,
@@ -1457,7 +1450,6 @@
 				EC44046C25DB397600CEFE8B /* SelectMiniCell.swift in Sources */,
 				ECF29B8425B0FD2F0076E6C6 /* FullFilePath.swift in Sources */,
 				EC43D5EB25B19D6300BB5EA7 /* MiniDateCell.swift in Sources */,
-				EC44049B25DC5F7F00CEFE8B /* TagsPageNumberCell.swift in Sources */,
 				ECE4CDC225AE913B0016F6B6 /* AddFilePathCell.swift in Sources */,
 				EC26338525B7725F0099A91E /* EventLabel.swift in Sources */,
 				EC0AD9D2255B61FE00EC1686 /* LoginViewController.swift in Sources */,

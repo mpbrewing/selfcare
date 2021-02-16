@@ -63,7 +63,7 @@ class AddMenuCell: UITableViewCell,UITableViewDelegate, UITableViewDataSource {
     var allTags: [Tag] = [Tag]() {
        didSet {
         if allTags.count > 0 {
-            tagsHeight = CGFloat(300)
+            tagsHeight = CGFloat(200)
         } else {
             tagsHeight = CGFloat(50)
         }
@@ -297,7 +297,7 @@ extension AddMenuCell {
         case 3,4: //Status, Priority
             return CGFloat(100)
         case 5: //Tags
-            return CGFloat(230)
+            return tagsHeight
         default:
             return CGFloat(50)
         }
@@ -321,7 +321,9 @@ extension AddMenuCell {
         case 2:
             SegueToEvents()
         case 5:
+            if allTags.count == 0 {
             SegueToTags()
+            }
         default:
             //print(indexPath.row)
             break
