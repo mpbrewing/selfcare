@@ -75,6 +75,8 @@
 		EC44046725DB271700CEFE8B /* AnotherTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC44046625DB271700CEFE8B /* AnotherTagCell.xib */; };
 		EC44046C25DB397600CEFE8B /* SelectMiniCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC44046B25DB397600CEFE8B /* SelectMiniCell.swift */; };
 		EC44047125DB3A0E00CEFE8B /* SelectMiniCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC44047025DB3A0E00CEFE8B /* SelectMiniCellView.xib */; };
+		EC4404FE25E23EF000CEFE8B /* MiniEventCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4404FD25E23EF000CEFE8B /* MiniEventCollectionCell.swift */; };
+		EC44050625E23F3600CEFE8B /* MiniEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC44050525E23F3600CEFE8B /* MiniEventCell.xib */; };
 		EC4470BC25BC289D009A364C /* SelectionRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC4470BB25BC289D009A364C /* SelectionRow.xib */; };
 		EC4470C125BC28BA009A364C /* SelectionRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4470C025BC28BA009A364C /* SelectionRowCell.swift */; };
 		EC587F9F256D7F6C001A5F72 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC587F9E256D7F6C001A5F72 /* CalendarViewController.swift */; };
@@ -264,6 +266,8 @@
 		EC44046625DB271700CEFE8B /* AnotherTagCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnotherTagCell.xib; sourceTree = "<group>"; };
 		EC44046B25DB397600CEFE8B /* SelectMiniCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMiniCell.swift; sourceTree = "<group>"; };
 		EC44047025DB3A0E00CEFE8B /* SelectMiniCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectMiniCellView.xib; sourceTree = "<group>"; };
+		EC4404FD25E23EF000CEFE8B /* MiniEventCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniEventCollectionCell.swift; sourceTree = "<group>"; };
+		EC44050525E23F3600CEFE8B /* MiniEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiniEventCell.xib; sourceTree = "<group>"; };
 		EC4470BB25BC289D009A364C /* SelectionRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectionRow.xib; sourceTree = "<group>"; };
 		EC4470C025BC28BA009A364C /* SelectionRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionRowCell.swift; sourceTree = "<group>"; };
 		EC587F9E256D7F6C001A5F72 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -668,6 +672,15 @@
 			path = "Tags TableView";
 			sourceTree = "<group>";
 		};
+		EC4404FC25E23ECC00CEFE8B /* View Events */ = {
+			isa = PBXGroup;
+			children = (
+				EC4404FD25E23EF000CEFE8B /* MiniEventCollectionCell.swift */,
+				EC44050525E23F3600CEFE8B /* MiniEventCell.xib */,
+			);
+			path = "View Events";
+			sourceTree = "<group>";
+		};
 		EC587F9D256D7F5C001A5F72 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -996,6 +1009,7 @@
 		ECE4CDB825AE90AA0016F6B6 /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				EC4404FC25E23ECC00CEFE8B /* View Events */,
 				ECF29B9525B0FD730076E6C6 /* Full Events */,
 				ECE4CDC625AE91530016F6B6 /* AddEventsCell.swift */,
 				ECE4CDCB25AE91610016F6B6 /* AddEventsView.xib */,
@@ -1254,6 +1268,7 @@
 				EC44047125DB3A0E00CEFE8B /* SelectMiniCellView.xib in Resources */,
 				EC9CBAA92550F17800D8C4CF /* Assets.xcassets in Resources */,
 				ECBED87725BE274800F0332E /* WeekCell.xib in Resources */,
+				EC44050625E23F3600CEFE8B /* MiniEventCell.xib in Resources */,
 				EC8223A0258A05E7003EC885 /* SwipeView.xib in Resources */,
 				ECF29B9D25B0FDA70076E6C6 /* TagsView.xib in Resources */,
 				EC44046725DB271700CEFE8B /* AnotherTagCell.xib in Resources */,
@@ -1420,6 +1435,7 @@
 				EC95BA1F25BE51D5005FD83C /* NotifyPicker.swift in Sources */,
 				ECF4EC4625D62E3A00980AB4 /* FilePathCell.swift in Sources */,
 				EC8223AF258A0851003EC885 /* CardClass.swift in Sources */,
+				EC4404FE25E23EF000CEFE8B /* MiniEventCollectionCell.swift in Sources */,
 				EC81803625BC257D00228690 /* RepeatSelectionCell.swift in Sources */,
 				EC58C5A6258A1689002F120C /* SwipeBarClass.swift in Sources */,
 				ECE4CDDB25AE918A0016F6B6 /* AddPriorityCell.swift in Sources */,

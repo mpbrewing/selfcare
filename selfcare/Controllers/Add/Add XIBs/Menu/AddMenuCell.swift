@@ -264,6 +264,7 @@ extension AddMenuCell {
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellEventsId, for: indexPath) as! AddEventsCell
+            cell.events = events
             cell.updateLabel(events: events)
             return cell
         case 3:
@@ -316,6 +317,7 @@ extension AddMenuCell {
             return eventsHeight
         case 3,4: //Status, Priority
             return CGFloat(100)
+            //return CGFloat(90)
         case 5: //Tags
             return tagsHeight
         default:
