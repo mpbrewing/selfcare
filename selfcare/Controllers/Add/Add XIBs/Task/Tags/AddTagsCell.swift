@@ -20,7 +20,7 @@ class AddTagsCell: UITableViewCell,UITableViewDelegate, UITableViewDataSource {
     var holdTags = [Tag]()
     var allTags: [Tag] = [Tag]() {
        didSet {
-            print("AddTagsCell: \(allTags.count)")
+            //print("AddTagsCell: \(allTags.count)")
             //remainingTags = allTags
             filterRemainingTags()
             tagsTableView.reloadData()
@@ -38,6 +38,22 @@ class AddTagsCell: UITableViewCell,UITableViewDelegate, UITableViewDataSource {
         icon.image = icon.image?.withRenderingMode(.alwaysTemplate)
         icon.tintColor = UIColor.gainsboro
         //filterRemainingTags()
+    }
+    
+    func updateLabel(){
+        if selectedTags.count > 0 {
+            tagsLabel.textColor = UIColor.black
+            if selectedTags.count == 1 {
+                //tagsLabel.text = "\(selectedTags.count) tag selected"
+                tagsLabel.text = "\(selectedTags.count) Tag"
+            } else {
+                //tagsLabel.text = "\(selectedTags.count) tags selected"
+                tagsLabel.text = "\(selectedTags.count) Tags"
+            }
+        } else {
+            tagsLabel.textColor = UIColor.lightGray
+            tagsLabel.text = "Tags"
+        }
     }
     
 }
@@ -130,12 +146,17 @@ extension AddTagsCell {
     }
     
     func SegueToTags(){
-        //modifyBackButton()
-        print("SegueToTags")
+        //print("SegueToTags")
+        modifyBackButton()
         let tags = FullTags()
         tags.modalPresentationStyle = .fullScreen
         let vc = findViewController()
         vc?.navigationController?.pushViewController(tags, animated: true)
+    }
+    
+    func modifyBackButton(){
+        let vc = findViewController()
+        vc?.navigationController?.navigationBar.standardAppearance.setBackIndicatorImage(#imageLiteral(resourceName: "back2"), transitionMaskImage: #imageLiteral(resourceName: "back2"))
     }
     
 }
@@ -204,6 +225,7 @@ extension AddTagsCell {
     
     func updateHoldTags(){
         holdTags = selectedTags + remainingTags
+        updateLabel()
     }
     
 }

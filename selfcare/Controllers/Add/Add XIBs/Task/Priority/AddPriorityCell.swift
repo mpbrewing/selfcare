@@ -17,6 +17,7 @@ class AddPriorityCell: UITableViewCell {
     @IBOutlet weak var handle: UIView!
     
     var priority = Int()
+    var gesture = UIPanGestureRecognizer()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,8 +41,10 @@ class AddPriorityCell: UITableViewCell {
     }
     
     func addPanGesture() {
-         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
-         self.handle.addGestureRecognizer(panGesture)
+         //let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        gesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        gesture.cancelsTouchesInView = false
+        handle.addGestureRecognizer(gesture)
     }
      
     @objc func handlePan(_ sender: UIPanGestureRecognizer) {

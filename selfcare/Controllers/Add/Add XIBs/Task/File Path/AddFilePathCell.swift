@@ -36,9 +36,14 @@ class AddFilePathCell: UITableViewCell {
                     string.append(" ➡️ ")
                 }
             }
-            filePath.text = string
+            //filePath.text = string
+            //filePath.textColor = UIColor.black
+            filePathLabel.text = string
+            filePathLabel.textColor = UIColor.black
         } else {
-            filePath.text = ""
+            //filePath.text = ""
+            filePathLabel.text = "File path"
+            filePathLabel.textColor = UIColor.lightGray
         }
     }
     

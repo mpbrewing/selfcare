@@ -31,6 +31,7 @@ class AddMenuCell: UITableViewCell,UITableViewDelegate, UITableViewDataSource {
     var addState = 0
     var menuState = 0
     var tagsHeight: CGFloat = 50
+    var eventsHeight: CGFloat = 50
     
     let cellPhotoIdentifier = "addPhoto"
     let cellColorIdentifier = "addColor"
@@ -58,7 +59,13 @@ class AddMenuCell: UITableViewCell,UITableViewDelegate, UITableViewDataSource {
     
     var items = [Item]()
     var wallet = [Wallet]()
-    var selectedItems = [Item]()
+    //var selectedFilePath = [Item]()
+    var selectedFilePath: [Item] = [Item]() {
+        didSet {
+            //print("filePath: \(selectedFilePath.count)")
+            tableView.reloadData()
+        }
+    }
     //var allTags = [Tag]()
     var allTags: [Tag] = [Tag]() {
        didSet {
@@ -69,6 +76,18 @@ class AddMenuCell: UITableViewCell,UITableViewDelegate, UITableViewDataSource {
         }
         //print("AddMenuCell: \(allTags.count)")
        }
+    }
+    
+    var events: [Event] = [Event]() {
+        didSet {
+            //print("events: \(events.count)")
+            tableView.reloadData()
+             if events.count > 0 {
+                 eventsHeight = CGFloat(160)
+             } else {
+                 eventsHeight = CGFloat(50)
+             }
+        }
     }
 }
 
@@ -241,12 +260,11 @@ extension AddMenuCell {
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellFilePathId, for: indexPath) as! AddFilePathCell
-            //print(selectedItems.count)
-            //cell.updateLabel(items: selectedItems)
-            //cell.selectedItems = selectedItems
+            cell.updateLabel(items: selectedFilePath)
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellEventsId, for: indexPath) as! AddEventsCell
+            cell.updateLabel(events: events)
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellStatusId, for: indexPath) as! AddStatusCell
@@ -294,6 +312,8 @@ extension AddMenuCell {
         switch indexPath.row {
         case 0: //Description
             return CGFloat(50)
+        case 2: //Events
+            return eventsHeight
         case 3,4: //Status, Priority
             return CGFloat(100)
         case 5: //Tags
@@ -319,10 +339,12 @@ extension AddMenuCell {
         case 1:
             SegueToFilePath()
         case 2:
-            SegueToEvents()
+            if events.count == 0 {
+                SegueToEvents()
+            }
         case 5:
             if allTags.count == 0 {
-            SegueToTags()
+                SegueToTags()
             }
         default:
             //print(indexPath.row)

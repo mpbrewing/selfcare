@@ -54,7 +54,7 @@ class AddTaskViewController: UIViewController,UITableViewDelegate, UITableViewDa
     var task = [Task]()
     var item = [Item]()
     var items = [Item]()
-    var selectedItems = [Item]()
+    var selectedFilePath = [Item]()
     var wallet = [Wallet]()
     var allTags = [Tag]()
     
@@ -147,9 +147,10 @@ extension AddTaskViewController {
         case 1: //Swipe Menu
             let cell = tableView.dequeueReusableCell(withIdentifier: cellMenuIdentifier, for: indexPath) as! AddMenuCell
             cell.addState = 1
-            cell.selectedItems = selectedItems
+            cell.selectedFilePath = selectedFilePath
             cell.items = items
             cell.wallet = wallet
+            cell.events = events
             //print("AddTaskViewController: tv: allTags: \(allTags.count)")
             cell.allTags = allTags
             return cell
@@ -220,14 +221,14 @@ extension AddTaskViewController {
         filePath = notif.userInfo?["filePath"] as? [String] ?? [String]()
         item[0].path = filePath
         item[0].index = filePath.count
-        selectedItems = notif.userInfo?["selected"] as! [Item]
+        selectedFilePath = notif.userInfo?["selected"] as! [Item]
         updateFilePathDetails()
         tableView.reloadData()
     }
     
     func updateFilePathDetails(){
-        if selectedItems.count > 0 {
-            let details = selectedItems[0].details
+        if selectedFilePath.count > 0 {
+            let details = selectedFilePath[0].details
             //Update Defaults
             task[0].color = details["color"] as? String ?? ""
             task[0].photoURL = details["photoURL"] as? String ?? ""
@@ -238,6 +239,7 @@ extension AddTaskViewController {
         let blank = Event(date: [Date()], time: [String](), repeating: [String:Any](), notify: [[String:Any]](), location: [String]())
         let event = notif.userInfo?["event"] as? Event ?? blank
         events.append(event)
+        tableView.reloadData()
     }
     
     func notifStatus(notif:NSNotification){
@@ -255,7 +257,7 @@ extension AddTaskViewController {
         if input == 0 {
             let tag = notif.userInfo?["tag"] as! Tag
             allTags.append(tag)
-            //Refresh from database
+            //Refresh from database or pass holdTags or sort tags by title
             tableView.reloadData()
         } else {
             tags = notif.userInfo?["tags"] as? [String] ?? [String]()

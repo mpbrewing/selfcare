@@ -29,7 +29,8 @@ class SelectTagsTableViewCell: UITableViewCell,UICollectionViewDataSource, UICol
     }
     
     func setupStyle(){
-        colors = [UIColor.gainsboro,UIColor.brown,UIColor.black,UIColor.systemRed,UIColor.systemOrange,UIColor.systemYellow,UIColor.conifer,UIColor.systemGreen,UIColor.systemTeal,UIColor.systemBlue,UIColor.systemPurple,UIColor.yourPink]
+       // colors = [UIColor.gainsboro,UIColor.brown,UIColor.black,UIColor.systemRed,UIColor.systemOrange,UIColor.systemYellow,UIColor.conifer,UIColor.systemGreen,UIColor.systemTeal,UIColor.systemBlue,UIColor.systemPurple,UIColor.yourPink]
+        colors = [UIColor.gainsboro,UIColor.brown,UIColor.black,UIColor.systemRed,UIColor.yourPink,UIColor.systemPurple,UIColor.systemBlue,UIColor.systemTeal,UIColor.systemGreen,UIColor.conifer,UIColor.systemYellow,UIColor.systemOrange]
     }
     
     func updateSize(){

@@ -65,8 +65,8 @@ class FullTags: UIViewController,UICollectionViewDataSource, UICollectionViewDel
         //
         //ColorLabel.textColor = UIColor.gainsboro
         //
-        //colors = [UIColor.gainsboro,UIColor.brown,UIColor.black,UIColor.systemYellow,UIColor.systemOrange,UIColor.systemRed,UIColor.sweetPink,UIColor.systemPurple,UIColor.systemBlue,UIColor.systemGreen,UIColor.systemTeal,UIColor.madang]
-        colors = [UIColor.gainsboro,UIColor.brown,UIColor.black,UIColor.systemRed,UIColor.systemOrange,UIColor.systemYellow,UIColor.conifer,UIColor.systemGreen,UIColor.systemTeal,UIColor.systemBlue,UIColor.systemPurple,UIColor.yourPink]
+        colors = [UIColor.gainsboro,UIColor.brown,UIColor.black,UIColor.systemRed,UIColor.yourPink,UIColor.systemPurple,UIColor.systemBlue,UIColor.systemTeal,UIColor.systemGreen,UIColor.conifer,UIColor.systemYellow,UIColor.systemOrange]
+        //colors = [UIColor.gainsboro,UIColor.brown,UIColor.black,UIColor.systemRed,UIColor.systemOrange,UIColor.systemYellow,UIColor.conifer,UIColor.systemGreen,UIColor.systemTeal,UIColor.systemBlue,UIColor.systemPurple,UIColor.yourPink]
         selectedArray = Array(repeating: false, count: colors.count)
         selectedArray[selected] = true
         //

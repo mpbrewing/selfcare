@@ -17,6 +17,7 @@ class AddStatusCell: UITableViewCell {
     @IBOutlet weak var handle: UIView!
     
     var status = Int()
+    var gesture = UIPanGestureRecognizer()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,10 +41,14 @@ class AddStatusCell: UITableViewCell {
     }
     
     func addPanGesture() {
-         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
-         self.handle.addGestureRecognizer(panGesture)
+         //let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        gesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        gesture.cancelsTouchesInView = false
+        handle.addGestureRecognizer(gesture)
     }
-     
+
+    
+    
     @objc func handlePan(_ sender: UIPanGestureRecognizer) {
 
          switch sender.state {
@@ -56,6 +61,7 @@ class AddStatusCell: UITableViewCell {
             let point = sender.location(in: contentView)
             returnFinalHandleLocation(point: point)
             passStatus()
+
          default: break
              //print("handlePan")
          }

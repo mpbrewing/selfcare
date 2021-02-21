@@ -120,7 +120,7 @@ extension FullFilePath {
         if indexPath.section != 3 {
             if (indexPath.section < filePath.count) && (filePath.count > 0) {
                 for _ in indexPath.section...filePath.count-1{
-                    print(indexPath.section)
+                    //print(indexPath.section)
                     //filePath.remove(at: i)
                     //selectedItems.remove(at: i)
                     filePath.removeLast()
