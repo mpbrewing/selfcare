@@ -23,8 +23,11 @@ class AddEventsCell: UITableViewCell,UICollectionViewDataSource, UICollectionVie
         didSet {
             //print("events: \(events.count)")
             eventCollection.reloadData()
+            updateIcon()
         }
     }
+    
+    var status = Int()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -70,6 +73,20 @@ class AddEventsCell: UITableViewCell,UICollectionViewDataSource, UICollectionVie
         vc?.navigationController?.navigationBar.standardAppearance.setBackIndicatorImage(#imageLiteral(resourceName: "back2"), transitionMaskImage: #imageLiteral(resourceName: "back2"))
     }
     
+    func updateIcon(){
+        //let colors = [UIColor.gainsboro,UIColor.systemRed,UIColor.systemYellow,UIColor.systemGreen]
+        if events.count > 0 {
+            icon.image = icon.image?.withRenderingMode(.alwaysTemplate)
+            //icon.tintColor = UIColor.lightGray
+            //icon.tintColor = UIColor.silver
+            //con.tintColor = UIColor.systemGreen
+            //icon.tintColor = colors[status]
+        } else {
+            icon.image = icon.image?.withRenderingMode(.alwaysTemplate)
+            //icon.tintColor = UIColor.gainsboro
+        }
+    }
+    
 }
 
 extension AddEventsCell {
@@ -88,6 +105,11 @@ extension AddEventsCell {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "miniEvent", for: indexPath as IndexPath) as! MiniEventCollectionCell
+        if events.count > 0 {
+            cell.event = events[indexPath.row]
+            cell.status = status
+            cell.updateLabels()
+        } 
         return cell
     }
     
@@ -104,7 +126,7 @@ extension AddEventsCell {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 364, height: 112)
+        return CGSize(width: 356, height: 112)
     }
     
 }

@@ -19,6 +19,8 @@ class AddPriorityCell: UITableViewCell {
     var priority = Int()
     var gesture = UIPanGestureRecognizer()
     
+    var status = Int()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupXIB()
@@ -83,22 +85,28 @@ class AddPriorityCell: UITableViewCell {
             priorityLabel.textColor = UIColor.lightGray
             updateIcon(image: #imageLiteral(resourceName: "priority_icon"))
         case 101...203:
-            overlay.layer.backgroundColor = UIColor.lightGray.cgColor
-            handle.layer.backgroundColor = UIColor.lightGray.cgColor
+            //overlay.layer.backgroundColor = UIColor.lightGray.cgColor
+            //handle.layer.backgroundColor = UIColor.lightGray.cgColor
+            overlay.layer.backgroundColor = UIColor.systemGreen.cgColor
+            handle.layer.backgroundColor = UIColor.systemGreen.cgColor
             priority = 1
             priorityLabel.text = "Low Priority"
             priorityLabel.textColor = UIColor.black
             updateIcon(image: #imageLiteral(resourceName: "priority_icon"))
         case 203...305:
-            overlay.layer.backgroundColor = UIColor.systemGray.cgColor
-            handle.layer.backgroundColor = UIColor.systemGray.cgColor
+            //overlay.layer.backgroundColor = UIColor.systemGray.cgColor
+            //handle.layer.backgroundColor = UIColor.systemGray.cgColor
+            overlay.layer.backgroundColor = UIColor.systemYellow.cgColor
+            handle.layer.backgroundColor = UIColor.systemYellow.cgColor
             priority = 2
             priorityLabel.text = "Medium Priority"
             priorityLabel.textColor = UIColor.black
             updateIcon(image: #imageLiteral(resourceName: "mediumPriority"))
         case 305...414:
-            overlay.layer.backgroundColor = UIColor.darkGray.cgColor
-            handle.layer.backgroundColor = UIColor.darkGray.cgColor
+            //overlay.layer.backgroundColor = UIColor.darkGray.cgColor
+            //handle.layer.backgroundColor = UIColor.darkGray.cgColor
+            overlay.layer.backgroundColor = UIColor.systemRed.cgColor
+            handle.layer.backgroundColor = UIColor.systemRed.cgColor
             priority = 3
             priorityLabel.text = "High Priority"
             priorityLabel.textColor = UIColor.black
@@ -140,8 +148,23 @@ class AddPriorityCell: UITableViewCell {
 //Handle and Pass Priority
 extension AddPriorityCell {
     
+    func updateIcon(){
+        if priority > 0 {
+            //let colors = [UIColor.gainsboro,UIColor.systemGreen,UIColor.systemYellow,UIColor.systemRed]
+            //icon.tintColor = colors[status]
+            //icon.image = icon.image?.withRenderingMode(.alwaysTemplate)
+            //icon.tintColor = UIColor.silver
+            //icon.tintColor = UIColor.systemGreen
+            //icon.tintColor = colors[priority]
+        } else {
+            icon.image = icon.image?.withRenderingMode(.alwaysTemplate)
+            icon.tintColor = UIColor.gainsboro
+        }
+    }
+    
     func passPriority()
     {
+        updateIcon()
         //Pass Index and Status
         let notif = ["index":5,"priority":priority] as [String : Any]
         NotificationCenter.default.post(name: .addTaskDetails, object: nil,userInfo: notif)

@@ -14,6 +14,7 @@ pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
 pod 'SideMenu'
 pod 'SDWebImage', :modular_headers => true
+pod 'GrowingTextView', '0.7.2'
 # add pods for any other desired Firebase products
 # https://firebase.google.com/docs/ios/setup#available-pods
 

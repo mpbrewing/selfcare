@@ -25,13 +25,15 @@ class AddMenuCell: UITableViewCell,UITableViewDelegate, UITableViewDataSource {
     
     func setupXIB()
     {
-        menuBar.layer.cornerRadius = 3
+        menuBar.layer.cornerRadius = 2.5
+        menuBar.layer.backgroundColor = UIColor.lightGray.cgColor
     }
     
     var addState = 0
     var menuState = 0
     var tagsHeight: CGFloat = 50
     var eventsHeight: CGFloat = 50
+    var descriptionH: CGFloat = 50
     
     let cellPhotoIdentifier = "addPhoto"
     let cellColorIdentifier = "addColor"
@@ -83,12 +85,47 @@ class AddMenuCell: UITableViewCell,UITableViewDelegate, UITableViewDataSource {
             //print("events: \(events.count)")
             tableView.reloadData()
              if events.count > 0 {
-                 eventsHeight = CGFloat(160)
+                 eventsHeight = CGFloat(170)
              } else {
                  eventsHeight = CGFloat(50)
              }
         }
     }
+    
+    var status: Int = Int() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
+    var descriptionHeight: CGFloat = CGFloat() {
+        didSet {
+            print("dh AddMenuCell: \(descriptionHeight)")
+            //tableView.beginUpdates()
+            //tableView.endUpdates()
+            //&& descriptionBool == false
+            if descriptionHeight != descriptionH && descriptionBool == false  {
+                descriptionH = descriptionHeight
+                descriptionBool = true
+                //let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
+                //manageAnimation()
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    var descriptionBool = Bool()
+    /*
+    func manageAnimation() {
+        UIView.animate(withDuration: 4.0, delay: 0.0, options: .curveLinear, animations: {
+            self.tableView.reloadData()
+            //self.descriptionTextView.isHidden = false
+            //self.hiddend.isHidden = true
+        }, completion: { finished in
+          //print("animation complete!")
+        })
+    } */
+    
 }
 
 extension AddMenuCell {
@@ -159,8 +196,6 @@ extension AddMenuCell {
             menuState = 2
         }
     }
-    
-    
     
 }
 
@@ -257,14 +292,24 @@ extension AddMenuCell {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriptionIdentifier, for: indexPath) as! AddDescriptionCell
+            //print("\(cell.descriptionTextView.text!)")
+            // && descriptionBool == true
+            if cell.descriptionTextView.text! != "Description" && descriptionBool == true{
+                //print("contains")
+                descriptionBool = false
+                cell.updateDescription()
+            }
+            cell.status = status
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellFilePathId, for: indexPath) as! AddFilePathCell
             cell.updateLabel(items: selectedFilePath)
+            cell.status = status
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellEventsId, for: indexPath) as! AddEventsCell
             cell.events = events
+            cell.status = status
             cell.updateLabel(events: events)
             return cell
         case 3:
@@ -272,9 +317,11 @@ extension AddMenuCell {
             return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellPriorityId, for: indexPath) as! AddPriorityCell
+            cell.status = status
             return cell
         case 5:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellTagsId, for: indexPath) as! AddTagsCell
+            cell.status = status
             cell.allTags = allTags
             return cell
         default:
@@ -312,7 +359,7 @@ extension AddMenuCell {
     {
         switch indexPath.row {
         case 0: //Description
-            return CGFloat(50)
+            return descriptionH
         case 2: //Events
             return eventsHeight
         case 3,4: //Status, Priority
@@ -324,6 +371,8 @@ extension AddMenuCell {
             return CGFloat(50)
         }
     }
+    
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch addState {
@@ -343,10 +392,14 @@ extension AddMenuCell {
         case 2:
             if events.count == 0 {
                 SegueToEvents()
+            } else {
+                SegueToViewEvents()
             }
         case 5:
             if allTags.count == 0 {
                 SegueToTags()
+            } else {
+                SegueToViewTags()
             }
         default:
             //print(indexPath.row)
@@ -372,9 +425,25 @@ extension AddMenuCell {
         vc?.navigationController?.pushViewController(events, animated: true)
     }
     
+    func SegueToViewEvents(){
+        modifyBackButton()
+        let events = ViewEvents()
+        events.modalPresentationStyle = .fullScreen
+        let vc = findViewController()
+        vc?.navigationController?.pushViewController(events, animated: true)
+    }
+    
     func SegueToTags(){
         modifyBackButton()
         let tags = FullTags()
+        tags.modalPresentationStyle = .fullScreen
+        let vc = findViewController()
+        vc?.navigationController?.pushViewController(tags, animated: true)
+    }
+    
+    func SegueToViewTags(){
+        modifyBackButton()
+        let tags = ViewTags()
         tags.modalPresentationStyle = .fullScreen
         let vc = findViewController()
         vc?.navigationController?.pushViewController(tags, animated: true)

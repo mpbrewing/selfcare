@@ -154,9 +154,13 @@ class EventTimeCell: UICollectionViewCell {
     func returnRange(input: String) -> String{
         if active[0] == true && active[1] == true {
             if compareArray[0] < compareArray[1] {
+                //let array = [militaryTime[0],militaryTime[1]]
+                //militaryTime = array
                 let label = "\(titles[0]) - \(titles[1])"
                 return label
             } else {
+                //let array = [militaryTime[1],militaryTime[0]]
+                //militaryTime = array
                 let label = "\(titles[1]) - \(titles[0])"
                 return label
             }
@@ -212,6 +216,20 @@ extension EventTimeCell{
 
 //Handle and Pass Event Time
 extension EventTimeCell {
+        
+    func sortMilitary()->[String]{
+        var hold = militaryTime
+        if active[0] == true && active[1] == true {
+            if compareArray[0] < compareArray[1] {
+                let array = [militaryTime[0],militaryTime[1]]
+                hold = array
+            } else {
+                let array = [militaryTime[1],militaryTime[0]]
+                hold = array
+            }
+        }
+        return hold
+    }
     
     func verifyPass(send: Bool){
         if send == true {
@@ -229,7 +247,11 @@ extension EventTimeCell {
     
     
     func passEventTime(){
-        let notif = ["index":1,"time":militaryTime] as [String : Any]
+        let holdMilitary = sortMilitary()
+        //militaryTime
+        //print("0: \(militaryTime[0])")
+        //print("1: \(militaryTime[1])")
+        let notif = ["index":1,"time":holdMilitary] as [String : Any]
         NotificationCenter.default.post(name: .addEventXib, object: nil,userInfo: notif)
     }
     

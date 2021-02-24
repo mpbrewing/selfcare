@@ -62,6 +62,21 @@ extension UIColor {
         return UIColor.init(red: 250, green: 190, blue: 190)
     }
     
+    class var pGreen1: UIColor {
+        return UIColor.init(red: 182, green: 226, blue: 149)
+    }
+    
+    class var pGreen2: UIColor {
+        return UIColor.init(red: 134, green: 223, blue: 119)
+    }
+    
+    class var pGreen3: UIColor {
+        return UIColor.init(red: 93, green: 206, blue: 89)
+    }
+    
+    class var silver: UIColor {
+        return UIColor.init(red: 190, green: 190, blue: 190)
+    }
     
     // https://stackoverflow.com/questions/49150872/how-to-convert-rgb-values-to-hex-string-ios-swift
     convenience init(red: Int, green: Int, blue: Int) {

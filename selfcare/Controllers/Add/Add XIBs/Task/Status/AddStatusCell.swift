@@ -67,6 +67,19 @@ class AddStatusCell: UITableViewCell {
          }
     }
     
+    func updateIcon(){
+        //let colors = [UIColor.gainsboro,UIColor.systemRed,UIColor.systemYellow,UIColor.systemGreen]
+        if status > 0 {
+            //icon.image = icon.image?.withRenderingMode(.alwaysTemplate)
+            //icon.tintColor = UIColor.silver
+            //icon.tintColor = UIColor.systemGreen
+            //icon.tintColor = colors[status]
+        } else {
+            icon.image = icon.image?.withRenderingMode(.alwaysTemplate)
+            icon.tintColor = UIColor.gainsboro
+        }
+    }
+    
     func modifyHandleLocation(point: CGPoint){
         if point.x >= 40 && point.x <= 356 {
             handle.frame = CGRect(x: point.x, y: 57, width: 28, height: 28)
@@ -132,6 +145,7 @@ extension AddStatusCell {
     
     func passStatus()
     {
+        updateIcon()
         //Pass Index and Status
         let notif = ["index":4,"status":status] as [String : Any]
         NotificationCenter.default.post(name: .addTaskDetails, object: nil,userInfo: notif)

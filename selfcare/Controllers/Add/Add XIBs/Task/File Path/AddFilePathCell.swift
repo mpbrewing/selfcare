@@ -14,6 +14,14 @@ class AddFilePathCell: UITableViewCell {
     @IBOutlet weak var filePathLabel: UILabel!
     @IBOutlet weak var filePath: UILabel!
     
+    var status = Int()
+    
+    var selectedFilePath: [Item] = [Item]() {
+        didSet {
+            //print("filePath: \(selectedFilePath.count)")
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupXIB()
@@ -27,6 +35,8 @@ class AddFilePathCell: UITableViewCell {
     func updateLabel(items:[Item]){
         var string = String()
         //➡️
+        selectedFilePath = items
+        updateIcon()
         if items.count > 0 {
             for i in 0...items.count-1{
                 let details = items[i].details
@@ -46,5 +56,19 @@ class AddFilePathCell: UITableViewCell {
             filePathLabel.textColor = UIColor.lightGray
         }
     }
+    
+    func updateIcon(){
+        //let colors = [UIColor.gainsboro,UIColor.systemRed,UIColor.systemYellow,UIColor.systemGreen]
+        if selectedFilePath.count > 0 {
+            icon.image = icon.image?.withRenderingMode(.alwaysTemplate)
+            //icon.tintColor = UIColor.silver
+            //icon.tintColor = UIColor.systemGreen
+            //icon.tintColor = colors[status]
+        } else {
+            icon.image = icon.image?.withRenderingMode(.alwaysTemplate)
+            icon.tintColor = UIColor.gainsboro
+        }
+    }
+    
     
 }

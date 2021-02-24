@@ -28,6 +28,8 @@ class AddTaskViewController: UIViewController,UITableViewDelegate, UITableViewDa
         //
         item.append(Item(id: "", index: 0, path: [], details: [:]))
         //
+        let colors = [UIColor.gainsboro,UIColor.systemRed,UIColor.systemYellow,UIColor.systemGreen]
+        setupStyle(color: colors[status])
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,6 +59,16 @@ class AddTaskViewController: UIViewController,UITableViewDelegate, UITableViewDa
     var selectedFilePath = [Item]()
     var wallet = [Wallet]()
     var allTags = [Tag]()
+    
+    var descriptionHeight: CGFloat = 50
+    
+    func setupStyle(color: UIColor){
+        view.layer.cornerRadius = 40
+        //view.layer.borderWidth = 8
+        //view.layer.borderWidth = 6
+        //view.layer.borderColor = color.cgColor
+        //view.layer.borderColor = UIColor.gainsboro.cgColor
+    }
     
 }
 
@@ -151,6 +163,8 @@ extension AddTaskViewController {
             cell.items = items
             cell.wallet = wallet
             cell.events = events
+            cell.status = status
+            cell.descriptionHeight = descriptionHeight
             //print("AddTaskViewController: tv: allTags: \(allTags.count)")
             cell.allTags = allTags
             return cell
@@ -214,6 +228,9 @@ extension AddTaskViewController {
     
     func notifDescription(notif:NSNotification){
         taskDescription = notif.userInfo?["description"] as? String ?? ""
+        descriptionHeight = notif.userInfo?["height"] as? CGFloat ?? CGFloat(50)
+        print("dh AddTask: \(descriptionHeight)")
+        tableView.reloadData()
         task[0].setDescription(description: taskDescription)
     }
     
@@ -245,6 +262,9 @@ extension AddTaskViewController {
     func notifStatus(notif:NSNotification){
         status = notif.userInfo?["status"] as? Int ?? Int()
         task[0].setStatus(status: status)
+        let colors = [UIColor.gainsboro,UIColor.systemRed,UIColor.systemYellow,UIColor.systemGreen]
+        setupStyle(color: colors[status])
+        tableView.reloadData()
     }
     
     func notifPriority(notif:NSNotification){

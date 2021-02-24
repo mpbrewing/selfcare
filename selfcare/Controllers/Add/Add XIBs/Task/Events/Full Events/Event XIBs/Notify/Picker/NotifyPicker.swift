@@ -109,7 +109,9 @@ class NotifyPicker: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if component == 0 {
-            timeSelection = holdArray[row]
+            if holdArray.count >= row {
+                timeSelection = holdArray[row]
+            }
         } else {
             periodSelection = row
             holdArray = pickerArray[row]

@@ -281,6 +281,7 @@ extension ClockViewClass{
     {
         let military = convertToMilitaryTime(hour: hour, minute: minute, period: timePeriod)
         //combined time for comparison
+        //print("count: \(military)")
         let passInfo = ["title":updateLabel(),"state":state,"count":count,"hour":hour,"minute":minute,"compare":returnCompare(),"military":military,"send":send,"input":0] as [String : Any]
         NotificationCenter.default.post(name: .xibToTime, object: nil,userInfo: passInfo)
     }
@@ -310,10 +311,52 @@ extension ClockViewClass{
                 }
             }
             let military = "\(holdHour):\(updateMinuteString())"
+            //print("military \(count): \(military)")
             return military
         } else {
             return "24:00"
         }
     }
     
+}
+
+extension UICollectionViewCell {
+    func convertMilitaryArray(array: [String]) -> [String]{
+        var timeArray = [String]()
+        if array.count > 0 {
+            for i in 0...array.count-1{
+                timeArray.append(convertFromMilitary(time: array[i]))
+            }
+        }
+        return timeArray
+    }
+    
+    func convertFromMilitary(time: String)->String{
+        let array = time.components(separatedBy: ":")
+        var hour = Int(array[0]) ?? 0
+        let minute = array[1]
+        var convertedTime = String()
+        var ending = String()
+        if array.count > 0 {
+            if hour >= 12{
+                if hour == 24 {
+                    convertedTime = "All-day"
+                } else {
+                    hour = hour - 12
+                    if hour == 0 {
+                        hour = 12
+                    }
+                    ending = "PM"
+                    convertedTime = "\(hour):\(minute) \(ending)"
+                }
+            } else {
+                if hour == 0 {
+                    hour = 12
+                }
+                ending = "AM"
+                convertedTime = "\(hour):\(minute) \(ending)"
+            }
+        }
+        return convertedTime
+    }
 }

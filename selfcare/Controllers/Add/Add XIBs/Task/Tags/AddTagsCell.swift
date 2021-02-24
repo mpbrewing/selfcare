@@ -27,6 +27,8 @@ class AddTagsCell: UITableViewCell,UITableViewDelegate, UITableViewDataSource {
        }
     }
     
+    var status = Int()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupXIB()
@@ -137,7 +139,7 @@ extension AddTagsCell {
     func returnHeightForRowAt(tableView: UITableView, indexPath: IndexPath)->CGFloat{
         switch indexPath.row {
         case 0:
-            return 100
+            return 90
         case 1:
             return 50
         default:
@@ -162,6 +164,19 @@ extension AddTagsCell {
 }
 
 extension AddTagsCell {
+    
+    func updateIcon(){
+       // let colors = [UIColor.gainsboro,UIColor.systemRed,UIColor.systemYellow,UIColor.systemGreen]
+        if selectedTags.count > 0 {
+            icon.image = icon.image?.withRenderingMode(.alwaysTemplate)
+           // icon.tintColor = UIColor.silver
+            //icon.tintColor = UIColor.systemGreen
+            //icon.tintColor = colors[status]
+        } else {
+            icon.image = icon.image?.withRenderingMode(.alwaysTemplate)
+            icon.tintColor = UIColor.gainsboro
+        }
+    }
     
     func passTags()
     {
@@ -220,12 +235,19 @@ extension AddTagsCell {
             })
             remainingTags = filtered
         }
+        sortTags()
         updateHoldTags()
+    }
+    
+    func sortTags(){
+        selectedTags = selectedTags.sorted(by: { $0.color < $1.color })
+        remainingTags = remainingTags.sorted(by: { $0.color < $1.color })
     }
     
     func updateHoldTags(){
         holdTags = selectedTags + remainingTags
         updateLabel()
+        updateIcon()
     }
     
 }

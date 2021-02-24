@@ -35,9 +35,10 @@ class SelectTagsTableViewCell: UITableViewCell,UICollectionViewDataSource, UICol
     
     func updateSize(){
         if tags.count > 3 {
-            tagCollectionView.frame = CGRect(x: 0, y: 0, width: 414, height: 100)
+            //tagCollectionView.frame = CGRect(x: 0, y: 0, width: 414, height: 100)
+            tagCollectionView.frame = CGRect(x: 9, y: 0, width: 396, height: 90)
         } else {
-            tagCollectionView.frame = CGRect(x: 0, y: 0, width: 414, height: 50)
+            tagCollectionView.frame = CGRect(x: 9, y: 0, width: 396, height: 50)
         }
     }
     
@@ -70,7 +71,7 @@ extension SelectTagsTableViewCell{
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 138, height: 50)
+        return CGSize(width: 132, height: 44)
    }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
