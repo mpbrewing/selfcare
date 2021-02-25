@@ -35,7 +35,21 @@ class EventRepeatCell: UICollectionViewCell,UIPickerViewDelegate, UIPickerViewDa
     var eventSelection = [String:Any]()
     var week = [Bool]()
     var month = Int()
-    var eventDates = [Date]()
+    var eventDates: [Date] = [Date]() {
+        didSet {
+            //
+            updateState()
+            repeatTableView.reloadData()
+        }
+    }
+    var selectedDates: [CalendarDate] = [CalendarDate]() {
+        didSet {
+            //
+            //updateState()
+            repeatTableView.reloadData()
+        }
+    }
+    var state = Int()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -187,6 +201,9 @@ extension EventRepeatCell {
     
     func returnSelectionCell(tableView: UITableView ,indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "repeatSelection", for: indexPath) as! RepeatSelectionCell
+        //date
+        cell.eventDates = eventDates
+        cell.selectedDates = selectedDates
         return cell
     }
     
@@ -194,9 +211,13 @@ extension EventRepeatCell {
         switch selection {
         case 2: //Week
             let cell = tableView.dequeueReusableCell(withIdentifier: "repeatWeek", for: indexPath) as! RepeatWeekCell
+            //date
+            cell.eventDates = eventDates
             return cell
         case 3: //Month
             let cell = tableView.dequeueReusableCell(withIdentifier: "repeatMonth", for: indexPath) as! repeatMonthCell
+            //date
+            cell.eventDates = eventDates
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "repeatWeek", for: indexPath) as! RepeatWeekCell
@@ -231,10 +252,83 @@ extension EventRepeatCell {
         case 2:
             return 75
         case 3:
-            return 100 //Determine Height from selected date
+           // return 100 //Determine Height from selected date
+            return switchState()
         default:
             return 200
         }
+    }
+    
+    func switchState()->CGFloat{
+        let height: CGFloat = CGFloat(state * 50)
+        return height
+    }
+    
+    func updateState(){
+        var date = Date()
+        if eventDates.count > 0 {
+            date = eventDates[0]
+        }
+        let calendar = Calendar.current
+        var components = calendar.dateComponents([ .weekday,.weekOfMonth,.year, .month], from: date)
+        //let components:NSDateComponents = Calendar.current.dateComponents([.year, .month], from: self) as NSDateComponents
+        components.month = components.month! + 1
+        components.day = 1
+        components.day = components.day! - 1
+        let lastDay = Calendar.current.date(from: components)!
+        //let other = calendar.dateComponents([ .weekday,.weekOfMonth,.year, .month], from: lastDay)
+        //let lastWeek = other.weekOfMonth!
+        //print("lastDay: \(lastDay)")
+        //print("lastDay: \(lastWeek)")
+        if returnDateString(date: date) == returnDateString(date: lastDay) {
+            state = 4
+        } else if returnLastWeek(input: lastDay) {
+            state = 3
+        } else {
+            state = 2
+        }
+    }
+    
+    func returnLastWeek(input: Date)->Bool{
+        var date = input
+        let cal = Calendar.current
+        date = cal.startOfDay(for: date)
+        var dates = [Date]()
+        var days = [Int]()
+        for _ in 1 ... 7 {
+            let day = cal.component(.day, from: date)
+            days.append(day)
+            dates.append(date)
+            date = cal.date(byAdding: .day, value: -1, to: date)!
+        }
+        //print(days)
+        var current = Date()
+        if eventDates.count > 0 {
+            current = eventDates[0]
+        }
+        if dates.contains(current) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func returnWeekNumber()->Int{
+        var date = Date()
+        if eventDates.count > 0 {
+            date = eventDates[0]
+        }
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.weekOfMonth], from: date)
+        let weekNumber = components.weekOfMonth ?? 0
+        return weekNumber
+    }
+    
+    func returnDateString(date: Date)->String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E, MMM d, yyyy"
+        let dateString = formatter.string(from: date)
+        return dateString
     }
     
 }

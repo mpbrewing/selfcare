@@ -165,6 +165,7 @@ extension AddTaskViewController {
             cell.events = events
             cell.status = status
             cell.descriptionHeight = descriptionHeight
+            cell.filePath = filePath
             //print("AddTaskViewController: tv: allTags: \(allTags.count)")
             cell.allTags = allTags
             return cell
@@ -229,7 +230,7 @@ extension AddTaskViewController {
     func notifDescription(notif:NSNotification){
         taskDescription = notif.userInfo?["description"] as? String ?? ""
         descriptionHeight = notif.userInfo?["height"] as? CGFloat ?? CGFloat(50)
-        print("dh AddTask: \(descriptionHeight)")
+        //print("dh AddTask: \(descriptionHeight)")
         tableView.reloadData()
         task[0].setDescription(description: taskDescription)
     }
@@ -286,7 +287,7 @@ extension AddTaskViewController {
     }
     
     func notifSwipeClass(notif:NSNotification){
-        print("notfiSwipeClass")
+        //print("notfiSwipeClass")
         wallet = notif.userInfo?["wallet"] as? [Wallet] ?? [Wallet]()
     }
     

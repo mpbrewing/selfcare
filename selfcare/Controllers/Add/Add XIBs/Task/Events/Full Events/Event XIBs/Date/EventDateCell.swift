@@ -352,7 +352,7 @@ extension EventDateCell {
     
     func passEventDate(){
         formatSelectedDates()
-        let notif = ["index":0,"date":eventDates] as [String : Any]
+        let notif = ["index":0,"date":eventDates,"selected":selectedDates] as [String : Any]
         NotificationCenter.default.post(name: .addEventXib, object: nil,userInfo: notif)
     }
     

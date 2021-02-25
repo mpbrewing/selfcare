@@ -57,6 +57,9 @@ class AddTitleCell: UITableViewCell, UITextFieldDelegate {
             let currentString: NSString = textField.text! as NSString
             let newString: NSString =
                    currentString.replacingCharacters(in: range, with: string) as NSString
+            if string == "\n" {
+                TitleTextField.resignFirstResponder()
+            }
             return newString.length <= maxLength
         } else {
             return true

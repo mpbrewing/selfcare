@@ -19,7 +19,7 @@ class OnADateCell: UIView ,UIPickerViewDelegate, UIPickerViewDataSource,UICollec
      @IBOutlet weak var tabLabel: UILabel!
      @IBOutlet weak var datePicker: UIPickerView!
      @IBOutlet weak var dateCollection: UICollectionView!
-    @IBOutlet weak var cancelButton: UIButton!
+     @IBOutlet weak var cancelButton: UIButton!
      @IBAction func toggleAction(_ sender: Any) {
         toggleStyle(state: false)
         updateDefaultString()
@@ -38,6 +38,19 @@ class OnADateCell: UIView ,UIPickerViewDelegate, UIPickerViewDataSource,UICollec
     var defaultLabel = String()
     var selectedDates = [CalendarDate]()
     let dateReuseID = "endsMiniNib"
+    var eventDates: [Date] = [Date]() {
+        didSet {
+            //
+        }
+    }
+    var currentDates: [CalendarDate] = [CalendarDate]() {
+        didSet {
+            //
+            //Scroll Picker
+            //dateCollection.reloadData()
+            updateDefaultString()
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -317,7 +330,12 @@ extension OnADateCell {
     func updateDefaultString(){
         let formatter = DateFormatter()
         formatter.dateFormat = "E, MMM d, yyyy"
-        let dateString = formatter.string(from: Date())
+        var date = Date()
+        if currentDates.count > 0 {
+            date = currentDates[0].date
+        }
+        print("default: \(currentDates.count)")
+        let dateString = formatter.string(from: date)
         defaultLabel = dateString
         tabLabel.text = defaultLabel
     }

@@ -16,7 +16,17 @@ class RepeatSelectionCell: UITableViewCell,UITableViewDelegate, UITableViewDataS
     var selection = Int()
     var occur = Int()
     var date = Date()
-    var eventDates = [Date]()
+    var eventDates: [Date] = [Date]() {
+        didSet {
+            //
+        }
+    }
+    var selectedDates: [CalendarDate] = [CalendarDate]() {
+        didSet {
+            //
+            //print(selectedDates.count)
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -95,6 +105,9 @@ extension RepeatSelectionCell {
     func segueToEnds(index: Int){
         let passView = RepeatEnds()
         passView.state = index
+        //Date
+        passView.eventDates = eventDates
+        passView.selectedDates = selectedDates
         passView.modalPresentationStyle = .fullScreen
         let vc = findViewController()
         vc?.navigationController?.pushViewController(passView, animated: true)
@@ -103,6 +116,8 @@ extension RepeatSelectionCell {
     func segueToExcluded(){
         let passView = ExcludedDates()
         passView.modalPresentationStyle = .fullScreen
+        //Date, Repeat
+        passView.eventDates = eventDates
         let vc = findViewController()
         vc?.navigationController?.pushViewController(passView, animated: true)
     }

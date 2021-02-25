@@ -42,6 +42,8 @@ class FullEvents: UIViewController, UICollectionViewDataSource, UICollectionView
     let notifyReuseId = "notifyTab"
     let locationReuseId = "locationTab"
     
+    var selectedDates = [CalendarDate]()
+    
     var event = [Event]()
     var date = [Date]()
     var time = [String]()
@@ -172,6 +174,8 @@ extension FullEvents {
             return cell
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: repeatReuseId, for: indexPath as IndexPath) as! EventRepeatCell
+            cell.eventDates = date
+            cell.selectedDates = selectedDates
             return cell
         case 3:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: notifyReuseId, for: indexPath as IndexPath) as! EventNotifyCell
@@ -223,7 +227,7 @@ extension FullEvents {
     
     @objc func setEventDetails(notification: NSNotification) {
         if let index = notification.userInfo?["index"] as? Int {
-            print("setEventDetails: \(index)")
+            //print("setEventDetails: \(index)")
             switchEventDetails(index: index, notif: notification)
         }
     }
@@ -247,6 +251,8 @@ extension FullEvents {
     
     func notifDate(notif:NSNotification){
        date = notif.userInfo?["date"] as? [Date] ?? [Date]()
+       //var selectedDates = [CalendarDate]()
+       selectedDates = notif.userInfo?["selected"] as? [CalendarDate] ?? [CalendarDate]()
        //print(date)
        event[0].updateDate(date: date)
     }

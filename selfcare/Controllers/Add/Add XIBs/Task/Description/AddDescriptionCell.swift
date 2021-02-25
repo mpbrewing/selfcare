@@ -71,7 +71,8 @@ class AddDescriptionCell: UITableViewCell,UITextViewDelegate {
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
         let numberOfChars = newText.count
         if text == "\n" {
-            return false
+            //return false
+            descriptionTextView.resignFirstResponder()
         }
         return numberOfChars < 140    // 10 Limit Value
     }

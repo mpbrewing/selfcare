@@ -23,6 +23,19 @@ class RepeatEnds: UIViewController {
     var dateView = OnADateCell()
     var occur = Int()
     var date = Date()
+    var eventDates: [Date] = [Date]() {
+        didSet {
+            //
+            dateView.eventDates = eventDates
+        }
+    }
+    var selectedDates: [CalendarDate] = [CalendarDate]() {
+        didSet {
+            //
+            print(selectedDates.count)
+            dateView.currentDates = selectedDates
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +54,7 @@ class RepeatEnds: UIViewController {
         if state == 1 {
             setupNavigationBar(title: "Ends on a date")
             dateView = OnADateCell(frame: CGRect(x: 0, y: 92, width: 414, height: 634))
+            dateView.currentDates = selectedDates
             view.addSubview(dateView)
         } else {
             //setupNavigationBar(title: "Ends after #")

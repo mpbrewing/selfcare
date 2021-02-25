@@ -14,14 +14,40 @@ class RepeatWeekCell: UITableViewCell,UICollectionViewDataSource, UICollectionVi
     
     var selectedArray = [Bool]()
     var selection = Int()
-    var eventDates = [Date]()
+    var eventDates: [Date] = [Date]() {
+        didSet {
+            //
+            updateSelection()
+            WeekCollectionView.reloadData()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
-        selection = 0
+        updateSelection()
+        //selection = 0
         selectedArray = Array(repeating: false, count: 7)
         selectedArray[selection] = true
+    }
+    
+    func updateSelection(){
+        let calendar = Calendar.current
+        var date = Date()
+        if eventDates.count > 0 {
+            date = eventDates[0]
+        }
+        let components = calendar.dateComponents([.year, .month, .day, .weekday], from: date)
+        var weekDay = components.weekday ?? 0
+        if weekDay >= 0 {
+            weekDay = weekDay - 1
+        }
+        //print(weekDay)
+        if selection != weekDay {
+            selection = weekDay
+            selectedArray = Array(repeating: false, count: 7)
+            selectedArray[selection] = true
+        }
     }
     
     func setupCollectionView(){

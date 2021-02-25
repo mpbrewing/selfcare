@@ -33,11 +33,13 @@ class NotifyPicker: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource
         if periodSelection == 0 {
             labelString = "Does not notify"
         } else {
-            labelString = "Notify \(timeSelection) \(periodArray[periodSelection]) before"
+            labelString = "Notify \(timeSelection) \(holdStrings[periodSelection]) before"
         }
     }
     
     var periodArray = [String]()
+    var oneArray = [String]()
+    var holdStrings = [String]()
     var minuteArray = [Int]()
     var hourArray = [Int]()
     var dayArray = [Int]()
@@ -48,6 +50,8 @@ class NotifyPicker: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource
     
     var timeSelection = 0
     var periodSelection = 0
+    
+    var timeRow = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -65,6 +69,8 @@ class NotifyPicker: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource
         picker.delegate = self
         picker.dataSource = self
         periodArray = ["Does not notify","minutes","hours","days","weeks"]
+        oneArray = ["Does not notify","minute","hour","day","week"]
+        holdStrings = periodArray
         minuteArray = Array(0...60)
         hourArray = Array(0...24)
         dayArray = Array(0...28)
@@ -101,7 +107,7 @@ class NotifyPicker: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource
         if component == 0 {
             label.text = "\(holdArray[row])"
         } else {
-            label.text = periodArray[row]
+            label.text = holdStrings[row]
         }
         label.font = UIFont (name: "Nexa-Bold", size: 24)
         return label
@@ -111,6 +117,18 @@ class NotifyPicker: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource
         if component == 0 {
             if holdArray.count >= row {
                 timeSelection = holdArray[row]
+            }
+            timeRow = row
+            if timeRow == 1 {
+                if holdStrings != oneArray {
+                    holdStrings = oneArray
+                    picker.reloadComponent(1)
+                }
+            } else {
+                if holdStrings != periodArray {
+                    holdStrings = periodArray
+                    picker.reloadComponent(1)
+                }
             }
         } else {
             periodSelection = row
@@ -126,6 +144,9 @@ class NotifyPicker: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource
             if timeSelection > holdArray.last! {
                 timeSelection = holdArray.last!
             }
+        } else {
+            timeSelection = 0
+            holdStrings = periodArray
         }
     }
     
@@ -134,6 +155,7 @@ class NotifyPicker: UITableViewCell,UIPickerViewDelegate, UIPickerViewDataSource
             periodSelection = 0
             holdArray = pickerArray[0]
             timeSelection = 0
+            holdStrings = periodArray
             picker.selectRow(0, inComponent: 1, animated: false)
             picker.reloadComponent(0)
             updateLabel()
