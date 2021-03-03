@@ -59,6 +59,9 @@ class AddTaskViewController: UIViewController,UITableViewDelegate, UITableViewDa
     var selectedFilePath = [Item]()
     var wallet = [Wallet]()
     var allTags = [Tag]()
+    var selectedTags = [Tag]()
+    
+    var tagState = Int()
     
     var descriptionHeight: CGFloat = 50
     
@@ -166,7 +169,7 @@ extension AddTaskViewController {
             cell.status = status
             cell.descriptionHeight = descriptionHeight
             cell.filePath = filePath
-            //print("AddTaskViewController: tv: allTags: \(allTags.count)")
+            cell.selectedTags = selectedTags
             cell.allTags = allTags
             return cell
         default:
@@ -276,18 +279,26 @@ extension AddTaskViewController {
     func notifTags(notif:NSNotification){
         let input = notif.userInfo?["input"] as? Int ?? Int()
         if input == 0 {
+            //print("zero")
             let tag = notif.userInfo?["tag"] as! Tag
             allTags.append(tag)
             //Refresh from database or pass holdTags or sort tags by title
             tableView.reloadData()
-        } else {
-            tags = notif.userInfo?["tags"] as? [String] ?? [String]()
+        } else if input == 1 {
+            //print("one")
+            tags = notif.userInfo?["tags"] as? [String] ?? tags
             task[0].setTags(tags: tags)
+            selectedTags = notif.userInfo?["selected"] as? [Tag] ?? selectedTags
+            tableView.reloadData()
+        } else {
+            //print("two")
+            selectedTags = notif.userInfo?["selected"] as? [Tag] ?? selectedTags
+            tableView.reloadData()
         }
+        
     }
     
     func notifSwipeClass(notif:NSNotification){
-        //print("notfiSwipeClass")
         wallet = notif.userInfo?["wallet"] as? [Wallet] ?? [Wallet]()
     }
     

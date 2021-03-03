@@ -77,12 +77,18 @@ class AddMenuCell: UITableViewCell,UITableViewDelegate, UITableViewDataSource {
     //var allTags = [Tag]()
     var allTags: [Tag] = [Tag]() {
        didSet {
-        if allTags.count > 0 {
-            tagsHeight = CGFloat(200)
-        } else {
-            tagsHeight = CGFloat(50)
-        }
-        //print("AddMenuCell: \(allTags.count)")
+            if allTags.count > 0 {
+                tagsHeight = CGFloat(200)
+            } else {
+                tagsHeight = CGFloat(50)
+            }
+       }
+    }
+    
+    var selectedTags: [Tag] = [Tag]() {
+       didSet {
+        //state
+        tableView.reloadData()
        }
     }
     
@@ -106,7 +112,7 @@ class AddMenuCell: UITableViewCell,UITableViewDelegate, UITableViewDataSource {
     
     var descriptionHeight: CGFloat = CGFloat() {
         didSet {
-            print("dh AddMenuCell: \(descriptionHeight)")
+            //print("dh AddMenuCell: \(descriptionHeight)")
             //tableView.beginUpdates()
             //tableView.endUpdates()
             //&& descriptionBool == false
@@ -328,7 +334,9 @@ extension AddMenuCell {
         case 5:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellTagsId, for: indexPath) as! AddTagsCell
             cell.status = status
+            cell.selectedTags = selectedTags
             cell.allTags = allTags
+            //cell.holdDict = holdDict
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriptionIdentifier, for: indexPath) as! AddDescriptionCell
@@ -418,8 +426,8 @@ extension AddMenuCell {
         let filepath = FullFilePath()
         filepath.wallet = wallet
         filepath.items = items
-        filepath.selectedItems = selectedFilePath
         filepath.filePath = filePath
+        filepath.selectedItems = selectedFilePath
         filepath.modalPresentationStyle = .fullScreen
         let vc = findViewController()
         vc?.navigationController?.pushViewController(filepath, animated: true)
@@ -452,6 +460,9 @@ extension AddMenuCell {
     func SegueToViewTags(){
         modifyBackButton()
         let tags = ViewTags()
+        print(selectedTags.count)
+        tags.allTags = allTags
+        tags.selectedTags = selectedTags
         tags.modalPresentationStyle = .fullScreen
         let vc = findViewController()
         vc?.navigationController?.pushViewController(tags, animated: true)

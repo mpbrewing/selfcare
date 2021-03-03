@@ -12,10 +12,13 @@ class SelectTagsTableViewCell: UITableViewCell,UICollectionViewDataSource, UICol
     
     @IBOutlet weak var tagCollectionView: UICollectionView!
     
-    var selectedTags = [Tag]()
+    var selectedTags: [Tag] = [Tag]() {
+        didSet {
+        tagCollectionView.reloadData()
+        }
+     }
     var tags: [Tag] = [Tag]() {
        didSet {
-        //print("SelectTagsTableViewCell: \(tags.count)")
         updateSize()
         tagCollectionView.reloadData()
        }

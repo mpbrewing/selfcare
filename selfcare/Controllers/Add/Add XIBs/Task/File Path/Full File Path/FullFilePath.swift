@@ -20,6 +20,17 @@ class FullFilePath: UIViewController ,UITableViewDelegate, UITableViewDataSource
     var items = [Item]()
     var wallet = [Wallet]()
     var itemWallet = [Wallet]()
+    /*
+    var selectedItems: [Item] = [Item]() {
+        didSet {
+            
+        }
+    }
+    var filePath: [String] = [String]() {
+        didSet{
+         
+        }
+    } */
     var selectedItems = [Item]()
     var filePath = [String]()
     
@@ -68,6 +79,9 @@ class FullFilePath: UIViewController ,UITableViewDelegate, UITableViewDataSource
         saveButton.layer.cornerRadius = 20
         saveButton.layer.backgroundColor = UIColor.appleGreen.cgColor
         itemWallet = wallet
+        if selectedItems.count > 0 {
+            filterNext()
+        }
     }
     
 }

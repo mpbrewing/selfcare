@@ -14,16 +14,22 @@ class AddTagsCell: UITableViewCell,UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tagsLabel: UILabel!
     @IBOutlet weak var tagsTableView: UITableView!
     
+    //Dict
+    
     var tags = [String]()
-    var selectedTags = [Tag]()
+    
+    var selectedTags: [Tag] = [Tag]() {
+        didSet  {
+            tagsTableView.reloadData()
+        }
+    }
+    //var counter = 0
     var remainingTags = [Tag]()
     var holdTags = [Tag]()
+    
     var allTags: [Tag] = [Tag]() {
        didSet {
-            //print("AddTagsCell: \(allTags.count)")
-            //remainingTags = allTags
             filterRemainingTags()
-            tagsTableView.reloadData()
        }
     }
     
@@ -124,8 +130,8 @@ extension AddTagsCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "selectTags", for: indexPath) as! SelectTagsTableViewCell
         //cell.state = 1
         //cell.remainingTags = remainingTags
-        cell.selectedTags = selectedTags
         cell.tags = holdTags
+        cell.selectedTags = selectedTags
         //Pass selected and remaining in one array
         //Display differences
         return cell
@@ -181,7 +187,7 @@ extension AddTagsCell {
     func passTags()
     {
         //Pass Index and Tags
-        let notif = ["index":6,"input":1,"tags":tags] as [String : Any]
+        let notif = ["index":6,"input":1,"tags":tags,"selected":selectedTags] as [String : Any]
         NotificationCenter.default.post(name: .addTaskDetails, object: nil,userInfo: notif)
     }
     
@@ -194,6 +200,8 @@ extension AddTagsCell {
             } else {
                 updateRemaining(tag: tag, path: path)
             }
+            //print("index: \(index)")
+            passTags()
         }
     }
     
@@ -203,6 +211,7 @@ extension AddTagsCell {
         //Append Tag To Remaining
         remainingTags.append(tag)
         //Filter Tags
+        //print("selected: \(selectedTags.count)")
         filterRemainingTags()
         //
         tagsTableView.reloadData()
@@ -212,18 +221,16 @@ extension AddTagsCell {
         //Append Tag To Selected
         selectedTags.append(tag)
         //Remove Tag From Remaining
+        //print(remainingTags.count)
         remainingTags.remove(at: path)
         //
+        //print("\(tag.title): \(selectedTags.count)")
         filterRemainingTags()
         //
         tagsTableView.reloadData()
     }
     
     func filterRemainingTags(){
-        /*
-        remainingTags.sort {
-            $0.title < $1.title
-        } */
         remainingTags = allTags
         if selectedTags.count > 0 {
             let filtered = allTags.filter({ filter in
@@ -249,5 +256,6 @@ extension AddTagsCell {
         updateLabel()
         updateIcon()
     }
+   
     
 }

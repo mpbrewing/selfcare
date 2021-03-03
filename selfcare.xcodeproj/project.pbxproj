@@ -33,6 +33,8 @@
 		EC0AD9D2255B61FE00EC1686 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0AD9D1255B61FE00EC1686 /* LoginViewController.swift */; };
 		EC0AD9D7255B629200EC1686 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC0AD9D6255B629200EC1686 /* LoginView.xib */; };
 		EC101495256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC101494256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift */; };
+		EC18E2C125EDA3C7003FB03A /* ViewTagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC18E2C025EDA3C7003FB03A /* ViewTagsCell.swift */; };
+		EC18E2C625EDA3F0003FB03A /* ViewTagsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC18E2C525EDA3F0003FB03A /* ViewTagsTableViewCell.xib */; };
 		EC1CD1962579B59A00609350 /* AddFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1CD1952579B59A00609350 /* AddFolderViewController.swift */; };
 		EC1CD19E2579B5A900609350 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1CD19D2579B5A900609350 /* AddTaskViewController.swift */; };
 		EC1CD1A32579B5E300609350 /* AddFolderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC1CD1A22579B5E300609350 /* AddFolderView.xib */; };
@@ -228,6 +230,8 @@
 		EC0AD9D1255B61FE00EC1686 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EC0AD9D6255B629200EC1686 /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		EC101494256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hideKeyboardWhenTappedAround.swift; sourceTree = "<group>"; };
+		EC18E2C025EDA3C7003FB03A /* ViewTagsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTagsCell.swift; sourceTree = "<group>"; };
+		EC18E2C525EDA3F0003FB03A /* ViewTagsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewTagsTableViewCell.xib; sourceTree = "<group>"; };
 		EC1CD1952579B59A00609350 /* AddFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFolderViewController.swift; sourceTree = "<group>"; };
 		EC1CD19D2579B5A900609350 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		EC1CD1A22579B5E300609350 /* AddFolderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFolderView.xib; sourceTree = "<group>"; };
@@ -1011,6 +1015,8 @@
 			children = (
 				ECCEAEDB25E63FD3003A958A /* ViewTags.swift */,
 				ECCEAEE025E64017003A958A /* ViewTagsView.xib */,
+				EC18E2C025EDA3C7003FB03A /* ViewTagsCell.swift */,
+				EC18E2C525EDA3F0003FB03A /* ViewTagsTableViewCell.xib */,
 			);
 			path = "View Tags";
 			sourceTree = "<group>";
@@ -1309,6 +1315,7 @@
 				EC0AD99F255B4F9300EC1686 /* OnboardingView.xib in Resources */,
 				ECE4CDE525AE91A40016F6B6 /* AddTagsView.xib in Resources */,
 				EC0AD9C4255B502800EC1686 /* NexaXBoldItalic.otf in Resources */,
+				EC18E2C625EDA3F0003FB03A /* ViewTagsTableViewCell.xib in Resources */,
 				EC0AD9C7255B502800EC1686 /* NexaBook.otf in Resources */,
 				EC81803125BC254100228690 /* RepeatSelection.xib in Resources */,
 				EC8352DF25AE70AD00F2C1B6 /* AddDescriptionView.xib in Resources */,
@@ -1525,6 +1532,7 @@
 				ECA30CD7257FF5A600A9A7A1 /* AddTitleCell.swift in Sources */,
 				EC26336725B600A30099A91E /* dateExtension.swift in Sources */,
 				ECCEAED125E63E1C003A958A /* ViewEvents.swift in Sources */,
+				EC18E2C125EDA3C7003FB03A /* ViewTagsCell.swift in Sources */,
 				EC97F6842575D04E00063B8B /* findViewController.swift in Sources */,
 				EC97F6992575D61500063B8B /* AddButtonCellClass.swift in Sources */,
 				EC21F49525897E3A00536100 /* Task.swift in Sources */,
