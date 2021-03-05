@@ -443,10 +443,11 @@ extension AddMenuCell {
     
     func SegueToViewEvents(){
         modifyBackButton()
-        let events = ViewEvents()
-        events.modalPresentationStyle = .fullScreen
+        let viewEvents = ViewEvents()
+        viewEvents.events = events
+        viewEvents.modalPresentationStyle = .fullScreen
         let vc = findViewController()
-        vc?.navigationController?.pushViewController(events, animated: true)
+        vc?.navigationController?.pushViewController(viewEvents, animated: true)
     }
     
     func SegueToTags(){

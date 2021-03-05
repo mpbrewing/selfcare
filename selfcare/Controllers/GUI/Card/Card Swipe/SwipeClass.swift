@@ -38,6 +38,16 @@ class SwipeClass: UIView {
     var load = false
     var holdPositions: [Int] = []
     
+    var holdID: String = String() {
+        didSet {
+            if holdFilePath.count > 0 {
+                self.scrollTo()
+                self.passItemsInRow()
+            }
+        }
+    }
+    var holdFilePath = [String]()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         xibSetup()
@@ -64,6 +74,7 @@ class SwipeClass: UIView {
         setupSwipe()
         setupCardPosition()
         addCards()
+        NotificationCenter.default.addObserver(self, selector: #selector(toSwipeClass(notification:)), name: .toSwipeClass, object: nil)
     }
     
     func setupModels(){
@@ -83,6 +94,7 @@ class SwipeClass: UIView {
             self.filterNext()
             self.updateCards()
             self.manageAnimation()
+            self.passItemsInRow()
         })
     }
     //Structure Four Tier Wallet Class for Cards
@@ -111,20 +123,45 @@ class SwipeClass: UIView {
     }
     
     func filterNext(){
-        let item = wallet[Int(position.y)].items[Int(position.x)]
-        let id = item.id
-        if position.y < 3 {
-            let filtered = itemWallet[Int(position.y+1)].items.filter({ filter in
-                if filter.path.contains(id) {
-                    return true
-                } else {
-                    return false
-                }
-            })
-            //print("\(Int(position.y+1)): \(filtered.count)")
-            wallet[Int(position.y+1)] = Wallet(items: filtered)
+        if wallet[Int(position.y)].items.count > 0 {
+            let item = wallet[Int(position.y)].items[Int(position.x)]
+            let id = item.id
+            if position.y < 3 {
+                let filtered = itemWallet[Int(position.y+1)].items.filter({ filter in
+                    if filter.path.contains(id) {
+                        return true
+                    } else {
+                        return false
+                    }
+                })
+                //print("\(Int(position.y+1)): \(filtered.count)")
+                wallet[Int(position.y+1)] = Wallet(items: filtered)
+            }
         }
     }
+    
+    func reloadCards(){
+        downloadPosts(db: db, completion: {item in
+            self.items = item
+            self.filterItems()
+            self.filterNext()
+            self.updateCards()
+            self.manageAnimation()
+            self.passItemsInRow()
+        })
+    }
+    
+    func reloadFolder(){
+        downloadPosts(db: db, completion: {item in
+            self.items = item
+            self.filterItems()
+            //self.updateCards()
+            self.manageAnimation()
+            self.scrollTo()
+            self.passItemsInRow()
+        })
+    }
+    
 }
 
 extension SwipeClass {
@@ -183,11 +220,12 @@ extension SwipeClass {
     }
 
     func updateCards() {
-        var cardArray = [Card00,Card10,Card20,Card30,Card01,Card11,Card21,Card31,Card02,Card12,Card22,Card32]
+        let cardArray = [Card00,Card10,Card20,Card30,Card01,Card11,Card21,Card31,Card02,Card12,Card22,Card32]
         for i in 0...cardArray.count-1{
             cardArray[i].layer.cornerRadius = 20
             let frame = setupCardFrame(position: cardPosition[i])
-            cardArray[i] = CardClass(frame: frame)
+            //cardArray[i] = CardClass(frame: frame)
+            cardArray[i].frame = frame
             self.ViewHandle.addSubview(cardArray[i])
             //Items -> Wallet
             //print("x: \(cardPosition[i].x) ... y:\(cardPosition[i].y)")
@@ -246,6 +284,7 @@ extension SwipeClass {
                     position.y = position.y - 1
                     filterNext()
                     updateGlobalPosition(direction: sender.direction)
+                    passItemsInRow()
                 }
             case .up:
                 //print("up swipe")
@@ -257,23 +296,25 @@ extension SwipeClass {
                         holdPositions[Int(position.y)] = 0
                         filterNext()
                         updateGlobalPosition(direction: sender.direction)
+                        passItemsInRow()
                     }
                 }
             case .left:
-                //print("left swipe")
                 if Int(position.x) < wallet[Int(position.y)].items.count-1 {
                     position.x = position.x + 1
+                    //passItemsInRow()
                     holdPositions[Int(position.y)] = Int(position.x)
                     filterNext()
                     updateGlobalPosition(direction: sender.direction)
+                    passItemsInRow()
                 }
             case .right:
-                //print("right swipe")
                 if Int(position.x) != 0 {
                     position.x = position.x - 1
                     holdPositions[Int(position.y)] = Int(position.x)
                     filterNext()
                     updateGlobalPosition(direction: sender.direction)
+                    passItemsInRow()
                 }
             default:
                 print("other swipe")
@@ -456,10 +497,198 @@ extension SwipeClass {
     
     func passWallet()
     {
-        print("pass")
+        print("pass Wallet")
         //Pass Data
         let notif = ["index":7,"wallet":wallet,"items":items] as [String : Any]
         NotificationCenter.default.post(name: .addTaskDetails, object: nil,userInfo: notif)
     }
+    
+    func passItemsInRow(){
+        //print("pass Items: \(wallet[Int(position.y)].items.count)")
+        let notif = ["items":wallet[Int(position.y)].items,"position":Int(position.x)] as [String : Any]
+        NotificationCenter.default.post(name: .toSwipeBarClass, object: nil,userInfo: notif)
+    }
+    
+    @objc func toSwipeClass(notification: NSNotification) {
+        //if let state = notification.userInfo?["state"] as? Bool {
+        let x = notification.userInfo?["position"] as? Int ?? Int(position.x)
+        //print("toSwipeClass: \(x)")
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseOut, animations: {
+            self.checkPosition(hold: x)
+        }, completion: { finished in
+          //print("animation complete!")
+        })
+        position.x = CGFloat(x)
+        //checkPosition(hold: x)
+        //}
+    }
+    
+    func passButtonSelectionSegue(row: Int)
+    {
+        let passState = ["switchSegue":row]
+        NotificationCenter.default.post(name: .addItemSegue, object: nil,userInfo: passState)
+    }
+    
+    func checkPosition(hold: Int){
+        //print(hold)
+        //print(Int(position.x))
+        let convert = hold-Int(position.x)
+        //print(convert)
+        if checkSteps(convert: convert) {
+            if convert > 0 { //left
+                let steps = abs(convert)-1
+                for _ in 0...steps{
+                    moveRight()
+                }
+            } else { //right
+                let steps = abs(convert)-1
+                for _ in 0...steps{
+                    moveLeft()
+                }
+            }
+        }
+    }
+    
+    func checkSteps(convert: Int)->Bool{
+        let steps = abs(convert)-1
+        if steps < 0 {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    func moveLeft(){
+        //print("left")
+        if Int(position.x) != 0 {
+            position.x = position.x - 1
+            holdPositions[Int(position.y)] = Int(position.x)
+            filterNext()
+            updateGlobalPosition(direction: .right)
+            passItemsInRow()
+        }
+    }
+    
+    func moveRight(){
+        //print("right")
+        if Int(position.x) < wallet[Int(position.y)].items.count-1 {
+            position.x = position.x + 1
+            //passItemsInRow()
+            holdPositions[Int(position.y)] = Int(position.x)
+            filterNext()
+            updateGlobalPosition(direction: .left)
+            passItemsInRow()
+        }
+    }
+    
+    func down(){
+        //print("down swipe")
+        if Int(position.y) != 0 {
+            position.x = CGFloat(holdPositions[Int(position.y-1)])
+            position.y = position.y - 1
+            filterNext()
+            updateGlobalPosition(direction: .down)
+            passItemsInRow()
+        }
+    }
+    func up(){
+        //print("up swipe")
+        if (Int(position.y) < 3) {
+            if (wallet[Int(position.y+1)].items.count > 0) {
+                holdPositions[Int(position.y)] = Int(position.x)
+                position.x = 0
+                position.y = position.y + 1
+                holdPositions[Int(position.y)] = 0
+                filterNext()
+                updateGlobalPosition(direction: .up)
+                passItemsInRow()
+            }
+        }
+    }
+    //Search Path
+    //Scroll To Location
+    //
+    /*
+     self.filterItems()
+     self.filterNext()
+     self.updateCards()
+     self.manageAnimation()
+     */
+    
+    
+    func scrollTo(){
+        
+        //Get X of First Path - Y is the index of path
+        //
+        //var x = CGFloat()
+        if holdFilePath.count > 0{
+            for i in 0...holdFilePath.count-1 {
+                let index = findIndex(y: i, id: holdFilePath[i])
+                filterSteps(x: index, y: i)
+                //x = CGFloat(index)
+                UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseOut, animations: {
+                    self.checkPosition(hold: index)
+                }, completion: { finished in
+                  //print("animation complete!")
+                })
+                up()
+            }
+            print("holdID: \(holdID)")
+            let index = findIndex(y: holdFilePath.count, id: holdID)
+            UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseOut, animations: {
+                self.checkPosition(hold: index)
+            }, completion: { finished in
+              //print("animation complete!")
+            })
+            //position.x = CGFloat(index)
+            position.y = CGFloat(holdFilePath.count)
+            //print("x: \(position.x)")
+            //print("y: \(position.y)")
+            
+        } else {
+            let index = findIndex(y: 0, id: holdID)
+            UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseOut, animations: {
+                self.checkPosition(hold: index)
+            }, completion: { finished in
+              //print("animation complete!")
+            })
+            //position.x = CGFloat(index)
+            position.y = 0
+            // print("---\(holdID)")
+            //print("x: \(position.x)")
+            //print("y: \(position.y)")
+        }
+        
+    }
+    
+    func findIndex(y: Int,id:String)->Int{
+        let indexItems = wallet[y].items
+        if indexItems.count > 0 {
+            for i in 0...(indexItems.count-1) {
+                //print(indexItems[i].id)
+                if indexItems[i].id == id {
+                    return i
+                }
+            }
+        }
+        return 0
+    }
+    
+    func filterSteps(x: Int, y: Int){
+        let item = wallet[y].items[x]
+        let id = item.id
+        if y < 3 {
+            let filtered = itemWallet[Int(y+1)].items.filter({ filter in
+                if filter.path.contains(id) {
+                    return true
+                } else {
+                    return false
+                }
+            })
+            //print("\(Int(y+1)): \(filtered.count)")
+            wallet[y+1] = Wallet(items: filtered)
+        }
+    }
+    
     
 }

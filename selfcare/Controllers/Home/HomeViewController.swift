@@ -21,11 +21,12 @@ class HomeViewController: UIViewController {
         downloadData()
         setupSwipe()
         setupSwipeView()
+        setupSwipeBarClass()
         setupAddButton()
         setupAddButtonBackground()
         NotificationCenter.default.addObserver(self, selector: #selector(setAddButton(notification:)), name: .addButton, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setAddItemSegue(notification:)), name: .addItemSegue, object: nil)
-        test.layer.cornerRadius = 10
+        //test.layer.cornerRadius = 10
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -34,23 +35,20 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //self.toggleAlpha(state: true)
         setupNavigationBar()
-        //setupSwipeView()
-        //setupAddButton()
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         navigationController?.navigationBar.standardAppearance.setBackIndicatorImage(#imageLiteral(resourceName: "backIcon"), transitionMaskImage: #imageLiteral(resourceName: "backIcon"))
-        //print(navigationController?.navigationBar.isHidden ?? "isHidden: default")
+        
+        //Reload SwipeClass if new
+    
     }
     
-    //var AddButtonView = UIView()
     var AddButtonView = AddButtonViewClass()
     var swipeClassView = SwipeClass()
     var addButtonBackground = UIView()
-    //var leftSwipe = UISwipeGestureRecognizer()
-    //var rightSwipe = UISwipeGestureRecognizer()
+    var swipeBarClass = SwipeBarClass()
     
-    @IBOutlet weak var test: SwipeBarClass!
+    //@IBOutlet weak var test: SwipeBarClass!
     
     var tags = [Tag]()
     
@@ -147,12 +145,16 @@ extension HomeViewController {
     
 }
 extension HomeViewController {
+    
     func setupSwipeView() {
-        if swipeClassView.load == false {
-            swipeClassView = SwipeClass(frame: CGRect(x: 0, y: 92, width: 414, height: 660))
-            self.view.addSubview(swipeClassView)
-            swipeClassView.load = true
-        }
+        //swipeClassView = SwipeClass(frame: CGRect(x: 0, y: 92, width: 414, height: 660))
+        swipeClassView.frame = CGRect(x: 0, y: 92, width: 414, height: 660)
+        self.view.addSubview(swipeClassView)
+    }
+    
+    func setupSwipeBarClass() {
+        swipeBarClass.frame = CGRect(x: 10, y: 770, width: 315, height: 100)
+        self.view.addSubview(swipeBarClass)
     }
 }
 
@@ -168,7 +170,8 @@ extension HomeViewController {
         let screenHeight = screenSize.height - heightOffset
         let width = 72
         let height = 70
-        AddButtonView = AddButtonViewClass(frame: CGRect(x: (Int(screenWidth)-width), y: (Int(screenHeight)-height), width: width, height: height))
+        AddButtonView.frame = CGRect(x: (Int(screenWidth)-width), y: (Int(screenHeight)-height), width: width, height: height)
+        //AddButtonView = AddButtonViewClass(frame: CGRect(x: (Int(screenWidth)-width), y: (Int(screenHeight)-height), width: width, height: height))
         setButtonFrame(state: false)
         self.view.addSubview(AddButtonView)
     }
@@ -247,7 +250,8 @@ extension HomeViewController {
     
     func setupAddButtonBackground(){
         let screenSize = UIScreen.main.bounds
-        addButtonBackground = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
+        addButtonBackground.frame = CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height)
+        //addButtonBackground = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
         addButtonBackground.backgroundColor = UIColor.clear
         addButtonBackground.alpha = 0
         self.view.addSubview(addButtonBackground)
@@ -265,12 +269,14 @@ extension HomeViewController {
     func toggleAlpha(state: Bool){
         switch state {
         case true:
-            test.alpha = 1
+            swipeBarClass.alpha = 1
+            //test.alpha = 1
             swipeClassView.alpha = 1
             AddButtonView.alpha = 1
             //addButtonBackground.alpha = 1
         case false:
-            test.alpha = 0
+            swipeBarClass.alpha = 0
+            //test.alpha = 0
             swipeClassView.alpha = 0
             AddButtonView.alpha = 0
             addButtonBackground.alpha = 0

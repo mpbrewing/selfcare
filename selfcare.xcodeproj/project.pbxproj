@@ -35,6 +35,10 @@
 		EC101495256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC101494256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift */; };
 		EC18E2C125EDA3C7003FB03A /* ViewTagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC18E2C025EDA3C7003FB03A /* ViewTagsCell.swift */; };
 		EC18E2C625EDA3F0003FB03A /* ViewTagsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC18E2C525EDA3F0003FB03A /* ViewTagsTableViewCell.xib */; };
+		EC18E2E925F04ABA003FB03A /* ViewEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC18E2E825F04ABA003FB03A /* ViewEventCell.swift */; };
+		EC18E2EE25F04ADB003FB03A /* MiniViewEvents.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC18E2ED25F04ADB003FB03A /* MiniViewEvents.xib */; };
+		EC18E31225F08C5B003FB03A /* SwipeBarMini.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC18E31125F08C5B003FB03A /* SwipeBarMini.swift */; };
+		EC18E31A25F08C7A003FB03A /* SwipeBarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC18E31925F08C7A003FB03A /* SwipeBarCell.xib */; };
 		EC1CD1962579B59A00609350 /* AddFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1CD1952579B59A00609350 /* AddFolderViewController.swift */; };
 		EC1CD19E2579B5A900609350 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1CD19D2579B5A900609350 /* AddTaskViewController.swift */; };
 		EC1CD1A32579B5E300609350 /* AddFolderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC1CD1A22579B5E300609350 /* AddFolderView.xib */; };
@@ -232,6 +236,10 @@
 		EC101494256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hideKeyboardWhenTappedAround.swift; sourceTree = "<group>"; };
 		EC18E2C025EDA3C7003FB03A /* ViewTagsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTagsCell.swift; sourceTree = "<group>"; };
 		EC18E2C525EDA3F0003FB03A /* ViewTagsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewTagsTableViewCell.xib; sourceTree = "<group>"; };
+		EC18E2E825F04ABA003FB03A /* ViewEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEventCell.swift; sourceTree = "<group>"; };
+		EC18E2ED25F04ADB003FB03A /* MiniViewEvents.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiniViewEvents.xib; sourceTree = "<group>"; };
+		EC18E31125F08C5B003FB03A /* SwipeBarMini.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBarMini.swift; sourceTree = "<group>"; };
+		EC18E31925F08C7A003FB03A /* SwipeBarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwipeBarCell.xib; sourceTree = "<group>"; };
 		EC1CD1952579B59A00609350 /* AddFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFolderViewController.swift; sourceTree = "<group>"; };
 		EC1CD19D2579B5A900609350 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		EC1CD1A22579B5E300609350 /* AddFolderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFolderView.xib; sourceTree = "<group>"; };
@@ -525,6 +533,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		EC18E31025F08C2A003FB03A /* SwipeBar XIB */ = {
+			isa = PBXGroup;
+			children = (
+				EC18E31125F08C5B003FB03A /* SwipeBarMini.swift */,
+				EC18E31925F08C7A003FB03A /* SwipeBarCell.xib */,
+			);
+			path = "SwipeBar XIB";
+			sourceTree = "<group>";
+		};
 		EC1C040925BC1A9B0018D207 /* Repeat XIBs */ = {
 			isa = PBXGroup;
 			children = (
@@ -691,6 +708,8 @@
 				EC44050525E23F3600CEFE8B /* MiniEventCell.xib */,
 				ECCEAED025E63E1C003A958A /* ViewEvents.swift */,
 				ECCEAED525E63E42003A958A /* ViewEventsView.xib */,
+				EC18E2E825F04ABA003FB03A /* ViewEventCell.swift */,
+				EC18E2ED25F04ADB003FB03A /* MiniViewEvents.xib */,
 			);
 			path = "View Events";
 			sourceTree = "<group>";
@@ -716,6 +735,7 @@
 		EC58C5A4258A167A002F120C /* SwipeBar */ = {
 			isa = PBXGroup;
 			children = (
+				EC18E31025F08C2A003FB03A /* SwipeBar XIB */,
 				EC58C5A5258A1689002F120C /* SwipeBarClass.swift */,
 				EC58C5AA258A16A8002F120C /* SwipeBarView.xib */,
 			);
@@ -1281,6 +1301,7 @@
 				EC0AD9C0255B502800EC1686 /* NexaRegular.otf in Resources */,
 				EC0AD9BF255B502800EC1686 /* NexaLightItalic.otf in Resources */,
 				EC98475625C0F155002181B0 /* OnADateView.xib in Resources */,
+				EC18E2EE25F04ADB003FB03A /* MiniViewEvents.xib in Resources */,
 				ECA2708525CA3C6000B7D983 /* post.json in Resources */,
 				EC32D7FF25674C5B003E0437 /* MenuRowCell.xib in Resources */,
 				ECBED88625BE287B00F0332E /* MonthCell.xib in Resources */,
@@ -1325,6 +1346,7 @@
 				EC0AD9C5255B502800EC1686 /* NexaXBold.otf in Resources */,
 				EC0AD9BD255B502800EC1686 /* NexaThinItalic.otf in Resources */,
 				EC0AD9C3255B502800EC1686 /* NexaBoldItalic.otf in Resources */,
+				EC18E31A25F08C7A003FB03A /* SwipeBarCell.xib in Resources */,
 				ECE4CDCC25AE91610016F6B6 /* AddEventsView.xib in Resources */,
 				EC44045D25DB26B300CEFE8B /* SelectTagsCell.xib in Resources */,
 				ECA2704625C8F31700B7D983 /* EndsMiniNib.xib in Resources */,
@@ -1479,8 +1501,10 @@
 				ECBED86025BE25CF00F0332E /* RepeatWeekCell.swift in Sources */,
 				ECE4CDC725AE91530016F6B6 /* AddEventsCell.swift in Sources */,
 				EC32D80925677CB5003E0437 /* customColors.swift in Sources */,
+				EC18E2E925F04ABA003FB03A /* ViewEventCell.swift in Sources */,
 				EC21F49025897E2A00536100 /* Folder.swift in Sources */,
 				ECEA2B8425B16A9A00A2FAB4 /* EventTabCell.swift in Sources */,
+				EC18E31225F08C5B003FB03A /* SwipeBarMini.swift in Sources */,
 				EC101495256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift in Sources */,
 				EC61ED9925B8549800AA9566 /* MiniClock.swift in Sources */,
 				EC6BB8FF25802E7E00945FD4 /* AddPhotoCell.swift in Sources */,

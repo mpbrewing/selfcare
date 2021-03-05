@@ -61,6 +61,8 @@ class AddTaskViewController: UIViewController,UITableViewDelegate, UITableViewDa
     var allTags = [Tag]()
     var selectedTags = [Tag]()
     
+    var itemId = String()
+    
     var tagState = Int()
     
     var descriptionHeight: CGFloat = 50
@@ -112,6 +114,7 @@ extension AddTaskViewController {
     
      @objc func saveButtonAction() {
         print("AddTaskViewController: SaveButtonAction")
+        let vc = navigationController!.viewControllers[0] as! HomeViewController
         //Upload Events
         uploadEvents(events: events, completion: {taskEvents in
             self.task[0].setEvents(events: taskEvents)
@@ -121,8 +124,14 @@ extension AddTaskViewController {
             let holdItem = self.item[0].toAnyObject() as! [String:Any]
             self.uploadItem(item: holdItem, completion: { taskItem in
                 print(taskItem)
+                self.itemId = taskItem
+                vc.swipeClassView.holdID = self.itemId
             })
         })
+        //let vc = HomeViewController()
+        //item[0].path
+        vc.swipeClassView.holdFilePath = item[0].path
+        vc.swipeClassView.reloadCards()
         navigationController?.popViewController(animated: true)
      }
      

@@ -124,6 +124,31 @@ extension UIViewController {
     //If user has existing color saved with the same title do not upload
     //Remove whitespace from end of all titles
     
+    func uploadItemToStorage2(image: UIImage?,completion: @escaping (String) -> Void){
+        var photoURL: String = "(No url)"
+        let uuid = UUID().uuidString
+        let userId = Auth.auth().currentUser?.uid
+        let imageRef = Storage.storage().reference().child("gs:/profiles/\(userId!)_\(uuid).jpg")
+        guard let imageData = image!.jpegData(compressionQuality: 0.1) else {
+                  return
+                }
+        imageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
+                if let error = error {
+                    assertionFailure(error.localizedDescription)
+                    return
+                }
+                imageRef.downloadURL(completion: { [self] (url, error) in
+                if let error = error {
+                    assertionFailure(error.localizedDescription)
+                    return
+                }
+                    photoURL = "\(url!)"
+                    //self.storageToFirebase(db: db, photoURL: photoURL, item: item, folder: folder)
+                    completion(photoURL)
+                }
+        )}
+    )}
+    
     
     
 }

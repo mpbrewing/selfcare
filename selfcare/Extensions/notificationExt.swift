@@ -19,6 +19,10 @@ extension Notification.Name {
     //*Segue based on tapped button
     static let addItemSegue = Notification.Name("addItemSegue")
     
+    static let toSwipeBarClass = Notification.Name("toSwipeBarClass")
+    
+    static let toSwipeClass = Notification.Name("toSwipeClass")
+    
 }
 
 //Notifications for adding folder

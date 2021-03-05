@@ -62,8 +62,21 @@ extension AddFolderViewController {
     
      @objc func saveButtonAction() {
         print("AddFolderViewController: SaveButtonAction")
+        //navigationController?.popViewController(animated: true)
+        let vc = navigationController!.viewControllers[0] as! HomeViewController
+        //uploadImageToStorage(image: folderPhoto, db: db, item: item, folder: folder)
+        uploadItemToStorage2(image: folderPhoto, completion: { [self] photoURL in
+            //print(item)
+            self.folder[0].setPhotoURL(url: photoURL)
+            self.item[0].setDetails(details: self.folder[0].toAnyObject() as! [String : Any])
+            self.uploadItem(item: item[0].toAnyObject() as! [String : Any], completion: { saveItem in
+                vc.swipeClassView.holdFilePath = item[0].path
+                vc.swipeClassView.holdID = saveItem
+                vc.swipeClassView.reloadFolder()
+            })
+        })
+        //self.navigationController?.popToViewController(vc, animated: true)
         navigationController?.popViewController(animated: true)
-        uploadImageToStorage(image: folderPhoto, db: db, item: item, folder: folder)
      }
 }
 
