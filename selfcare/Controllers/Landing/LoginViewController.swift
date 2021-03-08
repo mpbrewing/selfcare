@@ -73,6 +73,7 @@ class LoginViewController: UIViewController {
     func SegueToHome(){
         let homeView = HomeViewController()
         homeView.modalPresentationStyle = .fullScreen
+        self.present(homeView, animated: false, completion: nil)
         UIApplication.shared.windows.first?.rootViewController = UINavigationController(rootViewController: homeView)
     }
     

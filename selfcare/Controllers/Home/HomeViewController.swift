@@ -100,9 +100,11 @@ extension HomeViewController {
     
     func switchNavBG(state: Bool) {
         switch state {
-        case true:
-            navigationController?.navigationBar.standardAppearance.backgroundColor = UIColor.white
+        //case true:
         case false:
+            navigationController?.navigationBar.standardAppearance.backgroundColor = UIColor.white
+        //case false:
+        case true:
             navigationController?.navigationBar.standardAppearance.backgroundColor = .clear
             navigationController?.navigationBar.standardAppearance.backgroundEffect = .none
             navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)

@@ -40,13 +40,16 @@ class SwipeClass: UIView {
     
     var holdID: String = String() {
         didSet {
-            if holdFilePath.count > 0 {
-                self.scrollTo()
-                self.passItemsInRow()
-            }
+           // if holdFilePath.count > 0 {
+                //self.scrollTo()
+                //self.passItemsInRow()
+            //}
+            //toggleGif(toggle: false)
         }
     }
     var holdFilePath = [String]()
+    
+    //var gif = LoadingView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -74,6 +77,9 @@ class SwipeClass: UIView {
         setupSwipe()
         setupCardPosition()
         addCards()
+        //gif.frame = CGRect(x: 0, y: 0, width: 414, height: 660)
+        //toggleGif(toggle: true)
+        //gif.updateView()
         NotificationCenter.default.addObserver(self, selector: #selector(toSwipeClass(notification:)), name: .toSwipeClass, object: nil)
     }
     
@@ -141,6 +147,7 @@ class SwipeClass: UIView {
     }
     
     func reloadCards(){
+        /*
         downloadPosts(db: db, completion: {item in
             self.items = item
             self.filterItems()
@@ -148,19 +155,51 @@ class SwipeClass: UIView {
             self.updateCards()
             self.manageAnimation()
             self.passItemsInRow()
+        }) */
+        downloadPosts(db: db, completion: {item in
+            self.items = item
+            self.updateY()
+            self.filterItems()
+            self.filterNext()
+            self.reUpdateCards()
+            self.manageAnimation()
+            self.scrollTo()
+            self.passItemsInRow()
         })
     }
     
     func reloadFolder(){
         downloadPosts(db: db, completion: {item in
             self.items = item
+            self.updateY()
             self.filterItems()
-            //self.updateCards()
+            self.reUpdateCards()
             self.manageAnimation()
             self.scrollTo()
             self.passItemsInRow()
         })
     }
+    
+    func updateY(){
+        if Int(position.y) > 0 {
+            for _ in 0...(Int(position.y)-1){
+                down()
+            }
+        }
+    }
+    
+    /*
+    func toggleGif(toggle: Bool){
+        gif.updateBG(color: UIColor.white)
+        if toggle == true {
+            gif.isHidden = false
+            ViewHandle.bringSubviewToFront(gif)
+        } else {
+            gif.isHidden = true
+            ViewHandle.sendSubviewToBack(gif)
+        }
+        
+    }*/
     
 }
 
@@ -252,12 +291,32 @@ extension SwipeClass {
         //print("Pos: x: \(input.position.x) // y: \(input.position.y)")
         if input.global.x >= 0 && input.global.y >= 0 && wallet[Int(input.global.y)].items.count > Int(input.global.x) {
             let details = input.item.details
-            let emoji = details["emoji"] as! String
-            let title = details["title"] as! String
-            let photoURL = details["photoURL"] as! String
+            let emoji = details["emoji"] as? String ?? "🖤"
+            let title = details["title"] as? String ?? "(no title)"
+            let photoURL = details["photoURL"] as? String ?? ""
+            //let emoji = details["emoji"] as! String
+            //let title = details["title"] as! String
+            //let photoURL = details["photoURL"] as! String
+            input.view.item = input.item
             input.view.setDetails(emoji: emoji, name: title, url: photoURL)
         }
         //print("//")
+    }
+    
+    func reUpdateCards() {
+        let cardArray = [Card00,Card10,Card20,Card30,Card01,Card11,Card21,Card31,Card02,Card12,Card22,Card32]
+        for i in 0...cardArray.count-1{
+            cardArray[i].layer.cornerRadius = 20
+            let frame = setupCardFrame(position: cardPosition[i])
+            //cardArray[i] = CardClass(frame: frame)
+            cardArray[i].frame = frame
+            self.ViewHandle.addSubview(cardArray[i])
+            //Items -> Wallet
+            //print("x: \(cardPosition[i].x) ... y:\(cardPosition[i].y)")
+            let newCard = SwipeCard(position: cardPosition[i], view: cardArray[i], global: cardPosition[i], item: loadCards(global: cardPosition[i]))
+            cards[i] = newCard
+            //cards.append(newCard)
+        }
     }
      
 }
@@ -463,6 +522,7 @@ extension SwipeClass {
         for i in 0...cards.count-1 {
             cards[i].view.frame = setupCardFrame(position:  cards[i].position)
             if cards[i].position == CGPoint(x: 0, y: 0) || cards[i].position == CGPoint(x: 1, y: 0) {
+                //print("wallet: \(wallet[Int(cards[i].global.y)].items.count)")
                 if Int(cards[i].global.x) >= wallet[Int(cards[i].global.y)].items.count {
                     cards[i].view.alpha = 0
                } else {
@@ -485,10 +545,6 @@ extension SwipeClass {
                 cards[i].view.alpha = 0
             }
         }
-    }
-    
-    func updateCardArrayItems(card: SwipeCard){
-        
     }
     
 }

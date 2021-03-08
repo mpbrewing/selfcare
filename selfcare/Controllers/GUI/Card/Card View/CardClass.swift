@@ -18,8 +18,18 @@ class CardClass: UIView {
     @IBOutlet weak var status: UIButton!
     //@IBOutlet weak var gradientView: UIView!
     @IBAction func statusAction(_ sender: Any) {
-        
+        //print("status tap")
     }
+    
+    @IBOutlet weak var bg: UIButton!
+    @IBAction func bgAction(_ sender: Any) {
+        //
+        //print(item.id)
+        SegueToFull()
+    }
+    var item = Item(id: "", index: 0, path: [], details: [:])
+    //id
+    
     
     var gradientView = UIView()
     
@@ -83,6 +93,19 @@ class CardClass: UIView {
             gradientView.alpha = 0.0
         }
     }
- 
+    
+    func SegueToFull(){
+        modifyBackButton()
+        let full = FullGUI()
+        full.item = item
+        full.modalPresentationStyle = .fullScreen
+        let vc = findViewController()
+        vc?.navigationController?.pushViewController(full, animated: true)
+    }
+    
+    func modifyBackButton(){
+        let vc = findViewController()
+        vc?.navigationController?.navigationBar.standardAppearance.setBackIndicatorImage(#imageLiteral(resourceName: "back2"), transitionMaskImage: #imageLiteral(resourceName: "back2"))
+    }
     
 }

@@ -73,8 +73,12 @@ extension AddFolderViewController {
                 vc.swipeClassView.holdFilePath = item[0].path
                 vc.swipeClassView.holdID = saveItem
                 vc.swipeClassView.reloadFolder()
+                //print("task: false")
             })
         })
+        //print("task: true")
+        //loading screen
+        //vc.swipeClassView.toggleGif(toggle: true)
         //self.navigationController?.popToViewController(vc, animated: true)
         navigationController?.popViewController(animated: true)
      }

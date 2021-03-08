@@ -123,15 +123,25 @@ extension AddTaskViewController {
             self.item[0].setDetails(details: holdTask)
             let holdItem = self.item[0].toAnyObject() as! [String:Any]
             self.uploadItem(item: holdItem, completion: { taskItem in
-                print(taskItem)
+    
+                vc.swipeClassView.holdFilePath = self.item[0].path
                 self.itemId = taskItem
                 vc.swipeClassView.holdID = self.itemId
+                vc.swipeClassView.reloadCards()
+                
+                
+                print(taskItem)
+                /*
+                self.itemId = taskItem
+                vc.swipeClassView.holdID = self.itemId */
+                
+                //print("task: false")
             })
         })
-        //let vc = HomeViewController()
-        //item[0].path
-        vc.swipeClassView.holdFilePath = item[0].path
-        vc.swipeClassView.reloadCards()
+        
+        //vc.swipeClassView.holdFilePath = item[0].path
+        //vc.swipeClassView.reloadCards()
+        
         navigationController?.popViewController(animated: true)
      }
      

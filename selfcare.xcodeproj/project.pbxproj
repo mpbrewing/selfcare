@@ -148,6 +148,9 @@
 		ECA2708525CA3C6000B7D983 /* post.json in Resources */ = {isa = PBXBuildFile; fileRef = ECA2708425CA3C6000B7D983 /* post.json */; };
 		ECA30CD2257FF3A900A9A7A1 /* AddTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA30CD1257FF3A800A9A7A1 /* AddTitleView.xib */; };
 		ECA30CD7257FF5A600A9A7A1 /* AddTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA30CD6257FF5A600A9A7A1 /* AddTitleCell.swift */; };
+		ECA70F9F25F3059700D4DC2A /* iOSDevCenters+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA70F9E25F3059700D4DC2A /* iOSDevCenters+GIF.swift */; };
+		ECA70FD225F30F3A00D4DC2A /* FullGUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA70FD125F30F3A00D4DC2A /* FullGUI.swift */; };
+		ECA70FD725F30F5A00D4DC2A /* FullGUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA70FD625F30F5A00D4DC2A /* FullGUIView.xib */; };
 		ECB5409925632536003CCDA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECB5409825632536003CCDA5 /* GoogleService-Info.plist */; };
 		ECBED86025BE25CF00F0332E /* RepeatWeekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBED85F25BE25CE00F0332E /* RepeatWeekCell.swift */; };
 		ECBED86525BE25F000F0332E /* RepeatWeek.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECBED86425BE25F000F0332E /* RepeatWeek.xib */; };
@@ -355,6 +358,9 @@
 		ECA2708425CA3C6000B7D983 /* post.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = post.json; sourceTree = "<group>"; };
 		ECA30CD1257FF3A800A9A7A1 /* AddTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTitleView.xib; sourceTree = "<group>"; };
 		ECA30CD6257FF5A600A9A7A1 /* AddTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTitleCell.swift; sourceTree = "<group>"; };
+		ECA70F9E25F3059700D4DC2A /* iOSDevCenters+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "iOSDevCenters+GIF.swift"; path = "/Users/michaelbrewington/Documents/selfcare/selfcare/Extensions/iOSDevCenters+GIF.swift"; sourceTree = "<absolute>"; };
+		ECA70FD125F30F3A00D4DC2A /* FullGUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullGUI.swift; sourceTree = "<group>"; };
+		ECA70FD625F30F5A00D4DC2A /* FullGUIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullGUIView.xib; sourceTree = "<group>"; };
 		ECB5409825632536003CCDA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ECBED85F25BE25CE00F0332E /* RepeatWeekCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatWeekCell.swift; sourceTree = "<group>"; };
 		ECBED86425BE25F000F0332E /* RepeatWeek.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepeatWeek.xib; sourceTree = "<group>"; };
@@ -475,6 +481,7 @@
 		EC0AD99B255B473800EC1686 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				ECA70F9E25F3059700D4DC2A /* iOSDevCenters+GIF.swift */,
 				EC101494256339E5003A68B8 /* hideKeyboardWhenTappedAround.swift */,
 				EC32D7BA2567327E003E0437 /* loadXIB.swift */,
 				EC32D80825677CB5003E0437 /* customColors.swift */,
@@ -774,6 +781,7 @@
 		EC822399258A0130003EC885 /* GUI */ = {
 			isa = PBXGroup;
 			children = (
+				ECA70FCD25F30EE900D4DC2A /* View Full */,
 				EC58C5A4258A167A002F120C /* SwipeBar */,
 				EC8223B6258A0A9C003EC885 /* Card */,
 			);
@@ -1006,6 +1014,31 @@
 				ECA30CD0257FF35C00A9A7A1 /* Title */,
 			);
 			path = "Add XIBs";
+			sourceTree = "<group>";
+		};
+		ECA70FCD25F30EE900D4DC2A /* View Full */ = {
+			isa = PBXGroup;
+			children = (
+				ECA70FD025F30F0400D4DC2A /* Folder */,
+				ECA70FCE25F30EF300D4DC2A /* Task */,
+				ECA70FD125F30F3A00D4DC2A /* FullGUI.swift */,
+				ECA70FD625F30F5A00D4DC2A /* FullGUIView.xib */,
+			);
+			path = "View Full";
+			sourceTree = "<group>";
+		};
+		ECA70FCE25F30EF300D4DC2A /* Task */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		ECA70FD025F30F0400D4DC2A /* Folder */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Folder;
 			sourceTree = "<group>";
 		};
 		ECBED85425BE257500F0332E /* Week */ = {
@@ -1291,6 +1324,7 @@
 				ECCEAEE125E64017003A958A /* ViewTagsView.xib in Resources */,
 				ECBED86525BE25F000F0332E /* RepeatWeek.xib in Resources */,
 				EC43D5D725B17C5800BB5EA7 /* EventRepeatTab.xib in Resources */,
+				ECA70FD725F30F5A00D4DC2A /* FullGUIView.xib in Resources */,
 				EC43D5DC25B17C7800BB5EA7 /* EventNotifyTab.xib in Resources */,
 				EC0AD9B9255B502800EC1686 /* NexaRegularItalic.otf in Resources */,
 				ECEA2B7F25B16A3900A2FAB4 /* EventTab.xib in Resources */,
@@ -1514,6 +1548,7 @@
 				ECCEAEDC25E63FD3003A958A /* ViewTags.swift in Sources */,
 				EC43D5C025B17B0000BB5EA7 /* EventNotifyCell.swift in Sources */,
 				EC43D5BB25B17AEF00BB5EA7 /* EventRepeatCell.swift in Sources */,
+				ECA70F9F25F3059700D4DC2A /* iOSDevCenters+GIF.swift in Sources */,
 				EC44046225DB26FB00CEFE8B /* AnotherTag.swift in Sources */,
 				ECBED87C25BE27F300F0332E /* WeekClass.swift in Sources */,
 				EC1CD1962579B59A00609350 /* AddFolderViewController.swift in Sources */,
@@ -1550,6 +1585,7 @@
 				EC9E0EC3255DF2FC00A19D96 /* RegistrationViewController.swift in Sources */,
 				EC669E6625A8CAFD0036D331 /* SwipeCard.swift in Sources */,
 				EC43D5B325B17AD300BB5EA7 /* EventTimeCell.swift in Sources */,
+				ECA70FD225F30F3A00D4DC2A /* FullGUI.swift in Sources */,
 				ECF23C802561ECEA00022D1E /* HomeViewController.swift in Sources */,
 				EC8CFBC325D1BC5500314491 /* Event.swift in Sources */,
 				EC32D7B1256731AB003E0437 /* MenuViewController.swift in Sources */,
@@ -1658,7 +1694,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1713,7 +1749,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
