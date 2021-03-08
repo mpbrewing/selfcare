@@ -31,16 +31,16 @@ class FullGUI: UIViewController {
 extension FullGUI {
     
     func setupNavigationBar() {
-        //Tint Color
-        navigationController?.navigationBar.tintColor = UIColor.black
-        //Font
-        navigationController?.navigationBar.standardAppearance.titleTextAttributes = [.foregroundColor: UIColor.black, .font: UIFont(name: "Nexa-Bold", size: 22)!]
         //
         let details = item.details
         //let emoji = details["emoji"] as? String ?? "🖤"
         let title = details["title"] as? String ?? "(no title)"
         //
         navigationItem.title = "\(title)"
+        //Tint Color
+        navigationController?.navigationBar.tintColor = UIColor.black
+        //Font
+        navigationController?.navigationBar.standardAppearance.titleTextAttributes = [.foregroundColor: UIColor.black, .font: UIFont(name: "Nexa-Bold", size: 22)!]
         //Remove Back Bar Button Text
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         //Style Navigation Bar

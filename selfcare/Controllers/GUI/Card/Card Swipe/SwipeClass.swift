@@ -161,7 +161,7 @@ class SwipeClass: UIView {
             self.updateY()
             self.filterItems()
             self.filterNext()
-            self.reUpdateCards()
+            //self.reUpdateCards()
             self.manageAnimation()
             self.scrollTo()
             self.passItemsInRow()
@@ -173,6 +173,7 @@ class SwipeClass: UIView {
             self.items = item
             self.updateY()
             self.filterItems()
+            self.filterNext()
             self.reUpdateCards()
             self.manageAnimation()
             self.scrollTo()
