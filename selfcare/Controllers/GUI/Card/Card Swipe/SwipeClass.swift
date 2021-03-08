@@ -13,6 +13,7 @@ class SwipeClass: UIView {
     
     @IBOutlet var ViewHandle: UIView!
     @IBOutlet weak var signal: UIView!
+    @IBOutlet weak var indicator: UIView!
     
     var Card00 = CardClass()
     var Card10 = CardClass()
@@ -92,6 +93,7 @@ class SwipeClass: UIView {
     func addCards(){
        
         signal.layer.cornerRadius = 4
+        indicator.layer.cornerRadius = 4
         downloadPosts(db: db, completion: {item in
             self.items = item
             //print(self.items.count)
@@ -387,16 +389,13 @@ extension SwipeClass {
         }, completion: { finished in
           //print("animation complete!")
         })
+        ViewHandle.bringSubviewToFront(indicator)
     }
     
     func updateGlobalPosition(direction: UISwipeGestureRecognizer.Direction) {
         updatePosition(direction: direction)
         manageAnimation()
         //print("x: \(position.x) // y:\(position.y)")
-    }
-    
-    func checkGlobalPosition() {
-      
     }
     
     func updatePosition(direction: UISwipeGestureRecognizer.Direction){
@@ -540,6 +539,11 @@ extension SwipeClass {
                         }
                     } else {
                         signal.isHidden = true
+                    }
+                    if position.y > 0 {
+                        indicator.isHidden = false
+                    } else {
+                        indicator.isHidden = true
                     }
                 }
             } else {

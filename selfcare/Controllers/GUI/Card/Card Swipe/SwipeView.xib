@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SwipeClass" customModule="selfcare" customModuleProvider="target">
             <connections>
                 <outlet property="ViewHandle" destination="iN0-l3-epB" id="tdU-vE-8Yl"/>
+                <outlet property="indicator" destination="CEM-Hu-pOU" id="6I8-pw-e5E"/>
                 <outlet property="signal" destination="VL7-Kh-gIi" id="X7d-8Z-9X1"/>
             </connections>
         </placeholder>
@@ -33,6 +34,11 @@
                     <rect key="frame" x="20" y="648" width="312" height="10"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CEM-Hu-pOU">
+                    <rect key="frame" x="20" y="10" width="312" height="10"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

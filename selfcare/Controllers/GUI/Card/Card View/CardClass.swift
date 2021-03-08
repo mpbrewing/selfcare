@@ -23,10 +23,11 @@ class CardClass: UIView {
     
     @IBOutlet weak var bg: UIButton!
     @IBAction func bgAction(_ sender: Any) {
-        //
         //print(item.id)
         SegueToFull()
     }
+    @IBOutlet weak var emojiLabel: UILabel!
+    
     var item = Item(id: "", index: 0, path: [], details: [:])
     //id
     
@@ -62,10 +63,24 @@ class CardClass: UIView {
     }
     
     func setDetails(emoji: String,name:String,url: String) {
-        status.setTitle(emoji, for: .normal)
+        //status.setTitle(emoji, for: .normal)
+        emojiLabel.text = emoji
         title.text = name
         let placeholderImage = UIImage(named: "placeholder.jpg")
         cover.sd_setImage(with: URL(string: url), placeholderImage: placeholderImage)
+        checkID()
+    }
+    
+    func checkID(){
+        if item.path.count > 0 {
+            if item.path[0] == "general" {
+                cover.image = #imageLiteral(resourceName: "spaceImage")
+            }
+        } else {
+            if item.id == "general"  {
+                cover.image = #imageLiteral(resourceName: "spaceImage")
+            }
+        }
     }
     
     let gradient = CAGradientLayer()

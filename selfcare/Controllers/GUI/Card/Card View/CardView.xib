@@ -18,6 +18,7 @@
                 <outlet property="ViewHandle" destination="iN0-l3-epB" id="IO6-PQ-fkY"/>
                 <outlet property="bg" destination="PlK-sp-tOw" id="VG9-KY-fsV"/>
                 <outlet property="cover" destination="nLs-qj-5fu" id="Omu-Ex-iCp"/>
+                <outlet property="emojiLabel" destination="Whb-ML-QxW" id="Rzq-AL-8Ha"/>
                 <outlet property="status" destination="wRR-UU-HeM" id="tQ2-fr-7ae"/>
                 <outlet property="title" destination="uoK-al-Mjp" id="EpZ-BC-0se"/>
             </connections>
@@ -56,11 +57,22 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.89232512949999998" green="0.89232512949999998" blue="0.89232512949999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                    <state key="normal" title="🖤"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
                     <connections>
                         <action selector="statusAction:" destination="-1" eventType="touchUpInside" id="WQk-GX-8Mb"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="🖤" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whb-ML-QxW">
+                    <rect key="frame" x="10" y="531" width="50" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

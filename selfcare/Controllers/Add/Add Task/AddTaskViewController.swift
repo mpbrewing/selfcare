@@ -26,7 +26,7 @@ class AddTaskViewController: UIViewController,UITableViewDelegate, UITableViewDa
         //
         task.append(Task(title: "(no title)", emoji: "🖤", description: "", events: [], status: 0, priority: 0, tags: [], photoURL: "", color: ""))
         //
-        item.append(Item(id: "", index: 0, path: [], details: [:]))
+        item.append(Item(id: "", index: 1, path: ["general"], details: [:]))
         //
         let colors = [UIColor.gainsboro,UIColor.systemRed,UIColor.systemYellow,UIColor.systemGreen]
         setupStyle(color: colors[status])
@@ -75,6 +75,36 @@ class AddTaskViewController: UIViewController,UITableViewDelegate, UITableViewDa
         //view.layer.borderColor = UIColor.gainsboro.cgColor
     }
     
+    func checkGeneral(){
+        if selectedFilePath.count == 0 {
+            if !filterRow() {
+                item[0].path = ["general"]
+                item[0].index = 1
+                uploadGeneral(completion: { string in
+                    self.uploadTask()
+                })
+            }
+        } else {
+            uploadTask()
+        }
+    }
+    
+    func filterRow()->Bool{
+        let id = "general"
+        let filtered = wallet[0].items.filter({ filter in
+            if filter.path.contains(id) {
+                return true
+            } else {
+                return false
+            }
+        })
+        if filtered.count > 0 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
 }
 
 //Navigation Bar
@@ -114,6 +144,10 @@ extension AddTaskViewController {
     
      @objc func saveButtonAction() {
         print("AddTaskViewController: SaveButtonAction")
+        checkGeneral()
+     }
+    
+    func uploadTask(){
         let vc = navigationController!.viewControllers[0] as! HomeViewController
         //Upload Events
         uploadEvents(events: events, completion: {taskEvents in
@@ -123,27 +157,15 @@ extension AddTaskViewController {
             self.item[0].setDetails(details: holdTask)
             let holdItem = self.item[0].toAnyObject() as! [String:Any]
             self.uploadItem(item: holdItem, completion: { taskItem in
-    
                 vc.swipeClassView.holdFilePath = self.item[0].path
                 self.itemId = taskItem
                 vc.swipeClassView.holdID = self.itemId
                 vc.swipeClassView.reloadCards()
-                
-                
                 print(taskItem)
-                /*
-                self.itemId = taskItem
-                vc.swipeClassView.holdID = self.itemId */
-                
-                //print("task: false")
             })
         })
-        
-        //vc.swipeClassView.holdFilePath = item[0].path
-        //vc.swipeClassView.reloadCards()
-        
         navigationController?.popViewController(animated: true)
-     }
+    }
      
 }
 
@@ -263,6 +285,7 @@ extension AddTaskViewController {
         item[0].index = filePath.count
         selectedFilePath = notif.userInfo?["selected"] as! [Item]
         updateFilePathDetails()
+        //print("sfpc: \(selectedFilePath.count)")
         tableView.reloadData()
     }
     

@@ -64,7 +64,11 @@ extension SwipeBarClass {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        if items.count > 1 {
+            return items.count
+        } else {
+            return 0
+        }
         //return 10
     }
     

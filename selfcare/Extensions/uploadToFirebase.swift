@@ -104,6 +104,24 @@ extension UIViewController {
             }
         }
     }
+    //ref = db.collection("users").document("\(userId!)").collection("posts").document("general").setData(<#T##documentData: [String : Any]##[String : Any]#>, completion: <#T##((Error?) -> Void)?##((Error?) -> Void)?##(Error?) -> Void#>)
+    func uploadGeneral(completion: @escaping (String) -> Void){
+        let db = Firestore.firestore()
+        let userId = Auth.auth().currentUser?.uid
+        let folder = Folder(title: "General", emoji: "🖤", photoURL: "(No url)", color: "#ff0000")
+        let holdItem = Item(id: "general", index: 0, path: [], details: [:])
+        holdItem.setDetails(details: folder.toAnyObject() as! [String : Any])
+        let item = holdItem.toAnyObject() as! [String : Any]
+        db.collection("users").document("\(userId!)").collection("posts").document("general").setData(item){ err in
+            if let err = err {
+                print("Error writing document: \(err)")
+                completion("fail")
+            } else {
+                print("Document successfully written!")
+                completion("pass")
+            }
+        }
+    }
     
     func uploadTag(tag: [String:Any],completion: @escaping (String) -> Void){
         let db = Firestore.firestore()
