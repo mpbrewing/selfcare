@@ -50,6 +50,8 @@ class SwipeClass: UIView {
     }
     var holdFilePath = [String]()
     
+    var selectedItems = [Item]()
+    
     //var gif = LoadingView()
     
     override init(frame: CGRect) {
@@ -88,6 +90,7 @@ class SwipeClass: UIView {
         wallet = Array(repeating: Wallet(items: []), count: 4)
         itemWallet = Array(repeating: Wallet(items: []), count: 4)
         holdPositions = Array(repeating: 0, count: 4)
+        selectedItems = Array(repeating: Item(id: "", index: 0, path: [], details: [:]), count: 4)
     }
     
     func addCards(){
@@ -103,6 +106,7 @@ class SwipeClass: UIView {
             self.updateCards()
             self.manageAnimation()
             self.passItemsInRow()
+            //self.modifySelectedFilePath()
         })
     }
     //Structure Four Tier Wallet Class for Cards
@@ -128,6 +132,7 @@ class SwipeClass: UIView {
                 wallet[i] = Wallet(items: filtered)
             }
         }
+        modifySelectedFilePath()
     }
     
     func filterNext(){
@@ -146,6 +151,7 @@ class SwipeClass: UIView {
                 wallet[Int(position.y+1)] = Wallet(items: filtered)
             }
         }
+        modifySelectedFilePath()
     }
     
     func reloadCards(){
@@ -167,6 +173,7 @@ class SwipeClass: UIView {
             self.manageAnimation()
             self.scrollTo()
             self.passItemsInRow()
+            //self.modifySelectedFilePath()
         })
     }
     
@@ -180,6 +187,7 @@ class SwipeClass: UIView {
             self.manageAnimation()
             self.scrollTo()
             self.passItemsInRow()
+            //self.modifySelectedFilePath()
         })
     }
     
@@ -302,6 +310,9 @@ extension SwipeClass {
             //let photoURL = details["photoURL"] as! String
             input.view.item = input.item
             input.view.setDetails(emoji: emoji, name: title, url: photoURL)
+            if input.position == CGPoint(x: 0, y: 0) {
+                input.view.items = selectedItems
+            }
         }
         //print("//")
     }
@@ -751,5 +762,8 @@ extension SwipeClass {
         }
     }
     
+    func modifySelectedFilePath(){
+        selectedItems[Int(position.y)] = wallet[Int(position.y)].items[Int(position.x)]
+    }
     
 }

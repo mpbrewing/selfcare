@@ -30,6 +30,7 @@ class CardClass: UIView {
     
     var item = Item(id: "", index: 0, path: [], details: [:])
     //id
+    var items = [Item]()
     
     
     var gradientView = UIView()
@@ -113,6 +114,7 @@ class CardClass: UIView {
         modifyBackButton()
         let full = FullGUI()
         full.item = item
+        full.items = items
         full.modalPresentationStyle = .fullScreen
         let vc = findViewController()
         vc?.navigationController?.pushViewController(full, animated: true)

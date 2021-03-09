@@ -52,6 +52,9 @@
 		EC26337A25B7712E0099A91E /* ClockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC26337925B7712E0099A91E /* ClockView.xib */; };
 		EC26338025B772040099A91E /* EventLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC26337F25B772040099A91E /* EventLabelCell.xib */; };
 		EC26338525B7725F0099A91E /* EventLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC26338425B7725F0099A91E /* EventLabel.swift */; };
+		EC29BE2E25F7481100ED4D90 /* vibrateDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC29BE2D25F7481100ED4D90 /* vibrateDevice.swift */; };
+		EC29BE3325F7551A00ED4D90 /* ViewFullFilePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC29BE3225F7551A00ED4D90 /* ViewFullFilePath.swift */; };
+		EC29BE3825F7555700ED4D90 /* ViewFullFilePathCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC29BE3725F7555700ED4D90 /* ViewFullFilePathCell.xib */; };
 		EC32D7AB2567315C003E0437 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC32D7AA2567315C003E0437 /* HomeView.xib */; };
 		EC32D7B1256731AB003E0437 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC32D7B0256731AB003E0437 /* MenuViewController.swift */; };
 		EC32D7B6256731F6003E0437 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC32D7B5256731F6003E0437 /* MenuView.xib */; };
@@ -176,6 +179,8 @@
 		ECE4CDEA25AE91B60016F6B6 /* AddTagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE4CDE925AE91B60016F6B6 /* AddTagsCell.swift */; };
 		ECEA2B7F25B16A3900A2FAB4 /* EventTab.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECEA2B7E25B16A3900A2FAB4 /* EventTab.xib */; };
 		ECEA2B8425B16A9A00A2FAB4 /* EventTabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEA2B8325B16A9A00A2FAB4 /* EventTabCell.swift */; };
+		ECEE317525F624CB007813E5 /* FullViewTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEE317425F624CB007813E5 /* FullViewTitleCell.swift */; };
+		ECEE319525F624FC007813E5 /* FullViewTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECEE319425F624FC007813E5 /* FullViewTitle.xib */; };
 		ECF23C802561ECEA00022D1E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23C7F2561ECEA00022D1E /* HomeViewController.swift */; };
 		ECF29B8425B0FD2F0076E6C6 /* FullFilePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF29B8325B0FD2F0076E6C6 /* FullFilePath.swift */; };
 		ECF29B8C25B0FD3F0076E6C6 /* FilePathView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECF29B8B25B0FD3F0076E6C6 /* FilePathView.xib */; };
@@ -256,6 +261,9 @@
 		EC26337925B7712E0099A91E /* ClockView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClockView.xib; sourceTree = "<group>"; };
 		EC26337F25B772040099A91E /* EventLabelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventLabelCell.xib; sourceTree = "<group>"; };
 		EC26338425B7725F0099A91E /* EventLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLabel.swift; sourceTree = "<group>"; };
+		EC29BE2D25F7481100ED4D90 /* vibrateDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vibrateDevice.swift; sourceTree = "<group>"; };
+		EC29BE3225F7551A00ED4D90 /* ViewFullFilePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFullFilePath.swift; sourceTree = "<group>"; };
+		EC29BE3725F7555700ED4D90 /* ViewFullFilePathCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewFullFilePathCell.xib; sourceTree = "<group>"; };
 		EC32D7AA2567315C003E0437 /* HomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
 		EC32D7B0256731AB003E0437 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		EC32D7B5256731F6003E0437 /* MenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
@@ -386,6 +394,8 @@
 		ECE4CDE925AE91B60016F6B6 /* AddTagsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagsCell.swift; sourceTree = "<group>"; };
 		ECEA2B7E25B16A3900A2FAB4 /* EventTab.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTab.xib; sourceTree = "<group>"; };
 		ECEA2B8325B16A9A00A2FAB4 /* EventTabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTabCell.swift; sourceTree = "<group>"; };
+		ECEE317425F624CB007813E5 /* FullViewTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullViewTitleCell.swift; sourceTree = "<group>"; };
+		ECEE319425F624FC007813E5 /* FullViewTitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullViewTitle.xib; sourceTree = "<group>"; };
 		ECF23C7F2561ECEA00022D1E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		ECF29B8325B0FD2F0076E6C6 /* FullFilePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullFilePath.swift; sourceTree = "<group>"; };
 		ECF29B8B25B0FD3F0076E6C6 /* FilePathView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilePathView.xib; sourceTree = "<group>"; };
@@ -493,6 +503,7 @@
 				EC669E6A25A9168B0036D331 /* retrieveFromFirebase.swift */,
 				EC26336625B600A30099A91E /* dateExtension.swift */,
 				EC61ED9325B825AA00AA9566 /* rotateExtension.swift */,
+				EC29BE2D25F7481100ED4D90 /* vibrateDevice.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1019,6 +1030,7 @@
 		ECA70FCD25F30EE900D4DC2A /* View Full */ = {
 			isa = PBXGroup;
 			children = (
+				ECEE317225F624A5007813E5 /* XIBs */,
 				ECA70FD025F30F0400D4DC2A /* Folder */,
 				ECA70FCE25F30EF300D4DC2A /* Task */,
 				ECA70FD125F30F3A00D4DC2A /* FullGUI.swift */,
@@ -1030,6 +1042,9 @@
 		ECA70FCE25F30EF300D4DC2A /* Task */ = {
 			isa = PBXGroup;
 			children = (
+				ECEE316925F60FEB007813E5 /* File Path */,
+				ECEE316A25F61054007813E5 /* Events */,
+				ECEE316B25F61066007813E5 /* Menu */,
 			);
 			path = Task;
 			sourceTree = "<group>";
@@ -1037,6 +1052,8 @@
 		ECA70FD025F30F0400D4DC2A /* Folder */ = {
 			isa = PBXGroup;
 			children = (
+				ECEE316D25F61097007813E5 /* Files */,
+				ECEE316C25F61078007813E5 /* Status */,
 			);
 			path = Folder;
 			sourceTree = "<group>";
@@ -1145,6 +1162,60 @@
 				ECEA2B8325B16A9A00A2FAB4 /* EventTabCell.swift */,
 			);
 			path = Tab;
+			sourceTree = "<group>";
+		};
+		ECEE316925F60FEB007813E5 /* File Path */ = {
+			isa = PBXGroup;
+			children = (
+				EC29BE3225F7551A00ED4D90 /* ViewFullFilePath.swift */,
+				EC29BE3725F7555700ED4D90 /* ViewFullFilePathCell.xib */,
+			);
+			path = "File Path";
+			sourceTree = "<group>";
+		};
+		ECEE316A25F61054007813E5 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		ECEE316B25F61066007813E5 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		ECEE316C25F61078007813E5 /* Status */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Status;
+			sourceTree = "<group>";
+		};
+		ECEE316D25F61097007813E5 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
+		ECEE317225F624A5007813E5 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				ECEE317325F624AF007813E5 /* Title */,
+			);
+			path = XIBs;
+			sourceTree = "<group>";
+		};
+		ECEE317325F624AF007813E5 /* Title */ = {
+			isa = PBXGroup;
+			children = (
+				ECEE317425F624CB007813E5 /* FullViewTitleCell.swift */,
+				ECEE319425F624FC007813E5 /* FullViewTitle.xib */,
+			);
+			path = Title;
 			sourceTree = "<group>";
 		};
 		ECF23C7E2561ECDA00022D1E /* Home */ = {
@@ -1299,6 +1370,7 @@
 			files = (
 				EC98476025C0F212002181B0 /* ExcludedDatesView.xib in Resources */,
 				EC0AD9C1255B502800EC1686 /* NexaThin.otf in Resources */,
+				EC29BE3825F7555700ED4D90 /* ViewFullFilePathCell.xib in Resources */,
 				EC0AD9C6255B502800EC1686 /* NexaBlack.otf in Resources */,
 				EC82239B258A0211003EC885 /* CardView.xib in Resources */,
 				EC26337A25B7712E0099A91E /* ClockView.xib in Resources */,
@@ -1371,6 +1443,7 @@
 				ECE4CDE525AE91A40016F6B6 /* AddTagsView.xib in Resources */,
 				EC0AD9C4255B502800EC1686 /* NexaXBoldItalic.otf in Resources */,
 				EC18E2C625EDA3F0003FB03A /* ViewTagsTableViewCell.xib in Resources */,
+				ECEE319525F624FC007813E5 /* FullViewTitle.xib in Resources */,
 				EC0AD9C7255B502800EC1686 /* NexaBook.otf in Resources */,
 				EC81803125BC254100228690 /* RepeatSelection.xib in Resources */,
 				EC8352DF25AE70AD00F2C1B6 /* AddDescriptionView.xib in Resources */,
@@ -1534,6 +1607,7 @@
 				EC8223A7258A0836003EC885 /* SwipeClass.swift in Sources */,
 				ECBED86025BE25CF00F0332E /* RepeatWeekCell.swift in Sources */,
 				ECE4CDC725AE91530016F6B6 /* AddEventsCell.swift in Sources */,
+				EC29BE3325F7551A00ED4D90 /* ViewFullFilePath.swift in Sources */,
 				EC32D80925677CB5003E0437 /* customColors.swift in Sources */,
 				EC18E2E925F04ABA003FB03A /* ViewEventCell.swift in Sources */,
 				EC21F49025897E2A00536100 /* Folder.swift in Sources */,
@@ -1550,6 +1624,7 @@
 				EC43D5BB25B17AEF00BB5EA7 /* EventRepeatCell.swift in Sources */,
 				ECA70F9F25F3059700D4DC2A /* iOSDevCenters+GIF.swift in Sources */,
 				EC44046225DB26FB00CEFE8B /* AnotherTag.swift in Sources */,
+				ECEE317525F624CB007813E5 /* FullViewTitleCell.swift in Sources */,
 				ECBED87C25BE27F300F0332E /* WeekClass.swift in Sources */,
 				EC1CD1962579B59A00609350 /* AddFolderViewController.swift in Sources */,
 				EC44046C25DB397600CEFE8B /* SelectMiniCell.swift in Sources */,
@@ -1593,6 +1668,7 @@
 				EC26336725B600A30099A91E /* dateExtension.swift in Sources */,
 				ECCEAED125E63E1C003A958A /* ViewEvents.swift in Sources */,
 				EC18E2C125EDA3C7003FB03A /* ViewTagsCell.swift in Sources */,
+				EC29BE2E25F7481100ED4D90 /* vibrateDevice.swift in Sources */,
 				EC97F6842575D04E00063B8B /* findViewController.swift in Sources */,
 				EC97F6992575D61500063B8B /* AddButtonCellClass.swift in Sources */,
 				EC21F49525897E3A00536100 /* Task.swift in Sources */,

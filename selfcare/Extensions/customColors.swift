@@ -99,6 +99,30 @@ extension UIColor {
 
             return NSString(format:"#%06x", rgb) as String
         }
+    
+    //https://stackoverflow.com/questions/35073272/button-text-uicolor-from-hex-swift
+    //https://stackoverflow.com/questions/41843262/convert-hex-color-as-string-to-uint
+    convenience init(rgb: UInt) {
+           self.init(rgb: rgb, alpha: 1.0)
+       }
+
+       convenience init(rgb: UInt, alpha: CGFloat) {
+           self.init(
+               red: CGFloat((rgb & 0xFF0000) >> 16) / 255.0,
+               green: CGFloat((rgb & 0x00FF00) >> 8) / 255.0,
+               blue: CGFloat(rgb & 0x0000FF) / 255.0,
+               alpha: CGFloat(alpha)
+           )
+       }
+    
+    /*
+    var color = details["color"] as? String ?? "#ff0000"
+    color.removeFirst()
+    let string = "0x\(color)"
+    print(string)
+    let hexValue = UInt(String(string.suffix(6)), radix: 16) ?? 0
+    let holdColor = UIColor.init(rgb: hexValue)
+    */
 
     
 }

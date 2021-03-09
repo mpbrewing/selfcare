@@ -13,6 +13,17 @@ class FilterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadXIB(name: "FilterView")
+        setupNavigationBar()
+        modifyAddNavBar()
+    }
+
+    
+}
+
+extension FilterViewController {
+    
+    func setupNavigationBar() {
+        navigationItem.title = "Filter"
     }
     
 }
