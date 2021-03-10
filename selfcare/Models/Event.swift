@@ -6,16 +6,20 @@
 //
 
 import Foundation
+import UIKit
+import Firebase
 
 class Event {
     
+    var id: String
     var date: [Date]
     var time: [String]
     var repeating: [String:Any]
     var notify: [[String:Any]]
     var location: [String]
     
-    init(date: [Date],time: [String],repeating: [String:Any],notify: [[String:Any]],location: [String]) {
+    init(id: String, date: [Date],time: [String],repeating: [String:Any],notify: [[String:Any]],location: [String]) {
+        self.id = id
         self.date = date
         self.time = time
         self.repeating = repeating
@@ -24,6 +28,7 @@ class Event {
     }
     
     init(snapshot: [String:Any]) {
+        self.id = snapshot["id"] as! String
         self.date = snapshot["date"] as! [Date]
         self.time = snapshot["time"] as! [String]
         self.repeating = snapshot["repeat"] as! [String:Any]

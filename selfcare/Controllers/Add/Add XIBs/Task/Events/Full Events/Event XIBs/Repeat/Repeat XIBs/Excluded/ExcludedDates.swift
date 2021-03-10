@@ -286,13 +286,13 @@ extension ExcludedDates {
             return false
         }
     }
-    
+    /*
     func returnDateString(date: Date)->String{
         let formatter = DateFormatter()
         formatter.dateFormat = "E, MMM d, yyyy"
         let dateString = formatter.string(from: date)
         return dateString
-    }
+    } */
     
 }
 //

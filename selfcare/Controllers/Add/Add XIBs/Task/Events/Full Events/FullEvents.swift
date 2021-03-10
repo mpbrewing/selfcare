@@ -295,7 +295,7 @@ extension FullEvents {
         let selected = ["week":[Bool](),"month":Int()] as [String : Any]
         repeating = ["ends":ends,"excluded":[Date](),"period":0,"selected":selected]
         if event.count == 0 {
-            let holdEvent = Event(date: date, time: time, repeating: repeating, notify: notify, location: location)
+            let holdEvent = Event(id: "", date: date, time: time, repeating: repeating, notify: notify, location: location)
             event.append(holdEvent)
         }
     }

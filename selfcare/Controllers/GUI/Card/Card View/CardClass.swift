@@ -31,7 +31,12 @@ class CardClass: UIView {
     var item = Item(id: "", index: 0, path: [], details: [:])
     //id
     var items = [Item]()
-    
+    var events: [Event] = [Event]() {
+        didSet {
+            findEvents()
+        }
+    }
+    var selectedEvents = [Event]()
     
     var gradientView = UIView()
     
@@ -115,6 +120,8 @@ class CardClass: UIView {
         let full = FullGUI()
         full.item = item
         full.items = items
+        full.events = events
+        full.selectedEvents  = selectedEvents
         full.modalPresentationStyle = .fullScreen
         let vc = findViewController()
         vc?.navigationController?.pushViewController(full, animated: true)
@@ -123,6 +130,22 @@ class CardClass: UIView {
     func modifyBackButton(){
         let vc = findViewController()
         vc?.navigationController?.navigationBar.standardAppearance.setBackIndicatorImage(#imageLiteral(resourceName: "back2"), transitionMaskImage: #imageLiteral(resourceName: "back2"))
+    }
+    
+    func findEvents(){
+        if item.index > 0 {
+            let details = item.details
+            let holdEvents = details["events"] as! [String]
+            let filtered = events.filter({ filter in
+                if holdEvents.contains(filter.id) {
+                    return true
+                } else {
+                    return false
+                }
+            })
+            //print("findEvents: \(holdEvents.count) \\ \(filtered.count) \\ \(events.count)")
+            selectedEvents = filtered
+        }
     }
     
 }

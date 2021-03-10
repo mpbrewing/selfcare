@@ -29,7 +29,7 @@ class ViewEventsCell: UITableViewCell {
     var state = Bool()
     
     var images = [UIImage]()
-    var event = Event(date: [Date()], time: [String](), repeating: [String:Any](), notify: [[String:Any]](), location: [String]())
+    var event = Event(id: "", date: [Date()], time: [String](), repeating: [String:Any](), notify: [[String:Any]](), location: [String]())
     
     override func awakeFromNib() {
         super.awakeFromNib()

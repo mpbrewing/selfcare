@@ -299,7 +299,7 @@ extension AddTaskViewController {
     }
     
     func notifEvents(notif:NSNotification){
-        let blank = Event(date: [Date()], time: [String](), repeating: [String:Any](), notify: [[String:Any]](), location: [String]())
+        let blank = Event(id: "", date: [Date()], time: [String](), repeating: [String:Any](), notify: [[String:Any]](), location: [String]())
         let event = notif.userInfo?["event"] as? Event ?? blank
         events.append(event)
         tableView.reloadData()

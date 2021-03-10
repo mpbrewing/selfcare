@@ -26,7 +26,7 @@ class MiniEventCollectionCell: UICollectionViewCell {
     @IBOutlet weak var label5: UILabel!
     
     var images = [UIImage]()
-    var event = Event(date: [Date()], time: [String](), repeating: [String:Any](), notify: [[String:Any]](), location: [String]())
+    var event = Event(id: "", date: [Date()], time: [String](), repeating: [String:Any](), notify: [[String:Any]](), location: [String]())
     //Update Defaults
     
     var status = Int()

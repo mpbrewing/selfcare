@@ -16,6 +16,8 @@ class FullGUI: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     var item = Item(id: "", index: 0, path: [], details: [:])
     var items = [Item]()
+    var events = [Event]()
+    var selectedEvents = [Event]()
     
     var favorited = Bool()
     
@@ -124,7 +126,7 @@ extension FullGUI {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return switchHeightForRowAt()
+        return switchHeightForRowAt(indexPath: indexPath)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -160,6 +162,8 @@ extension FullGUI {
             return returnTitle(tableView: tableView, indexPath: indexPath)
         case 1:
             return returnFilePath(tableView: tableView, indexPath: indexPath)
+        case 2:
+            return returnRelevantEvent(tableView: tableView, indexPath: indexPath)
         default:
             return returnTitle(tableView: tableView, indexPath: indexPath)
         }
@@ -188,16 +192,17 @@ extension FullGUI {
     
     //nav bar clear on disappear
     
+    //status color on view border
+    
     func returnFilePath(tableView: UITableView,indexPath: IndexPath)->UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "viewFullFilePath", for: indexPath) as! ViewFullFilePath
-        let filepath = updateLabel(items: items)
-        //let string = "In List: \(filepath)"
-        let attribute = [ NSAttributedString.Key.font: UIFont(name: "Nexa-Bold", size: 20.0)!,NSAttributedString.Key.foregroundColor: UIColor.init(red: 220/255, green: 220/255, blue: 220/255, alpha: 0.9) ]
-        let preString = NSMutableAttributedString(string: "In File: ", attributes: attribute )
-        let attribute2 = [ NSAttributedString.Key.font: UIFont(name: "Nexa-Bold", size: 20.0)!,NSAttributedString.Key.foregroundColor: UIColor.white ]
-        let postString = NSMutableAttributedString(string: filepath, attributes: attribute2 )
-        preString.append(postString)
-        cell.updateFilePath(string: preString)
+        passFilePath(cell: cell)
+        return cell
+    }
+    
+    func returnRelevantEvent(tableView: UITableView,indexPath: IndexPath)->UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "viewFullFilePath", for: indexPath) as! ViewFullFilePath
+        passRelevantEvent(cell: cell)
         return cell
     }
     
@@ -223,7 +228,7 @@ extension FullGUI {
         if item.index == 0 {
             return folderNumberOfRowsInSection(section: section)
         } else {
-            return 2
+            return taskNumberOfRowsInSection(section: section)
         }
     }
     
@@ -249,7 +254,7 @@ extension FullGUI {
         switch section {
         case 0:
             //return 3
-            return 2
+            return 3
         case 1: //Based on selected field - return 1 or count + 1
             return 0
         case 2:
@@ -261,8 +266,37 @@ extension FullGUI {
         }
     }
     
-    func switchHeightForRowAt()->CGFloat{
-        return 60
+    func switchHeightForRowAt(indexPath: IndexPath)->CGFloat{
+        if item.index == 0 {
+            return folderHeightForRowAt(indexPath: indexPath)
+        } else {
+            return taskHeightForRowAt(indexPath: indexPath)
+        }
+    }
+    
+    func folderHeightForRowAt(indexPath: IndexPath)->CGFloat{
+        switch indexPath.section {
+        default:
+            return 60
+        }
+    }
+    
+    func taskHeightForRowAt(indexPath: IndexPath)->CGFloat{
+        switch indexPath.section {
+        case 0:
+            return taskSection0Height(indexPath: indexPath)
+        default:
+            return 0
+        }
+    }
+    
+    func taskSection0Height(indexPath: IndexPath)->CGFloat{
+        switch indexPath.row {
+        case 0:
+            return 60
+        default:
+            return 36
+        }
     }
     
 }
@@ -323,6 +357,116 @@ extension FullGUI {
         }
     }
     
+    func passFilePath(cell: ViewFullFilePath) {
+        let filepath = updateLabel(items: items)
+        //let string = "In List: \(filepath)"
+        let attribute = [ NSAttributedString.Key.font: UIFont(name: "Nexa-Bold", size: 20.0)!,NSAttributedString.Key.foregroundColor: UIColor.init(red: 220/255, green: 220/255, blue: 220/255, alpha: 0.9) ]
+        let preString = NSMutableAttributedString(string: "In File: ", attributes: attribute )
+        let attribute2 = [ NSAttributedString.Key.font: UIFont(name: "Nexa-Bold", size: 20.0)!,NSAttributedString.Key.foregroundColor: UIColor.white ]
+        let postString = NSMutableAttributedString(string: filepath, attributes: attribute2 )
+        preString.append(postString)
+        cell.updateFilePath(string: preString)
+    }
     
+    func updateEventLabel()->String{
+        //print("events: \(selectedEvents.count)")
+        if selectedEvents.count > 0 {
+            let first = selectedEvents[0]
+            let dates = dateLabel(event: first)
+            let times = timeLabel(event: first)
+            return "\(dates) ∙ \(times)"
+        } else {
+            return ""
+        }
+    }
+    
+    func passRelevantEvent(cell: ViewFullFilePath){
+        let eventString = updateEventLabel()
+        let attribute2 = [ NSAttributedString.Key.font: UIFont(name: "Nexa-Bold", size: 20.0)!,NSAttributedString.Key.foregroundColor: UIColor.white ]
+        let string = NSMutableAttributedString(string: eventString, attributes: attribute2 )
+        cell.updateFilePath(string: string)
+    }
+    
+    //Title, Status, [Tasks,Notes,Projects,Reflections]
+    //Title, File Path, Relevant Event, [About, Files, Notes]
+    //Modify, Favorite, Settings(*Pin, Delete, Cancel)
+    
+}
+
+extension UIViewController {
+    
+    func dateLabel(event: Event) -> String {
+        var labelText = String()
+        //print("date count: \(event.date.count)")
+        if event.date.count > 0 {
+            for i in 0...event.date.count-1{
+                labelText.append("\(returnDateString(date: event.date[i]))")
+                if i != event.date.count-1 {
+                    labelText.append(" - ")
+                }
+            }
+        }
+        return labelText
+    }
+    
+    func returnDateString(date: Date)->String{
+        let formatter = DateFormatter()
+        //formatter.dateFormat = "MMM d, yyyy"
+        formatter.dateFormat = "E, MMM d"
+        let dateString = formatter.string(from: date)
+        return dateString
+    }
+    
+    //Sort Time
+    //No Time
+    
+    func timeLabel(event: Event) -> String {
+        var labelText = String()
+        if event.time.count > 0 {
+            for i in 0...event.time.count-1{
+                if event.time[i] == "24:00" {
+                    
+                } else {
+                    labelText.append(convertFromMilitary(time: "\(event.time[i])"))
+                    if !event.time.contains("24:00") && i != event.time.count - 1 {
+                        labelText.append(" - ")
+                    }
+                }
+            }
+            if labelText.isEmpty {
+                labelText = "All-day"
+            }
+        }
+        return labelText
+    }
+    
+    func convertFromMilitary(time: String)->String{
+        let array = time.components(separatedBy: ":")
+        var hour = Int(array[0]) ?? 0
+        let minute = array[1]
+        var convertedTime = String()
+        var ending = String()
+        if array.count > 0 {
+            if hour >= 12{
+                if hour == 24 {
+                    convertedTime = "All-day"
+                } else {
+                    hour = hour - 12
+                    if hour == 0 {
+                        hour = 12
+                    }
+                    ending = "PM"
+                    convertedTime = "\(hour):\(minute) \(ending)"
+                }
+            } else {
+                if hour == 0 {
+                    hour = 12
+                }
+                ending = "AM"
+                convertedTime = "\(hour):\(minute) \(ending)"
+            }
+        }
+        return convertedTime
+    }
     
 }

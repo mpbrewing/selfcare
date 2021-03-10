@@ -48,9 +48,13 @@ class SwipeClass: UIView {
             //toggleGif(toggle: false)
         }
     }
+    
     var holdFilePath = [String]()
     
     var selectedItems = [Item]()
+    
+    var events = [Event]()
+    var selectedEvents = [Event]()
     
     //var gif = LoadingView()
     
@@ -80,6 +84,7 @@ class SwipeClass: UIView {
         setupSwipe()
         setupCardPosition()
         addCards()
+        addEvents()
         //gif.frame = CGRect(x: 0, y: 0, width: 414, height: 660)
         //toggleGif(toggle: true)
         //gif.updateView()
@@ -91,6 +96,13 @@ class SwipeClass: UIView {
         itemWallet = Array(repeating: Wallet(items: []), count: 4)
         holdPositions = Array(repeating: 0, count: 4)
         selectedItems = Array(repeating: Item(id: "", index: 0, path: [], details: [:]), count: 4)
+    }
+    
+    func addEvents(){
+        downloadEvents(db: db, completion: { event in
+            self.events = event
+            //
+        })
     }
     
     func addCards(){
@@ -312,6 +324,8 @@ extension SwipeClass {
             input.view.setDetails(emoji: emoji, name: title, url: photoURL)
             if input.position == CGPoint(x: 0, y: 0) {
                 input.view.items = selectedItems
+                input.view.events = events
+                //input.view.selectedEvents = selectedEvents
             }
         }
         //print("//")
@@ -765,5 +779,31 @@ extension SwipeClass {
     func modifySelectedFilePath(){
         selectedItems[Int(position.y)] = wallet[Int(position.y)].items[Int(position.x)]
     }
+    
+    func findEvents(){
+        let details = wallet[Int(position.y)].items[Int(position.x)].details
+        let holdEvents = details["events"] as! [String]
+        let filtered = events.filter({ filter in
+            if holdEvents.contains(filter.id) {
+                return true
+            } else {
+                return false
+            }
+        })
+        selectedEvents = filtered
+    }
+    
+    /*
+     
+     let filtered = wallet[selectedItems.count].items.filter({ filter in
+         if filter.path.contains(id) {
+             return true
+         } else {
+             return false
+         }
+     })
+     itemWallet[selectedItems.count] = Wallet(items: filtered)
+     
+     */
     
 }

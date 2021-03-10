@@ -52,6 +52,41 @@ extension UIView {
                 }
         }
     }
+    
+    func downloadEvents(db: Firestore,completion: @escaping ([Event]) -> Void) {
+        let userId = Auth.auth().currentUser?.uid
+        var events = [Event]()
+        db.collection("users").document("\(userId!)").collection("events")
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                    completion([])
+                } else {
+                    for document in querySnapshot!.documents {
+                        //print("\(document.documentID) => \(document.data())")
+                        var holdData = document.data()
+                        holdData["id"] = "\(document.documentID)"
+                        let holdEvents = self.stampToDate(stamp: holdData["date"] as! [Timestamp])
+                        holdData["date"] = holdEvents
+                        //holdData["date"] = []
+                        let newEvent = Event(snapshot: holdData)
+                        events.append(newEvent)
+                    }
+                    completion(events)
+                }
+        }
+    }
+    
+    func stampToDate(stamp: [Timestamp])->[Date]{
+        var array =  [Date]()
+        if stamp.count > 0 {
+            for i in 0...stamp.count-1 {
+                let hold =  stamp[i].dateValue()
+                array.append(hold)
+            }
+        }
+        return array
+    }
 
 }
 

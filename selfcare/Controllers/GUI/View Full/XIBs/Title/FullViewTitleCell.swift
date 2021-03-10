@@ -55,7 +55,6 @@ class FullViewTitleCell: UITableViewCell {
         case 3:
             status.backgroundColor = UIColor.systemGreen
             //Vibrate
-            UIDevice.vibrate()
         default:
             break
         }
@@ -68,6 +67,9 @@ class FullViewTitleCell: UITableViewCell {
             input = 0
         }
         switchStatus()
+        if input == 3 {
+            UIDevice.vibrate()
+        }
         updateStatus()
     }
     
