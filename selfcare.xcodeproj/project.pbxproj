@@ -55,6 +55,10 @@
 		EC29BE2E25F7481100ED4D90 /* vibrateDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC29BE2D25F7481100ED4D90 /* vibrateDevice.swift */; };
 		EC29BE3325F7551A00ED4D90 /* ViewFullFilePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC29BE3225F7551A00ED4D90 /* ViewFullFilePath.swift */; };
 		EC29BE3825F7555700ED4D90 /* ViewFullFilePathCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC29BE3725F7555700ED4D90 /* ViewFullFilePathCell.xib */; };
+		EC29BF0325F866F000ED4D90 /* FullViewStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC29BF0225F866F000ED4D90 /* FullViewStatus.swift */; };
+		EC29BF0825F8670D00ED4D90 /* FullViewStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC29BF0725F8670D00ED4D90 /* FullViewStatusCell.xib */; };
+		EC29BF0D25F8776A00ED4D90 /* FVMiniStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC29BF0C25F8776A00ED4D90 /* FVMiniStatusCell.swift */; };
+		EC29BF1225F8781200ED4D90 /* FVMiniStatus.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC29BF1125F8781200ED4D90 /* FVMiniStatus.xib */; };
 		EC32D7AB2567315C003E0437 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC32D7AA2567315C003E0437 /* HomeView.xib */; };
 		EC32D7B1256731AB003E0437 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC32D7B0256731AB003E0437 /* MenuViewController.swift */; };
 		EC32D7B6256731F6003E0437 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC32D7B5256731F6003E0437 /* MenuView.xib */; };
@@ -264,6 +268,10 @@
 		EC29BE2D25F7481100ED4D90 /* vibrateDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vibrateDevice.swift; sourceTree = "<group>"; };
 		EC29BE3225F7551A00ED4D90 /* ViewFullFilePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFullFilePath.swift; sourceTree = "<group>"; };
 		EC29BE3725F7555700ED4D90 /* ViewFullFilePathCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewFullFilePathCell.xib; sourceTree = "<group>"; };
+		EC29BF0225F866F000ED4D90 /* FullViewStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullViewStatus.swift; sourceTree = "<group>"; };
+		EC29BF0725F8670D00ED4D90 /* FullViewStatusCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullViewStatusCell.xib; sourceTree = "<group>"; };
+		EC29BF0C25F8776A00ED4D90 /* FVMiniStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FVMiniStatusCell.swift; sourceTree = "<group>"; };
+		EC29BF1125F8781200ED4D90 /* FVMiniStatus.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FVMiniStatus.xib; sourceTree = "<group>"; };
 		EC32D7AA2567315C003E0437 /* HomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
 		EC32D7B0256731AB003E0437 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		EC32D7B5256731F6003E0437 /* MenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
@@ -1190,6 +1198,10 @@
 		ECEE316C25F61078007813E5 /* Status */ = {
 			isa = PBXGroup;
 			children = (
+				EC29BF0225F866F000ED4D90 /* FullViewStatus.swift */,
+				EC29BF0725F8670D00ED4D90 /* FullViewStatusCell.xib */,
+				EC29BF0C25F8776A00ED4D90 /* FVMiniStatusCell.swift */,
+				EC29BF1125F8781200ED4D90 /* FVMiniStatus.xib */,
 			);
 			path = Status;
 			sourceTree = "<group>";
@@ -1375,6 +1387,7 @@
 				EC82239B258A0211003EC885 /* CardView.xib in Resources */,
 				EC26337A25B7712E0099A91E /* ClockView.xib in Resources */,
 				ECB5409925632536003CCDA5 /* GoogleService-Info.plist in Resources */,
+				EC29BF0825F8670D00ED4D90 /* FullViewStatusCell.xib in Resources */,
 				EC43D5D225B17C1500BB5EA7 /* EventTimeTab.xib in Resources */,
 				EC1CD1A32579B5E300609350 /* AddFolderView.xib in Resources */,
 				ECBED86A25BE265600F0332E /* RepeatMonth.xib in Resources */,
@@ -1427,6 +1440,7 @@
 				ECF29B9D25B0FDA70076E6C6 /* TagsView.xib in Resources */,
 				EC44046725DB271700CEFE8B /* AnotherTagCell.xib in Resources */,
 				ECCEAED625E63E42003A958A /* ViewEventsView.xib in Resources */,
+				EC29BF1225F8781200ED4D90 /* FVMiniStatus.xib in Resources */,
 				ECF29B9725B0FD860076E6C6 /* EventsView.xib in Resources */,
 				EC1CD1A82579B8B800609350 /* AddTaskView.xib in Resources */,
 				EC0AD9BE255B502800EC1686 /* NexaBold.otf in Resources */,
@@ -1584,6 +1598,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC29BF0D25F8776A00ED4D90 /* FVMiniStatusCell.swift in Sources */,
 				ECBED86F25BE269E00F0332E /* RepeatMonthCell.swift in Sources */,
 				ECBED88125BE285100F0332E /* MonthClass.swift in Sources */,
 				ECE4CDD625AE91790016F6B6 /* AddStatusCell.swift in Sources */,
@@ -1635,6 +1650,7 @@
 				EC0AD9D2255B61FE00EC1686 /* LoginViewController.swift in Sources */,
 				ECA2704B25C8F46E00B7D983 /* EndsMiniNibCell.swift in Sources */,
 				EC95BA2F25BE822C005FD83C /* location.swift in Sources */,
+				EC29BF0325F866F000ED4D90 /* FullViewStatus.swift in Sources */,
 				EC44045825DB268C00CEFE8B /* SelectTagsTableViewCell.swift in Sources */,
 				EC61ED9425B825AA00AA9566 /* rotateExtension.swift in Sources */,
 				ECE4CDEA25AE91B60016F6B6 /* AddTagsCell.swift in Sources */,

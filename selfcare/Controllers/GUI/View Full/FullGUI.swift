@@ -18,6 +18,7 @@ class FullGUI: UIViewController,UITableViewDelegate, UITableViewDataSource {
     var items = [Item]()
     var events = [Event]()
     var selectedEvents = [Event]()
+    var wallet = [Wallet]()
     
     var favorited = Bool()
     
@@ -104,8 +105,18 @@ extension FullGUI {
         //print("AddMenuCell: allTags: \(allTags.count)")
         // Title
         tableView.register(UINib(nibName: "FullViewTitle", bundle: nil), forCellReuseIdentifier: "fullViewTitle")
+        //
+        // Folder
+        //
+        // Status
+        tableView.register(UINib(nibName: "FullViewStatusCell", bundle: nil), forCellReuseIdentifier: "fullViewStatus")
+        //
+        // Task
+        //
         // File Path
         tableView.register(UINib(nibName: "ViewFullFilePathCell", bundle: nil), forCellReuseIdentifier: "viewFullFilePath")
+        //
+        
         //
         tableView.delegate = self
         tableView.dataSource = self
@@ -151,6 +162,8 @@ extension FullGUI {
         switch indexPath.row {
         case 0:
             return returnTitle(tableView: tableView, indexPath: indexPath)
+        case 1:
+            return returnStatus(tableView: tableView, indexPath: indexPath)
         default:
             return returnTitle(tableView: tableView, indexPath: indexPath)
         }
@@ -183,6 +196,14 @@ extension FullGUI {
             cell.input = status
             cell.updateType()
         }
+        return cell
+    }
+    
+    //
+    
+    func returnStatus(tableView: UITableView,indexPath: IndexPath)->UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "fullViewStatus", for: indexPath) as! FullViewStatus
+        passStatus(cell: cell)
         return cell
     }
     
@@ -236,7 +257,7 @@ extension FullGUI {
         switch section {
         case 0:
             //return 2
-            return 1
+            return 2
         case 1: //Based on selected field - return 1 or count + 1
             return 0
         case 2:
@@ -276,6 +297,19 @@ extension FullGUI {
     
     func folderHeightForRowAt(indexPath: IndexPath)->CGFloat{
         switch indexPath.section {
+        case 0:
+            return folderSection0Height(indexPath: indexPath)
+        default:
+            return 60
+        }
+    }
+    
+    func folderSection0Height(indexPath: IndexPath)->CGFloat{
+        switch indexPath.row {
+        case 0:
+            return 60
+        case 1:
+            return 88
         default:
             return 60
         }
@@ -387,9 +421,20 @@ extension FullGUI {
         cell.updateFilePath(string: string)
     }
     
+    func passStatus(cell: FullViewStatus){
+        if item.index == 0 {
+            let next = wallet[1].items
+            //print("next: \(next.count)")
+            cell.items = next
+            cell.updateArray()
+        }
+    }
+    
     //Title, Status, [Tasks,Notes,Projects,Reflections]
     //Title, File Path, Relevant Event, [About, Files, Notes]
     //Modify, Favorite, Settings(*Pin, Delete, Cancel)
+    
+    
     
 }
 

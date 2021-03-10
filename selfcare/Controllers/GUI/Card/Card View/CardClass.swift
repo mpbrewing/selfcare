@@ -31,6 +31,7 @@ class CardClass: UIView {
     var item = Item(id: "", index: 0, path: [], details: [:])
     //id
     var items = [Item]()
+    var wallet = [Wallet]()
     var events: [Event] = [Event]() {
         didSet {
             findEvents()
@@ -120,6 +121,7 @@ class CardClass: UIView {
         let full = FullGUI()
         full.item = item
         full.items = items
+        full.wallet = wallet
         full.events = events
         full.selectedEvents  = selectedEvents
         full.modalPresentationStyle = .fullScreen

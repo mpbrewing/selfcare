@@ -325,6 +325,7 @@ extension SwipeClass {
             if input.position == CGPoint(x: 0, y: 0) {
                 input.view.items = selectedItems
                 input.view.events = events
+                input.view.wallet = wallet
                 //input.view.selectedEvents = selectedEvents
             }
         }
