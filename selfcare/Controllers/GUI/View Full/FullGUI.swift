@@ -176,7 +176,13 @@ extension FullGUI {
         case 1:
             return returnFilePath(tableView: tableView, indexPath: indexPath)
         case 2:
-            return returnRelevantEvent(tableView: tableView, indexPath: indexPath)
+            if selectedEvents.count > 0 {
+                return returnRelevantEvent(tableView: tableView, indexPath: indexPath)
+            } else {
+                return returnStatus(tableView: tableView, indexPath: indexPath)
+            }
+        case 3:
+            return returnStatus(tableView: tableView, indexPath: indexPath)
         default:
             return returnTitle(tableView: tableView, indexPath: indexPath)
         }
@@ -271,11 +277,27 @@ extension FullGUI {
         }
     }
     
+    func returnRow0()->Int{
+        var row = 2
+        if selectedEvents.count > 0 {
+            row = row + 1
+        }
+        if item.index < 3 {
+            let next = wallet[item.index+1].items
+            if next.count > 0 {
+                row = row + 1
+            }
+        }
+        return row
+    }
+    
     func taskNumberOfRowsInSection(section: Int) -> Int {
         switch section {
         case 0:
             //return 3
-            return 3
+            let row = returnRow0()
+            //print(row)
+            return row
         case 1: //Based on selected field - return 1 or count + 1
             return 0
         case 2:
@@ -328,6 +350,17 @@ extension FullGUI {
         switch indexPath.row {
         case 0:
             return 60
+        case 1:
+            return 36
+        case 2:
+            if selectedEvents.count > 0 {
+                print("events >")
+                return 36
+            } else {
+                return 88
+            }
+        case 3:
+            return 88
         default:
             return 36
         }
@@ -423,10 +456,18 @@ extension FullGUI {
     
     func passStatus(cell: FullViewStatus){
         if item.index == 0 {
+            //let next = wallet[item.index].items
             let next = wallet[1].items
             //print("next: \(next.count)")
             cell.items = next
             cell.updateArray()
+        } else {
+            if item.index < 3 {
+                let next = wallet[item.index+1].items
+                //print("next: \(next.count)")
+                cell.items = next
+                cell.updateArray()
+            }
         }
     }
     

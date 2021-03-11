@@ -223,15 +223,15 @@ extension FullViewStatus {
     }
     
     func updateHold(status: Int,bool:Bool){
-        holdBg.frame = CGRect(x: 10, y: 12, width: 20, height: 20)
+        holdBg.frame = CGRect(x: 10, y: 8, width: 20, height: 20)
         holdBg.backgroundColor = returnColor(status: status)
         holdBg.layer.cornerRadius = 4
         if bool == false {
             holdBg.isHidden = true
-            label.frame = CGRect(x: 10, y: 12, width: 384, height: 30)
+            label.frame = CGRect(x: 10, y: 6, width: 384, height: 30)
         } else {
             holdBg.isHidden = false
-            label.frame = CGRect(x: 40, y: 12, width: 384, height: 30)
+            label.frame = CGRect(x: 40, y: 6, width: 384, height: 30)
         }
     }
     

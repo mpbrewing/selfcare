@@ -129,7 +129,7 @@ extension UIColor {
 
 extension UINavigationController {
    public override var preferredStatusBarStyle: UIStatusBarStyle {
-    print("\(viewControllers.last?.isMember(of: FullGUI.self) ?? false)")
+    //print("\(viewControllers.last?.isMember(of: FullGUI.self) ?? false)")
     if viewControllers.last?.isMember(of: FullGUI.self) == true {
         return .lightContent
     } else {
