@@ -14,17 +14,37 @@ class FullGUI: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var bg: UIImageView!
     
+    var task = [Task]()
     var item = Item(id: "", index: 0, path: [], details: [:])
     var items = [Item]()
     var events = [Event]()
     var selectedEvents = [Event]()
     var wallet = [Wallet]()
+    var tags = [Tag]()
     
     var favorited = Bool()
+    
+    var selectedRow = Int()
+    let cellDescriptionIdentifier = "addDescription"
+    let cellEventsId = "addEvents"
+    let cellPriorityId = "addPriority"
+    let cellTagsId = "addTags"
+    
+    var aboutHeight = CGFloat()
+    var descriptionHeight: CGFloat = 50
+    var holdTextView = UITextView()
+    
+    var descriptionBool = Bool()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadXIB(name: "FullGUIView")
+        //Observe Notifications for Task Details
+        NotificationCenter.default.addObserver(self, selector: #selector(setupTaskDetails(notification:)), name: .toFullView, object: nil)
+        hideKeyboardWhenTappedAround()
+        updateTask()
+        updateDescriptionHeight()
+        calculateAboutHeight()
         setupTableView()
         setupBG()
     }
@@ -35,6 +55,12 @@ class FullGUI: UIViewController,UITableViewDelegate, UITableViewDataSource {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         navigationController?.navigationBar.standardAppearance.setBackIndicatorImage(#imageLiteral(resourceName: "backIcon"), transitionMaskImage: #imageLiteral(resourceName: "backIcon"))
     }
+    
+    //About
+    //Tasks
+    //***Notes
+    //***Projects
+    //***Reflection
     
 }
 
@@ -115,9 +141,13 @@ extension FullGUI {
         //
         // File Path
         tableView.register(UINib(nibName: "ViewFullFilePathCell", bundle: nil), forCellReuseIdentifier: "viewFullFilePath")
+        // Menu
+        tableView.register(UINib(nibName: "FullViewMenu", bundle: nil), forCellReuseIdentifier: "fullViewMenu")
         //
+        tableView.register(UINib(nibName: "FullViewMenuMini", bundle: nil), forCellReuseIdentifier: "fullViewMenuMini")
+       //
+        tableView.register(UINib(nibName: "ViewFullMenuTableCell", bundle: nil), forCellReuseIdentifier: "viewFullMenuTable")
         
-        //
         tableView.delegate = self
         tableView.dataSource = self
         //
@@ -141,7 +171,19 @@ extension FullGUI {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if indexPath.section > 0 {
+            if item.index == 0 {
+                if selectedRow != indexPath.section {
+                    selectedRow = indexPath.section
+                    tableView.reloadData()
+                }
+            } else {
+                if selectedRow != indexPath.section - 1 {
+                    selectedRow = indexPath.section - 1
+                    tableView.reloadData()
+                }
+            }
+        }
     }
     
 }
@@ -151,10 +193,21 @@ extension FullGUI {
     func switchCellForRowAt(tableView: UITableView,indexPath: IndexPath)->UITableViewCell{
         if item.index == 0 {
             //Switch based on section
-            return switchFolder(tableView: tableView, indexPath: indexPath)
+            return switchCellSectionFolder(tableView: tableView, indexPath: indexPath)
         } else {
             //Switch based on section
-            return switchTask(tableView: tableView, indexPath: indexPath)
+            return switchCellSectionTask(tableView: tableView, indexPath: indexPath)
+        }
+    }
+    
+    func switchCellSectionFolder(tableView: UITableView,indexPath: IndexPath)->UITableViewCell{
+        switch indexPath.section {
+        case 0:
+            return switchFolder(tableView: tableView, indexPath: indexPath)
+        case 1...4:
+            return switchFolderSection1(tableView: tableView, indexPath: indexPath)
+        default:
+            return switchFolder(tableView: tableView, indexPath: indexPath)
         }
     }
     
@@ -166,6 +219,17 @@ extension FullGUI {
             return returnStatus(tableView: tableView, indexPath: indexPath)
         default:
             return returnTitle(tableView: tableView, indexPath: indexPath)
+        }
+    }
+    
+    func switchCellSectionTask(tableView: UITableView,indexPath: IndexPath)->UITableViewCell{
+        switch indexPath.section {
+        case 0:
+            return switchTask(tableView: tableView, indexPath: indexPath)
+        case 1...3:
+            return switchTaskSection1(tableView: tableView, indexPath: indexPath)
+        default:
+            return switchTask(tableView: tableView, indexPath: indexPath)
         }
     }
     
@@ -202,6 +266,7 @@ extension FullGUI {
             cell.input = status
             cell.updateType()
         }
+        cell.separatorInset = UIEdgeInsets(top: 0, left: 10000, bottom: 0, right: 0);
         return cell
     }
     
@@ -210,26 +275,110 @@ extension FullGUI {
     func returnStatus(tableView: UITableView,indexPath: IndexPath)->UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "fullViewStatus", for: indexPath) as! FullViewStatus
         passStatus(cell: cell)
+        //cell.separatorInset = UIEdgeInsets(top: 0, left: 10000, bottom: 0, right: 0);
         return cell
     }
     
-    //file path, events
-    //if events.count > 0
-    //display most urgent event
+    func switchFolderSection1(tableView: UITableView,indexPath: IndexPath)->UITableViewCell{
+        switch indexPath.row {
+        case 0:
+            return returnFolderMenu(tableView: tableView, indexPath: indexPath)
+        default:
+            return returnTaskMenuTable(tableView: tableView, indexPath: indexPath)
+        }
+    }
     
-    //nav bar clear on disappear
+    func returnFolderMenu(tableView: UITableView,indexPath: IndexPath)->UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "fullViewMenu", for: indexPath) as! FullViewMenuCell
+        let row = indexPath.section-1
+        cell.updateFolderStyle(index: row)
+        //print(selectedRow)
+        if selectedRow == indexPath.section {
+            cell.ifSelected(selected: true)
+        } else {
+            cell.ifSelected(selected: false)
+        }
+        //cell.separatorInset = UIEdgeInsets(top: 0, left: 10000, bottom: 0, right: 0);
+        return cell
+    }
     
-    //status color on view border
+    func switchTaskSection1(tableView: UITableView,indexPath: IndexPath)->UITableViewCell{
+        switch indexPath.row {
+        case 0:
+            return returnTaskMenu(tableView: tableView, indexPath: indexPath)
+        default:
+            return returnTaskMenuTable(tableView: tableView, indexPath: indexPath)
+        }
+    }
+    
+    func returnTaskMenu(tableView: UITableView,indexPath: IndexPath)->UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "fullViewMenu", for: indexPath) as! FullViewMenuCell
+        let row = indexPath.section-1
+        cell.updateTaskStyle(index: row)
+        if selectedRow == indexPath.section - 1 {
+            cell.ifSelected(selected: true)
+        } else {
+            cell.ifSelected(selected: false)
+        }
+        //cell.separatorInset = UIEdgeInsets(top: 0, left: 10000, bottom: 0, right: 0);
+        return cell
+    }
+    
+    func returnTaskMenuTable(tableView: UITableView,indexPath: IndexPath)->UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "viewFullMenuTable", for: indexPath) as! ViewFullMenuTable
+        cell.state = selectedRow
+        cell.events = selectedEvents
+        cell.tags = tags
+        cell.task = []
+        cell.task.append(task[0])
+        cell.aboutHeight = aboutHeight
+        if descriptionBool {
+            cell.descriptionH = descriptionHeight
+            descriptionBool = false
+        }
+        cell.descriptionHeight = descriptionHeight
+        cell.updateAboutCellHeights()
+        cell.tableView.reloadData()
+        
+        if (indexPath.section == 4 && selectedRow == 4 && item.index == 0) || (item.index > 0 && indexPath.section == 3 && selectedRow == 2){
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 10000, bottom: 0, right: 0);
+        } else {
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0);
+        }
+        
+        //cell.separatorInset = UIEdgeInsets(top: 0, left: 10000, bottom: 0, right: 0);
+        return cell
+    }
     
     func returnFilePath(tableView: UITableView,indexPath: IndexPath)->UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "viewFullFilePath", for: indexPath) as! ViewFullFilePath
         passFilePath(cell: cell)
+        if item.index > 0 {
+            //if items.count > 0 {
+            if returnIfStatus() {
+                //print("1")
+                cell.separatorInset = UIEdgeInsets(top: 0, left: 10000, bottom: 0, right: 0);
+            } else if selectedEvents.count > 0 {
+                //print("2")
+                cell.separatorInset = UIEdgeInsets(top: 0, left: 10000, bottom: 0, right: 0);
+            } else {
+                //print("3")
+                cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            }
+        } else {
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        }
         return cell
     }
     
     func returnRelevantEvent(tableView: UITableView,indexPath: IndexPath)->UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "viewFullFilePath", for: indexPath) as! ViewFullFilePath
         passRelevantEvent(cell: cell)
+        if returnIfStatus() {
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 10000, bottom: 0, right: 0);
+        } else {
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        }
         return cell
     }
     
@@ -242,12 +391,12 @@ extension FullGUI {
     }
     
     func folderNumberOfSections()->Int{
-        return 1
+        return 5
         //return 5
     }
     
     func taskNumberOfSections()->Int{
-        return 1
+        return 4
         //return 4
     }
     
@@ -264,14 +413,12 @@ extension FullGUI {
         case 0:
             //return 2
             return 2
-        case 1: //Based on selected field - return 1 or count + 1
-            return 0
-        case 2:
-            return 0
-        case 3:
-            return 0
-        case 4:
-            return 0
+        case 1...4:
+            if selectedRow == (section) {
+                return 2
+            } else {
+                return 1
+            }
         default:
             return 0
         }
@@ -298,14 +445,14 @@ extension FullGUI {
             let row = returnRow0()
             //print(row)
             return row
-        case 1: //Based on selected field - return 1 or count + 1
-            return 0
-        case 2:
-            return 0
-        case 3:
-            return 0
+        case 1...3:
+            if selectedRow == (section - 1) {
+                return 2
+            } else {
+                return 1
+            }
         default:
-            return 0
+            return 1
         }
     }
     
@@ -317,10 +464,37 @@ extension FullGUI {
         }
     }
     
+    //min 400
+    //max 420
+    //determine height
+    
+    func determineTableHeight()->CGFloat{
+        var height = view.frame.height
+        //74 -> if items
+        if item.index == 0 {
+            height = height - 92 - (3 * (54)) - 60 - 88 - 92
+        } else {
+            height = height - 60 - 36 - 88 - (4 * (54)) - 92
+            if selectedEvents.count > 0 {
+                height = height - 36
+            }
+        }
+        //print(height)
+        return height
+    }
+    
     func folderHeightForRowAt(indexPath: IndexPath)->CGFloat{
         switch indexPath.section {
         case 0:
             return folderSection0Height(indexPath: indexPath)
+        case 1...4:
+            if indexPath.row == 0 {
+                return 54
+            } else {
+                //return determineTableHeight()
+                //determine task, note, project, and reflection height
+                return 400
+            }
         default:
             return 60
         }
@@ -331,7 +505,16 @@ extension FullGUI {
         case 0:
             return 60
         case 1:
-            return 88
+            if item.index < 3 {
+                if wallet[item.index+1].items.count > 0 {
+                    return 66
+                } else {
+                    return 36
+                }
+            }
+            return 36
+            //return 74
+            //change height if no tasks
         default:
             return 60
         }
@@ -341,8 +524,21 @@ extension FullGUI {
         switch indexPath.section {
         case 0:
             return taskSection0Height(indexPath: indexPath)
+        case 1...4:
+            if indexPath.row == 0 {
+                return 54
+            } else {
+               // return 44
+                //return determineTableHeight()
+                if selectedRow == 0 {
+                    return aboutHeight
+                } else {
+                    //determine task, note, project, and reflection height
+                    return 400
+                }
+            }
         default:
-            return 0
+            return 60
         }
     }
     
@@ -354,13 +550,13 @@ extension FullGUI {
             return 36
         case 2:
             if selectedEvents.count > 0 {
-                print("events >")
+                //print("events >")
                 return 36
             } else {
-                return 88
+                return 66
             }
         case 3:
-            return 88
+            return 66
         default:
             return 36
         }
@@ -381,6 +577,10 @@ extension FullGUI {
          blurEffectView.frame = view.bounds
          blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
          bg.addSubview(blurEffectView)
+        
+        if item.index == 0 {
+            selectedRow = 1
+        }
     }
     
     func SegueToAddFolder(){
@@ -449,9 +649,12 @@ extension FullGUI {
     
     func passRelevantEvent(cell: ViewFullFilePath){
         let eventString = updateEventLabel()
-        let attribute2 = [ NSAttributedString.Key.font: UIFont(name: "Nexa-Bold", size: 20.0)!,NSAttributedString.Key.foregroundColor: UIColor.white ]
-        let string = NSMutableAttributedString(string: eventString, attributes: attribute2 )
-        cell.updateFilePath(string: string)
+        //let attribute2 = [ NSAttributedString.Key.font: UIFont(name: "Nexa-Bold", size: 20.0)!,NSAttributedString.Key.foregroundColor: UIColor.white ]
+        //let string = NSMutableAttributedString(string: eventString, attributes: attribute2 )
+       // cell.updateFilePath(string: string)
+        //⏱⌛️⏳🗓📆📅
+        cell.filePath.font = cell.filePath.font.withSize(18)
+        cell.updateFilePath2(string: "🗓 \(eventString)")
     }
     
     func passStatus(cell: FullViewStatus){
@@ -468,6 +671,19 @@ extension FullGUI {
                 cell.items = next
                 cell.updateArray()
             }
+        }
+    }
+    
+    func returnIfStatus()->Bool{
+        if item.index < 3 {
+            let next = wallet[item.index+1].items
+            if next.count > 0 {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
         }
     }
     
@@ -553,6 +769,127 @@ extension UIViewController {
             }
         }
         return convertedTime
+    }
+    
+}
+
+extension FullGUI {
+    
+    @objc func setupTaskDetails(notification: NSNotification){
+        if let index = notification.userInfo?["index"] as? Int {
+            switchEventDetails(index: index, notification: notification)
+        }
+    }
+    
+    //Place data in object
+    func switchEventDetails(index: Int,notification: NSNotification){
+        switch index {
+        case 0: //Description
+            notifDescription(notif: notification)
+        case 1: //Events
+            notifEvents(notif: notification)
+        case 2: //Priority
+            notifPriority(notif: notification)
+        case 3: //Tags
+            notifTags(notif: notification)
+        default:
+            break
+        }
+    }
+    
+    func notifDescription(notif:NSNotification){
+        let taskDescription = notif.userInfo?["description"] as? String ?? ""
+        descriptionHeight = notif.userInfo?["height"] as? CGFloat ?? CGFloat(50)
+        calculateAboutHeight()
+        //print("\(descriptionHeight) : \(taskDescription)")
+        task[0].setDescription(description: taskDescription)
+        tableView.reloadData()
+    }
+    
+    func notifEvents(notif:NSNotification){
+        //Modify or New
+        //let blank = Event(id: "", date: [Date()], time: [String](), repeating: [String:Any](), notify: [[String:Any]](), location: [String]())
+        //let event = notif.userInfo?["event"] as? Event ?? blank
+        //events.append(event)
+        tableView.reloadData()
+    }
+    
+    func notifPriority(notif:NSNotification){
+        let priority = notif.userInfo?["priority"] as? Int ?? Int()
+        task[0].setPriority(priority: priority)
+    }
+    
+    func notifTags(notif:NSNotification){
+        let input = notif.userInfo?["input"] as? Int ?? Int()
+        if input == 0 {
+            //print("zero")
+            //let tag = notif.userInfo?["tag"] as! Tag
+            //allTags.append(tag)
+            //Refresh from database or pass holdTags or sort tags by title
+            tableView.reloadData()
+        } else if input == 1 {
+            //print("one")
+            //tags = notif.userInfo?["tags"] as? [String] ?? tags
+            //task[0].setTags(tags: tags)
+            //selectedTags = notif.userInfo?["selected"] as? [Tag] ?? selectedTags
+            tableView.reloadData()
+        } else {
+            //print("two")
+            //selectedTags = notif.userInfo?["selected"] as? [Tag] ?? selectedTags
+            tableView.reloadData()
+        }
+        
+    }
+    
+    //✅ Create XIBS for cells
+    //Determine Height Based On Details
+    //Pass in height values
+    //Retrive changes from XIB and reload table view
+    
+    func updateDescriptionHeight(){
+        if task.count > 0 && item.index > 0 {
+            if task[0].description != "" {
+                descriptionBool = true
+                holdTextView = UITextView(frame: CGRect(x: 0, y: 0, width: 414, height: 100))
+                holdTextView.translatesAutoresizingMaskIntoConstraints = false
+                holdTextView.isScrollEnabled = false
+                holdTextView.text = task[0].description
+                let height = holdTextView.contentSize.height
+                //let height = holdTextView.contentSize.height
+                //print("\(height): \(task[0].description)")
+                if height >= 50 {
+                    descriptionHeight = height
+                } else {
+                    descriptionHeight = height + 6
+                }
+                //print("")
+            }
+        }
+    }
+    
+    func calculateAboutHeight(){
+        var height: CGFloat = 50 //Priority
+        height = height + descriptionHeight + 6
+        if events.count > 0 {
+            height = height + 170
+        } else {
+            height = height + 50
+        }
+        if tags.count > 0 {
+            height = height + 200
+        } else {
+            height = height + 50
+        }
+        aboutHeight = height
+    }
+    
+    func updateTask(){
+        if item.index == 0 {
+            task.append(Task(title: "(no title)", emoji: "🖤", description: "", events: [], status: 0, priority: 0, tags: [], photoURL: "", color: ""))
+        } else {
+            let hold = Task(snapshot: item.details)
+            task.append(hold)
+        }
     }
     
 }

@@ -86,6 +86,11 @@ extension Notification.Name {
     
 }
 
+extension Notification.Name {
+    //FullViewDescription -> FullGUI
+    static let toFullView = Notification.Name("toFullView")
+}
+
 /*
  
  ex. Observer

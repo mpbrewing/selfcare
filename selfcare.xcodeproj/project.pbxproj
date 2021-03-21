@@ -59,6 +59,10 @@
 		EC29BF0825F8670D00ED4D90 /* FullViewStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC29BF0725F8670D00ED4D90 /* FullViewStatusCell.xib */; };
 		EC29BF0D25F8776A00ED4D90 /* FVMiniStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC29BF0C25F8776A00ED4D90 /* FVMiniStatusCell.swift */; };
 		EC29BF1225F8781200ED4D90 /* FVMiniStatus.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC29BF1125F8781200ED4D90 /* FVMiniStatus.xib */; };
+		EC29BF3525F9B23200ED4D90 /* FullViewMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC29BF3425F9B23200ED4D90 /* FullViewMenuCell.swift */; };
+		EC29BF3A25F9B25000ED4D90 /* FullViewMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC29BF3925F9B25000ED4D90 /* FullViewMenu.xib */; };
+		EC29BF9025FB62F600ED4D90 /* FullViewMenuMiniCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC29BF8F25FB62F600ED4D90 /* FullViewMenuMiniCell.swift */; };
+		EC29BF9525FB631A00ED4D90 /* FullViewMenuMini.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC29BF9425FB631A00ED4D90 /* FullViewMenuMini.xib */; };
 		EC32D7AB2567315C003E0437 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC32D7AA2567315C003E0437 /* HomeView.xib */; };
 		EC32D7B1256731AB003E0437 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC32D7B0256731AB003E0437 /* MenuViewController.swift */; };
 		EC32D7B6256731F6003E0437 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC32D7B5256731F6003E0437 /* MenuView.xib */; };
@@ -111,6 +115,14 @@
 		EC6BB90C25802ECF00945FD4 /* AddPhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC6BB90B25802ECF00945FD4 /* AddPhotoView.xib */; };
 		EC6BB912258032D600945FD4 /* AddColorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC6BB911258032D600945FD4 /* AddColorView.xib */; };
 		EC6BB917258032E100945FD4 /* AddColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6BB916258032E100945FD4 /* AddColorCell.swift */; };
+		EC72DA5C2603EEEC00F97BC9 /* FullViewDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC72DA5B2603EEEC00F97BC9 /* FullViewDescription.swift */; };
+		EC72DA642603EF0A00F97BC9 /* FullViewDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC72DA632603EF0A00F97BC9 /* FullViewDescriptionCell.xib */; };
+		EC72DA692603EF6C00F97BC9 /* FullViewEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC72DA682603EF6C00F97BC9 /* FullViewEvents.swift */; };
+		EC72DA712603EF8500F97BC9 /* FullViewEventsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC72DA702603EF8500F97BC9 /* FullViewEventsCell.xib */; };
+		EC72DA762603EFF500F97BC9 /* FullViewPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC72DA752603EFF500F97BC9 /* FullViewPriority.swift */; };
+		EC72DA7B2603F01900F97BC9 /* FullViewPriorityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC72DA7A2603F01900F97BC9 /* FullViewPriorityCell.xib */; };
+		EC72DA802603F04A00F97BC9 /* FullViewTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC72DA7F2603F04A00F97BC9 /* FullViewTags.swift */; };
+		EC72DA852603F06000F97BC9 /* FullViewTagsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC72DA842603F06000F97BC9 /* FullViewTagsCell.xib */; };
 		EC81803125BC254100228690 /* RepeatSelection.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC81803025BC254100228690 /* RepeatSelection.xib */; };
 		EC81803625BC257D00228690 /* RepeatSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC81803525BC257D00228690 /* RepeatSelectionCell.swift */; };
 		EC8223682589D65B003EC885 /* notificationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8223672589D65B003EC885 /* notificationExt.swift */; };
@@ -159,6 +171,8 @@
 		ECA70FD225F30F3A00D4DC2A /* FullGUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA70FD125F30F3A00D4DC2A /* FullGUI.swift */; };
 		ECA70FD725F30F5A00D4DC2A /* FullGUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA70FD625F30F5A00D4DC2A /* FullGUIView.xib */; };
 		ECB5409925632536003CCDA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECB5409825632536003CCDA5 /* GoogleService-Info.plist */; };
+		ECBA4F8B25FE121E00CA940A /* ViewFullMenuTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBA4F8A25FE121E00CA940A /* ViewFullMenuTable.swift */; };
+		ECBA4F9025FE124A00CA940A /* ViewFullMenuTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECBA4F8F25FE124A00CA940A /* ViewFullMenuTableCell.xib */; };
 		ECBED86025BE25CF00F0332E /* RepeatWeekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBED85F25BE25CE00F0332E /* RepeatWeekCell.swift */; };
 		ECBED86525BE25F000F0332E /* RepeatWeek.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECBED86425BE25F000F0332E /* RepeatWeek.xib */; };
 		ECBED86A25BE265600F0332E /* RepeatMonth.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECBED86925BE265600F0332E /* RepeatMonth.xib */; };
@@ -272,6 +286,10 @@
 		EC29BF0725F8670D00ED4D90 /* FullViewStatusCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullViewStatusCell.xib; sourceTree = "<group>"; };
 		EC29BF0C25F8776A00ED4D90 /* FVMiniStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FVMiniStatusCell.swift; sourceTree = "<group>"; };
 		EC29BF1125F8781200ED4D90 /* FVMiniStatus.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FVMiniStatus.xib; sourceTree = "<group>"; };
+		EC29BF3425F9B23200ED4D90 /* FullViewMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullViewMenuCell.swift; sourceTree = "<group>"; };
+		EC29BF3925F9B25000ED4D90 /* FullViewMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullViewMenu.xib; sourceTree = "<group>"; };
+		EC29BF8F25FB62F600ED4D90 /* FullViewMenuMiniCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullViewMenuMiniCell.swift; sourceTree = "<group>"; };
+		EC29BF9425FB631A00ED4D90 /* FullViewMenuMini.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullViewMenuMini.xib; sourceTree = "<group>"; };
 		EC32D7AA2567315C003E0437 /* HomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
 		EC32D7B0256731AB003E0437 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		EC32D7B5256731F6003E0437 /* MenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
@@ -324,6 +342,14 @@
 		EC6BB90B25802ECF00945FD4 /* AddPhotoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPhotoView.xib; sourceTree = "<group>"; };
 		EC6BB911258032D600945FD4 /* AddColorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddColorView.xib; sourceTree = "<group>"; };
 		EC6BB916258032E100945FD4 /* AddColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddColorCell.swift; sourceTree = "<group>"; };
+		EC72DA5B2603EEEC00F97BC9 /* FullViewDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullViewDescription.swift; sourceTree = "<group>"; };
+		EC72DA632603EF0A00F97BC9 /* FullViewDescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullViewDescriptionCell.xib; sourceTree = "<group>"; };
+		EC72DA682603EF6C00F97BC9 /* FullViewEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullViewEvents.swift; sourceTree = "<group>"; };
+		EC72DA702603EF8500F97BC9 /* FullViewEventsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullViewEventsCell.xib; sourceTree = "<group>"; };
+		EC72DA752603EFF500F97BC9 /* FullViewPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullViewPriority.swift; sourceTree = "<group>"; };
+		EC72DA7A2603F01900F97BC9 /* FullViewPriorityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullViewPriorityCell.xib; sourceTree = "<group>"; };
+		EC72DA7F2603F04A00F97BC9 /* FullViewTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullViewTags.swift; sourceTree = "<group>"; };
+		EC72DA842603F06000F97BC9 /* FullViewTagsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullViewTagsCell.xib; sourceTree = "<group>"; };
 		EC81803025BC254100228690 /* RepeatSelection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepeatSelection.xib; sourceTree = "<group>"; };
 		EC81803525BC257D00228690 /* RepeatSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatSelectionCell.swift; sourceTree = "<group>"; };
 		EC8223672589D65B003EC885 /* notificationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notificationExt.swift; sourceTree = "<group>"; };
@@ -378,6 +404,8 @@
 		ECA70FD125F30F3A00D4DC2A /* FullGUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullGUI.swift; sourceTree = "<group>"; };
 		ECA70FD625F30F5A00D4DC2A /* FullGUIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullGUIView.xib; sourceTree = "<group>"; };
 		ECB5409825632536003CCDA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ECBA4F8A25FE121E00CA940A /* ViewFullMenuTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFullMenuTable.swift; sourceTree = "<group>"; };
+		ECBA4F8F25FE124A00CA940A /* ViewFullMenuTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewFullMenuTableCell.xib; sourceTree = "<group>"; };
 		ECBED85F25BE25CE00F0332E /* RepeatWeekCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatWeekCell.swift; sourceTree = "<group>"; };
 		ECBED86425BE25F000F0332E /* RepeatWeek.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepeatWeek.xib; sourceTree = "<group>"; };
 		ECBED86925BE265600F0332E /* RepeatMonth.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepeatMonth.xib; sourceTree = "<group>"; };
@@ -634,6 +662,15 @@
 			path = "Event Label";
 			sourceTree = "<group>";
 		};
+		EC29BF8625FB62C500ED4D90 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EC29BF8F25FB62F600ED4D90 /* FullViewMenuMiniCell.swift */,
+				EC29BF9425FB631A00ED4D90 /* FullViewMenuMini.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		EC32D7AF25673185003E0437 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -784,6 +821,33 @@
 				EC6BB911258032D600945FD4 /* AddColorView.xib */,
 			);
 			path = Color;
+			sourceTree = "<group>";
+		};
+		EC72DA582603EE7C00F97BC9 /* Description */ = {
+			isa = PBXGroup;
+			children = (
+				EC72DA5B2603EEEC00F97BC9 /* FullViewDescription.swift */,
+				EC72DA632603EF0A00F97BC9 /* FullViewDescriptionCell.xib */,
+			);
+			path = Description;
+			sourceTree = "<group>";
+		};
+		EC72DA592603EE8200F97BC9 /* Tags */ = {
+			isa = PBXGroup;
+			children = (
+				EC72DA7F2603F04A00F97BC9 /* FullViewTags.swift */,
+				EC72DA842603F06000F97BC9 /* FullViewTagsCell.xib */,
+			);
+			path = Tags;
+			sourceTree = "<group>";
+		};
+		EC72DA5A2603EEA400F97BC9 /* Priority */ = {
+			isa = PBXGroup;
+			children = (
+				EC72DA752603EFF500F97BC9 /* FullViewPriority.swift */,
+				EC72DA7A2603F01900F97BC9 /* FullViewPriorityCell.xib */,
+			);
+			path = Priority;
 			sourceTree = "<group>";
 		};
 		EC81802F25BC251900228690 /* Selection */ = {
@@ -1050,9 +1114,12 @@
 		ECA70FCE25F30EF300D4DC2A /* Task */ = {
 			isa = PBXGroup;
 			children = (
-				ECEE316925F60FEB007813E5 /* File Path */,
-				ECEE316A25F61054007813E5 /* Events */,
 				ECEE316B25F61066007813E5 /* Menu */,
+				ECEE316925F60FEB007813E5 /* File Path */,
+				EC72DA582603EE7C00F97BC9 /* Description */,
+				ECEE316A25F61054007813E5 /* Events */,
+				EC72DA5A2603EEA400F97BC9 /* Priority */,
+				EC72DA592603EE8200F97BC9 /* Tags */,
 			);
 			path = Task;
 			sourceTree = "<group>";
@@ -1064,6 +1131,15 @@
 				ECEE316C25F61078007813E5 /* Status */,
 			);
 			path = Folder;
+			sourceTree = "<group>";
+		};
+		ECBA4F8925FE11C100CA940A /* Menu Cells */ = {
+			isa = PBXGroup;
+			children = (
+				ECBA4F8A25FE121E00CA940A /* ViewFullMenuTable.swift */,
+				ECBA4F8F25FE124A00CA940A /* ViewFullMenuTableCell.xib */,
+			);
+			path = "Menu Cells";
 			sourceTree = "<group>";
 		};
 		ECBED85425BE257500F0332E /* Week */ = {
@@ -1184,6 +1260,8 @@
 		ECEE316A25F61054007813E5 /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				EC72DA682603EF6C00F97BC9 /* FullViewEvents.swift */,
+				EC72DA702603EF8500F97BC9 /* FullViewEventsCell.xib */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -1191,6 +1269,9 @@
 		ECEE316B25F61066007813E5 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				EC29BF8625FB62C500ED4D90 /* Cells */,
+				EC29BF3425F9B23200ED4D90 /* FullViewMenuCell.swift */,
+				EC29BF3925F9B25000ED4D90 /* FullViewMenu.xib */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -1216,6 +1297,7 @@
 		ECEE317225F624A5007813E5 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
+				ECBA4F8925FE11C100CA940A /* Menu Cells */,
 				ECEE317325F624AF007813E5 /* Title */,
 			);
 			path = XIBs;
@@ -1382,6 +1464,7 @@
 			files = (
 				EC98476025C0F212002181B0 /* ExcludedDatesView.xib in Resources */,
 				EC0AD9C1255B502800EC1686 /* NexaThin.otf in Resources */,
+				EC72DA7B2603F01900F97BC9 /* FullViewPriorityCell.xib in Resources */,
 				EC29BE3825F7555700ED4D90 /* ViewFullFilePathCell.xib in Resources */,
 				EC0AD9C6255B502800EC1686 /* NexaBlack.otf in Resources */,
 				EC82239B258A0211003EC885 /* CardView.xib in Resources */,
@@ -1396,10 +1479,12 @@
 				EC95BA1A25BE508C005FD83C /* NotifyPickerCell.xib in Resources */,
 				EC6BB912258032D600945FD4 /* AddColorView.xib in Resources */,
 				EC61ED9E25B854B600AA9566 /* MiniClockView.xib in Resources */,
+				EC29BF3A25F9B25000ED4D90 /* FullViewMenu.xib in Resources */,
 				EC0AD9BA255B502800EC1686 /* NexaHeavyItalic.otf in Resources */,
 				EC98473E25C0EEFF002181B0 /* RepeatEndsView.xib in Resources */,
 				EC0AD9BB255B502800EC1686 /* NexaHeavy.otf in Resources */,
 				ECA2707425CA38CC00B7D983 /* folder.json in Resources */,
+				EC29BF9525FB631A00ED4D90 /* FullViewMenuMini.xib in Resources */,
 				EC97F67F2575C53C00063B8B /* AddButtonCell.xib in Resources */,
 				EC98474C25C0F01F002181B0 /* OccurrencesView.xib in Resources */,
 				EC6BB90C25802ECF00945FD4 /* AddPhotoView.xib in Resources */,
@@ -1452,8 +1537,10 @@
 				EC0AD9D7255B629200EC1686 /* LoginView.xib in Resources */,
 				EC97F6752575C30F00063B8B /* AddButtonView.xib in Resources */,
 				EC0AD9B7255B502800EC1686 /* Nexa Bold.otf in Resources */,
+				EC72DA712603EF8500F97BC9 /* FullViewEventsCell.xib in Resources */,
 				EC95BA2A25BE809E005FD83C /* LocationCell.xib in Resources */,
 				EC0AD99F255B4F9300EC1686 /* OnboardingView.xib in Resources */,
+				EC72DA852603F06000F97BC9 /* FullViewTagsCell.xib in Resources */,
 				ECE4CDE525AE91A40016F6B6 /* AddTagsView.xib in Resources */,
 				EC0AD9C4255B502800EC1686 /* NexaXBoldItalic.otf in Resources */,
 				EC18E2C625EDA3F0003FB03A /* ViewTagsTableViewCell.xib in Resources */,
@@ -1466,11 +1553,13 @@
 				EC58C5AB258A16A8002F120C /* SwipeBarView.xib in Resources */,
 				EC0AD9C5255B502800EC1686 /* NexaXBold.otf in Resources */,
 				EC0AD9BD255B502800EC1686 /* NexaThinItalic.otf in Resources */,
+				EC72DA642603EF0A00F97BC9 /* FullViewDescriptionCell.xib in Resources */,
 				EC0AD9C3255B502800EC1686 /* NexaBoldItalic.otf in Resources */,
 				EC18E31A25F08C7A003FB03A /* SwipeBarCell.xib in Resources */,
 				ECE4CDCC25AE91610016F6B6 /* AddEventsView.xib in Resources */,
 				EC44045D25DB26B300CEFE8B /* SelectTagsCell.xib in Resources */,
 				ECA2704625C8F31700B7D983 /* EndsMiniNib.xib in Resources */,
+				ECBA4F9025FE124A00CA940A /* ViewFullMenuTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1598,6 +1687,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC72DA762603EFF500F97BC9 /* FullViewPriority.swift in Sources */,
 				EC29BF0D25F8776A00ED4D90 /* FVMiniStatusCell.swift in Sources */,
 				ECBED86F25BE269E00F0332E /* RepeatMonthCell.swift in Sources */,
 				ECBED88125BE285100F0332E /* MonthClass.swift in Sources */,
@@ -1616,6 +1706,7 @@
 				EC04C9C7257C53BE002798D7 /* customizeNavBar.swift in Sources */,
 				EC95BA2525BE8080005FD83C /* LocationCellClass.swift in Sources */,
 				EC5F613225D8CA530082C20C /* MiniTags.swift in Sources */,
+				EC72DA692603EF6C00F97BC9 /* FullViewEvents.swift in Sources */,
 				EC397031258004CA00AC21FE /* EmojiTextField.swift in Sources */,
 				EC39703C25800FAF00AC21FE /* AddMenuCell.swift in Sources */,
 				EC587F9F256D7F6C001A5F72 /* CalendarViewController.swift in Sources */,
@@ -1652,6 +1743,7 @@
 				EC95BA2F25BE822C005FD83C /* location.swift in Sources */,
 				EC29BF0325F866F000ED4D90 /* FullViewStatus.swift in Sources */,
 				EC44045825DB268C00CEFE8B /* SelectTagsTableViewCell.swift in Sources */,
+				EC29BF9025FB62F600ED4D90 /* FullViewMenuMiniCell.swift in Sources */,
 				EC61ED9425B825AA00AA9566 /* rotateExtension.swift in Sources */,
 				ECE4CDEA25AE91B60016F6B6 /* AddTagsCell.swift in Sources */,
 				EC669E7025A92B6A0036D331 /* Wallet.swift in Sources */,
@@ -1674,10 +1766,13 @@
 				EC98473925C0EECA002181B0 /* RepeatEnds.swift in Sources */,
 				EC26336225B5FD510099A91E /* CalendarDate.swift in Sources */,
 				EC9E0EC3255DF2FC00A19D96 /* RegistrationViewController.swift in Sources */,
+				ECBA4F8B25FE121E00CA940A /* ViewFullMenuTable.swift in Sources */,
 				EC669E6625A8CAFD0036D331 /* SwipeCard.swift in Sources */,
 				EC43D5B325B17AD300BB5EA7 /* EventTimeCell.swift in Sources */,
 				ECA70FD225F30F3A00D4DC2A /* FullGUI.swift in Sources */,
+				EC72DA5C2603EEEC00F97BC9 /* FullViewDescription.swift in Sources */,
 				ECF23C802561ECEA00022D1E /* HomeViewController.swift in Sources */,
+				EC29BF3525F9B23200ED4D90 /* FullViewMenuCell.swift in Sources */,
 				EC8CFBC325D1BC5500314491 /* Event.swift in Sources */,
 				EC32D7B1256731AB003E0437 /* MenuViewController.swift in Sources */,
 				ECA30CD7257FF5A600A9A7A1 /* AddTitleCell.swift in Sources */,
@@ -1686,6 +1781,7 @@
 				EC18E2C125EDA3C7003FB03A /* ViewTagsCell.swift in Sources */,
 				EC29BE2E25F7481100ED4D90 /* vibrateDevice.swift in Sources */,
 				EC97F6842575D04E00063B8B /* findViewController.swift in Sources */,
+				EC72DA802603F04A00F97BC9 /* FullViewTags.swift in Sources */,
 				EC97F6992575D61500063B8B /* AddButtonCellClass.swift in Sources */,
 				EC21F49525897E3A00536100 /* Task.swift in Sources */,
 				EC32D80425674D54003E0437 /* MenuRowTableViewCell.swift in Sources */,

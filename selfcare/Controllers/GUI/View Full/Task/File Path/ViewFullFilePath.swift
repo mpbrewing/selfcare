@@ -20,4 +20,8 @@ class ViewFullFilePath: UITableViewCell {
         filePath.attributedText = string
     }
     
+    func updateFilePath2(string: String){
+        filePath.text = string
+    }
+    
 }

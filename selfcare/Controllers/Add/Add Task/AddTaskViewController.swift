@@ -273,8 +273,9 @@ extension AddTaskViewController {
     
     func notifDescription(notif:NSNotification){
         taskDescription = notif.userInfo?["description"] as? String ?? ""
+        print("description: \(taskDescription)")
         descriptionHeight = notif.userInfo?["height"] as? CGFloat ?? CGFloat(50)
-        //print("dh AddTask: \(descriptionHeight)")
+        print("dh AddTask: \(descriptionHeight)")
         tableView.reloadData()
         task[0].setDescription(description: taskDescription)
     }
